@@ -8334,3 +8334,217 @@ TSARND:
 	RenderSprites:
 		PlayerPalette: playerra2
 
+#######################################
+# TS Civilian Vehicles
+#######################################
+ts_sedan:
+	Inherits: ^CivilianVehicle
+	RenderSprites:
+		Image: ts_sedan
+		PlayerPalette: player_rgba
+	TransformOnCapture:
+		IntoActor: ra2_car_demo
+		CaptureTypes: bombcar
+	TransformOnCapture@driveby:
+		IntoActor: ra2_car_driveby
+		CaptureTypes: driveby
+	Capturable:
+		Types: bombcar, driveby
+		ValidRelationships: Enemy, Neutral, Ally
+
+ts_sedan_demo:
+	Inherits: ^CivilianSuicideVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_sedan
+		PlayerPalette: player_rgba
+
+ts_sedan_driveby:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_sedan
+		PlayerPalette: player_rgba
+ts_trucka:
+	Inherits: ^CivilianVehicle
+	RenderSprites:
+		Image: ts_trucka
+		PlayerPalette: player_rgba
+	TransformOnCapture:
+		IntoActor: ra2_car_demo
+		CaptureTypes: bombcar
+	TransformOnCapture@driveby:
+		IntoActor: ra2_car_driveby
+		CaptureTypes: driveby
+	Capturable:
+		Types: bombcar, driveby
+		ValidRelationships: Enemy, Neutral, Ally
+
+ts_trucka_demo:
+	Inherits: ^CivilianSuicideVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_trucka
+		PlayerPalette: player_rgba
+
+ts_trucka_driveby:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_trucka
+		PlayerPalette: player_rgba
+ts_truckb:
+	Inherits: ^CivilianVehicle
+	RenderSprites:
+		Image: ts_truckb
+		PlayerPalette: player_rgba
+	TransformOnCapture:
+		IntoActor: ra2_car_demo
+		CaptureTypes: bombcar
+	TransformOnCapture@driveby:
+		IntoActor: ra2_car_driveby
+		CaptureTypes: driveby
+	Capturable:
+		Types: bombcar, driveby
+		ValidRelationships: Enemy, Neutral, Ally
+
+ts_truckb_demo:
+	Inherits: ^CivilianSuicideVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_truckb
+		PlayerPalette: player_rgba
+
+ts_truckb_driveby:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_truckb
+		PlayerPalette: player_rgba
+ts_bus:
+	Inherits: ^CivilianVehicle
+	RenderSprites:
+		Image: ts_bus
+		PlayerPalette: player_rgba
+	TransformOnCapture:
+		IntoActor: ra2_car_demo
+		CaptureTypes: bombcar
+	TransformOnCapture@driveby:
+		IntoActor: ra2_car_driveby
+		CaptureTypes: driveby
+	Capturable:
+		Types: bombcar, driveby
+		ValidRelationships: Enemy, Neutral, Ally
+
+ts_bus_demo:
+	Inherits: ^CivilianSuicideVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_bus
+		PlayerPalette: player_rgba
+
+ts_bus_driveby:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_bus
+		PlayerPalette: player_rgba
+ts_pickup:
+	Inherits: ^CivilianVehicle
+	RenderSprites:
+		Image: ts_pickup
+		PlayerPalette: player_rgba
+	TransformOnCapture:
+		IntoActor: ra2_car_demo
+		CaptureTypes: bombcar
+	TransformOnCapture@driveby:
+		IntoActor: ra2_car_driveby
+		CaptureTypes: driveby
+	Capturable:
+		Types: bombcar, driveby
+		ValidRelationships: Enemy, Neutral, Ally
+
+ts_pickup_demo:
+	Inherits: ^CivilianSuicideVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_pickup
+		PlayerPalette: player_rgba
+
+ts_pickup_driveby:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_pickup
+		PlayerPalette: player_rgba
+ts_pickupb:
+	Inherits: ^CivilianVehicle
+	RenderSprites:
+		Image: ts_pickupb
+		PlayerPalette: player_rgba
+	TransformOnCapture:
+		IntoActor: ra2_car_demo
+		CaptureTypes: bombcar
+	TransformOnCapture@driveby:
+		IntoActor: ra2_car_driveby
+		CaptureTypes: driveby
+	Capturable:
+		Types: bombcar, driveby
+		ValidRelationships: Enemy, Neutral, Ally
+
+ts_pickupb_demo:
+	Inherits: ^CivilianSuicideVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_pickupb
+		PlayerPalette: player_rgba
+
+ts_pickupb_driveby:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_pickupb
+		PlayerPalette: player_rgba
+
+ts_wini:
+	Inherits: ^CivilianVehicle
+	RenderSprites:
+		Image: ts_wini
+		PlayerPalette: player_rgba
+	TransformOnCapture:
+		IntoActor: ra2_car_demo
+		CaptureTypes: bombcar
+	TransformOnCapture@driveby:
+		IntoActor: ra2_car_driveby
+		CaptureTypes: driveby
+	Capturable:
+		Types: bombcar, driveby
+		ValidRelationships: Enemy, Neutral, Ally
+
+ts_wini_demo:
+	Inherits: ^CivilianSuicideVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_wini
+		PlayerPalette: player_rgba
+
+ts_wini_driveby:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	RenderSprites:
+		Image: ts_wini
+		PlayerPalette: player_rgba
