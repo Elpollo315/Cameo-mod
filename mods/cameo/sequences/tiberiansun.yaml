@@ -2825,6 +2825,11 @@ tsntmisl:
 		Filename: tsmissilesiloicon.shp
 		Offset: 0, 0
 
+tsnodmmsil:
+	idle: 
+		Filename: glgadfly_missile.shp
+		Facings: -32
+
 tsgtplug:
 	Inherits: ^WithBuildingBib3
 	Defaults:
@@ -3559,6 +3564,38 @@ tsarnd:
 		Length: *
 	icon:
 		Filename: tseliminatoricon.shp
+
+
+tsioncannon:
+	Defaults:
+		Length: *
+		ZOffset: 2047
+		Tick: 35
+		IgnoreWorldTint: true
+		ZRamp: 1
+	targeting:
+		Filename: ra2_ring.shp
+	ionring:
+		Filename: tsring1.shp
+		Alpha: 0.75
+		Tick: 50
+		Scale: 1.5
+	ionbeam:
+		Filename: tsionbeam.shp
+		Offset: 0, -60, 60
+		Alpha: 0.75
+		Tick: 40
+	ionbeamstart:
+		Filename: tsionbeamstart.shp
+		Offset: 0, -60, 60
+		Alpha: 0.75
+		Tick: 30
+	ringmini2:
+		Filename: tsringmini2.shp
+		Alpha: 0.75
+		Offset: 0,-6
+		Tick: 5
+		Scale: 0.8
 
 # tsreinca:
 # 	Defaults: reinca
