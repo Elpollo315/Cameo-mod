@@ -2371,6 +2371,39 @@ tsntmisl:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !build-incomplete && !disabled
 		Sequence: idle-lights
+	AttackFollow:
+	Armament@superweapon1:
+		Name: superweapon1
+		Weapon: TSTacticalMissile
+	FireArmamentPower:
+		AllowMultiple: true
+		ArmamentName: superweapon1
+		Cursor: nuke
+		Icons:
+			1: abomb #multimiss
+		TargetCircleRange: 5c0
+		ChargeInterval: 6000
+		Names:
+			1: power-nuke.raname
+		Descriptions:
+			1: power-nuke.description
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		InsufficientPowerSpeechNotification: InsufficientPower
+		EndChargeSpeechNotification: NuclearWeaponAvailable
+		EndChargeTextNotification: Nuclear Missile ready.
+		LaunchSpeechNotification: NuclearWeaponLaunched
+		LaunchTextNotification: Warning: Nuclear Missile launched.
+		IncomingSpeechNotification: NuclearWarheadApproaching
+		IncomingTextNotification: Warning: Nuclear Missile launched.
+		Prerequisites:
+			1: ~techlevel.superweapons
+		OrderName: NukePowerInfoOrder
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		PauseOnCondition: empdisable || disabled
+		CameraRange: 5c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 	# NukePower@tactmiss:
 	# 	AllowMultiple: true
 	# 	OrderName: TSClusterMissile
@@ -2540,27 +2573,38 @@ tsgtplug:
 		PauseOnCondition: lowpower || disabled
 		Sequence: idle-hunterseekera
 	IonCannonPower:
-		AllowMultiple: true
-		PauseOnCondition: lowpower
-		Prerequisites: ~techlevel.superweapons
-		Icon: ioncannon
+		AllowMultiple: True
+		PauseOnCondition: lowpower || disabled
+		Prerequisites:
+			1: ~techlevel.superweapons
+		Icons: 
+			1:ioncannon
 		Cursor: ioncannon
 		ChargeInterval: 7500
-		Effect: explosion
-		EffectSequence: ionring
-		EffectPalette: ra2unit
+		WeaponDelay: 0
 		Weapon: TSIonCannon
-		Name: Ion Cannon
-		Description: Initiate an Ion Cannon strike.\nApplies instant damage to a small area.
+		Effect: tsioncannon
+		EffectSequence: targeting
+		EffectPalette: ra2effect
+		Names:
+			1: power-ioncannon.name
+		Descriptions:
+			1: power-ioncannon.description
 		BeginChargeSpeechNotification: IonCannonCharging
 		EndChargeSpeechNotification: IonCannonReady
+		EndChargeTextNotification: Ion Cannon ready.
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		InsufficientPowerSpeechNotification: InsufficientPower
-		OnFireSound: ion1.aud
+		DisplayTimerRelationships: Ally, Neutral, Enemy
 		DisplayRadarPing: True
-		DisplayTimerRelationships: Ally, Neutral
-		CameraActor: camera.small
+		CameraRange: 6000
+		CameraRemoveDelay: 125
+		CameraActor: CAMERA.small
 		SupportPowerPaletteOrder: 20
+		TargetCircleRanges:
+			1: 6000
+		TargetCircleColor: ff000080
 	ProvidesPrerequisite@swlimit:
 		Prerequisite: tsionc
 	#Production:
@@ -6525,7 +6569,6 @@ TSWINI2:
 	Inherits@Template: ^FireSupportTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackTurretedVoice
@@ -6552,7 +6595,7 @@ TSWINI2:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: -120,0,122
+		Offset: -120,0,1
 	Armament:
 		Weapon: TSHoverMissile
 		Recoil: 128
@@ -6564,23 +6607,18 @@ TSWINI2:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
-
+		PlayerPalette: player_rgba
 TSCAR2:
 	Inherits: ^CivilianDriveByVehicle
 	Inherits: ^Vehicle
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -6604,7 +6642,7 @@ TSCAR2:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 44
-		Offset: 0,0,20
+		Offset: 0,0,1
 	Armament:
 		Weapon: TSRaiderCannon
 		Recoil: 128
@@ -6620,16 +6658,13 @@ TSCAR2:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 175
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
 
 TS1TNK:
 	Inherits: ^Tank
