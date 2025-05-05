@@ -6525,7 +6525,6 @@ TSWINI2:
 	Inherits@Template: ^FireSupportTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackTurretedVoice
@@ -6552,7 +6551,7 @@ TSWINI2:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: -120,0,122
+		Offset: -120,0,1
 	Armament:
 		Weapon: TSHoverMissile
 		Recoil: 128
@@ -6564,23 +6563,18 @@ TSWINI2:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
-
+		PlayerPalette: player_rgba
 TSCAR2:
 	Inherits: ^CivilianDriveByVehicle
 	Inherits: ^Vehicle
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -6604,7 +6598,7 @@ TSCAR2:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 44
-		Offset: 0,0,20
+		Offset: 0,0,1
 	Armament:
 		Weapon: TSRaiderCannon
 		Recoil: 128
@@ -6620,16 +6614,13 @@ TSCAR2:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 175
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
 
 TS1TNK:
 	Inherits: ^Tank

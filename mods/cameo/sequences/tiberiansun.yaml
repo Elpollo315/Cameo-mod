@@ -753,7 +753,14 @@ tswini2:
 	Defaults:
 		Filename: invisibleitem.shp
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_wini.png
+		Facings: 64
+		Scale: 0.6
+	turret:
+		Filename: forgot_wini.png
+		Start: 64
+		Facings: 64
+		Scale: 0.6
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
@@ -762,7 +769,14 @@ tswini2:
 
 tscar2:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_car.png
+		Facings: 64
+		Scale: 0.6
+	turret:
+		Filename: forgot_car.png
+		Start: 64
+		Facings: 64
+		Scale: 0.6
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
