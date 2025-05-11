@@ -67,7 +67,6 @@ upberezkacloak:
 	RenderSprites:
 		Image: berezkaupgradeicon
 	ProvidesPrerequisite:
-		Prerequisite: upberezkacloak
 
 ^upberezkacloakupgrade:
 	GrantConditionOnPrerequisite@berezkacloak:
@@ -90,6 +89,7 @@ uptitanarsenal:
 		Queue: Addons
 		Description: Changes Basic Infantry Units to have Lightweight ballistic plating.
 		Prerequisites: ~tkmradar, ~!uptitanarsenal, ~!upberezkacloak
+	ProvidesPrerequisite:
 	RenderSprites:
 		Image: titanplatingupgradeicon
 
@@ -106,6 +106,82 @@ uptitanarsenal:
 	ActorStatValues:
 		Upgrades: uptitanarsenal
 
+upsemiautorifles:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Semi Auto Rifles Upgrade
+	Valued:
+		Cost: 2400
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Changes Riflemen Arsenal to SKS Rifles.
+		Prerequisites: ~tkmtechcenter, ~!upsemiautorifles, ~upberezkacloak
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmsemiicon
+
+^upsemiautorifles:
+	ActorStatValues:
+		Upgrades: upberezkacloak, upsemiautorifles
+
+uptwinrockets:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Twin Rockets Upgrade
+	Valued:
+		Cost: 2400
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Changes Rocketeer Arsenal to modified dual RPG.
+		Prerequisites: ~tkmtechcenter, ~!uptwinrockets, ~upberezkacloak
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmtwinrocketlauncher
+
+^uptwinrockets:
+	ActorStatValues:
+		Upgrades: upberezkacloak, uptwinrockets
+
+uptkmapbullets:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Armor Piercing Bullets Upgrade
+	Valued:
+		Cost: 2400
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Changes Juggernauts' Ammo to APFSDS Armor Piercing Rounds.
+		Prerequisites: ~tkmtechcenter, ~!uptkmapbullets, ~uptitanarsenal
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmapbullets
+
+^uptkmapbullets:
+	ActorStatValues:
+		Upgrades: uptitanarsenal, uptkmapbullets
+
+upincendiaryrockets:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Twin Rockets Upgrade
+	Valued:
+		Cost: 2400
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Changes Rocketeer Arsenal to incendiary rockets.
+		Prerequisites: ~tkmtechcenter, ~!upincendiaryrockets, ~uptitanarsenal
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmincendiaryrockets
+
+^upincendiaryrockets:
+	ActorStatValues:
+		Upgrades: uptitanarsenal, upincendiaryrockets
+
 #######################################
 # TKM MCV and Construction Yard
 #######################################
@@ -115,43 +191,21 @@ tkmmcv:
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@selection: ^SelectableSupportUnit
 	Inherits@mcv: ^MCV
-	Inherits@conyard: ^Conyard
-	Valued:
-		Cost: 2500
-	Tooltip:
-		Name: Mobile Construction Vehicle
 	Buildable:
-		BuildPaletteOrder: 100
-		Prerequisites: ~scmarine
-		Queue: Vehicle, RAVehicle
-		BuildDurationModifier: 40
-		Description: Deploys into another Construction Yard.\n  Unarmed
-	Selectable:
-		Priority: 4
-		Bounds: 1536, 1536
-		DecorationBounds: 1536, 1536
-	Mobile:
-		Speed: 80
-		Locomotor: heavywheeled
-	Health:
-		HP: 300000
-	Repairable:
-		HpPerStep: 2182
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 7c0
+		Queue: Defence, RADefence
+		Prerequisites: ~tkmfactory
+		Description: Builds structures.
+	Tooltip:
+		Name: Mobile Construction Vehicle (TKM)
 	Transforms:
 		IntoActor: tkmcommandcenter
 		Offset: -1,-1
-		Facing: 384
+		Facing: 432
 		TransformSounds: tsplace2.aud
 		NoTransformNotification: BuildingCannotPlaceAudio
 	SelectionDecorations:
 	Voiced:
 		VoiceSet: TSVehicle
-	DeliversCash:
-		Payload: 1750
 	RenderSprites:
 		Image: tkmmcv
 		PlayerPalette: playerra2
@@ -467,9 +521,33 @@ tkmriflemancamo:
 	Inherits: tkmrifleman
 	Inherits@speed: ^upberezkacloakupgrade
 	Buildable:
-		Prerequisites: ~tkmbarracks, ~upberezkacloak
+		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~!upsemiautorifles
 	Tooltip:
 		Name: Rifleman (Camo)
+	RenderSprites:
+		PlayerPalette: playerra2
+		Image: tkmrifleman
+
+tkmriflecamosemiauto:
+	Inherits: tkmriflemancamo
+	Inherits@speed: ^upsemiautorifles
+	Buildable:
+		Prerequisites: ~tkmbarracks, ~upsemiautorifles
+	Tooltip:
+		Name: Rifleman (Camo & Semi Auto)
+	Valued:
+		Cost: 200
+	Armament@PRIMARY:
+		Weapon: tkmriflemansemiautorifle
+		RequiresCondition: !rank-elite
+		LocalOffset: 500,0,400
+	Armament@ELITE:
+		Weapon: tkmriflemansemiautorifle
+		RequiresCondition: rank-elite
+		LocalOffset: 500,0,400
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: tkmriflemansemiautorifle
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tkmrifleman
@@ -484,42 +562,30 @@ tkmjug:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
-		Cost: 300
+		Cost: 400
 	Tooltip:
 		Name: Juggernaut (Titan Plating)
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~tkmbarracks, ~uptitanarsenal
+		Prerequisites: ~tkmbarracks, ~uptitanarsenal, ~!uptkmapbullets
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
 	Mobile:
 		Speed: 60
 	Health:
-		HP: 35000
+		HP: 36000
 	ChangesHealth@SelfHealing:
 		Step: 16
 	AutoTarget:
-		ScanRadius: 4
-	Armament:
-		Name: primary
-		Weapon: RA2GattlingMG1
-		PauseOnCondition: gatling
-		LocalOffset: 500,140,400, 500,-150,400
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@AA:
-		Name: secondary
-		Weapon: RA2GattlingMG1AA
-		PauseOnCondition: gatling
-		LocalOffset: 500,140,400, 500,-150,400
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@GARRISONED: ##########
+	Armament@PRIMARY:
+		Weapon: RA2GattlingInf
+		LocalOffset: 544,100,256
+	Armament@GARRISONED:
+		Weapon: RA2GattlingInf
 		Name: garrisoned
-		Weapon: RA2GattlingMG1
 	ReloadDelayMultiplier@GattlingSpeed1:
 		RequiresCondition: gatling >= 1
 		Modifier: 90
@@ -550,6 +616,18 @@ tkmjug:
 	ReloadDelayMultiplier@GattlingSpeed10:
 		RequiresCondition: gatling >= 10
 		Modifier: 90
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 5
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 5
+	AttackFrontal:
+		FacingTolerance: 2
 	# Selectable:
 	# 	Bounds: 256, 512
 	# 	DecorationBounds: 256, 512
@@ -565,6 +643,23 @@ tkmjug:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
+
+tkmjugap:
+	Inherits: tkmjug
+	Inherits@speed: ^uptkmapbullets
+	Buildable:
+		Prerequisites: ~tkmbarracks, ~uptkmapbullets
+	Tooltip:
+		Name: Juggernaut (Titan Plating & AP Bullets)
+	Armament@PRIMARY:
+		Weapon: tkmjuggap
+		LocalOffset: 544,100,256
+	Armament@GARRISONED:
+		Weapon: tkmjuggap
+		Name: garrisoned
+	RenderSprites:
+		PlayerPalette: playerra2
+		Image: tkmjug
 
 tkmrocketeer:
 	Inherits: ^Soldier
@@ -634,7 +729,7 @@ tkmrocketeercamo:
 	Tooltip:
 		Name: Rocketeer (Camo)
 	Buildable:
-		Prerequisites: ~tkmbarracks, ~upberezkacloak
+		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~!uptwinrockets
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tkmrocketeer
@@ -643,13 +738,57 @@ tkmrocketeertitan:
 	Inherits: tkmrocketeer
 	Inherits@speed: ^uptitanarsenalupgrade
 	Buildable:
-		Prerequisites: ~tkmbarracks, ~uptitanarsenal
+		Prerequisites: ~tkmbarracks, ~uptitanarsenal, ~!upincendiaryrockets
 	Tooltip:
 		Name: Rocketeer (Titan Plating)
 	Health:
 		HP: 20000
 	Mobile:
 		Speed: 50
+	RenderSprites:
+		PlayerPalette: playerra2
+		Image: tkmrocketeer
+
+tkmrocketeertwinrockets:
+	Inherits: tkmrocketeer
+	Inherits@speed: ^uptwinrockets
+	Tooltip:
+		Name: Rocketeer (Camo & Twin Rockets)
+	Armament@PRIMARY:
+		Weapon: tkmtwinrockets
+		RequiresCondition: !rank-elite
+		LocalOffset: 500,0,400
+	Armament@ELITE:
+		Weapon: tkmtwinrockets
+		RequiresCondition: rank-elite
+		LocalOffset: 500,0,400
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: tkmtwinrockets
+	Buildable:
+		Prerequisites: ~tkmbarracks, ~uptwinrockets, ~!~uptitanarsenal
+	RenderSprites:
+		PlayerPalette: playerra2
+		Image: tkmrocketeer
+
+tkmrocketeerincendiary:
+	Inherits: tkmrocketeer
+	Inherits@speed: ^upincendiaryrockets
+	Tooltip:
+		Name: Rocketeer (Plating & Incendiary Rockets)
+	Armament@PRIMARY:
+		Weapon: tkmfirerockets
+		RequiresCondition: !rank-elite
+		LocalOffset: 500,0,400
+	Armament@ELITE:
+		Weapon: tkmfirerockets
+		RequiresCondition: rank-elite
+		LocalOffset: 500,0,400
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: tkmfirerockets
+	Buildable:
+		Prerequisites: ~tkmbarracks, ~upincendiaryrockets, ~!~upberezkacloak
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tkmrocketeer

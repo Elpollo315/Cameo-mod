@@ -430,7 +430,7 @@ tkmmcv:
 		Filename: umcv.shp
 	idle:
 		Filename: umcv.shp
-		Facings: 32
+		Facings: -32
 		ShadowStart: 32
 		Tick: 150
 	icon:
@@ -490,4 +490,24 @@ berezkaupgradeicon:
 titanplatingupgradeicon:
 	icon:
 		Filename: titanplatingupgradeicon.png
+		Length: 1
+
+tkmsemiicon:
+	icon:
+		Filename: tkmsemiicon.png
+		Length: 1
+
+tkmapbullets:
+	icon:
+		Filename: tkmapbullets.png
+		Length: 1
+
+tkmtwinrocketlauncher:
+	icon:
+		Filename: tkmtwinrocketlauncher.png
+		Length: 1
+
+tkmincendiaryrockets:
+	icon:
+		Filename: tkmincendiaryrockets.png
 		Length: 1

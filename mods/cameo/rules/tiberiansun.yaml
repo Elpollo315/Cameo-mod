@@ -618,6 +618,8 @@ TSGTCNSTCABAL:
 	Inherits@CPQ: ^CPQCondition
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@aicash: ^AIConyardCash
+	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@selection: ^SelectableSupportUnit
 	Inherits@conyard: ^Conyard
 	Selectable:
 		Bounds: 131072, 87381
@@ -691,28 +693,29 @@ TSGTCNSTCABAL:
 TSMCVGDI:
 	Inherits: ^Vehicle
 	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@selection: ^SelectableSupportUnit
 	Inherits@mcv: ^MCV
-	Tooltip:
-		Name: Mobile Construction Vehicle
 	Buildable:
-		BuildPaletteOrder: 100
 		Prerequisites: ~tsgtweap, tsgtdeptgdi
 		Queue: Vehicle, RAVehicle
-		BuildDurationModifier: 40
 		Description: Deploys into another Construction Yard.\n  Unarmed
+	Tooltip:
+		Name: Mobile Construction Vehicle
 	Transforms:
 		IntoActor: tsgtcnstgdi
 		Offset: -1,-1
 		Facing: 384
 		TransformSounds: tsplace2.aud
 		NoTransformNotification: BuildingCannotPlaceAudio
-	WithVoxelBody:
+	SelectionDecorations:
 	Voiced:
 		VoiceSet: TSVehicle
 	RenderSprites:
 		Image: tsmcv
 	RenderVoxels:
 		Image: tsmcv
+		Scale: 10
 
 TSMCVNOD:
 	Inherits: TSMCVGDI
@@ -3426,7 +3429,7 @@ TSJUMPJET:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tsgtpile, tsgtradr
+		Prerequisites: ~unbuildable
 		Queue: Infantry, RAInfantry
 		Description: Airborne soldier.\nCan attack aircraft.\n  Strong vs Infantry, Light armor\n  Weak vs AA
 	Voiced:
@@ -3504,16 +3507,16 @@ tsjumpjet2:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericAirDetector
 	Valued:
-		Cost: 600
+		Cost: 450
 	Tooltip:
-		Name: actor-ra2rock.name
+		Name: Jumpjet Infantry
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~ra2gaairc
+		Prerequisites: ~tsgtpile, tsgtradr
 		Queue: Infantry, RAInfantry
-		Description: actor-ra2rock.description
+		Description: Airborne soldier.\nCan attack aircraft.\n  Strong vs Infantry, Light armor\n  Weak vs AA
 	Aircraft:
 		TurnSpeed: 36
 		Speed: 180
