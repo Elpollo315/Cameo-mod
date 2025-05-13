@@ -164,6 +164,67 @@ tkmtechcenter:
 		Filename: ra2abrk.shp
 		Offset: 0,0
     
+tkmguardtower:
+	Defaults:
+		Filename: ggspot.shp
+	idle:
+		Start: 0
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 800
+	make:
+		Filename: ggspotmk.shp
+		Length: 10
+		ShadowStart: 10
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	icon:
+		Filename: gtwricnh.shp
+		AddExtension: False
+
+tkmairpad:
+	Defaults:
+		Filename: ugreinbb.shp
+	idle:
+		Start: 0
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	make:
+		Length: 1
+		Tick: 80
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 800
+	icon:
+		Filename: gtwricnh.shp
+		AddExtension: False
+
 #######################################
 # TKM Infantry Reporting!
 #######################################
@@ -171,6 +232,7 @@ tkmtechcenter:
 tkmrifleman:
 	Defaults:
 		Filename: poncho.shp
+		Scale: 0.8
 	stand:
 		Facings: 8
 		ShadowStart: 248
@@ -235,6 +297,7 @@ tkmrifleman:
 tkmrocketeer:
 	Defaults:
 		Filename: nodrocket.shp
+		Scale: 0.8
 	stand:
 		Facings: 8
 		ShadowStart: 468
@@ -299,6 +362,7 @@ tkmrocketeer:
 tkmjug:
 	Defaults:
 		Filename: tkmjug.shp
+		Scale: 0.8
 	stand:
 		Facings: 8
 		ShadowStart: 255
@@ -363,6 +427,7 @@ tkmjug:
 tkmengineer:
 	Defaults:
 		Filename: hijacker.shp
+		Scale: 0.8
 	stand:
 		Facings: 8
 		Length: 1
@@ -478,6 +543,43 @@ tkmtechnicaltruck:
 		Filename: bggyicnh.shp
 		AddExtension: False
 
+tkmzaza:
+	idle:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmzazaicon.png
+
+tkmas42:
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: tkmas42.png
+		Facings: -32
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: jeepicnh.shp
+		AddExtension: False
+
+tkmkatyushalauncher:
+	Inherits: ^RA2GatlingMuzzle
+	Defaults:
+		Filename: tkmkatyushalauncher.png
+		Scale: 0.4
+	idle:
+		Facings: -32
+		Offset: 0,20
+	icon:
+		Filename: latin_burrito_icon.shp
+		AddExtension: False
+
+
 ####################################################################################################
 #		TKM Upgrade Icons
 ####################################################################################################
@@ -511,3 +613,16 @@ tkmincendiaryrockets:
 	icon:
 		Filename: tkmincendiaryrockets.png
 		Length: 1
+
+tkmmig:
+	Defaults:
+		Filename: tkmmig.shp
+	idle:
+		Facings: 16
+		InterpolatedFacings: 64
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: yakicon.png
