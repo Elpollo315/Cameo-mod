@@ -57,7 +57,7 @@ tkmtwinrockets:
 	Burst: 2
 	Report: bazook1.aud
 	Warhead@LightMissile: SpreadDamage
-		Damage: 8000
+		Damage: 12000
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		Damage: 9
 
@@ -75,7 +75,7 @@ tkmfirerockets:
 		TrailDelay: 0
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -83,7 +83,7 @@ tkmfirerockets:
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -91,7 +91,7 @@ tkmfirerockets:
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -103,7 +103,7 @@ tkmfirerockets:
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
