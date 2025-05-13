@@ -1031,8 +1031,8 @@ tkmas42:
 	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
-	ActorStatValues: uptwinrockets, upincendiaryrockets
-		Upgrades: 
+	ActorStatValues:
+		Upgrades: uptwinrockets, upincendiaryrockets
 	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmas42
