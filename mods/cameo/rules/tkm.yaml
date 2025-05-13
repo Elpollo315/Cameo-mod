@@ -56,13 +56,13 @@ World:
 upberezkacloak:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: Berezka Camo Infantry Upgrade
+		Name: Berezka Upgrade
 	Valued:
 		Cost: 2400
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Enables cloak for Basic Infantry Units and increase their movespeed.
+		Description: Commits to the Berezka Upgrade Tree, which focuses on cloak and hit and run units. Enables cloak for Basic Infantry Units and increase their movespeed.
 		Prerequisites: ~tkmradar, ~!upberezkacloak, ~!uptitanarsenal
 	RenderSprites:
 		Image: berezkaupgradeicon
@@ -81,13 +81,13 @@ upberezkacloak:
 uptitanarsenal:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: Titan Arsenal Infantry Upgrade
+		Name: Titan Arsenal Upgrade
 	Valued:
 		Cost: 2400
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Changes Basic Infantry Units to have Lightweight ballistic plating.
+		Description: Commits to the Titan Arsenal Upgrade Tree, which utilizes heavy duty arsenal. Enables Basic Infantry Units to have Lightweight ballistic plating.
 		Prerequisites: ~tkmradar, ~!uptitanarsenal, ~!upberezkacloak
 	ProvidesPrerequisite:
 	RenderSprites:
@@ -949,33 +949,60 @@ tkmengineertitan:
 #######################################
 
 tkmharv:
-	Inherits: ^TDHARV
-	# Inherits@Voxel: ^TKMRenderVoxel
-	Health:
-		HP: 150000
-	Harvester:
-		PipCount: 8
-		Capacity: 35
+	Inherits: ^Tank
+	Inherits@Template: ^HarvesterTemplate
+	Inherits@selection: ^SelectableEconomicUnit
+	Inherits@harv: ^Harvester
 	Buildable:
-		Prerequisites: ~tkmfactory, tkmrefinery
 		Queue: Vehicle, RAVehicle
-		Description: Harvests Tiberium for processing
-	-WithDockingAnimation:
+		Prerequisites: ~tkmfactory, tkmrefinery
+		Description: template-harvester.description
+	Valued:
+		Cost: 1000 #1100
+	Tooltip:
+		Name: template-harvester.raname
+	SelectionDecorations:
+	Harvester:
+		BaleLoadDelay: 3
+		BaleUnloadDelay: 1
+		EmptyCondition: no-tiberium
+	StoresResources:
+		Capacity: 30
+	Health:
+		HP: 100000
+	Repairable:
+		HpPerStep: 5000
+	ChangesHealth@SelfHealing:
+		Step: 40
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 90
+		TurnSpeed: 18
+	WithHarvestAnimation:
+	GpsDot:
+		String: Harvester
+	FireWarheadsOnDeath:
+		RequiresCondition: !no-tiberium
+		Weapon: OreExplosion
+	FireWarheadsOnDeath@empty:
+		RequiresCondition: no-tiberium
+		Weapon: UnitExplodeHarvEmpty
+	WithHarvesterSpriteBody:
+		ImageByFullness: tkmharv, tkmharvfull
+	-WithFacingSpriteBody:
 	Voiced:
-		VoiceSet: TSVehicle
-	DeliversCash:
-		Payload: 500
-	# RenderSprites:
-	# 	Image: tsharv
+		VoiceSet: RAVehicleVoice
 	RenderSprites:
-		Image: tkmsupplytruck
+		Image:  tkmharv
+		PlayerPalette: player_rgba
 
 tkmas42:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@EMP: ^TurretEMP
+	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
 		Cost: 400
@@ -985,7 +1012,7 @@ tkmas42:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~!uptwinrockets, ~!upincendiaryrockets
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -997,27 +1024,55 @@ tkmas42:
 		HpPerStep: 1375
 	ChangesHealth@SelfHealing:
 		Step: 11
-	Turreted:
-		TurnSpeed: 30
-		Offset: -15, 0, 24
 	Armament:
 		Weapon: Rockets
 		LocalOffset: 171,0,85
 		MuzzleSequence: muzzle
-		RequiresCondition: !up_armorpiercingbullets
-	Armament@Upgrade:
-		Weapon: Rockets
-		LocalOffset: 171,0,85
-		MuzzleSequence: muzzle
-		RequiresCondition: up_armorpiercingbullets
 	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
-	ActorStatValues:
+	ActorStatValues: uptwinrockets, upincendiaryrockets
 		Upgrades: 
+	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmas42
 		PlayerPalette: player_rgba
+
+tkmas42twinrockets:
+	Inherits: tkmas42
+	Tooltip:
+		Name: TKM AS42 (Twin Rockets)
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tkmfactory, ~uptwinrockets
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Armament:
+		Weapon: tkmtwinrockets
+		RequiresCondition: !rank-elite
+		LocalOffset: 500,0,400
+	ActorStatValues:
+		Upgrades: uptwinrockets
+	RenderSprites:
+		Image: tkmas42
+
+tkmas42incendiaryrockets:
+	Inherits: tkmas42
+	Tooltip:
+		Name: TKM AS42 (Incendiary Rockets)
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tkmfactory, ~upincendiaryrockets
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Armament:
+		Weapon: tkmfirerockets
+		RequiresCondition: !rank-elite
+		LocalOffset: 500,0,400
+	ActorStatValues:
+		Upgrades: upincendiaryrockets
+	RenderSprites:
+		Image: tkmas42
 
 tkmtechnical:
 	Inherits: ^Vehicle
