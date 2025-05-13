@@ -1177,15 +1177,12 @@ tkmquadtruck:
 	ActorStatValues:
 		Upgrades: 
 	WithSpriteTurret:
-		Scale: 0.15
 	RenderSprites:
-		Scale: 0.1
 		Image: tkmtechnicaltruck
 		PlayerPalette: player_rgba
 
 tkmzaza:
 	Inherits: ^Vehicle
-	Inherits@Voxel: ^TKMRenderVoxel
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -1214,7 +1211,7 @@ tkmzaza:
 		Step: 11
 	Turreted:
 		TurnSpeed: 30
-		Offset: 0,0,60
+		Offset: -150,0,80
 	Armament@AG:
 		Weapon: HeavyAATankCannonAG
 		Recoil: 85
@@ -1254,17 +1251,14 @@ tkmzaza:
 		Modifier: 115
 	WithMuzzleOverlay:
 	AttackTurreted:
-	WithVoxelBody:
-	WithVoxelTurret:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Upgrades: 
+	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmzaza
-	RenderVoxels:
-		Image: shilka
-		Scale: 1
+		PlayerPalette: player_rgba
 
 technicaltank:
 	Inherits: ^Tank

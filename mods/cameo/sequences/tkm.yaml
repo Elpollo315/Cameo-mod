@@ -548,7 +548,13 @@ tkmtechnicaltruck:
 
 tkmzaza:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: zazabody.png
+		Facings: -32
+		Scale: 0.15
+	turret:
+		Filename: zazaturret.png
+		Facings: -32
+		Scale: 0.15
 	muzzle:
 		Filename: minigun.shp
 		Length: 6
