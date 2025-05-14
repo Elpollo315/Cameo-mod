@@ -2432,6 +2432,9 @@ scidol:
 	shoot:
 		Facings: -32
 		Length: 1
+	muzzle:
+		Filename: gunfire2.shp
+		Length: *
 	icon:
 		Filename: scidolicon.png
 
@@ -3422,7 +3425,7 @@ scinfestedcommandcenter:
 	make:
 		Filename: zergbuildingmakelarge.png
 		Length: *
-	die:
+	dead:
 		Filename: scdeath.png
 		Start: 0
 		Tick: 70

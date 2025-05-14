@@ -1,41 +1,38 @@
-
-tkmmcv:
-	idle:
-		Filename: invisibleitem.shp
-	icon:
-		Filename: tssmcvicon.shp
-
-tkmharv:
-	idle:
-		Filename: invisibleitem.shp
-	icon:
-		Filename: tssmcvicon.shp
+#######################################
+# TKM Buildings
+#######################################
 
 tkmcommandcenter:
 	Defaults:
-		Offset: 2,-26
+		Filename: sgcnst.shp
 	idle:
-		Filename: ugcnst.shp
+		Filename: sgcnst.shp
 		Length: 1
 		ShadowStart: 3
 		Tick: 150
 	damaged-idle:
-		Filename: ugcnst.shp
+		Filename: sgcnst.shp
 		Start: 1
 		ShadowStart: 4
 		Length: 1
 		Tick: 150
+	idle-front:
+		Filename: sgcnst_a.shp
+		Length: 20
+	damaged-idle-front:
+		Filename: sgcnst_a.shp
+		Length: 20
 	make:
-		Filename: ugcnstmk.shp
+		Filename: sgcnstmk.shp
 		Length: 18
 		ShadowStart: 18
 	icon:
-		Filename: ra2radaricon.shp
+		Filename: tkmconstructionyard.png
 		Offset: 0,0
 
 tkmbarracks:
 	Defaults:
-		Offset: -15,10
+		Filename: ugbarr.shp
 	build:
 		Filename: invisibleitem.shp
 	idle:
@@ -50,12 +47,12 @@ tkmbarracks:
 		Length: 10
 		ShadowStart: 10
 	icon:
-		Filename: ra2abrk.shp
+		Filename: glabarracksicon.png
 		Offset: 0,0
 
 tkmpowerplant:
 	Defaults:
-		Offset: -15,10
+		Filename: ugpowr.shp
 	build:
 		Filename: invisibleitem.shp
 	idle:
@@ -70,12 +67,12 @@ tkmpowerplant:
 		Length: 16
 		ShadowStart: 16
 	icon:
-		Filename: ra2abrk.shp
+		Filename: tkmpowerplanticon.png
 		Offset: 0,0
     
 tkmrefinery:
 	Defaults:
-		Offset: 1,-12
+		Filename: ugsupy.shp
 	idle:
 		Filename: ugsupy.shp
 		ShadowStart: 3
@@ -90,13 +87,147 @@ tkmrefinery:
 	resources:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: ggreficon.shp
+		Filename: glasupplycentericon.png
 		AddExtension: False
 		Offset: 0,0
+
+tkmfactory:
+	Defaults:
+		Filename: ugarms.shp
+	idle:
+		Filename: ugarms.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ugarms.shp
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Filename: ugarms.shp
+		Start: 1
+		ShadowStart: 4
+		Tick: 400
+	build-door:
+		Filename: ugarms_1.shp
+		Length: 1
+		ShadowStart: 2
+	damaged-build-door:
+		Filename: ugarms_1.shp
+		Start: 1
+		Length: 1
+		ShadowStart: 3
+	make:
+		Filename: ugarmsmk.shp
+		Length: 16
+		ShadowStart: 16
+	icon:
+		Filename: glaarmsdealericon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+
+tkmradar:
+	Defaults:
+		Filename: ugrvan.shp
+	build:
+		Filename: ugrvan.shp
+	idle:
+		Filename: ugrvan.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ugrvan.shp
+		Start: 1
+		ShadowStart: 4
+	make:
+		Filename: ugrvanmk.shp
+		Length: 15
+		ShadowStart: 15
+	icon:
+		Filename: ra2abrk.shp
+		Offset: 0,0
+    
+tkmtechcenter:
+	Defaults:
+		Filename: ugpala.shp
+	build:
+		Filename: invisibleitem.shp
+	idle:
+		Filename: ugpala.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ugpala.shp
+		Start: 1
+		ShadowStart: 4
+	make:
+		Filename: ugpalamk.shp
+		Length: 13
+		ShadowStart: 13
+	icon:
+		Filename: glapalaceicon.png
+		Offset: 0,0
+    
+tkmguardtower:
+	Defaults:
+		Filename: ggspot.shp
+	idle:
+		Start: 0
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 800
+	make:
+		Filename: ggspotmk.shp
+		Length: 10
+		ShadowStart: 10
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	icon:
+		Filename: gtwricnh.shp
+		AddExtension: False
+
+tkmairpad:
+	Defaults:
+		Filename: tkmairpad.png
+	idle:
+		Start: 25
+	make:
+		Length: 25
+		Tick: 50
+	dead:
+		Start: 25
+		Tick: 800
+	icon:
+		Filename: tkmairpadicon.png
+		AddExtension: False
+
+#######################################
+# TKM Infantry Reporting!
+#######################################
 
 tkmrifleman:
 	Defaults:
 		Filename: poncho.shp
+		Scale: 0.8
 	stand:
 		Facings: 8
 		ShadowStart: 248
@@ -131,6 +262,10 @@ tkmrifleman:
 		Start: 209
 		Length: 20
 		ShadowStart: 456
+	die1:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
 	die2:
 		Start: 209
 		Length: 20
@@ -142,6 +277,10 @@ tkmrifleman:
 	die4:
 		Filename: frag3.shp
 		Length: *
+	die6:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
@@ -153,6 +292,7 @@ tkmrifleman:
 tkmrocketeer:
 	Defaults:
 		Filename: nodrocket.shp
+		Scale: 0.8
 	stand:
 		Facings: 8
 		ShadowStart: 468
@@ -187,6 +327,10 @@ tkmrocketeer:
 		Start: 228
 		Length: 20
 		ShadowStart: 696
+	die1:
+		Start: 209
+		Length: 20
+		ShadowStart: 696
 	die2:
 		Start: 209
 		Length: 20
@@ -198,6 +342,10 @@ tkmrocketeer:
 	die4:
 		Filename: frag3.shp
 		Length: *
+	die6:
+		Start: 209
+		Length: 20
+		ShadowStart: 696
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
@@ -205,3 +353,322 @@ tkmrocketeer:
 	icon:
 		Filename: tkmrocketeericon.png
 		AddExtension: False
+
+tkmjug:
+	Defaults:
+		Filename: tkmjug.shp
+		Scale: 0.8
+	stand:
+		Facings: 8
+		ShadowStart: 255
+	idle:
+		Facings: 8
+		ShadowStart: 255
+	idle1:
+		Start: 88
+		Length: 15
+		Facings: 1
+		Tick: 80
+		ShadowStart: 343
+	idle2:
+		Start: 238
+		Length: 14
+		Facings: 1
+		Tick: 80
+		ShadowStart: 493
+	run:
+		Start: 8
+		Length: 10
+		Facings: 8
+		Tick: 80
+		ShadowStart: 263
+	shoot:
+		Start: 103
+		Length: 15
+		Facings: 8
+		Tick: 80
+		ShadowStart: 358
+	die:
+		Start: 223
+		Length: 15
+		ShadowStart: 478
+	die1:
+		Start: 223
+		Length: 15
+		ShadowStart: 478
+	die2:
+		Start: 223
+		Length: 15
+		ShadowStart: 478
+	die3:
+		Start: 223
+		Length: 15
+		ShadowStart: 478
+	die6:
+		Start: 223
+		Length: 15
+		ShadowStart: 478
+	die4:
+		Filename: frag3.shp
+		Length: *
+	die-crushed:
+		Filename: blue_frag3.shp
+		Length: *
+		Scale: 1.5
+	icon:
+		Filename: tkmjuggernauticon.png
+		AddExtension: False
+
+tkmengineer:
+	Defaults:
+		Filename: hijacker.shp
+		Scale: 0.8
+	stand:
+		Facings: 8
+		Length: 1
+		ShadowStart: 189
+	idle:
+		Facings: 8
+		Length: 1
+		ShadowStart: 189
+	run:
+		Start: 8
+		Length: 10
+		Facings: 8
+		Tick: 80
+		ShadowStart: 197
+	die:
+		Start: 88
+		Facings: 1
+		Length: 20
+		ShadowStart: 277
+	die1:
+		Start: 88
+		Facings: 1
+		Length: 20
+		ShadowStart: 277
+	die2:
+		Start: 88
+		Facings: 1
+		Length: 20
+		ShadowStart: 277
+	die3:
+		Start: 88
+		Facings: 1
+		Length: 20
+		ShadowStart: 277
+	die4:
+		Filename: frag3.shp
+		Length: *
+	die6:
+		Start: 88
+		Facings: 1
+		Length: 20
+		ShadowStart: 277
+	die-crushed:
+		Filename: blue_frag3.shp
+		Length: *
+		Scale: 1.5
+	idle1:
+		Facings: 8
+		Length: 1
+		ShadowStart: 189
+	idle2:
+		Facings: 8
+		Length: 1
+		ShadowStart: 189
+	icon:
+		Filename: tkmengineericon.png
+		AddExtension: False
+
+#######################################
+# TKM Vehicles
+#######################################
+
+tkmmcv:
+	Defaults:
+		Filename: umcv.shp
+	idle:
+		Filename: umcv.shp
+		Facings: -32
+		ShadowStart: 32
+		Tick: 150
+	icon:
+		Filename: tkmconstructionyard.png
+
+tkmharv:
+	Defaults:
+		Scale: 0.3
+		Filename: tkmsupplytruck.png
+	idle:
+		Facings: -32
+	icon:
+		Filename: chinasupplytruck.png
+
+tkmharvfull:
+	Defaults:
+		Scale: 0.3
+		Filename: tkmsupplytruckfull.png
+	idle:
+		Facings: -32
+	icon:
+		Filename: chinasupplytruck.png
+
+tkmt72:
+	idle:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmt72icon.png
+		AddExtension: False
+
+tkmabrams:
+	idle:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmabramsicon.png
+		AddExtension: False
+
+tkmtechnicaltruck:
+	Defaults:
+		Filename: quadcannon.png
+	idle:
+		Facings: -32
+	turret:
+		Filename: quadcannonturret.png
+		Facings: -32
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmquadcannonicon.png
+		AddExtension: False
+
+tkmzaza:
+	idle:
+		Filename: zazabody.png
+		Facings: -32
+		Scale: 0.65
+	turret:
+		Filename: zazaturret.png
+		Facings: -32
+		Scale: 0.4
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmzazaicon.png
+
+tkmas42:
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: tkmas42.png
+		Facings: -32
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmas42icon.png
+		AddExtension: False
+
+tkmkatyushalauncher:
+	Inherits: ^RA2GatlingMuzzle
+	Defaults:
+		Filename: tkmkatyushalauncher.png
+		Scale: 0.4
+	idle:
+		Facings: -32
+		Offset: 0,20
+	icon:
+		Filename: tkmkatyushaicon.png
+		AddExtension: False
+
+tkmtechnical:
+	idle:
+		Filename: technicalbody.png
+		Facings: -32
+		Scale: 0.6
+	turret:
+		Filename: technicalturret.png
+		Facings: -32
+		Scale: 0.3
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmtechnical.png
+
+technicaltank:
+	idle:
+		Filename: technicaltankbody.png
+		Facings: -32
+		Scale: 0.6
+	turret:
+		Filename: technicaltankturret.png
+		Facings: -32
+		Scale: 0.6
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmtechnicaltank.png
+
+####################################################################################################
+#		TKM Upgrade Icons
+####################################################################################################
+
+berezkaupgradeicon:
+	icon:
+		Filename: berezkacamoupgradeicon.png
+		Length: 1
+
+titanplatingupgradeicon:
+	icon:
+		Filename: titanplatingupgradeicon.png
+		Length: 1
+
+tkmsemiicon:
+	icon:
+		Filename: tkmsemiicon.png
+		Length: 1
+
+tkmapbullets:
+	icon:
+		Filename: tkmapbullets.png
+		Length: 1
+
+tkmtwinrocketlauncher:
+	icon:
+		Filename: tkmtwinrocketlauncher.png
+		Length: 1
+
+tkmincendiaryrockets:
+	icon:
+		Filename: tkmincendiaryrockets.png
+		Length: 1
+
+tkmmig:
+	Defaults:
+		Filename: tkmmig.shp
+	idle:
+		Facings: 16
+		InterpolatedFacings: 64
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: yakicon.png
