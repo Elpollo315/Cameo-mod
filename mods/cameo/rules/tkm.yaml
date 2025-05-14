@@ -1264,7 +1264,7 @@ technicaltank:
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
-		Cost: 1000
+		Cost: 600
 	Tooltip:
 		Name: Technical Tank
 	Buildable:
@@ -1275,10 +1275,10 @@ technicaltank:
 		BuildDuration: 550
 		BuildDurationModifier: 100
 	Mobile:
-		Speed: 80
-		TurnSpeed: 16
+		Locomotor: tracked
+		Speed: 126
 	Health:
-		HP: 125000
+		HP: 80000
 	Repairable:
 		HpPerStep: 2637
 	Armor:
@@ -1289,7 +1289,7 @@ technicaltank:
 		TurnSpeed: 16
 		Offset: -160,0,400
 	Armament:
-		Weapon: 120mm
+		Weapon: 70mm
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 768,85,90, 768,-85,90
