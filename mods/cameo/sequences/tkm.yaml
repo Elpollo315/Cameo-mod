@@ -67,7 +67,7 @@ tkmpowerplant:
 		Length: 16
 		ShadowStart: 16
 	icon:
-		Filename: ra2abrk.shp
+		Filename: tkmpowerplanticon.png
 		Offset: 0,0
     
 tkmrefinery:
@@ -207,22 +207,17 @@ tkmguardtower:
 
 tkmairpad:
 	Defaults:
-		Filename: ugreinbb.shp
+		Filename: tkmairpad.png
 	idle:
-		Start: 0
-		ShadowStart: 3
-	damaged-idle:
-		Start: 1
-		ShadowStart: 4
+		Start: 25
 	make:
-		Length: 1
-		Tick: 80
+		Length: 25
+		Tick: 50
 	dead:
-		Start: 2
-		ShadowStart: 5
+		Start: 25
 		Tick: 800
 	icon:
-		Filename: gtwricnh.shp
+		Filename: tkmairpadicon.png
 		AddExtension: False
 
 #######################################
@@ -550,11 +545,11 @@ tkmzaza:
 	idle:
 		Filename: zazabody.png
 		Facings: -32
-		Scale: 0.15
+		Scale: 0.65
 	turret:
 		Filename: zazaturret.png
 		Facings: -32
-		Scale: 0.15
+		Scale: 0.4
 	muzzle:
 		Filename: minigun.shp
 		Length: 6
@@ -588,6 +583,37 @@ tkmkatyushalauncher:
 		Filename: latin_burrito_icon.shp
 		AddExtension: False
 
+tkmtechnical:
+	idle:
+		Filename: technicalbody.png
+		Facings: -32
+		Scale: 0.6
+	turret:
+		Filename: technicalturret.png
+		Facings: -32
+		Scale: 0.3
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmzazaicon.png
+
+technicaltank:
+	idle:
+		Filename: technicaltankbody.png
+		Facings: -32
+		Scale: 0.6
+	turret:
+		Filename: technicaltankturret.png
+		Facings: -32
+		Scale: 0.6
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmzazaicon.png
 
 ####################################################################################################
 #		TKM Upgrade Icons

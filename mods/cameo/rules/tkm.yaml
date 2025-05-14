@@ -413,6 +413,7 @@ tkmairpad:
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 4c0
+	WithMakeAnimation:
 	RallyPoint:
 		Path: 0,2
 	Exit@1:
@@ -424,7 +425,7 @@ tkmairpad:
 	ProvidesPrerequisite@buildingname:
 	RenderSprites:
 		Image: tkmairpad
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
 
 tkmradar:
 	Inherits: ^BaseBuilding
@@ -1076,13 +1077,11 @@ tkmas42incendiaryrockets:
 
 tkmtechnical:
 	Inherits: ^Vehicle
-	Inherits@Voxel: ^TKMRenderVoxel
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
-	Inherits@SHADOWS: ^Shadows
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -1105,30 +1104,27 @@ tkmtechnical:
 		Step: 11
 	Turreted:
 		TurnSpeed: 30
-		Offset: -15, 0, 24
+		Offset: -160,0,200
 	Armament:
 		Weapon: RA2GattlingMG1
-		LocalOffset: 171,0,85
+		LocalOffset: 171,0,285
 		MuzzleSequence: muzzle
 		RequiresCondition: !up_armorpiercingbullets
 	Armament@Upgrade:
 		Weapon: RA2GattlingMG1
-		LocalOffset: 171,0,85
+		LocalOffset: 171,0,285
 		MuzzleSequence: muzzle
 		RequiresCondition: up_armorpiercingbullets
 	WithMuzzleOverlay:
 	AttackTurreted:
-	WithVoxelBody:
-	WithVoxelTurret:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Upgrades: 
+	WithSpriteTurret:
 	RenderSprites:
-		Image: tkmtechnicaltruck
-	RenderVoxels:
-		Image: techni
-		Scale: 12
+		Image: tkmtechnical
+		PlayerPalette: player_rgba
 
 tkmquadtruck:
 	Inherits: ^Vehicle
@@ -1145,7 +1141,7 @@ tkmquadtruck:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~upberezkacloak
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -1196,7 +1192,7 @@ tkmzaza:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~uptitanarsenal
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -1211,7 +1207,7 @@ tkmzaza:
 		Step: 11
 	Turreted:
 		TurnSpeed: 30
-		Offset: -150,0,80
+		Offset: -160,0,500
 	Armament@AG:
 		Weapon: HeavyAATankCannonAG
 		Recoil: 85
@@ -1265,7 +1261,6 @@ technicaltank:
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TKMRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -1280,10 +1275,10 @@ technicaltank:
 		BuildDuration: 550
 		BuildDurationModifier: 100
 	Mobile:
-		Locomotor: tracked
-		Speed: 71
+		Speed: 80
+		TurnSpeed: 16
 	Health:
-		HP: 150000
+		HP: 125000
 	Repairable:
 		HpPerStep: 2637
 	Armor:
@@ -1291,10 +1286,10 @@ technicaltank:
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
-		TurnSpeed: 20 #3
-		Offset: -275,0,25
+		TurnSpeed: 16
+		Offset: -160,0,400
 	Armament:
-		Weapon: 120mmDual
+		Weapon: 120mm
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 768,85,90, 768,-85,90
@@ -1306,18 +1301,14 @@ technicaltank:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 400
 	RenderSprites:
-		Image: tkmbuggy
-	RenderVoxels:
 		Image: technicaltank
-		Scale: 10
+		PlayerPalette: player_rgba
 
 tkmabrams:
 	Inherits: ^Tank
@@ -1436,14 +1427,11 @@ t72:
 tkmkatyushalauncher:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@uprecover: ^LatinCashrecover
-	Inherits@flamerup: ^LatinFlameUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
