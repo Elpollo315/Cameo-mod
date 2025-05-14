@@ -27,7 +27,7 @@ tkmcommandcenter:
 		Length: 18
 		ShadowStart: 18
 	icon:
-		Filename: ra2radaricon.shp
+		Filename: tkmconstructionyard.png
 		Offset: 0,0
 
 tkmbarracks:
@@ -47,7 +47,7 @@ tkmbarracks:
 		Length: 10
 		ShadowStart: 10
 	icon:
-		Filename: ra2abrk.shp
+		Filename: glabarracksicon.png
 		Offset: 0,0
 
 tkmpowerplant:
@@ -87,7 +87,7 @@ tkmrefinery:
 	resources:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: ggreficon.shp
+		Filename: glasupplycentericon.png
 		AddExtension: False
 		Offset: 0,0
 
@@ -120,7 +120,7 @@ tkmfactory:
 		Length: 16
 		ShadowStart: 16
 	icon:
-		Filename: tsweapicon.png
+		Filename: glaarmsdealericon.png
 		Offset: 0, 0
 		UseTilesetCode: false
 
@@ -161,7 +161,7 @@ tkmtechcenter:
 		Length: 13
 		ShadowStart: 13
 	icon:
-		Filename: ra2abrk.shp
+		Filename: glapalaceicon.png
 		Offset: 0,0
     
 tkmguardtower:
@@ -494,7 +494,7 @@ tkmmcv:
 		ShadowStart: 32
 		Tick: 150
 	icon:
-		Filename: tssmcvicon.shp
+		Filename: tkmconstructionyard.png
 
 tkmharv:
 	Defaults:
@@ -503,7 +503,7 @@ tkmharv:
 	idle:
 		Facings: -32
 	icon:
-		Filename: tssmcvicon.shp
+		Filename: chinasupplytruck.png
 
 tkmharvfull:
 	Defaults:
@@ -512,9 +512,9 @@ tkmharvfull:
 	idle:
 		Facings: -32
 	icon:
-		Filename: tssmcvicon.shp
+		Filename: chinasupplytruck.png
 
-tkmbuggy:
+tkmt72:
 	idle:
 		Filename: invisibleitem.shp
 	muzzle:
@@ -522,7 +522,18 @@ tkmbuggy:
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: jeepicnh.shp
+		Filename: tkmt72icon.png
+		AddExtension: False
+
+tkmabrams:
+	idle:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmabramsicon.png
 		AddExtension: False
 
 tkmtechnicaltruck:
@@ -538,7 +549,7 @@ tkmtechnicaltruck:
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: bggyicnh.shp
+		Filename: tkmquadcannonicon.png
 		AddExtension: False
 
 tkmzaza:
@@ -580,7 +591,7 @@ tkmkatyushalauncher:
 		Facings: -32
 		Offset: 0,20
 	icon:
-		Filename: latin_burrito_icon.shp
+		Filename: tkmkatyushaicon.png
 		AddExtension: False
 
 tkmtechnical:
@@ -597,7 +608,7 @@ tkmtechnical:
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: tkmzazaicon.png
+		Filename: tkmtechnical.png
 
 technicaltank:
 	idle:
@@ -613,7 +624,7 @@ technicaltank:
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: tkmzazaicon.png
+		Filename: tkmtechnicaltank.png
 
 ####################################################################################################
 #		TKM Upgrade Icons

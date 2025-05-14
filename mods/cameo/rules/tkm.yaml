@@ -1324,7 +1324,7 @@ tkmabrams:
 		Name: Abrams
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~upberezkacloak
 		Queue: Vehicle, RAVehicle
 		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1362,7 +1362,7 @@ tkmabrams:
 	DeliversCash:
 		Payload: 400
 	RenderSprites:
-		Image: tkmbuggy
+		Image: tkmabrams
 	RenderVoxels:
 		Image: m1a2
 		Scale: 1
@@ -1381,7 +1381,7 @@ t72:
 		Name: T-72M
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~uptitanarsenal
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1419,7 +1419,7 @@ t72:
 	DeliversCash:
 		Payload: 400
 	RenderSprites:
-		Image: tkmbuggy
+		Image: tkmt72
 	RenderVoxels:
 		Image: t72
 		Scale: 1
