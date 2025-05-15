@@ -118,3 +118,66 @@ tkmfirerockets:
 	Warhead@EffectAir: CreateEffect
 		Explosions: small_napalm
 		ImpactSounds: firebl3.aud
+
+tkmdronesummon:
+	Projectile: InstantExplode
+	Warhead@2: SpawnActor
+		Actors: tkmdrone
+		Range: 5
+		Delay: 15
+		ValidTargets: Air, Ground, Water
+
+tkmm16:
+	Inherits: ^SmallArms
+	ReloadDelay: 17
+	Range: 5621
+	Report: mgun2.aud
+	Warhead@SmallArms: SpreadDamage
+		Burst: 3
+		Damage: 6000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+
+tkmm203:
+	Inherits: ^Grenade
+	Inherits: ^LightFlameWeapon
+	ReloadDelay: 100
+	Range: 5621
+	Report: m203.wav
+	Projectile: Bullet
+		Speed: 150
+		LaunchAngle: 66
+		ContrailLength: 11
+		ContrailStartWidth: 66
+		ContrailEndWidth: 22
+		ContrailStartColor: FF8888FF
+		ContrailEndColor: FFFFFF22
+	Warhead@Grenade: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+
+
+tkmcryorockets:
+	Inherits: ^LightMissile
+	ReloadDelay: 63
+	Range: 6368
+	Report: bazook1.aud
+	Warhead@LightMissile: SpreadDamage
+		Damage: 18000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 9
+	Warhead@CryoFreeze: GrantExternalCondition
+		Condition: CryoFreeze
+		Duration: 125
+		Range: 1250
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air

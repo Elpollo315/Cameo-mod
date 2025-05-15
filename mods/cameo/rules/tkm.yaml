@@ -56,14 +56,14 @@ World:
 upberezkacloak:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: Berezka Upgrade
+		Name: Berezka Arsenal Upgrade
 	Valued:
 		Cost: 2400
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Commits to the Berezka Upgrade Tree, which focuses on cloak and hit and run units. Enables cloak for Basic Infantry Units and increase their movespeed.
-		Prerequisites: ~tkmradar, ~!upberezkacloak, ~!uptitanarsenal
+		Prerequisites: ~tkmradar, ~!upberezkacloak, ~!uptitanarsenal, ~!upnatoarsenal
 	RenderSprites:
 		Image: berezkaupgradeicon
 	ProvidesPrerequisite:
@@ -88,7 +88,7 @@ uptitanarsenal:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Commits to the Titan Arsenal Upgrade Tree, which utilizes heavy duty arsenal. Enables Basic Infantry Units to have Lightweight ballistic plating.
-		Prerequisites: ~tkmradar, ~!uptitanarsenal, ~!upberezkacloak
+		Prerequisites: ~tkmradar, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: titanplatingupgradeicon
@@ -105,6 +105,36 @@ uptitanarsenal:
 		RequiresCondition: upspeed
 	ActorStatValues:
 		Upgrades: uptitanarsenal
+
+upnatoarsenal:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: NATO Arsenal Upgrade
+	Valued:
+		Cost: 2400
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Commits to the NATO Arsenal Upgrade Tree, which utilizes specialized units to defeat enemies.
+		Prerequisites: ~tkmradar, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: natoupgradeicon
+
+upm16m203:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: M203 Upgrade
+	Valued:
+		Cost: 2400
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Gives the troopers grenade launchers.
+		Prerequisites: ~tkmtechcenter,  ~upnatoarsenal, ~!upm16m203
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: upm16m203
 
 upsemiautorifles:
 	Inherits: ^researched_upgrade.template
@@ -182,6 +212,21 @@ upincendiaryrockets:
 	ActorStatValues:
 		Upgrades: uptitanarsenal, upincendiaryrockets
 
+upcryorockets:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Cryo Rockets Upgrade
+	Valued:
+		Cost: 2400
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Changes Rocketeer Arsenal to Cryo Rockets.
+		Prerequisites: ~tkmtechcenter, ~!upcryorockets, ~upnatoarsenal
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: cryorocketicon
+
 #######################################
 # TKM MCV and Construction Yard
 #######################################
@@ -204,6 +249,8 @@ tkmmcv:
 		TransformSounds: tsplace2.aud
 		NoTransformNotification: BuildingCannotPlaceAudio
 	SelectionDecorations:
+	ActorStatValues:
+		Upgrades: upberezkacloak,  uptitanarsenal, upnatoarsenal
 	Voiced:
 		VoiceSet: TSVehicle
 	RenderSprites:
@@ -218,11 +265,21 @@ tkmcommandcenter:
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Tooltip:
 		Name: TKM Construction Yard
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 2048, 2048
+		DecorationBounds: 2048, 2048
+	SelectionDecorations:
 	Transforms:
 		IntoActor: tkmmcv
 	ProvidesPrerequisite@buildingname:
 	Targetable@TechStealerInfiltrate:
 		TargetTypes: TechStealerInfiltrate
+	ActorStatValues:
+		Upgrades: upberezkacloak,  uptitanarsenal, upnatoarsenal
 	WithBuildingPlacedOverlay@Front:
 		Sequence: idle-front
 	RenderSprites:
@@ -234,7 +291,7 @@ tkmcommandcenter:
 
 tkmpowerplant:
 	Inherits: ^BaseBuilding
-	Inherits@shape: ^2x2Shape
+	Inherits@shape: ^3x3Shape
 	Inherits@power: ^PowerPlant
 	Inherits@storage: ^StoresResources
 	Tooltip:
@@ -242,15 +299,17 @@ tkmpowerplant:
 	Valued:
 		Cost: 400
 	Power:
-		Amount: 100
+		Amount: 200
 	ProvidesPrerequisite@buildingname:
 	Buildable:
+		BuildPaletteOrder: 10
 		Prerequisites: ~tkmcommandcenter
 		Queue: Building, RABuilding
 		Description: Provides supply and stores resources
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 250,-512,0
 	Health:
 		HP: 100000
 	RevealsShroud:
@@ -268,11 +327,10 @@ tkmrefinery:
 	Inherits@sell: ^RA2SSpawnActorsOnSell
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^2x2Shape
-	Valued:
-		Cost: 2000
 	Tooltip:
 		Name: TKM Ore Refinery
 	Buildable:
+		BuildPaletteOrder: 11
 		Prerequisites: ~tkmcommandcenter, tkmpowerplant
 	Building:
 		Footprint: xxx= xxx= xxx=
@@ -291,7 +349,7 @@ tkmrefinery:
 	GivesBuildableArea:
 		AreaTypes: building, cityi
 	RenderSprites:
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
 
 tkmbarracks:
 	Inherits: ^RA2Building
@@ -304,6 +362,7 @@ tkmbarracks:
 	ProvidesPrerequisite:
 		Prerequisite: RA2Barracks
 	Buildable:
+		BuildPaletteOrder: 13
 		Prerequisites: ~tkmcommandcenter, tkmpowerplant
 	Building:
 		Footprint: xxx xxx ===
@@ -343,25 +402,25 @@ tkmfactory:
 		Name: War Factory
 	ProvidesPrerequisite@buildingname:
 	Buildable:
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 14
 		Prerequisites: ~tkmcommandcenter, tkmbarracks
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
 		Footprint: xx= x== ===
 		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
+		LocalCenterOffset: 250,-600,0
 	Selectable:
-		Bounds: 1280, 1280
-		DecorationBounds: 1280, 1024
+		Bounds: 2048, 2048
+		DecorationBounds: 2048, 2048
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 4c0
 	RallyPoint:
 		Path: 0,2
 	Exit@1:
-		SpawnOffset: -512,-512,0
-		ExitCell: 2,1
+		SpawnOffset: 0,1200,0
+		ExitCell: 2,2
 		ExitDelay: 3
 	ParallelProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
@@ -399,14 +458,14 @@ tkmairpad:
 		Name: Air Pad
 	ProvidesPrerequisite@buildingname:
 	Buildable:
-		BuildPaletteOrder: 40
-		Prerequisites: ~tkmcommandcenter, tkmbarracks
+		BuildPaletteOrder: 16
+		Prerequisites: ~tkmcommandcenter, tkmradar
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
 		Footprint: xx= x== ===
 		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
+		LocalCenterOffset: 0,512,0
 	Selectable:
 		Bounds: 1280, 1280
 		DecorationBounds: 1280, 1024
@@ -417,7 +476,7 @@ tkmairpad:
 	RallyPoint:
 		Path: 0,2
 	Exit@1:
-		SpawnOffset: -512,-512,0
+		SpawnOffset: 0,0,0
 		ExitCell: 2,1
 		ExitDelay: 3
 	Power:
@@ -436,7 +495,7 @@ tkmradar:
 		Bounds: 2048, 2048
 	Buildable:
 		Queue: Building, RABuilding
-		BuildPaletteOrder: 140
+		BuildPaletteOrder: 15
 		Prerequisites: ~tkmcommandcenter, tkmfactory
 		Description: Provides TKM technologies.
 	Production@Addons:
@@ -472,7 +531,7 @@ tkmtechcenter:
 		Bounds: 2048, 2048
 	Buildable:
 		Queue: Building, RABuilding
-		BuildPaletteOrder: 140
+		BuildPaletteOrder: 17
 		Prerequisites: ~tkmcommandcenter, tkmradar
 		Description: Provides advanced TKM technologies.
 	Production@Addons:
@@ -566,7 +625,7 @@ tkmrifleman:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak
+		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
@@ -601,7 +660,7 @@ tkmrifleman:
 	# AcceptsDeliveredExperience: ##########
 	# 	ValidTypes: infantry ##########
 	ActorStatValues:
-		Upgrades: upberezkacloak, uptitanarsenal
+		Upgrades: upberezkacloak, uptitanarsenal, upnatoarsenal
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -754,6 +813,102 @@ tkmjugap:
 		PlayerPalette: playerra2
 		Image: tkmjug
 
+tkmtrooper:
+	Inherits: ^Soldier
+	Inherits@anim: ^TDRAInfantry
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 160
+	Buildable:
+		BuildPaletteOrder: 1
+		Prerequisites: ~tkmbarracks, ~upnatoarsenal, ~!upm16m203
+		Queue: Infantry, RAInfantry
+		IconPalette: ra2
+	Tooltip:
+		Name: Trooper
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 16000
+	ChangesHealth@SelfHealing:
+		Step: 16
+	Armament@PRIMARY: ##########
+		Weapon: tkmm16
+		LocalOffset: 128,0,256
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: tkmm16
+		MuzzleSequence: garrison-muzzle
+	ActorStatValues:
+		Upgrades: upnatoarsenal, upm16m203
+	WithInfantryBody:
+		IdleSequences: idle1,idle2
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	WithDeathAnimation:
+		DeathSequencePalette: raplayer
+	RenderSprites:
+		Image: tkmtrooper
+		PlayerPalette: playerra2
+
+tkmtrooperm203:
+	Inherits: ^Soldier
+	Inherits@anim: ^TDRAInfantry
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 200
+	Buildable:
+		BuildPaletteOrder: 1
+		Prerequisites: ~tkmbarracks, ~upm16m203
+		Queue: Infantry, RAInfantry
+		IconPalette: ra2
+	Tooltip:
+		Name: Trooper (M203)
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 16000
+	ChangesHealth@SelfHealing:
+		Step: 16
+	Armament@PRIMARY: ##########
+		Weapon: tkmm16
+		LocalOffset: 128,0,256
+	Armament@SECONDARY:
+		Weapon: tkmm203
+		LocalOffset: 0,0,427
+		FireDelay: 15
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: tkmm16
+		MuzzleSequence: garrison-muzzle
+	ActorStatValues:
+		Upgrades: upnatoarsenal, upm16m203
+	WithInfantryBody:
+		IdleSequences: idle1,idle2
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	WithDeathAnimation:
+		DeathSequencePalette: raplayer
+	RenderSprites:
+		Image: tkmtrooper
+		PlayerPalette: playerra2
+
 tkmrocketeer:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
@@ -772,7 +927,7 @@ tkmrocketeer:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 11
-		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak
+		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak, ~!upcryorockets
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
@@ -807,7 +962,7 @@ tkmrocketeer:
 	# AcceptsDeliveredExperience: ##########
 	# 	ValidTypes: infantry ##########
 	ActorStatValues:
-		Upgrades: upberezkacloak, uptitanarsenal
+		Upgrades: upberezkacloak, uptitanarsenal, upnatoarsenal
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -892,11 +1047,36 @@ tkmrocketeerincendiary:
 		PlayerPalette: playerra2
 		Image: tkmrocketeer
 
+tkmrocketeercryo:
+	Inherits: tkmrocketeer
+	Tooltip:
+		Name: Rocketeer (Cryo Rockets)
+	Health:
+		HP: 9000
+	Buildable:
+		Prerequisites: ~tkmbarracks, ~upcryorockets
+	Armament@PRIMARY:
+		Weapon: tkmcryorockets
+		RequiresCondition: !rank-elite
+		LocalOffset: 500,0,400
+	Armament@ELITE:
+		Weapon: tkmcryorockets
+		RequiresCondition: rank-elite
+		LocalOffset: 500,0,400
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: tkmcryorockets
+	ActorStatValues:
+		Upgrades: upnatoarsenal, upcryorockets
+	RenderSprites:
+		PlayerPalette: playerra2
+		Image: tkmrocketeer
+
 tkmengineer:
 	Inherits: E6
 	Inherits@speed: ^upberezkacloakupgrade
 	Buildable:
-		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak
+		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
 		Queue: Infantry, RAInfantry
 	Tooltip:
 		Name: Engineer
@@ -910,7 +1090,7 @@ tkmengineer:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
 	ActorStatValues:
-		Upgrades: upberezkacloak,  uptitanarsenal
+		Upgrades: upberezkacloak,  uptitanarsenal, upnatoarsenal
 	GrantConditionOnPrerequisite@cloakon:
 		Condition: upberezkacloak
 		Prerequisites: upberezkacloak
@@ -941,6 +1121,44 @@ tkmengineertitan:
 		HP: 15000
 	Mobile:
 		Speed: 50
+	RenderSprites:
+		PlayerPalette: playerra2
+		Image: tkmengineer
+
+tkmengineernato:
+	Inherits: tkmengineer
+	Tooltip:
+		Name: Engineer (NATO)
+		Description: Can deploy drones.
+	Buildable:
+		Prerequisites: ~tkmbarracks, ~upnatoarsenal
+	GrantConditionOnDeploy:
+		DeployedCondition: summon
+		SkipMakeAnimation: true
+		UndeployOnMove: true
+		UndeployOnPickup: true
+		PauseOnCondition: disabled
+	AmmoPool:
+		Name: summon
+		Ammo: 1
+		Armaments: tkmdronesummon
+	ReloadAmmoPool:
+		AmmoPool: summon
+		Delay: 1000000
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 1
+		AmmoPool: summon
+	PeriodicExplosion@projections:
+		Weapon: tkmdronesummon
+		RequiresCondition: summon
+		AmmoPoolName: summon
+	AutoDeployer:
+		DeployChance: 100
+		Position: BottomLeft
+		RequiresSelection: True
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tkmengineer
@@ -1324,7 +1542,7 @@ tkmabrams:
 		Name: Abrams
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~upberezkacloak
+		Prerequisites: ~tkmfactory, ~upnatoarsenal
 		Queue: Vehicle, RAVehicle
 		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1435,7 +1653,7 @@ tkmkatyushalauncher:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, tkmtechcenter
 		Description: actor-latin_burrito.description
 	Valued:
 		Cost: 1200
@@ -1480,7 +1698,7 @@ tkmkatyushalauncher:
 	DeliversCash:
 		Payload: 500
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
+		Upgrades:
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -1732,3 +1950,47 @@ tkmmig.husk:
 	RenderSprites:
 		Image: tkmmig
 		PlayerPalette: raplayer
+
+tkmdrone:
+	Inherits: ^Helicopter
+	Inherits@Template: ^HelicopterTemplate
+	Valued:
+		Cost: 25
+	Tooltip:
+		Name: Drone
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~unbuildable
+		Queue: Aircraft, RAAircraft
+		Description: Scout Unit.
+	Aircraft:
+		TurnSpeed: 80
+		Speed: 150
+	Health:
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 7c0
+		Type: GroundPosition
+	Cloak:
+	DetectCloaked:
+		Range: 4224
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 500, 500
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+	Voiced:
+		VoiceSet: RobotTankVoice
+	BodyOrientation:
+		QuantizedFacings: 32
+	-SpawnActorOnDeath:
+	RenderSprites:
+		Image: tkmdrone
+		PlayerPalette: player_rgba

@@ -10,6 +10,11 @@ tkmcommandcenter:
 		Length: 1
 		ShadowStart: 3
 		Tick: 150
+	dead:
+		Filename: sgcnst.shp
+		Length: 1
+		ShadowStart: 3
+		Tick: 150
 	damaged-idle:
 		Filename: sgcnst.shp
 		Start: 1
@@ -38,6 +43,9 @@ tkmbarracks:
 	idle:
 		Filename: ugbarr.shp
 		ShadowStart: 3
+	dead:
+		Filename: ugbarr.shp
+		ShadowStart: 3
 	damaged-idle:
 		Filename: ugbarr.shp
 		Start: 1
@@ -58,6 +66,9 @@ tkmpowerplant:
 	idle:
 		Filename: ugpowr.shp
 		ShadowStart: 3
+	dead:
+		Filename: ugpowr.shp
+		ShadowStart: 3
 	damaged-idle:
 		Filename: ugpowr.shp
 		Start: 1
@@ -72,18 +83,20 @@ tkmpowerplant:
     
 tkmrefinery:
 	Defaults:
-		Filename: ugsupy.shp
+		Filename: tkmsupplycenter.png
+		Scale: 0.4
 	idle:
-		Filename: ugsupy.shp
-		ShadowStart: 3
+		Filename: tkmsupplycenter.png
+		Length: *
 	damaged-idle:
-		Filename: ugsupy.shp
-		Start: 1
-		ShadowStart: 4
+		Filename: tkmsupplycenter.png
+		Length: *
+	dead:
+		Filename: tkmsupplycenter.png
+		Length: *
 	make:
-		Filename: ugsupymk.shp
-		Length: 16
-		ShadowStart: 16
+		Filename: tkmsupplycentermake.png
+		Length: 20
 	resources:
 		Filename: invisibleitem.shp
 	icon:
@@ -132,6 +145,9 @@ tkmradar:
 	idle:
 		Filename: ugrvan.shp
 		ShadowStart: 3
+	dead:
+		Filename: ugrvan.shp
+		ShadowStart: 3
 	damaged-idle:
 		Filename: ugrvan.shp
 		Start: 1
@@ -141,7 +157,7 @@ tkmradar:
 		Length: 15
 		ShadowStart: 15
 	icon:
-		Filename: ra2abrk.shp
+		Filename: glaradarvan.png
 		Offset: 0,0
     
 tkmtechcenter:
@@ -156,6 +172,9 @@ tkmtechcenter:
 		Filename: ugpala.shp
 		Start: 1
 		ShadowStart: 4
+	dead:
+		Filename: ugpala.shp
+		ShadowStart: 3
 	make:
 		Filename: ugpalamk.shp
 		Length: 13
@@ -207,6 +226,7 @@ tkmguardtower:
 
 tkmairpad:
 	Defaults:
+		Scale: 0.8
 		Filename: tkmairpad.png
 	idle:
 		Start: 25
@@ -271,6 +291,10 @@ tkmrifleman:
 		Length: 20
 		ShadowStart: 456
 	die3:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	die5:
 		Start: 209
 		Length: 20
 		ShadowStart: 456
@@ -342,6 +366,10 @@ tkmrocketeer:
 	die4:
 		Filename: frag3.shp
 		Length: *
+	die5:
+		Start: 209
+		Length: 20
+		ShadowStart: 696
 	die6:
 		Start: 209
 		Length: 20
@@ -404,6 +432,10 @@ tkmjug:
 		Start: 223
 		Length: 15
 		ShadowStart: 478
+	die5:
+		Start: 223
+		Length: 15
+		ShadowStart: 478
 	die6:
 		Start: 223
 		Length: 15
@@ -417,6 +449,12 @@ tkmjug:
 		Scale: 1.5
 	icon:
 		Filename: tkmjuggernauticon.png
+		AddExtension: False
+
+tkmtrooper:
+	Inherits: tkmrifleman
+	icon:
+		Filename: tkmtroopericon.png
 		AddExtension: False
 
 tkmengineer:
@@ -460,6 +498,11 @@ tkmengineer:
 	die4:
 		Filename: frag3.shp
 		Length: *
+	die5:
+		Start: 88
+		Facings: 1
+		Length: 20
+		ShadowStart: 277
 	die6:
 		Start: 88
 		Facings: 1
@@ -640,6 +683,11 @@ titanplatingupgradeicon:
 		Filename: titanplatingupgradeicon.png
 		Length: 1
 
+natoupgradeicon:
+	icon:
+		Filename: natoupgradeicon.png
+		Length: 1
+
 tkmsemiicon:
 	icon:
 		Filename: tkmsemiicon.png
@@ -660,6 +708,20 @@ tkmincendiaryrockets:
 		Filename: tkmincendiaryrockets.png
 		Length: 1
 
+upm16m203:
+	icon:
+		Filename: upm16m203.png
+		Length: 1
+
+cryorocketicon:
+	icon:
+		Filename: cryorocketicon.png
+		Length: 1
+
+####################################################################################################
+#		TKM Aircrafts
+####################################################################################################
+
 tkmmig:
 	Defaults:
 		Filename: tkmmig.shp
@@ -672,3 +734,12 @@ tkmmig:
 		Facings: 8
 	icon:
 		Filename: yakicon.png
+
+tkmdrone:
+	Defaults:
+		Filename: tkmdrone.png
+	idle:
+		Facings: -32
+		Scale: 0.5
+	icon:
+		Filename: tkmdroneicon.png
