@@ -93,7 +93,7 @@ tkmrefinery:
 		Length: *
 	dead:
 		Filename: tkmsupplycenter.png
-		Length: *
+		Length: 1
 	make:
 		Filename: tkmsupplycentermake.png
 		Length: 20
@@ -183,23 +183,21 @@ tkmtechcenter:
 		Filename: glapalaceicon.png
 		Offset: 0,0
     
-tkmguardtower:
+tkmbunker:
 	Defaults:
-		Filename: ggspot.shp
+		Filename: tkmbunker.png
+		Scale: 0.7
 	idle:
-		Start: 0
-		ShadowStart: 3
+		Start: 20
+		Length: 1
 	damaged-idle:
-		Start: 1
-		ShadowStart: 4
+		Start: 20
+		Length: 1
 	dead:
-		Start: 2
-		ShadowStart: 5
-		Tick: 800
+		Start: 20
+		Length: 1
 	make:
-		Filename: ggspotmk.shp
-		Length: 10
-		ShadowStart: 10
+		Length: 20
 		Tick: 80
 	muzzle:
 		Filename: minigun.shp
@@ -238,6 +236,92 @@ tkmairpad:
 		Tick: 800
 	icon:
 		Filename: tkmairpadicon.png
+		AddExtension: False
+
+tkmbunkerquadturret:
+	Defaults:
+		Filename: tkmbunker.png
+		Scale: 0.7
+	idle:
+		Start: 20
+		Length: 1
+	damaged-idle:
+		Start: 20
+		Length: 1
+	dead:
+		Start: 20
+		Length: 1
+	make:
+		Length: 20
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	turret:
+		Filename: quadcannonturret.png
+		Facings: -32
+		Scale: 1.3
+	icon:
+		Filename: gtwricnh.shp
+		AddExtension: False
+
+tkmbunkertankturret:
+	Defaults:
+		Filename: tkmbunker.png
+		Scale: 0.7
+	idle:
+		Start: 20
+		Length: 1
+	damaged-idle:
+		Start: 20
+		Length: 1
+	dead:
+		Start: 20
+		Length: 1
+	make:
+		Length: 20
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	turret:
+		Filename: technicaltankturret.png
+		Facings: -32
+		Scale: 0.8
+	icon:
+		Filename: gtwricnh.shp
 		AddExtension: False
 
 #######################################
@@ -311,6 +395,69 @@ tkmrifleman:
 		Scale: 1.5
 	icon:
 		Filename: tkmriflemanicon.png
+		AddExtension: False
+
+tkmtrooper:
+	Inherits: tkmrifleman
+	Defaults:
+		Filename: tkmtrooper.shp
+		Scale: 0.8
+	stand:
+		Facings: 8
+		ShadowStart: 496
+	run:
+		Start: 8
+		Length: 10
+		Facings: 8
+		Tick: 80
+		ShadowStart: 504
+	idle:
+		Facings: 8
+		ShadowStart: 496
+	idle1:
+		Start: 88
+		Length: 20
+		Facings: 1
+		Tick: 80
+		ShadowStart: 584
+	idle2:
+		Start: 108
+		Length: 19
+		Facings: 1
+		Tick: 80
+		ShadowStart: 604
+	shoot:
+		Start: 128
+		Length: 10
+		Facings: 8
+		Tick: 80
+		ShadowStart: 624
+	die:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	die1:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	die2:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	die3:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	die5:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	die6:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	icon:
+		Filename: tkmtroopericon.png
 		AddExtension: False
 
 tkmrocketeer:
@@ -451,12 +598,6 @@ tkmjug:
 		Filename: tkmjuggernauticon.png
 		AddExtension: False
 
-tkmtrooper:
-	Inherits: tkmrifleman
-	icon:
-		Filename: tkmtroopericon.png
-		AddExtension: False
-
 tkmengineer:
 	Defaults:
 		Filename: hijacker.shp
@@ -559,7 +700,13 @@ tkmharvfull:
 
 tkmt72:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: tkmt72body.png
+		Facings: -32
+		Scale: 0.7
+	turret:
+		Filename: tkmt72tur.png
+		Facings: -32
+		Scale: 0.7
 	muzzle:
 		Filename: minigun.shp
 		Length: 6
@@ -570,7 +717,13 @@ tkmt72:
 
 tkmabrams:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: tkmabramsbody.png
+		Facings: -32
+		Scale: 0.3
+	turret:
+		Filename: tkmabramstur.png
+		Facings: -32
+		Scale: 0.3
 	muzzle:
 		Filename: minigun.shp
 		Length: 6
@@ -716,6 +869,21 @@ upm16m203:
 cryorocketicon:
 	icon:
 		Filename: cryorocketicon.png
+		Length: 1
+
+tkmpointdefensesystem:
+	icon:
+		Filename: tkmpointdefensesystem.png
+		Length: 1
+
+tkmrocketaddon:
+	icon:
+		Filename: tkmrocketaddon.png
+		Length: 1
+
+tkmheavydutyarmor:
+	icon:
+		Filename: tkmheavydutyarmor.png
 		Length: 1
 
 ####################################################################################################

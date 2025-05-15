@@ -4862,7 +4862,6 @@ nodltnk2:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 50
 		Prerequisites: ~upnodltnk2

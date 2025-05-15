@@ -25,13 +25,13 @@ World:
 		ClassName: Light Support
 		Factions: tkm
 		BaseActor: tkmmcv
-		SupportActors: tse1,tse1,tse1,tse2,tse2,tssmech,tsmmch
+		SupportActors: tkmrifleman,tkmrifleman,tkmrifleman,tkmrocketeer,tkmrocketeer,technicaltank,tkmtechnical
 	StartingUnits@heavytstkm:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: tkm
 		BaseActor: tkmmcv
-		SupportActors: tse1,tse1,tse1,tse2,tse2,tssmech,tsmmch,tsmmch,tsmmch,tsmmch
+		SupportActors: tkmrifleman,tkmrifleman,tkmrifleman,tkmrocketeer,tkmrocketeer,technicaltank,tkmtechnical,tkmtechnical,tkmtechnical,tkmtechnical
 		
 #######################################
 # TKM Defaults
@@ -58,7 +58,7 @@ upberezkacloak:
 	Tooltip:
 		Name: Berezka Arsenal Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -83,7 +83,7 @@ uptitanarsenal:
 	Tooltip:
 		Name: Titan Arsenal Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -111,7 +111,7 @@ upnatoarsenal:
 	Tooltip:
 		Name: NATO Arsenal Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -121,17 +121,32 @@ upnatoarsenal:
 	RenderSprites:
 		Image: natoupgradeicon
 
+uppointdefensesystem:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Point Defense System
+	Valued:
+		Cost: 1500
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Commits to the NATO Arsenal Upgrade Tree, which utilizes specialized units to defeat enemies.
+		Prerequisites: ~tkmradar, ~!uppointdefensesystem, ~upnatoarsenal, ~tkmtechcenter
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmpointdefensesystem
+
 upm16m203:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
 		Name: M203 Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Gives the troopers grenade launchers.
-		Prerequisites: ~tkmtechcenter,  ~upnatoarsenal, ~!upm16m203
+		Prerequisites: ~tkmtechcenter, ~upnatoarsenal, ~!upm16m203
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: upm16m203
@@ -141,7 +156,7 @@ upsemiautorifles:
 	Tooltip:
 		Name: Semi Auto Rifles Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -160,7 +175,7 @@ uptwinrockets:
 	Tooltip:
 		Name: Twin Rockets Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -179,7 +194,7 @@ uptkmapbullets:
 	Tooltip:
 		Name: Armor Piercing Bullets Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -198,7 +213,7 @@ upincendiaryrockets:
 	Tooltip:
 		Name: Incendiary Rockets Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -217,7 +232,7 @@ upcryorockets:
 	Tooltip:
 		Name: Cryo Rockets Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -226,6 +241,36 @@ upcryorockets:
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: cryorocketicon
+
+tkmrocketaddon:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Technical Tank Rocket Addon
+	Valued:
+		Cost: 1500
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Upgrades Technical Tank to shoot twin rockets.
+		Prerequisites: ~tkmtechcenter, ~!tkmrocketaddon, ~upberezkacloak, uptwinrockets
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmrocketaddon
+
+tkmheavydutyarmor:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: T72 Heavy Duty Armor
+	Valued:
+		Cost: 1500
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Gives T72s heavier armors.
+		Prerequisites: ~tkmtechcenter, ~!tkmheavydutyarmor, ~uptitanarsenal
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmheavydutyarmor
 
 #######################################
 # TKM MCV and Construction Yard
@@ -526,7 +571,7 @@ tkmtechcenter:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@tech: ^IsTechnoBuilding
-	Inherits@shape: ^3x4Shape
+	Inherits@shape: ^4x4Shape
 	Selectable:
 		Bounds: 2048, 2048
 	Buildable:
@@ -543,9 +588,9 @@ tkmtechcenter:
 	Selectable:
 		Bounds: 2048, 2048
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
-		LocalCenterOffset: 0,0,0
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4,4
+		LocalCenterOffset: 250,-512,0
 	ProvidesPrerequisite:
 	Armor:
 		Type: Wood
@@ -557,7 +602,7 @@ tkmtechcenter:
 	RenderSprites:
 		PlayerPalette: playerra2
 
-tkmguardtower:
+tkmbunker:
 	Inherits: ^Defense
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
@@ -568,7 +613,7 @@ tkmguardtower:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: TKM Guard Tower
+		Name: TKM Bunker
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tkmcommandcenter, tkmbarracks
@@ -596,12 +641,100 @@ tkmguardtower:
 	WithMuzzleOverlay:
 	Turreted:
 		TurnSpeed: 1023
-	Power:
-		Amount: -25
 	RevealsShroud:
 		Range: 6720
 	RenderSprites:
-		PlayerPalette: playerd2k
+		PlayerPalette: player_rgba
+
+tkmbunkerquadturret:
+	Inherits: ^Defense
+	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@EMP: ^TurretEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@shape: ^1x1Shape
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: TKM Quad Turret Bunker
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~tkmcommandcenter, tkmbarracks
+		Queue: Defence, RADefence
+		Description: template-anti-infantry-defense.description
+	Building:
+	Health:
+		HP: 60000
+	WithBuildingBib:
+		HasMinibib: true
+	Armament:
+		Weapon: tkmquadcannonmg
+		LocalOffset: 256,0,256
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithMuzzleOverlay:
+	Turreted:
+		TurnSpeed: 1023
+	Turreted:
+		TurnSpeed: 30
+		Offset: 0,0,450
+	Power:
+		Amount: -25
+	WithSpriteTurret:
+	RevealsShroud:
+		Range: 6720
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: tkmbunkerquadturret
+
+tkmbunkertankturret:
+	Inherits: ^Defense
+	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@EMP: ^TurretEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@shape: ^1x1Shape
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: TKM Quad Turret Bunker
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~tkmcommandcenter, tkmbarracks
+		Queue: Defence, RADefence
+		Description: template-anti-infantry-defense.description
+	Building:
+	Health:
+		HP: 60000
+	WithBuildingBib:
+		HasMinibib: true
+	Armament:
+		Weapon: 70mm
+		LocalOffset: 256,0,256
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithMuzzleOverlay:
+	Turreted:
+		TurnSpeed: 1023
+	Turreted:
+		TurnSpeed: 30
+		Offset: 0,0,450
+	Power:
+		Amount: -25
+	WithSpriteTurret:
+	RevealsShroud:
+		Range: 6720
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: tkmbunkertankturret
 
 #######################################
 # TKM Infantry Reporting!
@@ -1231,7 +1364,7 @@ tkmas42:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~!uptwinrockets, ~!upincendiaryrockets
+		Prerequisites: ~tkmfactory, ~!uptwinrockets, ~!upincendiaryrockets, ~!upcryorockets
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -1290,6 +1423,24 @@ tkmas42incendiaryrockets:
 		LocalOffset: 500,0,400
 	ActorStatValues:
 		Upgrades: upincendiaryrockets
+	RenderSprites:
+		Image: tkmas42
+
+tkmas42cryorockets:
+	Inherits: tkmas42
+	Tooltip:
+		Name: TKM AS42 (Cryo Rockets)
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tkmfactory, ~upcryorockets
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Armament:
+		Weapon: tkmcryorockets
+		RequiresCondition: !rank-elite
+		LocalOffset: 500,0,400
+	ActorStatValues:
+		Upgrades: upcryorockets
 	RenderSprites:
 		Image: tkmas42
 
@@ -1352,7 +1503,7 @@ tkmquadtruck:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
-		Cost: 400
+		Cost: 600
 	Tooltip:
 		Name: TKM Quad Truck
 	UpdatesPlayerStatistics:
@@ -1375,15 +1526,10 @@ tkmquadtruck:
 		TurnSpeed: 30
 		Offset: -350,0,125
 	Armament:
-		Weapon: RA2GattlingMG1
+		Weapon: tkmquadcannonmg
 		LocalOffset: 171,0,85
 		MuzzleSequence: muzzle
 		RequiresCondition: !up_armorpiercingbullets
-	Armament@Upgrade:
-		Weapon: RA2GattlingMG1
-		LocalOffset: 171,0,85
-		MuzzleSequence: muzzle
-		RequiresCondition: up_armorpiercingbullets
 	WithMuzzleOverlay:
 	AttackTurreted:
 	FireWarheadsOnDeath:
@@ -1403,7 +1549,7 @@ tkmzaza:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
-		Cost: 1250
+		Cost: 1600
 	Tooltip:
 		Name: TKM Zaza
 	UpdatesPlayerStatistics:
@@ -1487,7 +1633,7 @@ technicaltank:
 		Name: Technical Tank
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~!tkmrocketaddon
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1528,12 +1674,31 @@ technicaltank:
 		Image: technicaltank
 		PlayerPalette: player_rgba
 
+technicaltankrocketaddon:
+	Inherits: technicaltank
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Technical Tank (Rocket Addon)
+	Buildable:
+		BuildPaletteOrder: 190
+		Prerequisites: ~tkmfactory, ~tkmrocketaddon
+		Queue: Vehicle, RAVehicle
+		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
+		BuildDuration: 550
+		BuildDurationModifier: 100
+	Armament@SECONDARY:
+		Weapon: tkmtwinrockets
+		LocalOffset: 500,0,400
+	RenderSprites:
+		Image: technicaltank
+		PlayerPalette: player_rgba
+
 tkmabrams:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TKMRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -1542,14 +1707,15 @@ tkmabrams:
 		Name: Abrams
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~upnatoarsenal
+		Prerequisites: ~tkmfactory, ~!uppointdefensesystem, ~upnatoarsenal
 		Queue: Vehicle, RAVehicle
 		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
 		BuildDurationModifier: 100
 	Mobile:
 		Locomotor: tracked
-		Speed: 71
+		Speed: 80
+		TurnSpeed: 16
 	Health:
 		HP: 150000
 	Repairable:
@@ -1560,12 +1726,16 @@ tkmabrams:
 		Range: 6c0
 	Turreted:
 		TurnSpeed: 20 #3
-	Armament:
-		Weapon: 120mmDual
+		Offset: 0,0,300
+	Armament@cannon:
+		Weapon: tkmabramscannon
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 768,85,90, 768,-85,90
 		MuzzleSequence: muzzle
+	Armament@machinegun: ##########
+		Weapon: tkmm16
+		LocalOffset: 768,85,90, 768,-85,90
 	WithMuzzleOverlay:
 	AttackTurreted:
 	SelectionDecorations:
@@ -1573,24 +1743,44 @@ tkmabrams:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 400
+	ActorStatValues:
+		Upgrades: upnatoarsenal
 	RenderSprites:
 		Image: tkmabrams
-	RenderVoxels:
-		Image: m1a2
-		Scale: 1
+		PlayerPalette: player_rgba
+
+tkmabramspoint:
+	Inherits: tkmabrams
+	Tooltip:
+		Name: Abrams (Point Defense System)
+	Buildable:
+		BuildPaletteOrder: 190
+		Prerequisites: ~tkmfactory, ~uppointdefensesystem
+		Queue: Vehicle, RAVehicle
+		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
+		BuildDuration: 550
+		BuildDurationModifier: 100
+	RenderRangeCircle:
+		RangeCircleType: pointdefense
+		Color: FF000088
+	Armament@pointdefense:
+		Weapon: PDLaserLTNK2
+	ActorStatValues:
+		Upgrades: upnatoarsenal, uppointdefensesystem
+	RenderSprites:
+		Image: tkmabrams
+		PlayerPalette: player_rgba
 
 t72:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TKMRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -1599,14 +1789,15 @@ t72:
 		Name: T-72M
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~uptitanarsenal
+		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~!tkmheavydutyarmor
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
 		BuildDurationModifier: 100
 	Mobile:
 		Locomotor: tracked
-		Speed: 71
+		Speed: 60
+		TurnSpeed: 12
 	Health:
 		HP: 150000
 	Repairable:
@@ -1617,8 +1808,9 @@ t72:
 		Range: 6c0
 	Turreted:
 		TurnSpeed: 20 #3
+		Offset: 0,0,200
 	Armament:
-		Weapon: 120mmDual
+		Weapon: tkmt72cannon
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 768,85,90, 768,-85,90
@@ -1630,17 +1822,35 @@ t72:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 400
+	ActorStatValues:
+		Upgrades: uptitanarsenal
+	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmt72
-	RenderVoxels:
-		Image: t72
-		Scale: 1
+		PlayerPalette: player_rgba
+
+t72heavydutyarmor:
+	Inherits: t72
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: T-72M (Heavy Duty Armor)
+	Health:
+		HP: 250000
+	Buildable:
+		BuildPaletteOrder: 190
+		Prerequisites: ~tkmfactory, ~tkmheavydutyarmor
+		Queue: Vehicle, RAVehicle
+		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
+		BuildDuration: 550
+		BuildDurationModifier: 100
+	RenderSprites:
+		Image: tkmt72
+		PlayerPalette: player_rgba
 
 tkmkatyushalauncher:
 	Inherits: ^Vehicle

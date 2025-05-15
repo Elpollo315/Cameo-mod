@@ -181,3 +181,61 @@ tkmcryorockets:
 		Range: 1250
 		ValidRelationships: Enemy, Neutral, Ally
 		ValidTargets: Ground, Water, Air
+		
+tkmt72cannon:
+	Inherits: ^MediumCannon
+	ReloadDelay: 72
+	Range: 5438
+	Report: tnkfire4.aud
+	Projectile: Bullet
+		Speed: 543
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 12000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@Effect: CreateEffect
+		Explosions: small_poof	
+
+tkmabramscannon:
+	Inherits: ^MediumCannon
+	ReloadDelay: 72
+	Range: 7000
+	Report: tnkfire4.aud
+	Projectile: Bullet
+		Speed: 543
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 8000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@Effect: CreateEffect
+		Explosions: small_poof
+
+
+tkmquadcannonmg:
+	Inherits: ^SmallArms
+	Inherits: ^RA2Chaingun
+	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
+	Range: 5000
+	ReloadDelay: 6
+	ValidTargets: Ground, Water, Trees
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailStartColor: FFAA44
+		ContrailStartWidth: 15
+		ContrailEndColor: FFFFFF
+		ContrailEndColorUsePlayerColor: true
+		ContrailLength: 8
+		Speed: 10000
+		Width: 100
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
