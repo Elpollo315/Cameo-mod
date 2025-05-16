@@ -452,7 +452,7 @@ tkmfactory:
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
-		Footprint: xx= x== ===
+		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 		LocalCenterOffset: 250,-600,0
 	Selectable:
@@ -508,7 +508,7 @@ tkmairpad:
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
-		Footprint: xx= x== ===
+		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 		LocalCenterOffset: 0,512,0
 	Selectable:
