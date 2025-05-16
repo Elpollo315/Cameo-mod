@@ -217,7 +217,7 @@ tkmquadcannonmg:
 	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
 	Range: 5000
 	ReloadDelay: 6
-	ValidTargets: Ground, Water, Trees
+	ValidTargets: Ground, Water, Trees, Air
 	Projectile: Bullet
 		Image: 50CAL
 		ContrailStartColor: FFAA44
