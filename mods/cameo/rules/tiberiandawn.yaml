@@ -1742,6 +1742,9 @@ MLRS:
 	TurnSpeedMultiplier@firing:
 		RequiresCondition: firing
 		Modifier: 50
+	TurretTurnSpeedMultiplier@firing:
+		RequiresCondition: firing
+		Modifier: 50
 	ActorStatValues:
 		Upgrades: up_longrangesensors, up_advancedmissiletargeting, up_cuttingedgeequipment
 
@@ -1800,6 +1803,9 @@ gdiarcher:
 		RequiresCondition: firing
 		Modifier: 50
 	TurnSpeedMultiplier@firing:
+		RequiresCondition: firing
+		Modifier: 50
+	TurretTurnSpeedMultiplier@firing:
 		RequiresCondition: firing
 		Modifier: 50
 	ActorStatValues:
