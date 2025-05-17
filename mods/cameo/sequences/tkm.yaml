@@ -378,10 +378,10 @@ tkmrifleman:
 		Start: 209
 		Length: 20
 		ShadowStart: 456
-	die5:
-		Start: 209
-		Length: 20
-		ShadowStart: 456
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die4:
 		Filename: frag3.shp
 		Length: *
@@ -389,6 +389,8 @@ tkmrifleman:
 		Start: 209
 		Length: 20
 		ShadowStart: 456
+	die7: electro
+		Length: *
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
@@ -448,14 +450,16 @@ tkmtrooper:
 		Start: 209
 		Length: 20
 		ShadowStart: 456
-	die5:
-		Start: 209
-		Length: 20
-		ShadowStart: 456
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die6:
 		Start: 209
 		Length: 20
 		ShadowStart: 456
+	die7: electro
+		Length: *
 	icon:
 		Filename: tkmtroopericon.png
 		AddExtension: False
@@ -513,14 +517,16 @@ tkmrocketeer:
 	die4:
 		Filename: frag3.shp
 		Length: *
-	die5:
-		Start: 209
-		Length: 20
-		ShadowStart: 696
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die6:
 		Start: 209
 		Length: 20
 		ShadowStart: 696
+	die7: electro
+		Length: *
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
@@ -579,14 +585,16 @@ tkmjug:
 		Start: 223
 		Length: 15
 		ShadowStart: 478
-	die5:
-		Start: 223
-		Length: 15
-		ShadowStart: 478
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die6:
 		Start: 223
 		Length: 15
 		ShadowStart: 478
+	die7: electro
+		Length: *
 	die4:
 		Filename: frag3.shp
 		Length: *
@@ -639,16 +647,17 @@ tkmengineer:
 	die4:
 		Filename: frag3.shp
 		Length: *
-	die5:
-		Start: 88
-		Facings: 1
-		Length: 20
-		ShadowStart: 277
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die6:
 		Start: 88
 		Facings: 1
 		Length: 20
 		ShadowStart: 277
+	die7: electro
+		Length: *
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *

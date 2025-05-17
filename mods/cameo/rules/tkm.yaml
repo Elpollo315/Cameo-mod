@@ -121,21 +121,6 @@ upnatoarsenal:
 	RenderSprites:
 		Image: natoupgradeicon
 
-uppointdefensesystem:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Point Defense System
-	Valued:
-		Cost: 1500
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Commits to the NATO Arsenal Upgrade Tree, which utilizes specialized units to defeat enemies.
-		Prerequisites: ~tkmradar, ~!uppointdefensesystem, ~upnatoarsenal, ~tkmtechcenter
-	ProvidesPrerequisite:
-	RenderSprites:
-		Image: tkmpointdefensesystem
-
 upm16m203:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -194,7 +179,7 @@ uptkmapbullets:
 	Tooltip:
 		Name: Armor Piercing Bullets Upgrade
 	Valued:
-		Cost: 1500
+		Cost: 2400
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -256,6 +241,21 @@ tkmrocketaddon:
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: tkmrocketaddon
+
+uppointdefensesystem:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Point Defense System
+	Valued:
+		Cost: 1500
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Commits to the NATO Arsenal Upgrade Tree, which utilizes specialized units to defeat enemies.
+		Prerequisites: ~tkmradar, ~!uppointdefensesystem, ~upnatoarsenal, ~tkmtechcenter
+	ProvidesPrerequisite:
+	RenderSprites:
+		Image: tkmpointdefensesystem
 
 tkmheavydutyarmor:
 	Inherits: ^researched_upgrade.template
@@ -624,6 +624,9 @@ tkmbunker:
 		HP: 60000
 	WithBuildingBib:
 		HasMinibib: true
+	Cargo:
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 6
 	Armament:
 		Weapon: HighV
 		LocalOffset: 256,0,256
@@ -1572,13 +1575,8 @@ tkmzaza:
 	Turreted:
 		TurnSpeed: 30
 		Offset: -160,0,500
-	Armament@AG:
-		Weapon: HeavyAATankCannonAG
-		Recoil: 85
-		LocalOffset: 800,80,360, 800,-80,360
-		MuzzleSequence: muzzle
-	Armament@AA:
-		Weapon: HeavyAATankCannonAA
+	Armament:
+		Weapon: HeavyAATankCannontkm
 		Recoil: 85
 		LocalOffset: 800,80,360, 800,-80,360
 		MuzzleSequence: muzzle
@@ -1848,6 +1846,8 @@ t72heavydutyarmor:
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
 		BuildDurationModifier: 100
+	ActorStatValues:
+		Upgrades: uptitanarsenal, tkmheavydutyarmor
 	RenderSprites:
 		Image: tkmt72
 		PlayerPalette: player_rgba
@@ -1903,7 +1903,7 @@ tkmkatyushalauncher:
 	Selectable:
 		DecorationBounds: 1280, 1280
 	Voiced:
-		VoiceSet: LatinArtyVoice
+		VoiceSet: TSVehicle
 	WithFacingSpriteBody:
 	DeliversCash:
 		Payload: 500
