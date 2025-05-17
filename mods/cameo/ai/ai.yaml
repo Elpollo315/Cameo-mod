@@ -1091,6 +1091,62 @@ Player:
 					Attractiveness: -9
 					TargetMetric: Value
 					CheckRadius: 9000
+			Blizzard:
+				OrderName: wc2_blizzard
+				MinimumAttractiveness: 1000
+				FineScanRadius: 2
+				Consideration@1:
+					Against: Enemy
+					Types: Air, Tank, Vehicle, Infantry, Water
+					Attractiveness: 2
+					TargetMetric: Value
+					CheckRadius: 6000
+				Consideration@2:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 4
+					TargetMetric: Value
+					CheckRadius: 2000
+				Consideration@3:
+					Against: Enemy
+					Types: Defense
+					Attractiveness: 3
+					TargetMetric: Value
+					CheckRadius: 3000
+				Consideration@4:
+					Against: Ally
+					Types: Ground, Water
+					Attractiveness: -9
+					TargetMetric: Value
+					CheckRadius: 9000
+			DeathAndDecay:
+				OrderName: wc2_deathanddecay
+				MinimumAttractiveness: 1000
+				FineScanRadius: 2
+				Consideration@1:
+					Against: Enemy
+					Types: Air, Tank, Vehicle, Infantry, Water
+					Attractiveness: 2
+					TargetMetric: Value
+					CheckRadius: 6000
+				Consideration@2:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 4
+					TargetMetric: Value
+					CheckRadius: 2000
+				Consideration@3:
+					Against: Enemy
+					Types: Defense
+					Attractiveness: 3
+					TargetMetric: Value
+					CheckRadius: 3000
+				Consideration@4:
+					Against: Ally
+					Types: Ground, Water
+					Attractiveness: -9
+					TargetMetric: Value
+					CheckRadius: 9000
 			InquisitionIonCannon:
 				OrderName: InquisitionIonCannon
 				MinimumAttractiveness: 1000

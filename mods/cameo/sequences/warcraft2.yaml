@@ -735,6 +735,14 @@ wc2_human_scout_tower:
 	Defaults:
 		Filename: wc2_human_scout_tower.shp
 	Inherits: ^WC2HumanBuilding
+	idle:
+		Length: *
+		Tick: 160
+		Facings: 1
+	turret:
+		Filename: sentinelturretidle.png
+		Facings: -16
+		Scale: 0
 	icon:
 		Start: 5
 	guard:
@@ -877,6 +885,7 @@ wc2_human_peasant:
 	run:
 		Start: 8
 		Length: 4
+		Tick: 80
 	harvest:
 		Start: 40
 		Length: 5
@@ -903,6 +912,11 @@ wc2_human_peasantgold:
 	idle:
 		Filename: wc2_human_peasantgold.shp
 		Facings: -8
+	run:
+		Filename: wc2_human_peasantgold.shp
+		Start: 8
+		Length: 4
+		Tick: 160
 
 wc2_human_peasantlumber:
 	Defaults:
@@ -1827,6 +1841,14 @@ wc2_orc_watch_tower:
 	Defaults:
 		Filename: wc2_orc_watch_tower.shp
 	Inherits: ^WC2OrcBuilding
+	idle:
+		Length: *
+		Tick: 160
+		Facings: 1
+	turret:
+		Filename: sentinelturretidle.png
+		Facings: -16
+		Scale: 0
 	icon:
 		Start: 5
 	guard:
@@ -1969,6 +1991,7 @@ wc2_orc_peon:
 	run:
 		Start: 8
 		Length: 4
+		Tick: 80
 	harvest:
 		Start: 40
 		Length: 5
@@ -1995,6 +2018,11 @@ wc2_orc_peon_full:
 	idle:
 		Filename: wc2_orc_peon_full.shp
 		Facings: -8
+	run:
+		Filename: wc2_orc_peon_full.shp
+		Start: 8
+		Length: 4
+		Tick: 160
 
 wc2_orc_peonlumber:
 	Defaults:

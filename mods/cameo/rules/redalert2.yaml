@@ -2569,7 +2569,6 @@ yryarefn:
 		Type: Unload
 		DockAngle: 640
 		DockOffset: 0,724,0
-		MaxQueueLength: 10
 	DrawLineToTarget:
 	Selectable:
 		Bounds: 2048, 2048
@@ -4525,7 +4524,7 @@ YRBRUTE:
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: actor-brute.name
+		Name: Brute
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~yryabrck
@@ -5358,7 +5357,7 @@ RA2TNKD:
 	Mobile:
 		Locomotor: tracked
 		Speed: 65
-		TurnSpeed: 13
+		TurnSpeed: 26
 	Health:
 		HP: 115000
 	Repairable:
@@ -7226,7 +7225,7 @@ ra2sqd:
 		Description: actor-sqd.description
 	Mobile:
 		Speed: 120
-		TurnSpeed: 24
+		TurnSpeed: 48
 	Health:
 		HP: 30000
 	ChangesHealth@SelfHealing:
@@ -7303,7 +7302,7 @@ ra2dlph:
 		Queue: Naval, RANaval
 		Description: actor-dlph.description
 	Mobile:
-		TurnSpeed: 24
+		TurnSpeed: 48
 		Speed: 120
 	Health:
 		HP: 20000
@@ -7362,7 +7361,7 @@ ra2dest:
 		DecorationBounds: 2048, 2048
 	Mobile:
 		Speed: 70
-		TurnSpeed: 14
+		TurnSpeed: 28
 	Health:
 		HP: 160000
 	ChangesHealth@SelfHealing:
@@ -7502,7 +7501,7 @@ ra2aegis:
 		DecorationBounds: 2048, 2048
 	Mobile:
 		Speed: 90
-		TurnSpeed: 16
+		TurnSpeed: 32
 	Health:
 		HP: 90000
 	ChangesHealth@SelfHealing:
@@ -7553,7 +7552,7 @@ ra2carrier:
 		DecorationBounds: 2048, 2048
 	Mobile:
 		Speed: 40
-		TurnSpeed: 8
+		TurnSpeed: 16
 	Health:
 		HP: 250000
 	ChangesHealth@SelfHealing:
@@ -7657,7 +7656,7 @@ ra2sub:
 		Description: actor-ra2sub.description
 	Mobile:
 		Speed: 90
-		TurnSpeed: 18
+		TurnSpeed: 36
 	Health:
 		HP: 120000
 	ChangesHealth@SelfHealing:
@@ -7716,7 +7715,7 @@ ra2hyd:
 		Description: actor-hyd.description
 	Mobile:
 		Speed: 120
-		TurnSpeed: 24
+		TurnSpeed: 48
 	Health:
 		HP: 25000
 	ChangesHealth@SelfHealing:
@@ -7770,7 +7769,7 @@ ra2dred:
 		DecorationBounds: 2048, 2048
 	Mobile:
 		Speed: 50
-		TurnSpeed: 10
+		TurnSpeed: 20
 	Health:
 		HP: 250000
 	ChangesHealth@SelfHealing:
@@ -9564,6 +9563,7 @@ ra2e2.black:
 		Modifier: 50
 	Voiced:
 		VoiceSet: TechConscriptVoice
+
 ra2sidewind:
 	Inherits: ^Soldier
 	Inherits@Template: ^AntiTankAntiAirInfantryTemplate

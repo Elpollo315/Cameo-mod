@@ -164,15 +164,15 @@ World:
 	ActorStatValues:
 		Upgrades: up_rocketenhancements
 
-^AdvancedThermobarics:
-	FirepowerMultiplier@up_advancedthermobarics:
-		RequiresCondition: up_advancedthermobarics
-		Modifier: 125
-	GrantConditionOnPrerequisite@up_advancedthermobarics:
-		Condition: up_advancedthermobarics
-		Prerequisites: up_advancedthermobarics
+^SovietAutoLoaders:
+	ReloadDelayMultiplier@up_sovietautoloaders:
+		RequiresCondition: up_sovietautoloaders
+		Modifier: 60
+	GrantConditionOnPrerequisite@up_sovietautoloaders:
+		Condition: up_sovietautoloaders
+		Prerequisites: up_sovietautoloaders
 	ActorStatValues:
-		Upgrades: up_advancedthermobarics
+		Upgrades: up_sovietautoloaders
 
 ^ExperimentalTeslaWeaponry:
 	FirepowerMultiplier@up_experimentalteslaweaponry:
@@ -203,15 +203,15 @@ World:
 	ActorStatValues:
 		Upgrades: up_afterburners
 
-^SovietAutoLoaders:
-	ReloadDelayMultiplier@up_sovietautoloaders:
-		RequiresCondition: up_sovietautoloaders
-		Modifier: 60
-	GrantConditionOnPrerequisite@up_sovietautoloaders:
-		Condition: up_sovietautoloaders
-		Prerequisites: up_sovietautoloaders
+^AdvancedThermobarics:
+	FirepowerMultiplier@up_advancedthermobarics:
+		RequiresCondition: up_advancedthermobarics
+		Modifier: 125
+	GrantConditionOnPrerequisite@up_advancedthermobarics:
+		Condition: up_advancedthermobarics
+		Prerequisites: up_advancedthermobarics
 	ActorStatValues:
-		Upgrades: up_sovietautoloaders
+		Upgrades: up_advancedthermobarics
 
 ^SovietSteel:
 	DamageMultiplier@up_sovietsteel:
@@ -2747,7 +2747,7 @@ TTNK:
 		Type: Light
 	Mobile:
 		Speed: 80
-		TurnSpeed: 16
+		TurnSpeed: 32
 	Armament:
 		Weapon: TTankZap
 		LocalOffset: 0,0,213
@@ -3469,39 +3469,45 @@ HIND:
 		Weapon: HindMissiles
 		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
 		RequiresCondition: !up_advancedthermobarics
 	Armament@MissilesUpgrade:
 		Weapon: HindMissilesThermobaric
 		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
 		RequiresCondition: up_advancedthermobarics
 	Armament@PRIMARY:
 		Weapon: ChainGun
 		LocalOffset: 85,-200,-85, 85,200,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
 		RequiresCondition: !up_advancedthermobarics
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ChainGun
 		LocalOffset: 85,200,-85, 85,-200,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
 		RequiresCondition: !up_advancedthermobarics
 	Armament@Upgrade1:
 		Weapon: IncendiaryChainGun
 		LocalOffset: 85,-200,-85, 85,200,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
 		RequiresCondition: up_advancedthermobarics
 	Armament@Upgrade2:
 		Name: secondary
 		Weapon: IncendiaryChainGun
 		LocalOffset: 85,200,-85, 85,-200,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
 		RequiresCondition: up_advancedthermobarics
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
@@ -5255,7 +5261,7 @@ SS:
 		Description: actor-ss.description
 	Mobile:
 		Speed: 75
-		TurnSpeed: 15
+		TurnSpeed: 30
 	Health:
 		HP: 100000
 	ChangesHealth@SelfHealing:
@@ -5317,7 +5323,7 @@ MSUB:
 		Description: actor-msub.description
 	Mobile:
 		Speed: 60
-		TurnSpeed: 12
+		TurnSpeed: 24
 	Health:
 		HP: 70000
 	ChangesHealth@SelfHealing:
@@ -8283,9 +8289,7 @@ MODTNKD:
 		Type: Medium
 	Mobile:
 		Speed: 65
-		TurnSpeed: 13
-	Turreted:
-		TurnSpeed: 13
+		TurnSpeed: 26
 	Armament:
 		Weapon: AlliedTankDestroyerCannon
 		Recoil: 128
@@ -8345,7 +8349,7 @@ CTNK:
 		Type: Medium
 	Mobile:
 		Speed: 100
-		TurnSpeed: 20
+		TurnSpeed: 40
 		Locomotor: heavywheeled
 	Armament@PRIMARY:
 		Weapon: ChronoTusk
@@ -8954,19 +8958,19 @@ up_afterburners:
 		Image: afterburnersicon
 	ProvidesPrerequisite:
 
-up_advancedthermobarics:
+up_sovietautoloaders:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: Advanced Thermobarics
+		Name: Soviet Auto Loaders
 	Valued:
 		Cost: 7500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Upgrades
-		Description: upgrade-advancedthermobarics.description
-		Prerequisites: ~stek, !up_advancedthermobarics
+		Description: upgrade-sovietautoloaders.description
+		Prerequisites: ~stek, !up_sovietautoloaders
 	RenderSprites:
-		Image: advancedthermobaricsicon
+		Image: sovietautoloadersicon
 	ProvidesPrerequisite:
 
 up_experimentalteslaweaponry:
@@ -8984,19 +8988,19 @@ up_experimentalteslaweaponry:
 		Image: experimentalteslaweaponsicon
 	ProvidesPrerequisite:
 
-up_sovietautoloaders:
+up_advancedthermobarics:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: Soviet Auto Loaders
+		Name: Advanced Thermobarics
 	Valued:
 		Cost: 10000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Upgrades
-		Description: upgrade-sovietautoloaders.description
-		Prerequisites: ~stek, !up_sovietautoloaders
+		Description: upgrade-advancedthermobarics.description
+		Prerequisites: ~stek, !up_advancedthermobarics
 	RenderSprites:
-		Image: sovietautoloadersicon
+		Image: advancedthermobaricsicon
 	ProvidesPrerequisite:
 
 up_sovietsteel:
@@ -11382,7 +11386,7 @@ shogunexecutioner:
 		Description: actor-aamecha.description
 	Mobile:
 		Speed: 65
-		TurnSpeed: 13
+		TurnSpeed: 26
 	Health:
 		HP: 3000000
 	Repairable:
