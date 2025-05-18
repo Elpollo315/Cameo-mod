@@ -63,7 +63,7 @@ upberezkacloak:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Commits to the Berezka Upgrade Tree, which focuses on cloak and hit and run units. Enables cloak for Basic Infantry Units and increase their movespeed.
-		Prerequisites: ~tkmradar, ~!upberezkacloak, ~!uptitanarsenal, ~!upnatoarsenal
+		Prerequisites: ~tkmcommandcenter, ~!upberezkacloak, ~!uptitanarsenal, ~!upnatoarsenal
 	RenderSprites:
 		Image: berezkaupgradeicon
 	ProvidesPrerequisite:
@@ -88,7 +88,7 @@ uptitanarsenal:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Commits to the Titan Arsenal Upgrade Tree, which utilizes heavy duty arsenal. Enables Basic Infantry Units to have Lightweight ballistic plating.
-		Prerequisites: ~tkmradar, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
+		Prerequisites: ~tkmcommandcenter, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: titanplatingupgradeicon
@@ -116,7 +116,7 @@ upnatoarsenal:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Commits to the NATO Arsenal Upgrade Tree, which utilizes specialized units to defeat enemies.
-		Prerequisites: ~tkmradar, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
+		Prerequisites: ~tkmcommandcenter, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: natoupgradeicon
@@ -131,7 +131,7 @@ upm16m203:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Gives the troopers grenade launchers.
-		Prerequisites: ~tkmtechcenter, ~upnatoarsenal, ~!upm16m203
+		Prerequisites: ~tkmradar, ~upnatoarsenal, ~!upm16m203
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: upm16m203
@@ -146,7 +146,7 @@ upsemiautorifles:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Changes Riflemen Arsenal to SKS Rifles.
-		Prerequisites: ~tkmtechcenter, ~!upsemiautorifles, ~upberezkacloak
+		Prerequisites: ~tkmradar, ~!upsemiautorifles, ~upberezkacloak
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: tkmsemiicon
@@ -165,7 +165,7 @@ uptwinrockets:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Changes Rocketeer Arsenal to modified dual RPG.
-		Prerequisites: ~tkmtechcenter, ~!uptwinrockets, ~upberezkacloak
+		Prerequisites: ~tkmradar, ~!uptwinrockets, ~upberezkacloak
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: tkmtwinrocketlauncher
@@ -184,7 +184,7 @@ uptkmapbullets:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Changes Juggernauts' Ammo to APFSDS Armor Piercing Rounds.
-		Prerequisites: ~tkmtechcenter, ~!uptkmapbullets, ~uptitanarsenal
+		Prerequisites: ~tkmradar, ~!uptkmapbullets, ~uptitanarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: tkmapbullets
@@ -203,7 +203,7 @@ upincendiaryrockets:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Changes Rocketeer Arsenal to incendiary rockets.
-		Prerequisites: ~tkmtechcenter, ~!upincendiaryrockets, ~uptitanarsenal
+		Prerequisites: ~tkmradar, ~!upincendiaryrockets, ~uptitanarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: tkmincendiaryrockets
@@ -222,7 +222,7 @@ upcryorockets:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Changes Rocketeer Arsenal to Cryo Rockets.
-		Prerequisites: ~tkmtechcenter, ~!upcryorockets, ~upnatoarsenal
+		Prerequisites: ~tkmradar, ~!upcryorockets, ~upnatoarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: cryorocketicon
@@ -321,6 +321,10 @@ tkmcommandcenter:
 	Transforms:
 		IntoActor: tkmmcv
 	ProvidesPrerequisite@buildingname:
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	Targetable@TechStealerInfiltrate:
 		TargetTypes: TechStealerInfiltrate
 	ActorStatValues:
@@ -604,7 +608,7 @@ tkmtechcenter:
 
 tkmbunker:
 	Inherits: ^Defense
-	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@Template: ^BunkerTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
@@ -626,7 +630,8 @@ tkmbunker:
 		HasMinibib: true
 	Cargo:
 		Types: Infantry, Hacker, Fremen
-		MaxWeight: 6
+		MaxWeight: 4
+		EjectOnDeath: false
 	Armament:
 		Weapon: HighV
 		LocalOffset: 256,0,256
@@ -637,10 +642,17 @@ tkmbunker:
 		LocalOffset: 256,0,256
 		MuzzleSequence: muzzle
 		RequiresCondition: up_armorpiercingbullets
+	AttackOpenTopped:
+		Armaments: garrisoned
+		PortOffsets: 300,400,200, -400,500,200, 300,-400,200, -400,-500,200
+		PauseOnCondition: chronobeamed
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
 	BodyOrientation:
 		QuantizedFacings: 8
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
 	WithMuzzleOverlay:
 	Turreted:
 		TurnSpeed: 1023
@@ -651,9 +663,10 @@ tkmbunker:
 
 tkmbunkerquadturret:
 	Inherits: ^Defense
-	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@Template: ^AntiAirDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
-	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@shape: ^1x1Shape
@@ -672,7 +685,7 @@ tkmbunkerquadturret:
 	WithBuildingBib:
 		HasMinibib: true
 	Armament:
-		Weapon: tkmquadcannonmg
+		Weapon: tkmheavyaaturret
 		LocalOffset: 256,0,256
 		MuzzleSequence: muzzle
 	AttackTurreted:
@@ -717,7 +730,7 @@ tkmbunkertankturret:
 	WithBuildingBib:
 		HasMinibib: true
 	Armament:
-		Weapon: 70mm
+		Weapon: tkmturretcannon
 		LocalOffset: 256,0,256
 		MuzzleSequence: muzzle
 	AttackTurreted:
@@ -1356,7 +1369,7 @@ tkmas42:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
@@ -1502,7 +1515,7 @@ tkmquadtruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
@@ -1548,7 +1561,7 @@ tkmzaza:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
@@ -1618,7 +1631,7 @@ tkmzaza:
 		Image: tkmzaza
 		PlayerPalette: player_rgba
 
-technicaltank:
+tkmtechnicaltank:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -1651,7 +1664,7 @@ technicaltank:
 		TurnSpeed: 16
 		Offset: -160,0,400
 	Armament:
-		Weapon: 70mm
+		Weapon: Type89Cannon
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 768,85,90, 768,-85,90
@@ -1672,8 +1685,8 @@ technicaltank:
 		Image: technicaltank
 		PlayerPalette: player_rgba
 
-technicaltankrocketaddon:
-	Inherits: technicaltank
+tkmtechnicaltankrocketaddon:
+	Inherits: tkmtechnicaltank
 	Valued:
 		Cost: 600
 	Tooltip:

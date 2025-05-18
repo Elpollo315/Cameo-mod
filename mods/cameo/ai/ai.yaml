@@ -6315,8 +6315,8 @@ Player:
 			tkmtechnical: 10
 			tkmquadtruck: 5
 			tkmzaza: 5
-			technicaltank: 5
-			technicaltankrocketaddon: 5
+			tkmtechnicaltank: 5
+			tkmtechnicaltankrocketaddon: 5
 			tkmabrams: 5
 			tkmabramspoint: 5
 			t72: 5
