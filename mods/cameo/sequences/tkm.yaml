@@ -331,7 +331,7 @@ tkmbunkertankturret:
 tkmrifleman:
 	Defaults:
 		Filename: poncho.shp
-		Scale: 0.8
+		Scale: 0.9
 	stand:
 		Facings: 8
 		ShadowStart: 248
@@ -403,7 +403,7 @@ tkmtrooper:
 	Inherits: tkmrifleman
 	Defaults:
 		Filename: tkmtrooper.shp
-		Scale: 0.8
+		Scale: 0.9
 	stand:
 		Facings: 8
 		ShadowStart: 496
@@ -467,7 +467,7 @@ tkmtrooper:
 tkmrocketeer:
 	Defaults:
 		Filename: nodrocket.shp
-		Scale: 0.8
+		Scale: 0.9
 	stand:
 		Facings: 8
 		ShadowStart: 468
@@ -538,7 +538,7 @@ tkmrocketeer:
 tkmjug:
 	Defaults:
 		Filename: tkmjug.shp
-		Scale: 0.8
+		Scale: 0.9
 	stand:
 		Facings: 8
 		ShadowStart: 255
@@ -609,7 +609,7 @@ tkmjug:
 tkmengineer:
 	Defaults:
 		Filename: hijacker.shp
-		Scale: 0.8
+		Scale: 0.9
 	stand:
 		Facings: 8
 		Length: 1

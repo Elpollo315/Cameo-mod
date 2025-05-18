@@ -184,29 +184,33 @@ tkmcryorockets:
 		
 tkmt72cannon:
 	Inherits: ^MediumCannon
-	ReloadDelay: 72
-	Range: 4903
-	Report: tnkfire4.aud
+	ReloadDelay: 76
+	Range: 5469
+	Burst: 2
+	BurstDelays: 5
+	Report: cannon1.aud
 	Projectile: Bullet
-		Speed: 543
+		Speed: 546
 	Warhead@MediumCannon: SpreadDamage
-		Damage: 12000
+		Damage: 10000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		Damage: 4
+		Damage: 5
 	Warhead@Effect: CreateEffect
-		Explosions: small_poof	
+		Explosions: small_poof
 
 tkmabramscannon:
 	Inherits: ^MediumCannon
-	ReloadDelay: 72
-	Range: 4903
-	Report: tnkfire4.aud
+	ReloadDelay: 76
+	Range: 5469
+	Burst: 1
+	BurstDelays: 5
+	Report: cannon1.aud
 	Projectile: Bullet
-		Speed: 543
+		Speed: 546
 	Warhead@MediumCannon: SpreadDamage
-		Damage: 8000
+		Damage: 10000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		Damage: 4
+		Damage: 5
 	Warhead@Effect: CreateEffect
 		Explosions: small_poof
 
