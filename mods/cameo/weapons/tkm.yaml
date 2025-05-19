@@ -310,7 +310,7 @@ tkmheavyaaturret:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air, Air, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 
 tkmturretcannon:
@@ -326,3 +326,66 @@ tkmturretcannon:
 		Damage: 5
 	Warhead@Effect: CreateEffect
 		Explosions: small_poof
+
+tkmstrykerrockets:
+	Inherits: ^LightMissile
+	ReloadDelay: 63
+	Range: 8000
+	Burst: 2
+	Report: bazook1.aud
+	ValidTargets: Ground, Water, Trees, Air
+	Warhead@LightMissile: SpreadDamage
+		Damage: 12000
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 9
+		ValidTargets: Ground, Water, Trees, Air
+
+tkmstrykercryorockets:
+	Inherits: ^LightMissile
+	ReloadDelay: 63
+	Range: 8000
+	Burst: 2
+	Report: bazook1.aud
+	ValidTargets: Ground, Water, Trees, Air
+	Warhead@LightMissile: SpreadDamage
+		Damage: 12000
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 9
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@CryoFreeze: GrantExternalCondition
+		Condition: CryoFreeze
+		Duration: 125
+		Range: 1250
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+
+tkmstrykermg:
+	Inherits: ^SmallArms
+	Inherits: ^RA2Chaingun
+	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
+	Range: 8000
+	ReloadDelay: 6
+	ValidTargets: Ground, Water, Trees, Air
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailStartColor: FFAA44
+		ContrailStartWidth: 15
+		ContrailEndColor: FFFFFF
+		ContrailEndColorUsePlayerColor: true
+		ContrailLength: 8
+		Speed: 10000
+		Width: 100
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1

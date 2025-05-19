@@ -1631,6 +1631,104 @@ tkmzaza:
 		Image: tkmzaza
 		PlayerPalette: player_rgba
 
+tkmstryker:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: TKM Stryker
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tkmfactory, ~upnatoarsenal, ~!upcryorockets
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Mobile:
+		Speed: 150
+		TurnSpeed: 30
+	Health:
+		HP: 80000
+	Repairable:
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 11
+	Turreted:
+		TurnSpeed: 30
+		Offset: -350,0,325
+	Armament:
+		Weapon: tkmstrykermg
+		LocalOffset: 171,0,85
+		MuzzleSequence: muzzle
+	Armament@missile:
+		Weapon: tkmstrykerrockets
+		LocalOffset: 171,0,85
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackTurreted:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Upgrades: upnatoarsenal, upcryorockets
+	WithSpriteTurret:
+	RenderSprites:
+		Image: tkmstryker
+		PlayerPalette: player_rgba
+
+tkmstrykercryo:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: TKM Stryker (Cryo Rockets)
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tkmfactory, ~upcryorockets
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Mobile:
+		Speed: 150
+		TurnSpeed: 30
+	Health:
+		HP: 80000
+	Repairable:
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 11
+	Turreted:
+		TurnSpeed: 30
+		Offset: -350,0,325
+	Armament:
+		Weapon: tkmstrykermg
+		LocalOffset: 171,0,85
+		MuzzleSequence: muzzle
+	Armament@missile:
+		Weapon: tkmstrykercryorockets
+		LocalOffset: 171,0,85
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackTurreted:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Upgrades: upnatoarsenal, upcryorockets
+	WithSpriteTurret:
+	RenderSprites:
+		Image: tkmstryker
+		PlayerPalette: player_rgba
+
 tkmtechnicaltank:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -1760,7 +1858,7 @@ tkmabrams:
 	DeliversCash:
 		Payload: 400
 	ActorStatValues:
-		Upgrades: upnatoarsenal
+		Upgrades: upnatoarsenal, uppointdefensesystem
 	RenderSprites:
 		Image: tkmabrams
 		PlayerPalette: player_rgba
