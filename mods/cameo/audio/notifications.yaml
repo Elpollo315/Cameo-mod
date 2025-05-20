@@ -177,6 +177,7 @@ Speech:
 		sow: sow_
 		xmas: r_
 		valentine: r_
+		tkm: ordos_
 	Notifications:
 		AirstrikeReady: airredy1
 		BaseAttack: baseatk1
@@ -367,6 +368,7 @@ Sounds:
 		guild: d2k_
 		smugglers: d2k_
 		emperor: d2k_
+		tkm: ordos_
 	Notifications:
 		Appear: appear1
 		Beacon: bleep2

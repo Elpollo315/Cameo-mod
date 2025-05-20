@@ -853,6 +853,49 @@ tkmriflecamosemiauto:
 		PlayerPalette: playerra2
 		Image: tkmrifleman
 
+tkmspetsnaz:
+	Inherits: ^Soldier
+	Inherits@anim: ^TDRAInfantry
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 160
+	Buildable:
+		BuildPaletteOrder: 1
+		Prerequisites: ~tkmbarracks, ~uptitanarsenal
+		Queue: Infantry, RAInfantry
+		IconPalette: ra2
+	Tooltip:
+		Name: Spetsnaz
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 20000
+	ChangesHealth@SelfHealing:
+		Step: 20
+	Armament@PRIMARY: ##########
+		Weapon: tkmm16
+		LocalOffset: 128,0,256
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: tkmm16
+		MuzzleSequence: garrison-muzzle
+	ActorStatValues:
+		Upgrades: uptitanarsenal
+	WithInfantryBody:
+		IdleSequences: idle1,idle2
+		RequiresCondition: !parachute
+	WithDeathAnimation:
+		DeathSequencePalette: raplayer
+	RenderSprites:
+		Image: tkmspetsnaz
+		PlayerPalette: player_rgba
+
 tkmjug:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
@@ -870,12 +913,12 @@ tkmjug:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~tkmbarracks, ~uptitanarsenal, ~!uptkmapbullets
+		Prerequisites: ~tkmbarracks, ~uptitanarsenal, ~!uptkmapbullets, ~tkmradar
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
 	Mobile:
-		Speed: 60
+		Speed: 45
 	Health:
 		HP: 36000
 	ChangesHealth@SelfHealing:
@@ -887,6 +930,7 @@ tkmjug:
 	Armament@GARRISONED:
 		Weapon: RA2GattlingInf
 		Name: garrisoned
+		MuzzleSequence: garrison-muzzle
 	ReloadDelayMultiplier@GattlingSpeed1:
 		RequiresCondition: gatling >= 1
 		Modifier: 90
@@ -999,25 +1043,14 @@ tkmtrooper:
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		RequiresCondition: !parachute
-	WithInfantryBody@PARACHUTE:
-		StandSequences: parachute
-		RequiresCondition: parachute
 	WithDeathAnimation:
-		DeathSequencePalette: raplayer
+		DeathSequencePalette: playerra2
 	RenderSprites:
 		Image: tkmtrooper
 		PlayerPalette: playerra2
 
 tkmtrooperm203:
-	Inherits: ^Soldier
-	Inherits@anim: ^TDRAInfantry
-	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
-	Inherits@AntiInf: ^PrioritizeInfantry
-	Valued:
-		Cost: 200
+	Inherits: tkmtrooper
 	Buildable:
 		BuildPaletteOrder: 1
 		Prerequisites: ~tkmbarracks, ~upm16m203
@@ -1025,35 +1058,14 @@ tkmtrooperm203:
 		IconPalette: ra2
 	Tooltip:
 		Name: Trooper (M203)
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Mobile:
-		Speed: 60
-	Health:
-		HP: 16000
-	ChangesHealth@SelfHealing:
-		Step: 16
-	Armament@PRIMARY: ##########
-		Weapon: tkmm16
-		LocalOffset: 128,0,256
 	Armament@SECONDARY:
 		Weapon: tkmm203
-		LocalOffset: 0,0,427
-		FireDelay: 15
+		LocalOffset: 128,0,256
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: tkmm16
-		MuzzleSequence: garrison-muzzle
 	ActorStatValues:
 		Upgrades: upnatoarsenal, upm16m203
-	WithInfantryBody:
-		IdleSequences: idle1,idle2
-		RequiresCondition: !parachute
-	WithInfantryBody@PARACHUTE:
-		StandSequences: parachute
-		RequiresCondition: parachute
-	WithDeathAnimation:
-		DeathSequencePalette: raplayer
 	RenderSprites:
 		Image: tkmtrooper
 		PlayerPalette: playerra2
@@ -1311,6 +1323,173 @@ tkmengineernato:
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tkmengineer
+
+tkmsniper:
+	Inherits: ^Soldier
+	Inherits@Template: ^SniperInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Sniper
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~tkmradar
+		Queue: Infantry, RAInfantry
+		Description: actor-ra2snipe.description
+	Mobile:
+		Speed: 55
+	Health:
+		HP: 22000
+	ChangesHealth@SelfHealing:
+		Step: 22
+	Armament@PRIMARY:
+		Weapon: RA2AWP
+		LocalOffset: 0,0,427
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2AWPE
+		LocalOffset: 0,0,427
+		RequiresCondition: rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2AWP
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2AWPE
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	Cloak:
+	Voiced:
+		VoiceSet: TSInfantry
+	RenderSprites:
+		Image: ra2snipe
+
+tkmvon:
+	Inherits: ^Soldier
+	Inherits@Template: ^SniperInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Von
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~tkmradar
+		Queue: Infantry, RAInfantry
+		Description: actor-ra2snipe.description
+		BuildLimit: 1
+	Mobile:
+		Speed: 55
+	Health:
+		HP: 22000
+	ChangesHealth@SelfHealing:
+		Step: 22
+	Armament@PRIMARY:
+		Weapon: RA2AWP
+		LocalOffset: 0,0,427
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2AWPE
+		LocalOffset: 0,0,427
+		RequiresCondition: rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2AWP
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2AWPE
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	Cloak:
+	Voiced:
+		VoiceSet: TSInfantry
+	RenderSprites:
+		Image: ra2snipe
+
+tkmspecialforce:
+	Inherits: ^Soldier
+	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@announce: ^AnnounceGlobal
+	Inherits@anim: ^RA2Infantry
+	Inherits@swim: ^WithSwimsuit
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 900
+	Health:
+		HP: 30000
+	ChangesHealth@SelfHealing:
+		Step: 30
+	Mobile:
+		Speed: 60
+	Tooltip:
+		Name: Special Force
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry, RAInfantry
+		BuildPaletteOrder: 120
+		Prerequisites: ~tkmbarracks, ~upnatoarsenal, ~tkmradar
+		Description: actor-seal.description
+	Armament@PRIMARY:
+		Weapon: RA2MP5
+		RequiresCondition: !rank-elite
+		LocalOffset: 128,0,256
+	Armament@ELITE:
+		Weapon: RA2MP5E
+		RequiresCondition: rank-elite
+		LocalOffset: 128,0,256
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2MP5
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2MP5E
+		RequiresCondition: rank-elite
+	Armament@shipc4:
+		Weapon: SEALAttach
+		Name: secondary
+		Cursor: c4
+		OutsideRangeCursor: c4
+		Voice: Demolish
+	FirepowerMultiplier@Elite:
+		Modifier: 225
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 0
+	AttackMove:
+		Voice: Attack
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		AttackSequences:
+			primary: shoot
+	Voiced:
+		VoiceSet: SealVoice
+	RenderSprites:
+		Image: ra2seal
 
 #######################################
 # TKM Vehicles
@@ -1807,8 +1986,9 @@ tkmabrams:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
+	Inherits@PLD: ^PointLaserDefenseSystem
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
 		Cost: 1000
@@ -1816,7 +1996,7 @@ tkmabrams:
 		Name: Abrams
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~!uppointdefensesystem, ~upnatoarsenal
+		Prerequisites: ~tkmfactory, ~!uppointdefensesystem, ~upnatoarsenal, tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1855,6 +2035,18 @@ tkmabrams:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
+	ReloadAmmoDelayMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 85
+	ReloadAmmoDelayMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 70
+	ReloadAmmoDelayMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 55
+	ReloadAmmoDelayMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 40
 	DeliversCash:
 		Payload: 400
 	ActorStatValues:
@@ -1869,7 +2061,7 @@ tkmabramspoint:
 		Name: Abrams (Point Defense System)
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~uppointdefensesystem
+		Prerequisites: ~tkmfactory, ~uppointdefensesystem, tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1889,7 +2081,7 @@ t72:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -1898,7 +2090,7 @@ t72:
 		Name: T-72M
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~!tkmheavydutyarmor
+		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~!tkmheavydutyarmor, tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1917,7 +2109,7 @@ t72:
 		Range: 6c0
 	Turreted:
 		TurnSpeed: 20 #3
-		Offset: 0,0,200
+		Offset: 0,-25,200
 	Armament:
 		Weapon: tkmt72cannon
 		Recoil: 128
@@ -1952,7 +2144,7 @@ t72heavydutyarmor:
 		HP: 250000
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~tkmheavydutyarmor
+		Prerequisites: ~tkmfactory, ~tkmheavydutyarmor, tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildDuration: 550
@@ -1974,7 +2166,7 @@ tkmkatyushalauncher:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
-		Prerequisites: ~tkmfactory, tkmtechcenter
+		Prerequisites: ~tkmfactory, ~upberezkacloak, tkmtechcenter
 		Description: actor-latin_burrito.description
 	Valued:
 		Cost: 1200
@@ -2027,132 +2219,164 @@ tkmkatyushalauncher:
 # TKM Aircrafts
 #######################################
 
-tkmsiegechopper:
+tkmhuey:
 	Inherits: ^Helicopter
 	Inherits@Template: ^HelicopterTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^RenderVoxel
-	Inherits@detect: ^GenericAirDetector
-	Inherits@bot: ^BotAutoDeploySwitchMode50
-	Inherits@rad: ^RA2RadShells
+	Inherits@exp: ^GainsExperienceRA
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@SovietAutoLoaders: ^SovietAutoLoaders
+	Inherits@AdvancedThermobarics: ^AdvancedThermobarics
+	Inherits@RocketEnhancements: ^RocketEnhancements
+	Inherits@SovietSteel: ^SovietSteel
+	Inherits@eject: ^AircraftEjectOnDeath
+	Buildable:
+		Queue: Aircraft, RAAircraft
+		BuildPaletteOrder: 20
+		Prerequisites: ~tkmairpad
+		Description: actor-hind.description
 	Valued:
-		Cost: 1500
+		Cost: 1800
 	Tooltip:
-		Name: actor-schp.name
+		Name: Viper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Buildable:
-		BuildPaletteOrder: 98
-		Prerequisites: ~tkmairpad
-		Queue: Aircraft, RAAircraft
-		Description: actor-schp.description
-	Aircraft:
-		CanForceLand: false
-		InitialFacing: 896
-		TurnSpeed: 30
-		Speed: 150
-		AltitudeVelocity: 100
-		IdealSeparation: 2500
-		#LandableTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice
-		VTOL: true
-		RepulsionSpeed: 75
-		Voice: Move
-		PauseOnCondition: !undeployed || disabled
 	Health:
-		HP: 55000
+		HP: 100000
+	Repairable:
+		HpPerStep: 5000
 	ChangesHealth@SelfHealing:
-		Step: 22
-	Armament@PRIMARY:
-		Weapon: BlackHawkCannon
-		LocalOffset: 320,0,0
+		Step: 40
+	Armament@Missiles:
+		Weapon: HindMissiles
+		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
-		RequiresCondition: undeployed
-	WithMuzzleOverlay:
-	Armament@DeployTargeter:
-		Weapon: deploytargeting.5c0
-		RequiresCondition: botmicro
-	Armament@Deployed:
-		Name: deployed
-		Weapon: RA160mm
-		LocalOffset: 410,0,650
-		RequiresCondition: !rank-elite && deployed && !upradshells
-		Voice: DeployedAttack
-	Armament@DeployedElite:
-		Name: deployed
-		Weapon: RA160mmE_elite
-		LocalOffset: 410,0,650
-		RequiresCondition: rank-elite && deployed && !upradshells
-		Voice: DeployedAttack
-	Armament@Deployedrad:
-		Name: deployed
-		Weapon: RA160mm_rad
-		LocalOffset: 410,0,650
-		RequiresCondition: !rank-elite && deployed && upradshells
-		Voice: DeployedAttack
-	Armament@DeployedEliterad:
-		Name: deployed
-		Weapon: RA160mmE_elite_rad
-		LocalOffset: 410,0,650
-		RequiresCondition: rank-elite && deployed && upradshells
-		Voice: DeployedAttack
-	RenderRangeCircle:
-		RangeCircleType: vehicle
-		RequiresCondition: deployed && !airborne
-	Turreted:
-		TurnSpeed: 30
-	-AttackAircraft:
-	AttackTurreted:
-		Armaments: primary, deployed
-		Voice: Attack
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !up_advancedthermobarics
+	Armament@MissilesUpgrade:
+		Weapon: HindMissilesThermobaric
+		LocalOffset: 85,250,-85, 85,-250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
+		RequiresCondition: up_advancedthermobarics
+	Armament@PRIMARY:
+		Weapon: ChainGun
+		LocalOffset: 85,-200,-85, 85,200,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !up_advancedthermobarics
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: ChainGun
+		LocalOffset: 85,200,-85, 85,-200,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !up_advancedthermobarics
+	Armament@Upgrade1:
+		Weapon: IncendiaryChainGun
+		LocalOffset: 85,-200,-85, 85,200,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: up_advancedthermobarics
+	Armament@Upgrade2:
+		Name: secondary
+		Weapon: IncendiaryChainGun
+		LocalOffset: 85,200,-85, 85,-200,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: up_advancedthermobarics
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
+	AttackAircraft:
+		FacingTolerance: 40
+		AttackType: Hover
+	Aircraft:
+		TurnSpeed: 24
+		Speed: 120
+	WithIdleOverlay@ROTORAIR:
+		Offset: 0,0,150
+		Sequence: rotor
+		RequiresCondition: airborne
 		PauseOnCondition: disabled
-	HeliGrantConditionOnDeploy:
-		DeployAnimation: deploy
-		DeployedCondition: deployed
-		UndeployedCondition: undeployed
-		DeploySound: vchodepa.wav
-		UndeploySound: vchodepa.wav
-		AllowedTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice, ZergSoil
-		DeployVoice: Deploy
-		UndeployVoice: Move
-		CanDeployOnRamps: true
-		SynchronizeDeployment: True
+	WithIdleOverlay@ROTORGROUND:
+		Offset: 0,0,150
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
 		PauseOnCondition: disabled
-	RejectsOrders@deployment:
-		Reject: Move
-		RequiresCondition: !undeployed && !airborne
-	RejectsOrders@wierdtakeoff:
-		RequiresCondition: !undeployed && airborne
-	-WithShadow:
-	WithMoveAnimation:
-		MoveSequence: move
 	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 1536, 1536
+	WithMuzzleOverlay:
 	SpawnActorOnDeath:
-		Actor: yrschp.Husk
-	RenderSprites:
-		PlayerPalette: ra2buildinghack
-	WithVoxelBody:
-		Sequence: deployed
-		RequiresCondition: deployed && !airborne
-	WithVoxelTurret:
-		RequiresCondition: deployed && !airborne
-	WithVoxelHelicopterBody:
-		TickRate: 1
-		RequiresCondition: undeployed
+		Actor: tkmhuey.husk
+	EjectOnDeath:
+		PilotActor: tkmrifleman
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Selectable:
+		DecorationBounds: 1280, 1280
 	Voiced:
-		VoiceSet: SiegeChopperVoice
-	DeathSounds:
-	FirepowerMultiplier@FirerateCompensation:
-		Modifier: 33
-	FirepowerMultiplier@RadShells:
-		Types: deployed
+		VoiceSet: TSVehicle
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	AmmoPool:
+		Ammo: 12
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 4
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 6
+	FireWarheadsOnDeath:
+		Weapon: LargeHeliExplode
 	RenderSprites:
-		Image: yrschp
-	RenderVoxels:
-		Image: yrschp
+		PlayerPalette: raplayer
+	FirepowerMultiplier@up_rocketenhancements:
+		Modifier: 110
+	RangeMultiplier@up_rocketenhancements:
+		Modifier: 110
+	RevealsShroudMultiplier@up_rocketenhancements:
+		Modifier: 120
+	ActorStatValues:
+		Upgrades:
+	RenderSprites:
+		PlayerPalette: player_rgba
 		
+tkmhuey.husk:
+	Inherits: ^LargeHelicopterHusk
+	Tooltip:
+		Name: Hind
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RenderSprites:
+		Image: tkmhuey
+		PlayerPalette: player_rgba
+
 tkmmig:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^FighterTemplate
@@ -2308,10 +2532,73 @@ tkmdrone:
 			TopLeft: -512, -512
 			BottomRight: 512, 512
 	Voiced:
-		VoiceSet: RobotTankVoice
+		VoiceSet: TSVehicle
 	BodyOrientation:
 		QuantizedFacings: 32
 	-SpawnActorOnDeath:
 	RenderSprites:
 		Image: tkmdrone
+		PlayerPalette: player_rgba
+
+####################################################################################################
+#		TKM Promotions
+####################################################################################################
+		
+t30:
+	Inherits: ^Tank
+	Inherits@Template: ^EpicVehicleTemplate
+	Inherits@Template: ^ArtilleryTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: T-30
+	Buildable:
+		BuildPaletteOrder: 190
+		Prerequisites: ~tkmfactory, ~upnatoarsenal, tkmtechcenter
+		Queue: Vehicle, RAVehicle
+		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
+		BuildDuration: 550
+		BuildDurationModifier: 100
+		BuildLimit: 1
+	Mobile:
+		Locomotor: tracked
+		Speed: 30
+		TurnSpeed: 6
+	Health:
+		HP: 500000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 20 #3
+		Offset: 0,0,200
+	Armament:
+		Weapon: t30shell
+		Recoil: 25
+		RecoilRecovery: 38
+		LocalOffset: 1600,85,90, 1600,-85,90
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackTurreted:
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 400
+	ActorStatValues:
+		Upgrades: uptitanarsenal
+	WithSpriteTurret:
+	RenderSprites:
+		Image: tkmt30
 		PlayerPalette: player_rgba

@@ -389,3 +389,56 @@ tkmstrykermg:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+
+t30shell:
+	Inherits: ^HeavyBomb
+	Inherits: ^RA2Grenade
+	Inherits: ^RA2MediumMissile
+	Inherits: ^MediumCannon
+	ReloadDelay: 185
+	Range: 22000
+	Report: t30cannon.wav
+	ValidTargets: Ground, Water
+	Projectile: Bullet
+		Speed: 700
+		Arm: 2
+		Inaccuracy: 1500
+		RangeLimit: 15000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		MinimumLaunchAngle: 10
+		MaximumLaunchSpeed: 125
+		Acceleration: 5
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 40000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 2
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 12000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 40000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 2
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 40000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 10
+	-Warhead@Effect1:
+	-Warhead@Effect2:
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_large_explosion
+		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+	Warhead@2: FireShrapnel
+		InvalidTargets: FireImmune
+		Weapon: AsianFlameFragment
+		Amount: 4
+		AimChance: 0
+		AimTargetStances: Enemy, Neutral
