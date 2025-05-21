@@ -12981,3 +12981,111 @@ ra2_tractor_driveby:
 	RenderSprites:
 		Image: ra2tractor
 		PlayerPalette: playerra2
+
+# RA2 New Promotions
+
+RA2SUPERAPOC:
+	Inherits: ^Tank
+	Inherits@Template: ^HighTechTankTemplate
+	Inherits@anim: ^RA2Vehicle
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackTurretedVoice
+	Inherits@EMP: ^TurretEMP
+	Inherits@updrone: ^TerrorDroneSurprise
+	Inherits@rad: ^RA2RadShells
+	Inherits@armor: ^RA2SovietArmor
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Apocalypse Tank
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~ra2natech
+		Queue: Vehicle, RAVehicle
+		Description: actor-htnk.description
+	Mobile:
+		Speed: 55
+		TurnSpeed: 11
+	Passenger:
+		Weight: 4
+	Health:
+		HP: 350000
+	Repairable:
+		HpPerStep: 17500
+	ChangesHealth@SelfHealing:
+		Step: 140
+	Armor:
+		Type: Superheavy
+	Turreted:
+		TurnSpeed: 11
+		Offset: 50,0,150
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: RA2120xmm
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 768,85,90, 768,-85,90
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite && !upradshells
+	Armament@PRIMARYRAD:
+		Name: primary
+		Weapon: RA2120xmm_rad
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 768,85,90, 768,-85,90
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite && upradshells
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: RA2MammothTusk
+		LocalOffset: -85,90,340, -85,-90,340
+		LocalYaw: -100, 100
+		Recoil: 10
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Name: primary
+		Weapon: RA2120xmm_elite
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 768,85,90, 768,-85,90
+		MuzzleSequence: muzzle-2
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite && !upradshells
+	Armament@PRIMARYELITERAD:
+		Name: primary
+		Weapon: RA2120xmm_elite_rad
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 768,85,90, 768,-85,90
+		MuzzleSequence: muzzle-2
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite && upradshells
+	Armament@SECONDARYELITE:
+		Name: secondary
+		Weapon: RA2MammothTusk_elite
+		LocalOffset: -85,90,340, -85,-90,340
+		LocalYaw: -100, 100
+		Recoil: 10
+		RequiresCondition: rank-elite
+	AttackTurreted:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1280, 1280
+	Voiced:
+		VoiceSet: ApocalypseTankVoice
+	DeliversCash:
+		Payload: 900
+	RenderSprites:
+		PlayerPalette: playerra2
+	FirepowerMultiplier@RadShells:
+		Types: primary
+	ActorStatValues:
+		Upgrades: updronesurprise, upradshells, upsovietarmor
+	RenderSprites:
+		Image: ra2superapocalypse
+		PlayerPalette: player_rgba

@@ -702,7 +702,7 @@ tkmbunkerquadturret:
 		HasMinibib: true
 	Armament:
 		Weapon: tkmheavyaaturret
-		LocalOffset: 256,0,256
+		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
@@ -1494,7 +1494,7 @@ tkmvon:
 		Name: Von
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~tkmradar
+		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~tkmradar, ~!tkmvon
 		Queue: Infantry, RAInfantry
 		Description: actor-ra2snipe.description
 		BuildLimit: 1
@@ -1800,7 +1800,7 @@ tkmtechnical:
 
 tkmquadtruck:
 	Inherits: ^Vehicle
-	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
@@ -1817,8 +1817,8 @@ tkmquadtruck:
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
-		Speed: 150
-		TurnSpeed: 30
+		Speed: 90
+		TurnSpeed: 18
 	Health:
 		HP: 27500
 	Repairable:
@@ -1827,10 +1827,10 @@ tkmquadtruck:
 		Step: 11
 	Turreted:
 		TurnSpeed: 30
-		Offset: -350,0,125
+		Offset: -350,0,250
 	Armament:
 		Weapon: tkmquadcannonmg
-		LocalOffset: 171,0,85
+		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
 		RequiresCondition: !up_armorpiercingbullets
 	WithMuzzleOverlay:
@@ -2428,7 +2428,7 @@ tkmhueytwin:
 	Valued:
 		Cost: 1800
 	Tooltip:
-		Name: Viper (Twin Missiles)
+		Name: Iroquois (Twin Missiles)
 	Armament@Missiles:
 		Weapon: HueyTwinMissiles
 		LocalOffset: 85,250,-85, 85,-250,-85
@@ -2456,7 +2456,7 @@ tkmhueyfire:
 	Valued:
 		Cost: 1800
 	Tooltip:
-		Name: Viper (Incendiary Missiles)
+		Name: Iroquois (Incendiary Missiles)
 	Armament@Missiles:
 		Weapon: HueyFireMissiles
 		LocalOffset: 85,250,-85, 85,-250,-85
@@ -2484,7 +2484,7 @@ tkmhueycryo:
 	Valued:
 		Cost: 1800
 	Tooltip:
-		Name: Viper (Cryo Missiles)
+		Name: Iroquois (Cryo Missiles)
 	Armament@Missiles:
 		Weapon: HueyCryoMissiles
 		LocalOffset: 85,250,-85, 85,-250,-85
@@ -2523,7 +2523,7 @@ tkmhuey.husk:
 		Image: tkmhuey
 		PlayerPalette: player_rgba
 
-tkmmig:
+tkmviper:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^FighterTemplate
 	Inherits@exp: ^GainsExperienceRA
@@ -2537,9 +2537,9 @@ tkmmig:
 		Prerequisites: ~tkmairpad
 		Description: actor-yak.description
 	Valued:
-		Cost: 800
+		Cost: 3200
 	Tooltip:
-		Name: Mig
+		Name: Viper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2549,34 +2549,19 @@ tkmmig:
 	ChangesHealth@SelfHealing:
 		Step: 6
 	Armament@BOMBS:
-		Weapon: YakNapalm
+		Weapon: BlackEagleMissiles
 		LocalOffset: 0,-256,-32, 0,256,-32
 	Armament@PRIMARY:
 		Weapon: YakChainGun
 		LocalOffset: 256,-213,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
-		RequiresCondition: !up_advancedthermobarics
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: YakChainGun
 		LocalOffset: 256,213,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
-		RequiresCondition: !up_advancedthermobarics
-	Armament@Upgrade1:
-		Weapon: IncendiaryYakChainGun
-		LocalOffset: 256,-213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-		RequiresCondition: up_advancedthermobarics
-	Armament@Upgrade2:
-		Name: secondary
-		Weapon: IncendiaryYakChainGun
-		LocalOffset: 256,213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-		RequiresCondition: up_advancedthermobarics
 	FirepowerMultiplier@doublecannonsandbombs:
 		Modifier: 25
 	AttackAircraft:
@@ -2589,7 +2574,7 @@ tkmmig:
 	Contrail:
 		Offset: -853,0,0
 	SpawnActorOnDeath:
-		Actor: tkmmig.husk
+		Actor: tkmviper.husk
 	EjectOnDeath:
 		PilotActor: RAE2
 	LeavesTrails:
@@ -2618,10 +2603,10 @@ tkmmig:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	RenderSprites:
-		Image: tkmmig
-		PlayerPalette: raplayer
+		Image: tkmviper
+		PlayerPalette: player_rgba
 
-tkmmig.husk:
+tkmviper.husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
 		Name: TKM Mig
@@ -2639,7 +2624,7 @@ tkmmig.husk:
 		TrailWhileStationary: True
 		Type: CenterPosition
 	RenderSprites:
-		Image: tkmmig
+		Image: tkmviper
 		PlayerPalette: raplayer
 
 tkmdrone:
@@ -2783,4 +2768,76 @@ t30:
 	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmt30
+		PlayerPalette: player_rgba
+
+tkmbattlebus:
+	Inherits: ^Tank
+	Inherits@Template: ^LineBreakerTemplate
+	Inherits@anim: ^RA2Vehicle
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	Inherits@crush: ^VehicleCrusher
+	Inherits@cargo: ^OpenToppedVehicle
+	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Battle Bus
+	UpdatesPlayerStatistics:
+		OverrideActor: yrbfrt
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~tkmfactory, ~upberezkacloak, tkmtechcenter
+		Queue: Vehicle, RAVehicle
+		Description: template-opentopped.description
+	Mobile:
+		Speed: 60
+		TurnSpeed: 12
+	Passenger:
+		Weight: 4
+	Health:
+		HP: 120000
+	Repairable:
+		HpPerStep: 6000
+	ChangesHealth@SelfHealing:
+		Step: 48
+	Armor:
+		Type: Heavy
+	#Turreted:
+	#	TurnSpeed: 1023
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 32
+	Armament:
+		Weapon: RA220mmrapid
+		MuzzleSequence: muzzle
+	RenderRangeCircle:
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 0
+	Cargo:
+		UnloadVoice: Move
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 6
+		InitialUnits: tkmriflecamosemiauto,tkmriflecamosemiauto,tkmrocketeertwinrockets,tkmrocketeertwinrockets,tkmrocketeertwinrockets,tkmrocketeertwinrockets
+		ExclusiveDeploy: true
+		DeployType: Battlefortress
+	AttackOpenTopped:
+		Voice: Attack
+		Armaments: garrisoned
+		PortOffsets: 384,0,128, -384,0,128, 224,-341,128, -224,-341,128, 224,341,128, -224,341,128
+		PauseOnCondition: chronobeamed
+	RevealOnFire:
+		ArmamentNames: primary, garrisoned
+	AutoTarget:
+		AllowMovement: true
+	Selectable:
+		DecorationBounds: 1440, 1440, 0, -128
+		Class: yrbfrt
+	Voiced:
+		VoiceSet: BattleFortressVoice
+	RenderSprites:
+		Image: tkmbattlebus
 		PlayerPalette: player_rgba
