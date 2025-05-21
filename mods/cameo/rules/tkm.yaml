@@ -2543,11 +2543,9 @@ tkmviper:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 15000
-	Repairable:
-		HpPerStep: 750
+		HP: 85000
 	ChangesHealth@SelfHealing:
-		Step: 6
+		Step: 34
 	Armament@BOMBS:
 		Weapon: BlackEagleMissiles
 		LocalOffset: 0,-256,-32, 0,256,-32
@@ -2589,9 +2587,9 @@ tkmviper:
 	Selectable:
 		DecorationBounds: 1280, 1280, 0, 128
 	Voiced:
-		VoiceSet: RussianVehicleVoice
+		VoiceSet: TSVehicle
 	AmmoPool:
-		Ammo: 12
+		Ammo: 8
 		AmmoCondition: ammo
 	ReloadAmmoPool:
 		Delay: 8
