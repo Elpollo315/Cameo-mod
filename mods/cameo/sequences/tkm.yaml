@@ -710,6 +710,48 @@ tkmjug:
 		Filename: tkmjuggernauticon.png
 		AddExtension: False
 
+tkmthermonaut:
+	Inherits: tkmjug
+	muzzle:
+		Combine:
+			flame-n:
+				Filename: flame-n.shp
+				Length: *
+				Offset: 1,6
+			flame-nw:
+				Filename: flame-nw.shp
+				Length: *
+				Offset: 8,7
+			flame-w:
+				Filename: flame-w.shp
+				Length: *
+				Offset: 8,2
+			flame-sw:
+				Filename: flame-sw.shp
+				Length: *
+				Offset: 7,-2
+			flame-s:
+				Filename: flame-s.shp
+				Length: *
+				Offset: 1,-2
+			flame-se:
+				Filename: flame-se.shp
+				Length: *
+				Offset: -5,-2
+			flame-e:
+				Filename: flame-e.shp
+				Length: *
+				Offset: -7,2
+			flame-ne:
+				Filename: flame-ne.shp
+				Length: *
+				Offset: -7,8
+		Facings: 8
+		Length: 13
+	icon:
+		Filename: tsblackhandflamericon.shp
+		AddExtension: False
+
 tkmengineer:
 	Defaults:
 		Filename: hijacker.shp
@@ -832,10 +874,10 @@ tkmt30:
 	idle:
 		Filename: tkmt30body.png
 		Facings: -32
-		Scale: 0.25
 	turret:
 		Filename: tkmt30tur.png
-		Facings: 32
+		Offset: 0,0,-500
+		Facings: -32
 		Scale: 1
 	muzzle:
 		Filename: minigun.shp
@@ -970,6 +1012,16 @@ technicaltank:
 	icon:
 		Filename: tkmtechnicaltank.png
 
+tkmradartruck:
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: tkmradartruck.png
+		Facings: 32
+	icon:
+		Filename: tkmas42icon.png
+		AddExtension: False
+
 ####################################################################################################
 #		TKM Upgrade Icons
 ####################################################################################################
@@ -1034,6 +1086,11 @@ tkmheavydutyarmor:
 		Filename: tkmheavydutyarmor.png
 		Length: 1
 
+tkminfantryupgradeicon:
+	icon:
+		Filename: tkminfantryupgradeicon.png
+		Length: 1
+
 ####################################################################################################
 #		TKM Aircrafts
 ####################################################################################################
@@ -1082,4 +1139,4 @@ tkmhuey:
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: hindicon.png
+		Filename: tkmiroquoiicon.png

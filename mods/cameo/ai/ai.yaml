@@ -6323,11 +6323,13 @@ Player:
 			tkmtechnicaltankrocketaddon: 5
 			tkmabrams: 5
 			tkmabramspoint: 5
+			tkmthermonaut: 5
 			t72: 5
 			t72heavydutyarmor: 5
 			tkmkatyushalauncher: 3
 			tkmhuey: 5
 			tkmmig: 5
+			tkmradartruck: 1
 			t30: 1
 			upberezkacloak: 1
 			uptitanarsenal: 1
@@ -6341,6 +6343,7 @@ Player:
 			tkmrocketaddon: 1
 			uppointdefensesystem: 1
 			tkmheavydutyarmor: 1
+			tkminfantryupgrade: 1
 		UnitLimits:
 			#################### UnitLimits Naval
 			cncpt: 10
