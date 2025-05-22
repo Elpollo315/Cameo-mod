@@ -852,7 +852,6 @@ XCOMHQ:
 		Type: Unload
 		DockAngle: 512
 		DockOffset: 0,1280,0
-		MaxQueueLength: 10
 	StoresPlayerResources:
 		Capacity: 10000
 	WithResourceStoragePipsDecoration:

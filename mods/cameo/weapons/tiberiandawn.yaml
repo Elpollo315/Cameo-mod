@@ -25,7 +25,7 @@
 		ContrailDelay: 0
 		ContrailStartWidth: 64
 		ContrailEndWidth: 16
-		
+
 M16:
 	Inherits: ^SmallArms
 	ReloadDelay: 17
@@ -493,8 +493,8 @@ BikeRockets:
 	Inherits: ^LightMissile
 	Burst: 2
 	BurstDelays: 12
-	ReloadDelay: 84
-	Range: 7590
+	ReloadDelay: 92
+	Range: 7500
 	Report: bazook1.aud
 	Warhead@Grenade: SpreadDamage
 		Damage: 2000

@@ -8220,7 +8220,7 @@ missile_tank_ixian:
 		Cost: 2250
 	Mobile:
 		Speed: 50
-		TurnSpeed: 10
+		TurnSpeed: 20
 	Health:
 		HP: 50000
 	Repairable:
@@ -8319,7 +8319,7 @@ d2k_autogun_tank:
 		Type: Heavy
 	Mobile:
 		Speed: 45
-		TurnSpeed: 28
+		TurnSpeed: 18
 	RevealsShroud:
 		Range: 6c768
 	Turreted:
@@ -9026,7 +9026,6 @@ raider:
 	AttackFrontal:
 		FacingTolerance: 0
 	FireWarheadsOnDeath:
-
 		Weapon: D2KUnitExplodeSmall
 		EmptyWeapon: D2KUnitExplodeSmall
 	AttractsWorms:
@@ -9195,7 +9194,7 @@ rocket_raider_ixian:
 		ResetOnFire: false
 	Mobile:
 		Speed: 160
-		TurnSpeed: 32
+		TurnSpeed: 64
 	WithMuzzleOverlay:
 	AttackFrontal:
 		FacingTolerance: 0
@@ -9230,8 +9229,6 @@ rocket_raider_ixian:
 	ReloadAmmoDelayMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
 		Modifier: 75
-	RenderSprites:
-		Image: ix_raider
 	Cargo:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 5
@@ -9244,10 +9241,7 @@ rocket_raider_ixian:
 	ActorStatValues:
 		Upgrades: d2k_heavy_missile_upgrade, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 	RenderSprites:
-		PlayerPalette: player_rgba
-	Turreted:
-		TurnSpeed: 24
-	WithSpriteTurret:
+		Image: raider
 
 shock_raider:
 	Inherits@D2KV: ^D2KVehicle
@@ -9291,10 +9285,9 @@ shock_raider:
 		Type: Medium
 	Mobile:
 		Speed: 120
-		TurnSpeed: 24
+		TurnSpeed: 48
 	WithMuzzleOverlay:
 	Turreted:
-		TurnSpeed: 24
 	WithSpriteTurret:
 	Armament@damage:
 		Weapon: D2K_ShockGun
@@ -9321,7 +9314,6 @@ shock_raider:
 		Image: stealth_raider
 	ActorStatValues:
 		Upgrades: d2k_general_purpose_armor, d2k_advanced_ixian_technology
-
 
 deviator:
 	Inherits@D2KT: ^D2KTank
@@ -9535,6 +9527,7 @@ combat_tank_o_stealth:
 	-Turreted:
 	Mobile:
 		Speed: 90
+		TurnSpeed: 36
 	RenderSprites:
 		Image: d2k_ordos_stealth_tank
 		PlayerPalette: player_rgba
@@ -12800,7 +12793,7 @@ heavy_rocket_raider_ixian:
 	Inherits@D2KSprite: ^D2KPaletteRender
 	Inherits@CARGO: ^CargoVehicle
 	Inherits@CLOAK: ^CloakedVehicle
-	Inherits@IXEMP: ^D2K_Ix_Frontal_EMP
+	Inherits@IXEMP: ^D2K_Ix_Turret_EMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@HeavyMissiles: ^D2K_HeavyMissilesUpgrade
@@ -12846,9 +12839,11 @@ heavy_rocket_raider_ixian:
 	Mobile:
 		Speed: 140
 		TurnSpeed: 28
+	Turreted:
+		TurnSpeed: 28
+	WithSpriteTurret:
 	WithMuzzleOverlay:
-	AttackFrontal:
-		FacingTolerance: 0
+	AttackTurreted:
 	FireWarheadsOnDeath:
 		Weapon: D2KUnitExplodeSmall
 		EmptyWeapon: D2KUnitExplodeSmall
@@ -12864,19 +12859,19 @@ heavy_rocket_raider_ixian:
 		UncloakOn: Attack, Unload
 	Armament@damage:
 		Weapon: D2K_Bazooka2
-		LocalOffset: 64,-64,0, 64,64,0
+		LocalOffset: 256,-32,256, 16,32,256
 		LocalYaw: 64, -64
 		PauseOnCondition: !ammo
 		MuzzleSequence: muzzle
 	Armament@Guns: ##########
 		Weapon: RaiderGuns
-		LocalOffset: 64,-64,0, 64,64,0
+		LocalOffset: 256,0,256
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
 		RequiresCondition: !d2k_needle_guns
 	Armament@Upgrade: ##########
 		Weapon: RaiderGuns_upgrade
-		LocalOffset: 64,-64,0, 64,64,0
+		LocalOffset: 256,0,256
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
 		RequiresCondition: d2k_needle_guns
@@ -12895,7 +12890,8 @@ heavy_rocket_raider_ixian:
 		RequiresCondition: rank-elite
 		Modifier: 75
 	RenderSprites:
-		Image: shock_raider
+		Image: ix_raider
+		PlayerPalette: player_rgba
 	Cargo:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 5
@@ -13122,7 +13118,7 @@ d2k_jammer:
 		RequiresCondition: d2k_advanced_ixian_technology
 		SelectionBarColor: 8888FFFF
 	Mobile:
-		TurnSpeed: 20
+		TurnSpeed: 40
 		Speed: 100
 		Locomotor: hover
 	Hovers:
@@ -13294,8 +13290,8 @@ d2k_apparition:
 	Armor:
 		Type: Plate
 	Mobile:
-		TurnSpeed: 32
 		Speed: 160
+		TurnSpeed: 64
 		Locomotor: hover
 	Armament:
 		Name: primary

@@ -314,7 +314,7 @@
 		PercentageStep: 1
 		Delay: 25
 		StartIfBelow: 100
-		DamageCooldown: 1
+		DamageCooldown: 25
 		RequiresCondition: rank-elite && damaged
 	WithDecoration@RANK-1:
 		Image: rank
@@ -444,7 +444,7 @@
 		PercentageStep: 1
 		Delay: 10
 		StartIfBelow: 100
-		DamageCooldown: 1
+		DamageCooldown: 10
 	TooltipExtras@Melee:
 		Description: Melee
 
@@ -500,9 +500,9 @@
 		Modifier: 40
 	ChangesHealth@ELITE:
 		PercentageStep: 1
-		Delay: 15
+		Delay: 20
 		StartIfBelow: 100
-		DamageCooldown: 1
+		DamageCooldown: 20
 
 ^UnstableEffect:
 	ExternalCondition@unstableeffect:
@@ -1277,6 +1277,8 @@
 	Inherits@EXPERIENCE: ^GainsExperienceVehicle
 	Inherits@EXT: ^ExternalConditions
 	Inherits@VehicleBuffs: ^VehicleBuffs
+	DamageMultiplier@HarvesterBuff:
+		Modifier: 75
 	Armor:
 		Type: Medium
 	RevealsShroud:
@@ -1314,6 +1316,8 @@
 	Inherits@Crushes: ^VehicleCrusher
 	DamageMultiplier@HighTechTankBuff:
 		Modifier: 90
+	FirepowerMultiplier@HighTechTankBuff:
+		Modifier: 110
 	Armor:
 		Type: Medium
 	RevealsShroud:
@@ -1348,10 +1352,13 @@
 ^FireSupportTemplate:
 	Inherits@EXPERIENCE: ^GainsExperienceVehicle
 	Inherits@EXT: ^ExternalConditions
+	Inherits@TankBuffs: ^TankBuffs
 	Inherits@VehicleBuffs: ^VehicleBuffs
 	Inherits@upgrade: ^AdvancedGuerillaTactics
 	FirepowerMultiplier@FireSupportBuff:
-		Modifier: 150
+		Modifier: 125
+	# TurnSpeedMultiplier@FireSupportBuff:
+	# 	Modifier: 200
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -6439,11 +6446,12 @@ CPQDEBUGDUMMY:
 	CashHackable:
 	Refinery:
 		TickRate: 15
-		PlayerExperienceModifier: 10
+		PlayerExperienceModifier: 20
 	StoresPlayerResources:
 		Capacity: 4000
 	DockHost:
 		Type: Unload
+		MaxQueueLength: 50
 	Targetable@infiltrate:
 		TargetTypes: SpyInfiltrate, ThiefInfiltrate
 		RequiresCondition: !untargetable
@@ -6458,8 +6466,6 @@ CPQDEBUGDUMMY:
 		RequiresSelection: true
 		PipCount: 20
 		FullSequence: pip-yellow
-	DockHost:
-		Type: Unload
 
 ^ScaledProducer:
 	GrantConditionOnPrerequisite@Scaled:
@@ -7334,7 +7340,7 @@ CPQDEBUGDUMMY:
 
 ^CashTricklerMultipliers:
 	CashTrickler:
-		PlayerExperienceModifier: 10
+		PlayerExperienceModifier: 20
 		RequiresCondition: owned
 	GrantConditionOnPrerequisite@purifier:
 		Condition: orepurifier

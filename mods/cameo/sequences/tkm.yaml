@@ -10,6 +10,11 @@ tkmcommandcenter:
 		Length: 1
 		ShadowStart: 3
 		Tick: 150
+	dead:
+		Filename: sgcnst.shp
+		Length: 1
+		ShadowStart: 3
+		Tick: 150
 	damaged-idle:
 		Filename: sgcnst.shp
 		Start: 1
@@ -38,6 +43,9 @@ tkmbarracks:
 	idle:
 		Filename: ugbarr.shp
 		ShadowStart: 3
+	dead:
+		Filename: ugbarr.shp
+		ShadowStart: 3
 	damaged-idle:
 		Filename: ugbarr.shp
 		Start: 1
@@ -58,6 +66,9 @@ tkmpowerplant:
 	idle:
 		Filename: ugpowr.shp
 		ShadowStart: 3
+	dead:
+		Filename: ugpowr.shp
+		ShadowStart: 3
 	damaged-idle:
 		Filename: ugpowr.shp
 		Start: 1
@@ -72,18 +83,20 @@ tkmpowerplant:
     
 tkmrefinery:
 	Defaults:
-		Filename: ugsupy.shp
+		Filename: tkmsupplycenter.png
+		Scale: 0.4
 	idle:
-		Filename: ugsupy.shp
-		ShadowStart: 3
+		Filename: tkmsupplycenter.png
+		Length: *
 	damaged-idle:
-		Filename: ugsupy.shp
-		Start: 1
-		ShadowStart: 4
+		Filename: tkmsupplycenter.png
+		Length: *
+	dead:
+		Filename: tkmsupplycenter.png
+		Length: 1
 	make:
-		Filename: ugsupymk.shp
-		Length: 16
-		ShadowStart: 16
+		Filename: tkmsupplycentermake.png
+		Length: 20
 	resources:
 		Filename: invisibleitem.shp
 	icon:
@@ -132,6 +145,9 @@ tkmradar:
 	idle:
 		Filename: ugrvan.shp
 		ShadowStart: 3
+	dead:
+		Filename: ugrvan.shp
+		ShadowStart: 3
 	damaged-idle:
 		Filename: ugrvan.shp
 		Start: 1
@@ -141,7 +157,7 @@ tkmradar:
 		Length: 15
 		ShadowStart: 15
 	icon:
-		Filename: ra2abrk.shp
+		Filename: glaradarvan.png
 		Offset: 0,0
     
 tkmtechcenter:
@@ -156,6 +172,9 @@ tkmtechcenter:
 		Filename: ugpala.shp
 		Start: 1
 		ShadowStart: 4
+	dead:
+		Filename: ugpala.shp
+		ShadowStart: 3
 	make:
 		Filename: ugpalamk.shp
 		Length: 13
@@ -164,23 +183,21 @@ tkmtechcenter:
 		Filename: glapalaceicon.png
 		Offset: 0,0
     
-tkmguardtower:
+tkmbunker:
 	Defaults:
-		Filename: ggspot.shp
+		Filename: tkmbunker.png
+		Scale: 0.7
 	idle:
-		Start: 0
-		ShadowStart: 3
+		Start: 20
+		Length: 1
 	damaged-idle:
-		Start: 1
-		ShadowStart: 4
+		Start: 20
+		Length: 1
 	dead:
-		Start: 2
-		ShadowStart: 5
-		Tick: 800
+		Start: 20
+		Length: 1
 	make:
-		Filename: ggspotmk.shp
-		Length: 10
-		ShadowStart: 10
+		Length: 20
 		Tick: 80
 	muzzle:
 		Filename: minigun.shp
@@ -207,6 +224,7 @@ tkmguardtower:
 
 tkmairpad:
 	Defaults:
+		Scale: 0.8
 		Filename: tkmairpad.png
 	idle:
 		Start: 25
@@ -220,6 +238,92 @@ tkmairpad:
 		Filename: tkmairpadicon.png
 		AddExtension: False
 
+tkmbunkerquadturret:
+	Defaults:
+		Filename: tkmbunker.png
+		Scale: 0.5
+	idle:
+		Start: 20
+		Length: 1
+	damaged-idle:
+		Start: 20
+		Length: 1
+	dead:
+		Start: 20
+		Length: 1
+	make:
+		Length: 20
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	turret:
+		Filename: tkmquadtruckturret.png
+		Facings: -32
+		Scale: 0.5
+	icon:
+		Filename: gtwricnh.shp
+		AddExtension: False
+
+tkmbunkertankturret:
+	Defaults:
+		Filename: tkmbunker.png
+		Scale: 0.7
+	idle:
+		Start: 20
+		Length: 1
+	damaged-idle:
+		Start: 20
+		Length: 1
+	dead:
+		Start: 20
+		Length: 1
+	make:
+		Length: 20
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	turret:
+		Filename: technicaltankturret.png
+		Facings: -32
+		Scale: 0.8
+	icon:
+		Filename: gtwricnh.shp
+		AddExtension: False
+
 #######################################
 # TKM Infantry Reporting!
 #######################################
@@ -227,7 +331,7 @@ tkmairpad:
 tkmrifleman:
 	Defaults:
 		Filename: poncho.shp
-		Scale: 0.8
+		Scale: 1
 	stand:
 		Facings: 8
 		ShadowStart: 248
@@ -260,39 +364,206 @@ tkmrifleman:
 		ShadowStart: 376
 	die:
 		Start: 209
-		Length: 20
+		Length: 19
 		ShadowStart: 456
 	die1:
 		Start: 209
-		Length: 20
+		Length: 19
 		ShadowStart: 456
 	die2:
 		Start: 209
-		Length: 20
+		Length: 19
 		ShadowStart: 456
 	die3:
 		Start: 209
-		Length: 20
+		Length: 19
 		ShadowStart: 456
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die4:
 		Filename: frag3.shp
 		Length: *
 	die6:
 		Start: 209
-		Length: 20
+		Length: 19
 		ShadowStart: 456
+	die7: electro
+		Length: *
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
 		Scale: 1.5
+	garrison-muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+		InterpolatedFacings: 32
+		Tick: 30
+		Offset: 0,0
 	icon:
 		Filename: tkmriflemanicon.png
+		AddExtension: False
+
+tkmtrooper:
+	Inherits: tkmrifleman
+	Defaults:
+		Filename: tkmtrooper.shp
+		Scale: 1
+	stand:
+		Facings: 8
+		ShadowStart: 496
+	run:
+		Start: 8
+		Length: 10
+		Facings: 8
+		Tick: 80
+		ShadowStart: 504
+	idle:
+		Facings: 8
+		ShadowStart: 496
+	idle1:
+		Start: 88
+		Length: 20
+		Facings: 1
+		Tick: 80
+		ShadowStart: 584
+	idle2:
+		Start: 108
+		Length: 19
+		Facings: 1
+		Tick: 80
+		ShadowStart: 604
+	shoot:
+		Start: 128
+		Length: 10
+		Facings: 8
+		Tick: 80
+		ShadowStart: 624
+	die:
+		Start: 209
+		Length: 20
+		ShadowStart: 456
+	die1:
+		Start: 209
+		Length: 19
+		ShadowStart: 456
+	die2:
+		Start: 209
+		Length: 19
+		ShadowStart: 456
+	die3:
+		Start: 209
+		Length: 19
+		ShadowStart: 456
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
+	die6:
+		Start: 209
+		Length: 19
+		ShadowStart: 456
+	die7: electro
+		Length: *
+	garrison-muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+		InterpolatedFacings: 32
+		Tick: 30
+		Offset: 0,0
+	icon:
+		Filename: tkmtroopericon.png
+		AddExtension: False
+
+tkmspetsnaz:
+	Defaults:
+		Filename: spetsnazidle.png
+		Scale: 0.6
+	stand:
+		Filename: spetsnazidle.png
+		Facings: 8
+		Length: 1
+	run:
+		Filename: spetsnazwalk.png
+		Length: 10
+		Facings: 8
+		Tick: 80
+	idle:
+		Filename: spetsnazidle.png
+		Length: 1
+		Facings: 8
+	idle1:
+		Filename: spetsnazidle2.png
+		Length: 15
+		Facings: 1
+		Tick: 80
+	idle2:
+		Filename: spetsnazidle2.png
+		Length: 15
+		Facings: 1
+		Tick: 80
+	shoot:
+		Filename: spetsnazshoot.png
+		Length: 15
+		Facings: 8
+		Tick: 80
+	die:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die1:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die2:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die3:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die4:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die5:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die6:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die7:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	die-crushed:
+		Filename: spetsnazdie.png
+		Length: 15
+		Tick: 80
+	garrison-muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+		InterpolatedFacings: 32
+		Tick: 30
+		Offset: 0,0
+	icon:
+		Filename: tkmspetsnazicon.png
 		AddExtension: False
 
 tkmrocketeer:
 	Defaults:
 		Filename: nodrocket.shp
-		Scale: 0.8
+		Scale: 1
 	stand:
 		Facings: 8
 		ShadowStart: 468
@@ -342,10 +613,16 @@ tkmrocketeer:
 	die4:
 		Filename: frag3.shp
 		Length: *
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die6:
 		Start: 209
 		Length: 20
 		ShadowStart: 696
+	die7: electro
+		Length: *
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
@@ -357,7 +634,7 @@ tkmrocketeer:
 tkmjug:
 	Defaults:
 		Filename: tkmjug.shp
-		Scale: 0.8
+		Scale: 0.9
 	stand:
 		Facings: 8
 		ShadowStart: 255
@@ -404,10 +681,16 @@ tkmjug:
 		Start: 223
 		Length: 15
 		ShadowStart: 478
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die6:
 		Start: 223
 		Length: 15
 		ShadowStart: 478
+	die7: electro
+		Length: *
 	die4:
 		Filename: frag3.shp
 		Length: *
@@ -415,14 +698,64 @@ tkmjug:
 		Filename: blue_frag3.shp
 		Length: *
 		Scale: 1.5
+	garrison-muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+		InterpolatedFacings: 32
+		Tick: 30
+		Offset: 0,0
 	icon:
 		Filename: tkmjuggernauticon.png
+		AddExtension: False
+
+tkmthermonaut:
+	Inherits: tkmjug
+	muzzle:
+		Combine:
+			flame-n:
+				Filename: flame-n.shp
+				Length: *
+				Offset: 1,6
+			flame-nw:
+				Filename: flame-nw.shp
+				Length: *
+				Offset: 8,7
+			flame-w:
+				Filename: flame-w.shp
+				Length: *
+				Offset: 8,2
+			flame-sw:
+				Filename: flame-sw.shp
+				Length: *
+				Offset: 7,-2
+			flame-s:
+				Filename: flame-s.shp
+				Length: *
+				Offset: 1,-2
+			flame-se:
+				Filename: flame-se.shp
+				Length: *
+				Offset: -5,-2
+			flame-e:
+				Filename: flame-e.shp
+				Length: *
+				Offset: -7,2
+			flame-ne:
+				Filename: flame-ne.shp
+				Length: *
+				Offset: -7,8
+		Facings: 8
+		Length: 13
+	icon:
+		Filename: tsblackhandflamericon.shp
 		AddExtension: False
 
 tkmengineer:
 	Defaults:
 		Filename: hijacker.shp
-		Scale: 0.8
+		Scale: 0.9
 	stand:
 		Facings: 8
 		Length: 1
@@ -460,11 +793,17 @@ tkmengineer:
 	die4:
 		Filename: frag3.shp
 		Length: *
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
 	die6:
 		Start: 88
 		Facings: 1
 		Length: 20
 		ShadowStart: 277
+	die7: electro
+		Length: *
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
@@ -503,7 +842,7 @@ tkmharv:
 	idle:
 		Facings: -32
 	icon:
-		Filename: chinasupplytruck.png
+		Filename: tkmsupplytruckicon.png
 
 tkmharvfull:
 	Defaults:
@@ -516,7 +855,13 @@ tkmharvfull:
 
 tkmt72:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: tkmt72body.png
+		Facings: -32
+		Scale: 0.7
+	turret:
+		Filename: tkmt72tur.png
+		Facings: -32
+		Scale: 0.7
 	muzzle:
 		Filename: minigun.shp
 		Length: 6
@@ -525,9 +870,32 @@ tkmt72:
 		Filename: tkmt72icon.png
 		AddExtension: False
 
+tkmt30:
+	idle:
+		Filename: tkmt30body.png
+		Facings: -32
+	turret:
+		Filename: tkmt30tur.png
+		Offset: 0,0,-500
+		Facings: -32
+		Scale: 1
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmt30icon.png
+		AddExtension: False
+
 tkmabrams:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: tkmabramsbody.png
+		Facings: -32
+		Scale: 0.3
+	turret:
+		Filename: tkmabramstur.png
+		Facings: -32
+		Scale: 0.3
 	muzzle:
 		Filename: minigun.shp
 		Length: 6
@@ -538,11 +906,12 @@ tkmabrams:
 
 tkmtechnicaltruck:
 	Defaults:
-		Filename: quadcannon.png
+		Filename: tkmquadtruck.png
+		Scale: 0.5
 	idle:
 		Facings: -32
 	turret:
-		Filename: quadcannonturret.png
+		Filename: tkmquadtruckturret.png
 		Facings: -32
 	muzzle:
 		Filename: minigun.shp
@@ -550,6 +919,24 @@ tkmtechnicaltruck:
 		Facings: 8
 	icon:
 		Filename: tkmquadcannonicon.png
+		AddExtension: False
+
+tkmstryker:
+	Defaults:
+		Filename: tkmstrykerbody.png
+	idle:
+		Facings: -32
+		Scale: 0.6
+	turret:
+		Filename: tkmstrykerturret.png
+		Facings: -32
+		Scale: 0.6
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmstrykericon.png
 		AddExtension: False
 
 tkmzaza:
@@ -626,6 +1013,30 @@ technicaltank:
 	icon:
 		Filename: tkmtechnicaltank.png
 
+tkmradartruck:
+	Defaults:
+		Scale: 0.7
+	idle:
+		Filename: tkmradartruck.png
+		Facings: 32
+	icon:
+		Filename: tkmas42icon.png
+		AddExtension: False
+
+tkmbattlebus:
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: tkmbattlebus.png
+		Facings: 32
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmas42icon.png
+		AddExtension: False
+
 ####################################################################################################
 #		TKM Upgrade Icons
 ####################################################################################################
@@ -638,6 +1049,11 @@ berezkaupgradeicon:
 titanplatingupgradeicon:
 	icon:
 		Filename: titanplatingupgradeicon.png
+		Length: 1
+
+natoupgradeicon:
+	icon:
+		Filename: natoupgradeicon.png
 		Length: 1
 
 tkmsemiicon:
@@ -660,15 +1076,82 @@ tkmincendiaryrockets:
 		Filename: tkmincendiaryrockets.png
 		Length: 1
 
-tkmmig:
+upm16m203:
+	icon:
+		Filename: upm16m203.png
+		Length: 1
+
+cryorocketicon:
+	icon:
+		Filename: cryorocketicon.png
+		Length: 1
+
+tkmpointdefensesystem:
+	icon:
+		Filename: tkmpointdefensesystem.png
+		Length: 1
+
+tkmrocketaddon:
+	icon:
+		Filename: tkmrocketaddon.png
+		Length: 1
+
+tkmheavydutyarmor:
+	icon:
+		Filename: tkmheavydutyarmor.png
+		Length: 1
+
+tkminfantryupgradeicon:
+	icon:
+		Filename: tkminfantryupgradeicon.png
+		Length: 1
+
+####################################################################################################
+#		TKM Aircrafts
+####################################################################################################
+
+tkmviper:
 	Defaults:
-		Filename: tkmmig.shp
+		Filename: tkmviper.png
+		Scale: 0.15
 	idle:
-		Facings: 16
+		Facings: -32
 		InterpolatedFacings: 64
 	muzzle:
 		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: yakicon.png
+		Filename: tkmvipericon.png
+
+tkmdrone:
+	Defaults:
+		Filename: tkmdrone.png
+	idle:
+		Facings: -32
+		Scale: 0.5
+	icon:
+		Filename: tkmdroneicon.png
+
+tkmhuey:
+	Defaults:
+		Filename: tkmhuey.png
+		Scale: 0.25
+	idle:
+		Facings: -32
+		InterpolatedFacings: 64
+	rotor:
+		Filename: hindrotor.shp
+		Scale: 1.0
+		Length: 4
+	slow-rotor:
+		Filename: hindrotor.shp
+		Scale: 1.0
+		Start: 4
+		Length: 8
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmiroquoiicon.png

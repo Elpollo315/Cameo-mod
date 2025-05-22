@@ -689,6 +689,7 @@ zergsoilmaker2:
 		Length: *
 	icon:
 		Filename: sccreepcolonyicon.shp
+
 sccreepcolony:
 	Defaults:
 		Filename: sccreepcolony.png

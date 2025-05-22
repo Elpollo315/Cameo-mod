@@ -951,8 +951,8 @@ WraithRockets:
 	Inherits: ^MediumMissile
 	Inherits: ^D2KRocket
 	Report: TPhFi200.aud
-	ReloadDelay: 22
-	Range: 5000
+	ReloadDelay: 24
+	Range: 5076
 	ValidTargets: Air
 	Projectile: Missile
 		Blockable: false
@@ -991,8 +991,8 @@ WraithLaser:
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees
 	Report: TPhFi100.aud
-	ReloadDelay: 30
-	Range: 5000
+	ReloadDelay: 32
+	Range: 5076
 	Projectile: Bullet
 		Speed: 1000
 		ContrailLength: 5
@@ -1634,8 +1634,8 @@ MutaliskSpore:
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^SmallArms
 	Inherits: ^ArrowWeapon
-	ReloadDelay: 30
-	Range: 3800
+	ReloadDelay: 20
+	Range: 4444
 	Report: zmufir00.aud
 	ValidTargets: Ground, Water, Air
 	TargetActorCenter: true
@@ -1694,7 +1694,7 @@ MutaliskSpore:
 
 MutaBounce1:
 	Inherits: MutaliskSpore
-	Range: 1900
+	Range: 2222
 	Warhead@SwordWeapon: SpreadDamage
 		Damage: 4000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
@@ -1720,7 +1720,7 @@ MutaBounce1:
 
 MutaBounce2:
 	Inherits: MutaliskSpore
-	Range: 950
+	Range: 1111
 	Warhead@SwordWeapon: SpreadDamage
 		Damage: 2000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
@@ -3214,7 +3214,7 @@ ScoutRockets:
 	Inherits: ^D2KRocket
 	Report: HKMISSLE.aud
 	ReloadDelay: 40
-	Range: 4545
+	Range: 5667
 	ValidTargets: Air
 	Projectile: Missile
 		Blockable: false
@@ -3970,7 +3970,7 @@ ScoutMG:
 	Inherits: ^RA2Chaingun
 	Report: blastgn2.aud
 	ValidTargets: Ground, Water, Trees
-	Range: 4545
+	Range: 5667
 	ReloadDelay: 32
 	Projectile: Bullet
 		TrailImage: blue_smokey
@@ -4212,7 +4212,7 @@ PatriarchShoot:
 	Inherits: ^MediumMissile
 	Inherits: ^Chaingun
 	Inherits: ^FlakWeapon
-	Range: 7500
+	Range: 5000
 	ReloadDelay: 75
 	Burst: 2
 	BurstDelays: 0
@@ -4290,23 +4290,23 @@ PatriarchShoot:
 
 PatriarchShoot1:
 	Inherits: PatriarchShoot
-	Range: 6000
+	Range: 4000
 	Warhead@shrapnel: FireShrapnel
 		Weapon: PatriarchShoot2
 
 PatriarchShoot2:
 	Inherits: PatriarchShoot
-	Range: 4500
+	Range: 3000
 	Warhead@shrapnel: FireShrapnel
 		Weapon: PatriarchShoot3
 
 PatriarchShoot3:
 	Inherits: PatriarchShoot
-	Range: 3000
+	Range: 2000
 	Warhead@shrapnel: FireShrapnel
 		Weapon: PatriarchShoot4
 
 PatriarchShoot4:
 	Inherits: PatriarchShoot
-	Range: 1500
+	Range: 1000
 	-Warhead@shrapnel:

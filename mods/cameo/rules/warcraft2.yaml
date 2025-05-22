@@ -302,7 +302,7 @@ Player:
 	Inherits@WC2POLYMORPH: ^wc2_h_polymorph_status
 	Inherits@WC2INVISIBILITY: ^wc2_h_invisibility_status
 	Targetable:
-		TargetTypes: Ground, Ant, Cyborg
+		TargetTypes: Ground, Infantry, Monster
 
 ^WC2Vehicle:
 	Inherits: ^Vehicle
@@ -354,7 +354,7 @@ Player:
 		BaleLoadDelay: 8
 		BaleUnloadDelay: 1
 		BaleUnloadAmount: 2
-		FullyLoadedSpeed: 75
+		FullyLoadedSpeed: 50
 	StoresResources:
 		Capacity: 8
 	WithStoresResourcesPipsDecoration:
@@ -1422,6 +1422,7 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	Armor:
 		Type: Concrete
 	Buildable:
+		BuildLimit: 1
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 20
 		BuildDuration: 1500
@@ -1589,9 +1590,9 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	Buildable:
 		BuildPaletteOrder: 20
 	Health:
-		HP: 80000
+		HP: 40000
 	ChangesHealth@SelfHealing:
-		Step: 32
+		Step: 16
 	Mobile:
 		Speed: 80
 	#Food
@@ -1609,9 +1610,9 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	Buildable:
 		BuildPaletteOrder: 10
 	Health:
-		HP: 40000
+		HP: 50000
 	ChangesHealth@SelfHealing:
-		Step: 40
+		Step: 50
 	Mobile:
 		Speed: 65
 	#Food
@@ -2433,11 +2434,16 @@ wc2_human_church:
 	IonCannonPower@HOLYVISION:
 		OrderName: wc2_holyvision
 		PauseOnCondition: lowpower
-		Icon: holyvision
+		Prerequisites:
+			1:
+		Icons:
+			1: holyvision
+		Names:
+			1: Holy Vision
+		Descriptions:
+			1: Reveals an area of the map\nand cloaked enemy units.
 		Cursor: ability
 		ChargeInterval: 3750
-		Name: Holy Vision
-		Description: Reveals an area of the map\nand cloaked enemy units.
 		EndChargeSpeechNotification: SpyPlaneReady
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -2455,11 +2461,16 @@ wc2_human_church:
 	IonCannonPower@HEALING:
 		OrderName: wc2_healing
 		PauseOnCondition: lowpower
-		Icon: healing
+		Prerequisites:
+			1:
+		Icons:
+			1: healing
+		Names:
+			1: Healing
+		Descriptions:
+			1: Heals a group of units.
 		Cursor: ability
 		ChargeInterval: 3750
-		Name: Healing
-		Description: Heals a group of units.
 		EndChargeSpeechNotification: AirstrikeReady
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -2554,12 +2565,16 @@ wc2_human_mage_tower:
 	IonCannonPower@BLIZZARD:
 		OrderName: wc2_blizzard
 		PauseOnCondition: lowpower
-		Prerequisites: ~techlevel.superweapons
-		Icon: blizzard
+		Prerequisites:
+			1: ~techlevel.superweapons
+		Icons:
+			1: blizzard
+		Names:
+			1: Blizzard
+		Descriptions:
+			1: Rain down icy death in a large area.
 		Cursor: ioncannon
 		ChargeInterval: 7500
-		Name: Blizzard
-		Description: Rain down icy death in a large area.
 		BeginChargeSpeechNotification: IonCannonCharging
 		EndChargeSpeechNotification: IonCannonReady
 		SelectTargetSpeechNotification: SelectTarget
@@ -2571,6 +2586,8 @@ wc2_human_mage_tower:
 		SupportPowerPaletteOrder: 90
 		Weapon: wc2blizzardSuper
 		WeaponDelay: 0
+		TargetCircleRanges:
+			1: 7000
 		Effect: wc2_effect_blizzard
 		EffectSequence: hit
 
@@ -2594,7 +2611,7 @@ wc2_human_shipyard:
 	Tooltip:
 		Name: Shipyard
 	Buildable:
-		Prerequisites: ~wc2_human_elven_lumber_mill
+		Prerequisites: ~wc2_human_elven_lumber_mill, ~globalnaval
 		Queue: Building, RABuilding
 		Description: Produces and repairs ships.
 	Voiced:
@@ -2643,6 +2660,7 @@ wc2_human_scout_tower:
 	Inherits@shape: ^2x2Shape
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@EXPERIENCE: ^GainsExperienceBuildings
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
 	Tooltip:
 		Name: Human Scout Tower
 		RequiresCondition: !guard && !cannon
@@ -2711,12 +2729,18 @@ wc2_human_scout_tower:
 		Name: cannon
 		RequiresCondition: cannon && !guard
 	-WithMakeAnimation:
-	AttackOmni:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 1023
+	AttackTurreted:
 		Armaments: primary, cannon, guard
 		PauseOnCondition: disabled
 	Armament@guard:
 		Weapon: wc2_tower_arrow
 		RequiresCondition: guard
+		LocalOffset: 0,0,500
 	Armament@cannon:
 		Name: cannon
 		Weapon: wc2cannontowerFire
@@ -2994,8 +3018,11 @@ wc2_human_peasant:
 	Armament:
 		Weapon: wc2peasantsmack
 		FireDelay: 7
+	-WithInfantryBody:
 	WithHarvesterSpriteBody:
 		ImageByFullness: wc2_human_peasant, wc2_human_peasantgold
+	WithMoveAnimation:
+		MoveSequence: run
 	Voiced:
 		VoiceSet: wc2voicehumanpeasant
 	-DamagedByTerrain:
@@ -3096,7 +3123,7 @@ wc2_human_elven_ranger:
 # Knight also has built-in paladin stuff so that paladin's upgrades and spells will be applied to already-built knights, just as in WC2.
 wc2_human_knight:
 	Inherits@WC2VEHICLE: ^WC2Vehicle
-	Inherits@Template: ^HighTechTankTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@WC2SwordUpg: ^wc2_h_str_sword
@@ -3117,7 +3144,7 @@ wc2_human_knight:
 		Step: 44
 	Mobile:
 		Speed: 110
-		TurnSpeed: 22
+		TurnSpeed: 44
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~wc2_human_stables, ~!wc2_h_paladinupg
@@ -3639,20 +3666,21 @@ wc2_human_gnomish_flying_machine:
 
 wc2_human_gryphon_rider:
 	Inherits@WC2AirUnit: ^WC2AirUnit
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^SpaceshipTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@HCannonUpg: ^wc2_h_str_cannon
 	Tooltip:
 		Name: Gryphon Rider
 	Valued:
-		Cost: 1200
+		Cost: 4800
 	Power:
-		Amount: -60
+		Amount: -240
 	Health:
-		HP: 27500
+		HP: 275000
 	ChangesHealth@SelfHealing:
-		Step: 11
+		Step: 110
 	Aircraft:
 		Speed: 145
 		TurnSpeed: 29
@@ -3669,12 +3697,7 @@ wc2_human_gryphon_rider:
 		Weapon: wc2gryphonFireVisible
 		LocalOffset: 400,0,0
 		Name: primary
-		FireDelay: 7
-	Armament@EXPLOSIONS:
-		Weapon: wc2gryphonFireExplosion
-		LocalOffset: 400,0,0
-		Name: secondary
-		FireDelay: 7
+		FireDelay: 3
 	AttackAircraft:
 		FacingTolerance: 0
 		AttackType: Hover
@@ -4269,12 +4292,16 @@ wc2_orc_temple_of_the_damned:
 	IonCannonPower@DEATHANDDECAY:
 		OrderName: wc2_deathanddecay
 		PauseOnCondition: lowpower
-		Prerequisites: ~techlevel.superweapons
-		Icon: deathanddecay
+		Prerequisites:
+			1: ~techlevel.superweapons
+		Icons:
+			1: deathanddecay
+		Names:
+			1: Death and decay
+		Descriptions:
+			1: Rots and kills in a large area.
 		Cursor: ioncannon
 		ChargeInterval: 7500
-		Name: Death and decay
-		Description: Rots and kills in a large area.
 		BeginChargeSpeechNotification: IonCannonCharging
 		EndChargeSpeechNotification: IonCannonReady
 		SelectTargetSpeechNotification: SelectTarget
@@ -4286,6 +4313,8 @@ wc2_orc_temple_of_the_damned:
 		SupportPowerPaletteOrder: 90
 		Weapon: wc2deathanddecaySuper
 		WeaponDelay: 0
+		TargetCircleRanges:
+			1: 7000
 		Effect: wc2_effect_death_and_decay
 		EffectSequence: idle
 
@@ -4309,7 +4338,7 @@ wc2_orc_shipyard:
 	Tooltip:
 		Name: Shipyard
 	Buildable:
-		Prerequisites: ~wc2_orc_troll_lumber_mill
+		Prerequisites: ~wc2_orc_troll_lumber_mill, ~globalnaval
 		Queue: Building, RABuilding
 		Description: Produces and repairs ships.
 	Voiced:
@@ -4358,6 +4387,7 @@ wc2_orc_watch_tower:
 	Inherits@shape: ^2x2Shape
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@EXPERIENCE: ^GainsExperienceBuildings
+	Inherits@WC2OShieldUpg: ^wc2_o_str_shield
 	Tooltip:
 		Name: Orc Watch Tower
 		RequiresCondition: !guard && !cannon
@@ -4426,13 +4456,18 @@ wc2_orc_watch_tower:
 		Name: cannon
 		RequiresCondition: cannon && !guard
 	-WithMakeAnimation:
+	BodyOrientation:
+		QuantizedFacings: 16
+	WithSpriteTurret:
 	Turreted:
+		TurnSpeed: 1023
 	AttackTurreted:
-		Armaments: primary, cannon, guard
+		Armaments: primary, cannon
 		PauseOnCondition: disabled
 	Armament@guard:
 		Weapon: wc2_tower_arrow
 		RequiresCondition: guard
+		LocalOffset: 0,0,500
 	Armament@cannon:
 		Name: cannon
 		Weapon: wc2cannontowerFire
@@ -4683,8 +4718,11 @@ wc2_orc_peon:
 	Armament:
 		Weapon: wc2peasantsmack
 		FireDelay: 7
+	-WithInfantryBody:
 	WithHarvesterSpriteBody:
 		ImageByFullness: wc2_orc_peon, wc2_orc_peon_full
+	WithMoveAnimation:
+		MoveSequence: run
 	Voiced:
 		VoiceSet: wc2voiceorcpeongrunt
 	-DamagedByTerrain:
@@ -4785,7 +4823,7 @@ wc2_orc_troll_berserker:
 # Ogre also has built-in ogremage stuff so that ogremage's upgrades and spells will be applied to already-built ogres, just as in WC2.
 wc2_orc_ogre:
 	Inherits: ^WC2Vehicle
-	Inherits@Template: ^HighTechTankTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@WC2AxeUpg: ^wc2_o_str_axe
@@ -4797,16 +4835,16 @@ wc2_orc_ogre:
 	Tooltip:
 		Name: Ogre
 	Valued:
-		Cost: 800
+		Cost: 900
 	Power:
-		Amount: -40
+		Amount: -45
 	Health:
-		HP: 120000
+		HP: 140000
 	ChangesHealth@SelfHealing:
-		Step: 48
+		Step: 56
 	Mobile:
 		Speed: 90
-		TurnSpeed: 18
+		TurnSpeed: 36
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~wc2_orc_ogre_mound, ~!wc2_o_ogremageupg
@@ -5419,24 +5457,25 @@ wc2_orc_goblin_zeppelin:
 
 wc2_orc_dragon:
 	Inherits@WC2AirUnit: ^WC2AirUnit
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^SpaceshipTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@WC2OShieldUpg: ^wc2_o_str_shield
+	Inherits@OCannonUpg: ^wc2_o_str_cannon
 	Tooltip:
 		Name: Dragon
 	Valued:
-		Cost: 1200
+		Cost: 4000
 	Power:
-		Amount: -60
+		Amount: -200
 	Health:
-		HP: 25000
+		HP: 250000
 	ChangesHealth@SelfHealing:
-		Step: 10
+		Step: 100
 	Aircraft:
-		Speed: 140
-		TurnSpeed: 28
-		RepulsionSpeed: 28
+		Speed: 125
+		TurnSpeed: 25
+		RepulsionSpeed: 25
 	Targetable@HEAL:
 		RequiresCondition: damaged
 		TargetTypes: Heal
@@ -5449,7 +5488,7 @@ wc2_orc_dragon:
 		Weapon: wc2dragonFireVisible
 		LocalOffset: 400,0,0
 		Name: primary
-		FireDelay: 7
+		FireDelay: 3
 	Armament@EXPLOSIONS:
 		Weapon: wc2dragonFireExplosion
 		LocalOffset: 400,0,0

@@ -1253,7 +1253,7 @@ FTNK:
 		Description: actor-ftnk.description
 	Mobile:
 		Speed: 80
-		TurnSpeed: 16
+		TurnSpeed: 32
 		Locomotor: tracked
 	Health:
 		HP: 100000
@@ -1404,13 +1404,13 @@ BIKE:
 		Description: actor-bike.description
 	Mobile:
 		Speed: 200
-		TurnSpeed: 40
+		TurnSpeed: 80
 	Health:
-		HP: 7500
+		HP: 10000
 	Repairable:
-		HpPerStep: 375
+		HpPerStep: 500
 	ChangesHealth@SelfHealing:
-		Step: 3
+		Step: 4
 	Armor:
 		Type: Light
 	Armament:
@@ -1742,6 +1742,9 @@ MLRS:
 	TurnSpeedMultiplier@firing:
 		RequiresCondition: firing
 		Modifier: 50
+	TurretTurnSpeedMultiplier@firing:
+		RequiresCondition: firing
+		Modifier: 50
 	ActorStatValues:
 		Upgrades: up_longrangesensors, up_advancedmissiletargeting, up_cuttingedgeequipment
 
@@ -1800,6 +1803,9 @@ gdiarcher:
 		RequiresCondition: firing
 		Modifier: 50
 	TurnSpeedMultiplier@firing:
+		RequiresCondition: firing
+		Modifier: 50
+	TurretTurnSpeedMultiplier@firing:
 		RequiresCondition: firing
 		Modifier: 50
 	ActorStatValues:
@@ -1901,7 +1907,7 @@ STNK:
 	Mobile:
 		Locomotor: heavywheeled
 		Speed: 150
-		TurnSpeed: 30
+		TurnSpeed: 60
 	Health:
 		HP: 25000
 	Repairable:
@@ -3933,7 +3939,7 @@ CNCSS:
 		Description: actor-ss.description
 	Mobile:
 		Speed: 80
-		TurnSpeed: 16
+		TurnSpeed: 32
 	Health:
 		HP: 160000
 	ChangesHealth@SelfHealing:
@@ -3994,7 +4000,7 @@ ssmsub:
 		Description: actor-msub.description
 	Mobile:
 		Speed: 60
-		TurnSpeed: 12
+		TurnSpeed: 24
 	Health:
 		HP: 200000
 	ChangesHealth@SelfHealing:
@@ -4602,7 +4608,7 @@ chembike:
 		Description: actor-bike.description
 	Mobile:
 		Speed: 175
-		TurnSpeed: 35
+		TurnSpeed: 70
 	Health:
 		HP: 12500
 	Repairable:
@@ -4861,7 +4867,6 @@ nodltnk2:
 		Name: Light Tank Mk. II
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Buildable:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 50
@@ -6295,7 +6300,7 @@ gdiexosuit:
 		Prerequisites: eye, ~upgdiexosuit
 		Description: actor-exosuit.description
 	Mobile:
-		TurnSpeed: 20
+		TurnSpeed: 40
 		Speed: 100
 		Locomotor: wheeled
 	Health:
