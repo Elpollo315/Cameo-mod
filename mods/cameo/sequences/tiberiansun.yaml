@@ -1317,6 +1317,66 @@ tsgtcnst:
 	icon:
 		Filename: tsfacticon.shp
 		Offset: 0,0
+forgot_conyard:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+		Filename: forgot_conyard.png
+		Scale: 1
+		Offset: 0, -20, 20
+	idle:
+		Start: 64
+		Length: 8
+		Tick: 160
+	build:
+		Start: 32
+		Length: 16
+		Tick: 120
+	damaged-idle:
+		Start: 72
+		Length: 8
+		Tick: 160
+	damaged-build:
+		Start: 48
+		Length: 16
+		Tick: 120
+	dead:
+		Start: 72
+		Length: 8
+	make:
+		Length: 32
+	crane-overlay:
+		Filename: tsgtcnst_d.shp
+		Length: 20
+		ZOffset: 1023
+	damaged-crane-overlay:
+		Filename: tsgtcnst_d.shp
+		Length: 20
+		ZOffset: 1023
+	critical-crane-overlay:
+		Filename: tsgtcnst_d.shp
+		Start: 20
+		Length: 20
+		ZOffset: 1023
+	idle-top:
+		Filename: invisibleitem.shp
+	damaged-idle-top:
+		Filename: invisibleitem.shp
+	idle-side:
+		Filename: tsgtcnst_a.shp
+		Length: 10
+	damaged-idle-side:
+		Filename: tsgtcnst_a.shp
+		Start: 10
+		Length: 10
+	idle-front:
+		Filename: tsgtcnst_b.shp
+		Length: 10
+	damaged-idle-front:
+		Filename: tsgtcnst_b.shp
+		Length: 10
+	icon:
+		Filename: tsfacticon.shp
+		Offset: 0,0
 
 tsgtpowr:
 	Inherits: ^WithBuildingBib3
@@ -1591,6 +1651,29 @@ tsntpowrmutant:
 		Filename: tsnpwricon.shp
 		Offset: 0, 0, 25
 		UseTilesetCode: false
+forgot_power:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+		Scale: 1
+		Filename: forgot_power.png
+	idle:
+		Start: 32
+		Length: 8
+		Tick: 160
+	damaged-idle:
+		Start: 40
+		Length: 8
+		Tick: 160
+	dead:
+		Start: 40
+		Length: 8
+		Tick: 160
+	make:
+		Length: 32
+	icon:
+		Filename: tsnpwricon.shp
+		Offset: 0, 0, 25
+		UseTilesetCode: false
 
 tsntapwr:
 	Inherits: ^WithBuildingBib3
@@ -1778,6 +1861,53 @@ tsntweap:
 		Start: 2
 		ZOffset: -1024
 		Offset: -12, -21, 1
+	icon:
+		Filename: tsnwepicon.shp
+		Offset: 0, 0
+		UseTilesetCode: false
+forgot_weap:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+	idle:
+		Filename: invisibleitem.shp
+	damaged-idle:
+		Filename: invisibleitem.shp
+	idle-roof:
+		Filename: forgot_weap_top.png
+		Length: 16
+		ZOffset: 512
+	damaged-idle-roof:
+		Filename: forgot_weap_top.png
+		Start: 16
+		Length: 16
+		ZOffset: 512
+	dead:
+		Filename: forgot_weap_bottom.png
+		Start: 1
+		ZOffset: -1024
+	build-door:
+		Filename: forgot_weap_door.png
+		Length: 16
+		ZOffset: 512
+	damaged-build-door:
+		Filename: forgot_weap_door.png
+		Start: 16
+		Length: 16
+		ZOffset: 512
+	make:
+		Filename: forgot_weap_buildup.png
+		Length: 32
+	bib2:
+		Filename: forgot_weap_bottom.png
+		ZOffset: -1024
+	damaged-bib2:
+		Filename: forgot_weap_bottom.png
+		Start: 1
+		ZOffset: -1024
+	dead-bib2:
+		Filename: forgot_weap_bottom.png
+		Start: 1
+		ZOffset: -1024
 	icon:
 		Filename: tsnwepicon.shp
 		Offset: 0, 0

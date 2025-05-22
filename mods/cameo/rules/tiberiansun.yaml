@@ -580,26 +580,12 @@ TSGTCNSTMUTANT:
 	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
 		Condition: factundeploy
 		Prerequisites: global-factundeploy
-	WithProductionOverlay@WELDING:
+	WithBuildingPlacedAnimation:
 		RequiresCondition: !build-incomplete
-		Queues: Building, Defence, RABuilding, RADefence
-		Sequence: build
 	BaseProvider:
 		Range: 14c0
 	ProvidesPrerequisite@tsoilderricksuper:
 		Prerequisite: tsoilderricksuper
-	WithBuildingBib:
-	WithIdleOverlay@TOP:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-top
-	WithIdleOverlay@SIDE:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-side
-	WithIdleOverlay@FRONT:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-front
-	WithBuildingPlacedOverlay:
-		RequiresCondition: !build-incomplete
 	Selectable:
 		Bounds: 3072, 2560, 0, 0
 		DecorationBounds: 3072, 2560, 0, 0
@@ -607,8 +593,8 @@ TSGTCNSTMUTANT:
 		Amount: 0
 	ProvidesPrerequisite@buildingname:
 	RenderSprites:
-		Image: tsgtcnst
-		PlayerPalette: playerra2
+		Image: forgot_conyard
+		PlayerPalette: player_rgba
 
 TSGTCNSTCABAL:
 	GrantExternalConditionToOwner@BuildingsOwned:
@@ -1037,13 +1023,10 @@ TSNTPOWRMUTANT:
 		BuildPaletteOrder: 10
 		Prerequisites: ~tsgtcnstmutant
 		Description: Provides power for other structures.
-	WithIdleOverlay@cycle:
-		Sequence: idle-cycle
-		RequiresCondition: !build-incomplete
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
-		Name: Power Plant
+		Name: Crystal Power Extractor
 	Health:
 		HP: 150000
 	Building:
@@ -1054,16 +1037,15 @@ TSNTPOWRMUTANT:
 		Type: Wood
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
 	Power:
-		Amount: 120
+		Amount: 160
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
 		ValidTypes: building ##########
 	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tsntpowrmutant
+		PlayerPalette: player_rgba
+		Image: forgot_power
 
 TSNTPOWRCABAL:
 	Inherits: ^BaseBuilding
@@ -1526,19 +1508,64 @@ TSNTWEAPCABAL:
 		Image: tsntweap
 
 TSGTWEAPMUTANT:
-	Inherits: TSNTWEAP
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@shape: ^3x2Shape
+	Inherits@CPQWP: ^CPQConditionWithPrimary
+	Inherits@weap: ^IsWeaponFactory
+	Inherits@prod: ^ProducesUnits
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 512
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Forgotten War Factory
+	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tsgtcnstmutant, tsprocmutant
 		Queue: Building, RABuilding
 		Description: Produces vehicles
+	Building:
+		Footprint: xx= x== ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 1280, 1280
+		DecorationBounds: 1280, 1024
+	SelectionDecorations:
+	RevealsShroud:
+		Range: 4c0
+	RallyPoint:
+		Path: 0,2
+	Exit@1:
+		SpawnOffset: -512,-512,0
+		ExitCell: 2,1
+		ExitDelay: 3
 	ParallelProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
 		ProductionType: Vehicle
+		RequiresCondition: !classicproductionqueues
 	ProductionBar@RAVEHICLEGDI:
 		ProductionType: RAVehicle
+		RequiresCondition: classicproductionqueues
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@ROOF:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@BIB:
+		RequiresCondition: !build-incomplete
+		Sequence: bib2
 	RenderSprites:
-		Image: tsntweap
+		Image: forgot_weap
+		PlayerPalette: player_rgba
 
 tsgtdeptgdi:
 	Inherits: ^BaseBuilding
