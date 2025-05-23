@@ -978,7 +978,7 @@ tkmkatyushalauncher:
 		Facings: -32
 		Offset: 0,20
 	icon:
-		Filename: tkmkatyushaicon.png
+		Filename: tkmtornadogicon.png
 		AddExtension: False
 
 tkmtechnical:

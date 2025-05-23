@@ -659,3 +659,49 @@ sandmarinemortar:
 		Amount: 4
 		AimChance: 0
 		AimTargetStances: Enemy, Neutral
+
+tkmkatyushalalauncherrockets:
+	Inherits: ^RA2Grenade
+	Inherits: ^RA2MediumMissile
+	ReloadDelay: 185
+	Burst: 8
+	BurstDelays: 4
+	Range: 12000
+	Report: vintatta.wav
+	ValidTargets: Ground, Water
+	Projectile: Bullet
+		Speed: 250
+		Arm: 2
+		Inaccuracy: 1500
+		RangeLimit: 15000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		MinimumLaunchAngle: 25
+		MaximumLaunchAngle: 125
+		MaximumLaunchSpeed: 125
+		MinimumLaunchSpeed: 125
+		Acceleration: 5
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 6000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 2
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 4000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 2
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_medium_clsn
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_small_watersplash
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpwasa.wav

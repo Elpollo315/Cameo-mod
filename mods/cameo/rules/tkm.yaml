@@ -715,7 +715,6 @@ tkmbunkerquadturret:
 	Turreted:
 		TurnSpeed: 30
 		InitialFacing: 896
-		Offset: 0,0,450
 	Power:
 		Amount: -25
 	WithSpriteTurret:
@@ -761,7 +760,6 @@ tkmbunkertankturret:
 	Turreted:
 		TurnSpeed: 30
 		InitialFacing: 896
-		Offset: 0,0,450
 	Power:
 		Amount: -25
 	WithSpriteTurret:
@@ -1684,7 +1682,7 @@ tkmas42:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tkmfactory, ~!uptwinrockets, ~!upincendiaryrockets, ~!upcryorockets
 		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
+		Description: actor-jeep.description3
 	Mobile:
 		Speed: 150
 		TurnSpeed: 30
@@ -2268,7 +2266,7 @@ tkmkatyushalauncher:
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Katyusha Launcher
+		Name: Tornado-G Launcher
 	Health:
 		HP: 35000
 	Repairable:
@@ -2281,10 +2279,10 @@ tkmkatyushalauncher:
 		Speed: 80
 		TurnSpeed: 16
 	Armament:
-		Weapon: RA2RBurritoRocket
+		Weapon: tkmkatyushalalauncherrockets
 		LocalOffset: -250,300,125, -250,150,250, -250,-150,375, -250,-300,500, -250,300,125, -250,150,250, -250,-150,375, -250,-300,500
 	Armament@PRIMARYELITE:
-		Weapon: RA2RBurritoRocket
+		Weapon: tkmkatyushalalauncherrockets
 		LocalOffset: -250,-300,500, -250,-150,375, -250,150,250, -250,300,125, -250,-300,500, -250,-150,375, -250,150,250, -250,300,125
 		RequiresCondition: rank-elite
 	FirepowerMultiplier@RANK-1:
@@ -2540,7 +2538,7 @@ tkmviper:
 		Prerequisites: ~tkmairpad, ~tkmtechcenter
 		Description: actor-yak.description
 	Valued:
-		Cost: 3200
+		Cost: 2900
 	Tooltip:
 		Name: Viper
 	UpdatesPlayerStatistics:
