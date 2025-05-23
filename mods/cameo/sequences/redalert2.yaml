@@ -8270,3 +8270,45 @@ ra2superapocalypse:
 	muzzle-2:
 		Filename: ra2_vtmuzzle.shp
 		Length: *
+
+ra2katyusha:
+	Inherits: ^RA2GatlingMuzzle
+	Defaults:
+		Filename: ra2katyusha.png
+		Scale: 0.2
+	idle:
+		Facings: 32
+		Offset: 0,20
+	icon:
+		Filename: tkmkatyushaicon.png
+		AddExtension: False
+
+ra2shilka:
+	idle:
+		Filename: ra2shilkabody.png
+		Facings: 32
+		Scale: 0.25
+	turret:
+		Filename: ra2shilkaturret.png
+		Facings: 32
+		Scale: 0.25
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmzazaicon.png
+
+ra2advanceteslatank:
+	Defaults:
+		Filename: ra2advanceteslatankbody.png
+	idle:
+		Filename: ra2advanceteslatankbody.png
+		Facings: 32
+		Scale: 0.25
+	turret:
+		Filename: ra2advanceteslatanktur.png
+		Facings: -32
+		Scale: 0.25
+	icon:
+		Filename: ra2ttnkicon.shp

@@ -1015,12 +1015,22 @@ technicaltank:
 
 tkmradartruck:
 	Defaults:
-		Scale: 0.7
+		Scale: 0.6
 	idle:
 		Filename: tkmradartruck.png
 		Facings: 32
 	icon:
-		Filename: tkmas42icon.png
+		Filename: tkmradartruckicon.png
+		AddExtension: False
+
+tkmrepairtruck:
+	Defaults:
+		Scale: 0.4
+	idle:
+		Filename: tkmrepairtruck.png
+		Facings: -32
+	icon:
+		Filename: tkmrepairtruckicon.png
 		AddExtension: False
 
 tkmbattlebus:
@@ -1034,8 +1044,43 @@ tkmbattlebus:
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: tkmas42icon.png
+		Filename: tkmbattlebusicon.png
 		AddExtension: False
+
+tkmmedictruck:
+	Defaults:
+		Scale: 0.4
+	idle:
+		Filename: tkmmedictruckbody.png
+		Facings: -32
+	turret:
+		Filename: tkmmedictruckturret.png
+		Facings: -32
+	icon:
+		Filename: tkmmedictruckicon.png
+		AddExtension: False
+
+tkmsandmarine:
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: tkmsandmarine.png
+		Facings: -32
+	muzzle:
+		Filename: ra2_gunfire.shp
+		Length: *
+	icon:
+		Filename: tkmsandmarineicon.png
+		AddExtension: False
+
+tkmdiglarge:
+	idle:
+		Scale: 4.0
+		Filename: tsdig.shp
+		Length: *
+		Tick: 74
+		ZOffset: -1200
+		Offset: 0, 0, 256
 
 ####################################################################################################
 #		TKM Upgrade Icons

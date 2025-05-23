@@ -6315,6 +6315,7 @@ Player:
 			tkmas42incendiaryrockets: 10
 			tkmas42cryorockets: 10
 			tkmtechnical: 10
+			tkmtechnicalapbullets: 10
 			tkmquadtruck: 5
 			tkmstryker: 5
 			tkmstrykercryo: 5
@@ -6330,6 +6331,10 @@ Player:
 			tkmhuey: 5
 			tkmviper: 5
 			tkmradartruck: 1
+			tkmrepairtruck: 1
+			tkmmedictruck: 1
+			tkmbattlebus: 3
+			tkmsandmarine: 1
 			t30: 1
 			upberezkacloak: 1
 			uptitanarsenal: 1

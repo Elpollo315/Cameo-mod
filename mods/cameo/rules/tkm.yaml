@@ -157,7 +157,7 @@ uptwinrockets:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Changes Rocketeer Arsenal to modified dual RPG.
+		Description: ChangesRocket Arsenals to modified dual RPGs.
 		Prerequisites: ~tkmradar, ~!uptwinrockets, ~upberezkacloak
 	ProvidesPrerequisite:
 	RenderSprites:
@@ -176,7 +176,7 @@ uptkmapbullets:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Changes Juggernauts' Ammo to APFSDS Armor Piercing Rounds.
+		Description: Changes Juggernauts and Technicals' Ammo to APFSDS Armor Piercing Rounds which deals extra damage to armored units.
 		Prerequisites: ~tkmradar, ~!uptkmapbullets, ~upnatoarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
@@ -195,7 +195,7 @@ upincendiaryrockets:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Changes Rocketeer Arsenal to incendiary rockets.
+		Description: Changes Rocket Arsenals to incendiary rockets.
 		Prerequisites: ~tkmradar, ~!upincendiaryrockets, ~uptitanarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
@@ -214,7 +214,7 @@ upcryorockets:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Changes Rocketeer Arsenal to Cryo Rockets.
+		Description: Changes Rocket Arsenals to Cryo Rockets.
 		Prerequisites: ~tkmradar, ~!upcryorockets, ~upnatoarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
@@ -230,7 +230,7 @@ tkmrocketaddon:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Upgrades Technical Tank to shoot twin rockets.
-		Prerequisites: ~tkmtechcenter, ~!tkmrocketaddon, ~upberezkacloak, uptwinrockets
+		Prerequisites: ~tkmtechcenter, ~!tkmrocketaddon, ~upberezkacloak, ~uptwinrockets
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: tkmrocketaddon
@@ -270,7 +270,7 @@ tkminfantryupgrade:
 	Tooltip:
 		Name: TKM Infantry Upgrade
 	Valued:
-		Cost: 2500
+		Cost: 3500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -299,6 +299,7 @@ tkmmcv:
 	Inherits@selection: ^SelectableSupportUnit
 	Inherits@mcv: ^MCV
 	Buildable:
+		BuildPaletteOrder: 31
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~tkmfactory
 		Description: Builds structures.
@@ -397,7 +398,7 @@ tkmrefinery:
 		Name: TKM Ore Refinery
 	Buildable:
 		BuildPaletteOrder: 11
-		Prerequisites: ~tkmcommandcenter, tkmpowerplant
+		Prerequisites: ~tkmcommandcenter, ~tkmpowerplant
 	Building:
 		Footprint: xxx= xxx= xxx=
 		Dimensions: 4,3
@@ -429,7 +430,7 @@ tkmbarracks:
 		Prerequisite: RA2Barracks
 	Buildable:
 		BuildPaletteOrder: 13
-		Prerequisites: ~tkmcommandcenter, tkmpowerplant
+		Prerequisites: ~tkmcommandcenter, ~tkmpowerplant
 	Building:
 		Footprint: xxx xxx ===
 		Dimensions: 3,3
@@ -468,7 +469,7 @@ tkmfactory:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 14
-		Prerequisites: ~tkmcommandcenter, tkmbarracks
+		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
@@ -524,7 +525,7 @@ tkmairpad:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 16
-		Prerequisites: ~tkmcommandcenter, tkmradar
+		Prerequisites: ~tkmcommandcenter, ~tkmradar
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
@@ -561,7 +562,7 @@ tkmradar:
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 15
-		Prerequisites: ~tkmcommandcenter, tkmfactory
+		Prerequisites: ~tkmcommandcenter, ~tkmfactory
 		Description: Provides TKM technologies.
 	Production@Addons:
 		Produces: Addons
@@ -597,7 +598,7 @@ tkmtechcenter:
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 17
-		Prerequisites: ~tkmcommandcenter, tkmradar
+		Prerequisites: ~tkmcommandcenter, ~tkmradar
 		Description: Provides advanced TKM technologies.
 	Production@Addons:
 		Produces: Addons
@@ -636,7 +637,7 @@ tkmbunker:
 		Name: TKM Bunker
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tkmcommandcenter, tkmbarracks
+		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
 		Queue: Defence, RADefence
 		Description: template-anti-infantry-defense.description
 	Building:
@@ -692,7 +693,7 @@ tkmbunkerquadturret:
 		Name: TKM Quad Turret Bunker
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tkmcommandcenter, tkmbarracks
+		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
 		Queue: Defence, RADefence
 		Description: template-anti-infantry-defense.description
 	Building:
@@ -713,6 +714,7 @@ tkmbunkerquadturret:
 		TurnSpeed: 1023
 	Turreted:
 		TurnSpeed: 30
+		InitialFacing: 896
 		Offset: 0,0,450
 	Power:
 		Amount: -25
@@ -734,10 +736,10 @@ tkmbunkertankturret:
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: TKM Quad Turret Bunker
+		Name: TKM Tank Turret Bunker
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tkmcommandcenter, tkmbarracks
+		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
 		Queue: Defence, RADefence
 		Description: template-anti-infantry-defense.description
 	Building:
@@ -758,6 +760,7 @@ tkmbunkertankturret:
 		TurnSpeed: 1023
 	Turreted:
 		TurnSpeed: 30
+		InitialFacing: 896
 		Offset: 0,0,450
 	Power:
 		Amount: -25
@@ -819,6 +822,8 @@ tkmrifleman:
 		Prerequisites: upberezkacloak
 	Cloak:
 		RequiresCondition: upberezkacloak
+	Selectable:
+		Class: tkmrifleman
 	# Selectable:
 	# 	Bounds: 256, 512
 	# 	DecorationBounds: 256, 512
@@ -906,6 +911,8 @@ tkmspetsnaz:
 		MuzzleSequence: garrison-muzzle
 	ActorStatValues:
 		Upgrades: uptitanarsenal, tkminfantryupgrade
+	Selectable:
+		Class: tkmspetsnaz
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		RequiresCondition: !parachute
@@ -999,6 +1006,8 @@ tkmjug:
 	# Inherits@EXT: ^ExternalConditions ##########
 	# AcceptsDeliveredExperience: ##########
 	# 	ValidTypes: infantry ##########
+	Selectable:
+		Class: tkmjug
 	ActorStatValues:
 		Upgrades: uptitanarsenal, tkminfantryupgrade
 	Voiced:
@@ -1079,6 +1088,8 @@ tkmthermonaut:
 	# 	ValidTypes: infantry ##########
 	ActorStatValues:
 		Upgrades: uptitanarsenal, tkminfantryupgrade
+	Selectable:
+		Class: tkmthermonaut
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -1128,6 +1139,8 @@ tkmtrooper:
 		RequiresCondition: !parachute
 	WithDeathAnimation:
 		DeathSequencePalette: playerra2
+	Selectable:
+		Class: tkmtrooper
 	RenderSprites:
 		Image: tkmtrooper
 		PlayerPalette: playerra2
@@ -1208,6 +1221,8 @@ tkmrocketeer:
 	# 	ValidTypes: infantry ##########
 	ActorStatValues:
 		Upgrades: tkminfantryupgrade
+	Selectable:
+		Class: tkmrocketeer
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -1350,6 +1365,8 @@ tkmengineer:
 		Prerequisites: upberezkacloak
 	Cloak:
 		RequiresCondition: upberezkacloak
+	Selectable:
+		Class: tkmengineer
 	RenderSprites:
 		PlayerPalette: playerra2
 
@@ -1432,7 +1449,6 @@ tkmsniper:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@AntiInf: ^PrioritizeInfantry
-	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@infantryweapon: ^tkminfantryupgrade
 	Valued:
 		Cost: 600
@@ -1486,7 +1502,6 @@ tkmvon:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@AntiInf: ^PrioritizeInfantry
-	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@infantryweapon: ^tkminfantryupgrade
 	Valued:
 		Cost: 600
@@ -1610,7 +1625,7 @@ tkmharv:
 	Inherits@harv: ^Harvester
 	Buildable:
 		Queue: Vehicle, RAVehicle
-		Prerequisites: ~tkmfactory, tkmrefinery
+		Prerequisites: ~tkmfactory, ~tkmrefinery
 		Description: template-harvester.description
 	Valued:
 		Cost: 1000 #1100
@@ -1688,6 +1703,8 @@ tkmas42:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Upgrades: uptwinrockets, upincendiaryrockets
+	Selectable:
+		Class: tkmas42
 	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmas42
@@ -1704,7 +1721,6 @@ tkmas42twinrockets:
 		Description: actor-jeep.description
 	Armament:
 		Weapon: tkmtwinrockets
-		RequiresCondition: !rank-elite
 		LocalOffset: 500,0,400
 	ActorStatValues:
 		Upgrades: uptwinrockets
@@ -1722,7 +1738,6 @@ tkmas42incendiaryrockets:
 		Description: actor-jeep.description
 	Armament:
 		Weapon: tkmfirerockets
-		RequiresCondition: !rank-elite
 		LocalOffset: 500,0,400
 	ActorStatValues:
 		Upgrades: upincendiaryrockets
@@ -1740,7 +1755,6 @@ tkmas42cryorockets:
 		Description: actor-jeep.description
 	Armament:
 		Weapon: tkmcryorockets
-		RequiresCondition: !rank-elite
 		LocalOffset: 500,0,400
 	ActorStatValues:
 		Upgrades: upcryorockets
@@ -1762,7 +1776,7 @@ tkmtechnical:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~!uptkmapbullets
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -1782,20 +1796,105 @@ tkmtechnical:
 		LocalOffset: 171,0,285
 		MuzzleSequence: muzzle
 		RequiresCondition: !up_armorpiercingbullets
-	Armament@Upgrade:
-		Weapon: RA2GattlingMG1
-		LocalOffset: 171,0,285
-		MuzzleSequence: muzzle
-		RequiresCondition: up_armorpiercingbullets
 	WithMuzzleOverlay:
 	AttackTurreted:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades: 
-	WithSpriteTurret:
+		Upgrades: uptkmapbullets
+	WithSpriteTurret: 
+	Selectable:
+		Class: tkmtechnical
 	RenderSprites:
 		Image: tkmtechnical
+		PlayerPalette: player_rgba
+
+tkmtechnicalapbullets:
+	Inherits: tkmtechnical
+	Tooltip:
+		Name: TKM Technical (AP Bullets)
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tkmfactory, ~uptkmapbullets
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Armament:
+		Weapon: tkmjuggap
+		LocalOffset: 500,0,400
+	ActorStatValues:
+		Upgrades: uptkmapbullets
+	RenderSprites:
+		Image: tkmtechnical
+
+tkmtechnicaltank:
+	Inherits: ^Tank
+	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Technical Tank
+	Buildable:
+		BuildPaletteOrder: 21
+		Prerequisites: ~tkmfactory, ~!tkmrocketaddon
+		Queue: Vehicle, RAVehicle
+		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
+	Mobile:
+		Locomotor: tracked
+		Speed: 126
+	Health:
+		HP: 80000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 16
+		Offset: -160,0,400
+	Armament:
+		Weapon: RA2105mm
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 768,85,90, 768,-85,90
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackTurreted:
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	WithSpriteTurret:
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 400
+	Selectable:
+		Class: tkmtechnicaltank
+	RenderSprites:
+		Image: technicaltank
+		PlayerPalette: player_rgba
+
+tkmtechnicaltankrocketaddon:
+	Inherits: tkmtechnicaltank
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Technical Tank (Rocket Addon)
+	Buildable:
+		Prerequisites: ~tkmfactory, ~tkmrocketaddon
+		Queue: Vehicle, RAVehicle
+		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
+	Armament@SECONDARY:
+		Weapon: tkmtwinrocketstechnicaltank
+		LocalOffset: 500,0,400
+	RenderSprites:
+		Image: technicaltank
 		PlayerPalette: player_rgba
 
 tkmquadtruck:
@@ -1812,7 +1911,7 @@ tkmquadtruck:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 22
 		Prerequisites: ~tkmfactory, ~upberezkacloak
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
@@ -1829,10 +1928,9 @@ tkmquadtruck:
 		TurnSpeed: 30
 		Offset: -350,0,250
 	Armament:
-		Weapon: tkmquadcannonmg
+		Weapon: HeavyAATankCannontkm
 		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
-		RequiresCondition: !up_armorpiercingbullets
 	WithMuzzleOverlay:
 	AttackTurreted:
 	FireWarheadsOnDeath:
@@ -1858,7 +1956,7 @@ tkmzaza:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 22
 		Prerequisites: ~tkmfactory, ~uptitanarsenal
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
@@ -1869,7 +1967,6 @@ tkmzaza:
 		HP: 125000
 	Repairable:
 		HpPerStep: 6250
-	ChangesHealth@SelfHealing:
 	ChangesHealth@SelfHealing:
 		Step: 11
 	Turreted:
@@ -1932,7 +2029,7 @@ tkmstryker:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 22
 		Prerequisites: ~tkmfactory, ~upnatoarsenal, ~!upcryorockets
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
@@ -1962,128 +2059,30 @@ tkmstryker:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Upgrades: upnatoarsenal, upcryorockets
+	Selectable:
+		Class: tkmstryker
 	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmstryker
 		PlayerPalette: player_rgba
 
 tkmstrykercryo:
-	Inherits: ^Vehicle
-	Inherits@Template: ^ScoutVehicleTemplate
-	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@EMP: ^TurretEMP
-	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits: tkmstryker
 	Valued:
 		Cost: 900
 	Tooltip:
 		Name: TKM Stryker (Cryo Rockets)
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tkmfactory, ~upcryorockets
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
-	Mobile:
-		Speed: 150
-		TurnSpeed: 30
-	Health:
-		HP: 80000
-	Repairable:
-		HpPerStep: 1375
-	ChangesHealth@SelfHealing:
-		Step: 11
-	Turreted:
-		TurnSpeed: 30
-		Offset: -350,0,325
-	Armament:
-		Weapon: tkmstrykermg
-		LocalOffset: 171,0,85
-		MuzzleSequence: muzzle
 	Armament@missile:
 		Weapon: tkmstrykercryorockets
 		LocalOffset: 171,0,85
 		MuzzleSequence: muzzle
-	WithMuzzleOverlay:
-	AttackTurreted:
-	FireWarheadsOnDeath:
-		Weapon: UnitExplodeSmall
-	ActorStatValues:
-		Upgrades: upnatoarsenal, upcryorockets
-	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmstryker
-		PlayerPalette: player_rgba
-
-tkmtechnicaltank:
-	Inherits: ^Tank
-	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@EMP: ^TurretEMP
-	Inherits@vo: ^AttackTurretedVoice
-	Valued:
-		Cost: 600
-	Tooltip:
-		Name: Technical Tank
-	Buildable:
-		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~!tkmrocketaddon
-		Queue: Vehicle, RAVehicle
-		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
-	Mobile:
-		Locomotor: tracked
-		Speed: 126
-	Health:
-		HP: 80000
-	Repairable:
-		HpPerStep: 2637
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 6c0
-	Turreted:
-		TurnSpeed: 16
-		Offset: -160,0,400
-	Armament:
-		Weapon: Type89Cannon
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle
-	WithMuzzleOverlay:
-	AttackTurreted:
-	SelectionDecorations:
-	Selectable:
-	Inherits@EXT: ^ExternalConditions ##########
-	AcceptsDeliveredExperience: ##########
-		ValidTypes: vehicle ##########
-	WithSpriteTurret:
-	Voiced:
-		VoiceSet: TSVehicle
-	DeliversCash:
-		Payload: 400
-	RenderSprites:
-		Image: technicaltank
-		PlayerPalette: player_rgba
-
-tkmtechnicaltankrocketaddon:
-	Inherits: tkmtechnicaltank
-	Valued:
-		Cost: 600
-	Tooltip:
-		Name: Technical Tank (Rocket Addon)
-	Buildable:
-		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~tkmrocketaddon
-		Queue: Vehicle, RAVehicle
-		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
-	Armament@SECONDARY:
-		Weapon: tkmtwinrocketstechnicaltank
-		LocalOffset: 500,0,400
-	RenderSprites:
-		Image: technicaltank
 		PlayerPalette: player_rgba
 
 tkmabrams:
@@ -2099,8 +2098,8 @@ tkmabrams:
 	Tooltip:
 		Name: Abrams
 	Buildable:
-		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~!uppointdefensesystem, ~upnatoarsenal, tkmradar
+		BuildPaletteOrder: 23
+		Prerequisites: ~tkmfactory, ~!uppointdefensesystem, ~upnatoarsenal, ~tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 	Mobile:
@@ -2153,6 +2152,8 @@ tkmabrams:
 		Payload: 400
 	ActorStatValues:
 		Upgrades: upnatoarsenal, uppointdefensesystem
+	Selectable:
+		Class: tkmabrams
 	RenderSprites:
 		Image: tkmabrams
 		PlayerPalette: player_rgba
@@ -2162,8 +2163,7 @@ tkmabramspoint:
 	Tooltip:
 		Name: Abrams (Point Defense System)
 	Buildable:
-		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~uppointdefensesystem, tkmradar
+		Prerequisites: ~tkmfactory, ~uppointdefensesystem, ~tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM NATO heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 	RenderRangeCircle:
@@ -2189,8 +2189,8 @@ t72:
 	Tooltip:
 		Name: T-72M
 	Buildable:
-		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~!tkmheavydutyarmor, tkmradar
+		BuildPaletteOrder: 23
+		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~!tkmheavydutyarmor, ~tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 	Mobile:
@@ -2227,6 +2227,8 @@ t72:
 		Payload: 400
 	ActorStatValues:
 		Upgrades: uptitanarsenal
+	Selectable:
+		Class: tkmt72
 	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmt72
@@ -2241,8 +2243,7 @@ t72heavydutyarmor:
 	Health:
 		HP: 250000
 	Buildable:
-		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~tkmheavydutyarmor, tkmradar
+		Prerequisites: ~tkmfactory, ~tkmheavydutyarmor, ~tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 	ActorStatValues:
@@ -2261,8 +2262,8 @@ tkmkatyushalauncher:
 	Inherits@EMP: ^FrontalEMP
 	Buildable:
 		Queue: Vehicle, RAVehicle
-		BuildPaletteOrder: 80
-		Prerequisites: ~tkmfactory, ~upberezkacloak, tkmtechcenter
+		BuildPaletteOrder: 24
+		Prerequisites: ~tkmfactory, ~upberezkacloak, ~tkmtechcenter
 		Description: actor-latin_burrito.description
 	Valued:
 		Cost: 1200
@@ -2412,6 +2413,8 @@ tkmhuey:
 		Weapon: LargeHeliExplode
 	RenderSprites:
 		PlayerPalette: raplayer
+	Selectable:
+		Class: tkmhuey
 	ActorStatValues:
 		Upgrades:
 	RenderSprites:
@@ -2534,7 +2537,7 @@ tkmviper:
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 30
-		Prerequisites: ~tkmairpad
+		Prerequisites: ~tkmairpad, ~tkmtechcenter
 		Description: actor-yak.description
 	Valued:
 		Cost: 3200
@@ -2574,7 +2577,7 @@ tkmviper:
 	SpawnActorOnDeath:
 		Actor: tkmviper.husk
 	EjectOnDeath:
-		PilotActor: RAE2
+		PilotActor: tkmrifleman
 	LeavesTrails:
 		Offsets: -853,0,0
 		MovingInterval: 2
@@ -2675,7 +2678,7 @@ tkmdrone:
 	
 tkmradartruck:
 	Inherits: ^Vehicle
-	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
@@ -2687,13 +2690,13 @@ tkmradartruck:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 25
 		Prerequisites: ~tkmfactory
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
-		Speed: 50
-		TurnSpeed: 10
+		Speed: 75
+		TurnSpeed: 15
 	Health:
 		HP: 27500
 	Repairable:
@@ -2710,11 +2713,110 @@ tkmradartruck:
 	RenderSprites:
 		Image: tkmradartruck
 		PlayerPalette: player_rgba
+		
+tkmrepairtruck:
+	Inherits: ^Vehicle
+	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Repair Truck
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 26
+		Prerequisites: ~tkmfactory
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Armament@repair:
+		Name: repair
+		Weapon: SCVRepair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+		LocalOffset: 240,160,240
+	AutoTarget:
+		ScanRadius: 10
+		InitialStance: AttackAnything
+	AttackFrontal:
+		FacingTolerance: 64
+		Armaments: primary,repair
+	Mobile:
+		Speed: 75
+		TurnSpeed: 15
+	Health:
+		HP: 27500
+	Repairable:
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 11
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Upgrades:
+	WithFacingSpriteBody:
+	RenderSprites:
+		Image: tkmrepairtruck
+		PlayerPalette: player_rgba
+	
+tkmmedictruck:
+	Inherits: ^Vehicle
+	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Medic Truck
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 27
+		Prerequisites: ~tkmfactory
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Armament@Heal:
+		Weapon: MedicHeal
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		LocalOffset: 25,0,-35
+	AutoTarget:
+		ScanRadius: 10
+		InitialStance: AttackAnything
+	AttackFrontal:
+		FacingTolerance: 64
+		Armaments: primary,repair
+	Mobile:
+		Speed: 75
+		TurnSpeed: 15
+	Turreted:
+		TurnSpeed: 20 #3
+		Offset: 250,0,425
+	Health:
+		HP: 27500
+	Repairable:
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 11
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Upgrades:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
+	AttackTurreted:
+	RenderSprites:
+		Image: tkmmedictruck
+		PlayerPalette: player_rgba
 	
 t30:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
-	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
@@ -2725,7 +2827,7 @@ t30:
 		Name: T-30
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~upnatoarsenal, tkmtechcenter, ~!t30
+		Prerequisites: ~tkmfactory, ~!t30
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildLimit: 1
@@ -2786,8 +2888,8 @@ tkmbattlebus:
 	UpdatesPlayerStatistics:
 		OverrideActor: yrbfrt
 	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~tkmfactory, ~upberezkacloak, tkmtechcenter
+		BuildPaletteOrder: 30
+		Prerequisites: ~tkmfactory, ~tkmtechcenter
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Mobile:
@@ -2831,11 +2933,106 @@ tkmbattlebus:
 		ArmamentNames: primary, garrisoned
 	AutoTarget:
 		AllowMovement: true
-	Selectable:
-		DecorationBounds: 1440, 1440, 0, -128
-		Class: yrbfrt
 	Voiced:
-		VoiceSet: BattleFortressVoice
+		VoiceSet: TSVehicle
 	RenderSprites:
 		Image: tkmbattlebus
+		PlayerPalette: player_rgba
+
+tkmsandmarine:
+	Inherits: ^Tank
+	Inherits@Template: ^EpicVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	Inherits@crush: ^VehicleCrusher
+	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Sand Marine
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 190
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!tkmsandmarine
+		Queue: Vehicle, RAVehicle
+		Description: Subterranean super vehicle. Strong against everything ground.
+		BuildLimit: 1
+	Mobile:
+		Locomotor: subterranean
+		Speed: 30
+		TurnSpeed: 6
+	RevealsShroud:
+		RequiresCondition: !submerged
+	Health:
+		HP: 2000000
+	Repairable:
+		HpPerStep: 6000
+	ChangesHealth@SelfHealing:
+		Step: 48
+	Armor:
+		Type: Heavy
+	#Turreted:
+	#	TurnSpeed: 1023
+	Armament@PRIMARY:
+		Weapon: ChronoTusk
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+	Armament@SECONDARY:
+		Weapon: ChronoTusk
+		LocalOffset: -160,276,232
+		LocalYaw: -100
+		MuzzleSequence: muzzle
+	Armament@Mortar:
+		LocalOffset: 1800,0,500
+		Weapon: sandmarinemortar
+		MuzzleSequence: muzzle
+	RenderRangeCircle:
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 0
+	RevealOnFire:
+		ArmamentNames: primary, garrisoned
+	AutoTarget:
+		AllowMovement: true
+	Selectable:
+		DecorationBounds: 1440, 1440, 0, -128
+	Voiced:
+		VoiceSet: TSVehicle
+	WithFacingSpriteBody:
+		RequiresCondition: !submerged
+	Targetable:
+		RequiresCondition: !submerged && !chronobeamed
+	Targetable@UNDERGROUND:
+		TargetTypes: Underground
+		RequiresCondition: submerged
+	GrantConditionOnSubterraneanLayer:
+		Condition: submerged
+		SubterraneanTransitionPalette: tseffect
+		SubterraneanTransitionImage: tkmdiglarge
+		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionSound: subdril1.aud
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: submerged
+		Position: Center
+		Image: gpsdot
+		Sequence: Vehicle
+		RequiresSelection: false
+		Palette: player
+		IsPlayerPalette: true
+	AnnounceOnSeen@subterranean:
+		PingRadar: true
+		Notification: SubterraneanUnitDetected
+	GrantCondition@untargetable:
+		Condition: untargetable
+		RequiresCondition: chronobeamed || invulnerability || submerged
+	FireWarheadsOnDeathCA@bomb:
+		Weapon: ExecutionerDeath
+		DamageSource: Killer
+		RequiresCondition: !disabled
+	RenderSprites:
+		Image: tkmsandmarine
 		PlayerPalette: player_rgba
