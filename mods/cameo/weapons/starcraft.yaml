@@ -1761,13 +1761,13 @@ CorruptorSpore:
 		Width: 100
 		AllowSnapping: true
 	Warhead@MediumChemicalWeapon: SpreadDamage
-		ValidTargets: snareable
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 10000
 	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
-		ValidTargets: snareable
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 5000
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		ValidTargets: snareable
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 5
 	Warhead@Condition: GrantExternalCondition
 		Range: 1000

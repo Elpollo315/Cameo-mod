@@ -211,7 +211,7 @@ TSGrenadeAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		Damage: 5000
-		
+
 TSGrenadeG:
 	Inherits: TSGrenade
 	ReloadDelay: 45
@@ -335,13 +335,13 @@ TSMechRailgun:
 		Amount: 4
 		AimChance: 50
 		AimTargetStances: Enemy, Neutral
-			
+
 TSMechRailgun_elite:
 	Inherits: TSMechRailgun
 	Range: 9c0
 	Projectile: Railgun
 		BeamColor: FFFF44
-		
+
 
 ^TSEnergyBlast:
 	ReloadDelay: 50
@@ -372,7 +372,7 @@ TSCyCannon:
 		Blockable: false
 		HorizontalRateOfTurn: 8
 		Shadow: true
-		Image: 
+		Image:
 		MinimumLaunchSpeed: 75
 		Speed: 384
 		RangeLimit: 8c0
@@ -539,7 +539,7 @@ TSCoreLaser:
 		Damage: 5000
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		Damage: 1
-		
+
 ####################################################################################################
 #		Tiberian Sun Heal Weapons
 ####################################################################################################
@@ -606,7 +606,7 @@ TSBazooka:
 		Damage: 10000
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		Damage: 5
-		
+
 TSBazookaG:
 	Inherits: TSBazooka
 	Range: 9c0
@@ -745,7 +745,7 @@ TSMammothTusk_elite:
 	Inherits: TSMammothTusk2
 	Burst: 8
 	Range: 9c0
-		
+
 TSBikeMissile:
 	Inherits: ^TSDefaultMissile
 	Range: 5c0
@@ -810,34 +810,25 @@ TSRedEye2:
 #		Tiberian Sun Other
 ####################################################################################################
 
-TSFireballLauncher:
-	Inherits: Flamer
+TSFireballLauncher2:
+	Inherits: ^MediumFlameWeapon
 	ReloadDelay: 50
-	Range: 4c256
+	Range: 4250
+	Burst: 5
+	BurstDelays: 5
 	Report: flamtnk1.aud
 	Projectile: Bullet
 		Speed: 180
-		Image: flameall
-		-TrailImage:
+		Image: tsflameall
 		Palette: tseffect
 		Inaccuracy: 384
 		LaunchAngle: 0
-	Burst: 5
-	BurstDelays: 5
-	Warhead@1Dam: SpreadDamage
-		Spread: 288
-		Falloff: 100, 50, 25, 12, 6, 3, 0
-		Damage: 2500
-		Versus:
-			None: 600
-			Wood: 148
-			Light: 59
-			Medium: 35
-			Heavy: 10
-			Concrete: 2
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: small_napalm
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
 
 TSBomb:
 	ReloadDelay: 40
@@ -1114,7 +1105,7 @@ elitecadre:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
 		ValidTargets: Ground, Air
-			
+
 TSVulcanTower:
 	Inherits: ^TSMG
 	ReloadDelay: 26
@@ -1778,7 +1769,7 @@ NODMutantSpawner:
 		InvalidTargets: FireImmune
 		Weapon: NODMutant4
 		Amount: 1
-		
+
 NODMutant:
 	InvalidTargets: Vehicle, Structure
 	Projectile: InstantHit
@@ -1821,7 +1812,7 @@ NODMutant4:
 		Actors: tsmutant3
 		Range: 3
 		Delay: 10
-		
+
 FloaterSpawner:
 	Range: 3c0
 	Projectile: InstantHit
@@ -1853,7 +1844,7 @@ TunnelDisappear:
 		ExplosionPalette: tseffect
 		ImpactSounds: subdril1.aud
 		ImpactActors: false
-		
+
 TSDissolver:
 	ReloadDelay: 16
 	Burst: 4

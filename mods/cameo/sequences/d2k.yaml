@@ -1160,9 +1160,13 @@ ixian_launchpad:
 		Length: 1
 		ZOffset: -1023
 	make:
-		Filename: IxHoverpad.png
-		Length: 10
-		Tick: 80
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 4477
+		Length: 8
+		Offset: -32,64
+		Tick: 100
 	icon:
 		Filename: d2k_ixianlaunchpadicon.png
 		Offset: 0,0

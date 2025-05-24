@@ -918,6 +918,8 @@
 
 ^GlobalBuffs:
 	Inherits: ^GPSSatelliteSupport
+	FirepowerMultiplier@GlobalBuffs:
+		Modifier: 75
 
 ^InfantryBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
@@ -926,7 +928,7 @@
 		Step: 10
 		Delay: 2
 		StartIfBelow: 100
-		DamageCooldown: 2
+		DamageCooldown: 20
 
 ^VehicleBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
@@ -935,7 +937,7 @@
 		Step: 10
 		Delay: 1
 		StartIfBelow: 100
-		DamageCooldown: 1
+		DamageCooldown: 10
 
 ^TankBuffs:
 	Inherits@VehicleBuffs: ^VehicleBuffs
@@ -979,7 +981,7 @@
 		Step: 10
 		Delay: 1
 		StartIfBelow: 100
-		DamageCooldown: 1
+		DamageCooldown: 10
 
 ^ShipBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
@@ -987,7 +989,7 @@
 		Step: 10
 		Delay: 1
 		StartIfBelow: 100
-		DamageCooldown: 1
+		DamageCooldown: 10
 
 ^DefenseBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
@@ -2513,6 +2515,20 @@
 			latin_cgpile: biggarrisoned
 			latin_cgup: biggarrisoned
 			latin_ngbunk2: biggarrisoned
+			gdiassaultapc: battlefortresspassenger
+			latinscrapcar_driveby: battlefortresspassenger
+			latinscrapcar2_driveby: battlefortresspassenger
+			latin_cartel: battlefortresspassenger
+			latin_humvee: battlefortresspassenger
+			yrbfrt: battlefortresspassenger
+			nax_zombietank: battlefortresspassenger
+			nax_shoe: battlefortresspassenger
+			steel_potnk: battlefortresspassenger
+			aa_wtrt: battlefortresspassenger
+			aa_dragonfly: battlefortresspassenger
+			scpythean: battlefortresspassenger
+			scbehemoth: battlefortresspassenger
+			tsm113: battlefortresspassenger
 	SharedPassenger:
 		CargoType: Infantry
 	Garrisoner:
@@ -2521,6 +2537,9 @@
 	GrantCondition@biggarrisoned:
 		Condition: garrisoned
 		RequiresCondition: biggarrisoned
+	FirepowerMultiplier@battlefortresspassenger:
+		Modifier: 50
+		RequiresCondition: battlefortresspassenger
 	RangeMultiplier@Garrisoned:
 		Modifier: 115
 		RequiresCondition: garrisoned
@@ -4892,9 +4911,9 @@
 		Modifier: 50
 	ChangesHealth@ELITE:
 		PercentageStep: 1
-		Delay: 25
+		Delay: 50
 		StartIfBelow: 100
-		DamageCooldown: 25
+		DamageCooldown: 50
 		RequiresCondition: city-elite && damaged
 	WithDecoration@RANK-1:
 		Image: rank
@@ -5225,6 +5244,14 @@
 	Inherits@industry: ^IndustrySpeed
 	Inherits@police: ^CityCombatCallable
 	Inherits@berserk: ^Berserkable
+	Inherits@WC2BLOODLUST: ^wc2_o_bloodlust_status
+	Inherits@WC2HASTE: ^wc2_o_haste_status
+	Inherits@WC2SLOW: ^wc2_h_slow_status
+	Inherits@WC2POLYMORPH: ^wc2_h_polymorph_status
+	Inherits@WC2INVISIBILITY: ^wc2_h_invisibility_status
+	-WithDecoration@WC2BLOODLUST:
+	-WithDecoration@WC2HASTE:
+	-WithDecoration@WC2SLOW:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 
