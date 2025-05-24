@@ -949,10 +949,10 @@ tkmjug:
 		Step: 16
 	AutoTarget:
 	Armament@PRIMARY:
-		Weapon: RA2GattlingInf
+		Weapon: tkmjug
 		LocalOffset: 544,100,256
 	Armament@GARRISONED:
-		Weapon: RA2GattlingInf
+		Weapon: tkmjug
 		Name: garrisoned
 		MuzzleSequence: garrison-muzzle
 	ReloadDelayMultiplier@GattlingSpeed1:
@@ -1789,7 +1789,7 @@ tkmtechnical:
 		TurnSpeed: 30
 		Offset: -160,0,200
 	Armament:
-		Weapon: RA2GattlingMG1
+		Weapon: tkmjug
 		LocalOffset: 171,0,285
 		MuzzleSequence: muzzle
 		RequiresCondition: !up_armorpiercingbullets

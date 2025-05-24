@@ -19,36 +19,32 @@ tkmriflemansemiautorifle:
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		Damage: 3
 
+tkmjug:
+	Inherits: ^SmallArms
+	ReloadDelay: 9
+	Burst: 3
+	BurstDelays: 6
+	Range: 4792
+	Report: mgun11.aud
+	Warhead@SmallArms: SpreadDamage
+		Damage: 6000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 3
+
 tkmjuggap:
 	Inherits: ^RA2Grenade
-	Inherits: RA2GattlingInf
-	ReloadDelay: 15
-	ValidTargets: Ground, Air, Water
-	Range: 5086
-	Report: iarnatta.wav, iarnattb.wav
-	Projectile: Bullet
-		Image: 50CAL
-		ContrailStartColor: FFAA44
-		ContrailStartWidth: 15
-		ContrailEndColor: FFFFFF
-		ContrailEndColorUsePlayerColor: true
-		ContrailLength: 5
-		Speed: 10000
-		Width: 75
-	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Ground, Air, Water
-		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Air, Water
-		Damage: 1
-	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Air, Water
-		Damage: 2000
-	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Air, Water
-		Damage: 1
+	Inherits: ^SmallArms
+	ReloadDelay: 9
+	Burst: 3
+	BurstDelays: 6
+	Range: 4792
+	Report: mgun11.aud
 	Warhead@Grenade: SpreadDamage
 		Damage: 2000
+	Warhead@SmallArms: SpreadDamage
+		Damage: 6000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 3
 
 tkmtwinrockets:
 	Inherits: ^LightMissile
