@@ -610,7 +610,7 @@ HeavyFlamer:
 	ReloadDelay: 60
 	Burst: 30
 	BurstDelays: 1
-	Range: 6083
+	Range: 6000
 	StartBurstReport: flamer2.aud
 	Projectile: Bullet
 		Speed: 150
@@ -633,7 +633,7 @@ HeavyPlasmaFlamer:
 	ReloadDelay: 60
 	Burst: 30
 	BurstDelays: 1
-	Range: 6083
+	Range: 6000
 	StartBurstReport: flamer2.aud
 	Projectile: Bullet
 		Speed: 150
@@ -3272,6 +3272,8 @@ TigerCannon:
 		ImpactSounds: xplosml2.aud
 
 155mm:
+	Inherits: ^HeavyCannon
+	Inherits: ^ShrapnelWeapon
 	Inherits: ^Grenade
 	ReloadDelay: 80
 	Range: 13350
@@ -3287,12 +3289,22 @@ TigerCannon:
 		ContrailEndWidth: 25
 		ContrailStartColor: FEDCBA98
 		ContrailEndColor: 87654321
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 10000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 5
 	Warhead@Grenade: SpreadDamage
-		Damage: 40000
+		Damage: 10000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Damage: 20000
+		Damage: 5000
 	Warhead@GrenadePercentage: HealthPercentageDamage
-		Damage: 20
+		Damage: 5
 	Warhead@Effect: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud

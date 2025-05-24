@@ -5900,11 +5900,11 @@ yrbfrt:
 	Passenger:
 		Weight: 4
 	Health:
-		HP: 120000
+		HP: 320000
 	Repairable:
-		HpPerStep: 6000
+		HpPerStep: 16000
 	ChangesHealth@SelfHealing:
-		Step: 48
+		Step: 128
 	Armor:
 		Type: Heavy
 	#Turreted:
@@ -7957,7 +7957,7 @@ RA2ZEP:
 	Valued:
 		Cost: 4000
 	Tooltip:
-		Name: actor-zep.name
+		Name: Kirov Airship
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -7972,9 +7972,9 @@ RA2ZEP:
 		RepulsionSpeed: 24
 		CanSlide: False
 	Health:
-		HP: 1000000
+		HP: 800000
 	ChangesHealth@SelfHealing:
-		Step: 400
+		Step: 320
 	Armament@PRIMARY:
 		Weapon: RA2KirovBomb
 		LocalOffset: 256,0,-512
@@ -8022,7 +8022,7 @@ yrschp:
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: actor-schp.name
+		Name: Siege Chopper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -8128,7 +8128,7 @@ yrschp:
 		VoiceSet: SiegeChopperVoice
 	DeathSounds:
 	FirepowerMultiplier@FirerateCompensation:
-		Modifier: 33
+		Modifier: 50
 	FirepowerMultiplier@RadShells:
 		Types: deployed
 
@@ -13221,7 +13221,7 @@ ra2_tractor_driveby:
 # 	Voiced:
 # 		VoiceSet: RA2SovietVehicleVoice
 # 	ActorStatValues:
-# 		Upgrades: 
+# 		Upgrades:
 # 	WithSpriteTurret:
 # 	RenderSprites:
 # 		Image: ra2shilka

@@ -53,16 +53,16 @@ wc2arrowFire:
 # 2-12 WC2 damage. 8 Base, 4 Pierce.
 wc2knightslice:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 28
-	Range: 1337
+	ReloadDelay: 18
+	Range: 1357
 	Report: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 22000
+		Damage: 14000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 11000
+		Damage: 7000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 11
+		Damage: 7
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 
@@ -195,7 +195,8 @@ wc2healingSuper:
 	Warhead@Projectiles: FireCluster
 		Weapon: wc2healingSuper_hit
 		Dimensions: 5,5
-		Footprint: __X__ _XXX_ XXXXX _XXX_ __X__
+		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 
 wc2healingSuper_hit:
 	Inherits: wc2paladinhealing
@@ -372,11 +373,11 @@ wc2gryphonFireVisible:
 	Inherits: ^HeavyBomb
 	Inherits: ^TeslaChargedWeapon
 	ReloadDelay: 100
-	Range: 5544
+	Range: 4444
 	Report: wc2_axe.aud
 	ValidTargets: Ground, Water, Air
 	Projectile: Missile
-		Speed: 384
+		Speed: 444
 		Image: wc2_gryphon_hammer_projectile
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -629,7 +630,8 @@ wc2mageBlizzard:
 		Weapon: wc2mageBlizzard_Spread
 		RandomClusterCount: 5
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 
 wc2mageBlizzard_Spread:
 	ValidTargets: Ground, Water, Air, Trees
@@ -641,87 +643,136 @@ wc2mageBlizzard_Spread:
 	#	Image: wc2_lightng
 	Warhead@Projectiles1: FireCluster
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 1
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles2: FireCluster
 		Delay: 30
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 2
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles3: FireCluster
 		Delay: 60
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 3
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles4: FireCluster
 		Delay: 90
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 4
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles5: FireCluster
 		Delay: 120
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 5
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles6: FireCluster
 		Delay: 150
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 6
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles7: FireCluster
 		Delay: 180
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 5
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles8: FireCluster
 		Delay: 210
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 4
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles9: FireCluster
 		Delay: 240
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 3
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles10: FireCluster
 		Delay: 270
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 2
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles11: FireCluster
 		Delay: 300
 		Weapon: wc2mageBlizzard_Projectile
+		RandomClusterCount: 1
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 
 wc2mageBlizzard_Projectile:
+	Inherits: ^ShrapnelWeapon
 	Inherits: ^FlakWeapon
+	Inherits: ^LightChemicalWeapon
 	Inherits: ^LightFlameWeapon
+	Report: wc2_firehit.aud
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Bullet
 		Speed: 0c512
 		Image: wc2_effect_blizzard
 		Sequences: idle1, idle2
 		ContrailStartColor: 4488FF00
-	Warhead@FlakWeapon: SpreadDamage
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
-	Warhead@LightFlameWeapon: SpreadDamage
+	Warhead@LightChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@LightFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
 	-Warhead@Smudge: LeaveSmudge
 	-Warhead@RA2Scorch: LeaveSmudge
@@ -743,79 +794,92 @@ wc2blizzardSuper:
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 2
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader2: FireCluster
 		Delay: 20
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 4
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader3: FireCluster
 		Delay: 40
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 6
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader4: FireCluster
 		Delay: 60
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 8
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader5: FireCluster
 		Delay: 80
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 10
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader6: FireCluster
 		Delay: 100
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 12
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader7: FireCluster
 		Delay: 120
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 14
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader8: FireCluster
 		Delay: 150
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 12
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader9: FireCluster
 		Delay: 180
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 10
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader10: FireCluster
 		Delay: 210
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 8
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader11: FireCluster
 		Delay: 240
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 6
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader10: FireCluster
 		Delay: 270
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 4
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader11: FireCluster
 		Delay: 300
 		Weapon: wc2blizzardSuper_Spread
 		RandomClusterCount: 2
 		Dimensions: 9,9
-		Footprint: xxxxx____ xxxxx____ xxxxx____ xxxxx____ xxxxx____ _________ _________ _________ _________
+		Footprint: _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _xxxx_x__ _________ _xxxx_x__ _________ _________
+		#Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 
 # This spreads a bunch of projectiles out, which then become...
 wc2blizzardSuper_Spread:
@@ -833,26 +897,31 @@ wc2blizzardSuper_Spread:
 		Weapon: wc2mageBlizzard_Projectile
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles2: FireCluster
 		Delay: 30
 		Weapon: wc2mageBlizzard_Projectile
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles3: FireCluster
 		Delay: 60
 		Weapon: wc2mageBlizzard_Projectile
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles4: FireCluster
 		Delay: 90
 		Weapon: wc2mageBlizzard_Projectile
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@Projectiles5: FireCluster
 		Delay: 120
 		Weapon: wc2mageBlizzard_Projectile
 		Dimensions: 5, 5
 		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 
 # 6-16 WC2 damage. 4 Base, 12 Pierce.
 wc2_tower_arrow:
@@ -919,16 +988,16 @@ wc2axeFire:
 
 wc2ogrepunch:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 36
+	ReloadDelay: 24
 	Range: 1486
 	Report: wc2_punch.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 30000
+		Damage: 20000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 15000
+		Damage: 10000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 10
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_punch.aud
 
@@ -1035,7 +1104,8 @@ wc2runesSuper:
 	Warhead@Projectiles: FireCluster
 		Weapon: wc2ogremageRunes_Spread
 		Dimensions: 5,5
-		Footprint: __X__ _XXX_ XXXXX _XXX_ __X__
+		Footprint: _____ _____ _____ _____ ____x
+		#Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@2Eff: CreateEffect
 		Delay: 2
 		Image: wc2_effect_sparkle
@@ -1174,7 +1244,7 @@ wc2deathknightDeathAndDecay:
 		Weapon: wc2deathknightDeathAndDecay_Spread
 		RandomClusterCount: 5
 		Dimensions: 5, 5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 
 wc2deathknightDeathAndDecay_Spread:
 	Inherits: wc2mageBlizzard_Spread
@@ -1186,64 +1256,78 @@ wc2deathknightDeathAndDecay_Spread:
 		Footprint: x
 	Warhead@Projectiles2: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
-		Dimensions: 1, 1
-		Footprint: x
+		Dimensions: 3,3
+		Footprint: _x_ xxx _x_
 	Warhead@Projectiles3: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
 		Dimensions: 1, 1
 		Footprint: x
 	Warhead@Projectiles4: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
-		Dimensions: 1, 1
-		Footprint: x
+		Dimensions: 3,3
+		Footprint: _x_ xxx _x_
 	Warhead@Projectiles5: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
 		Dimensions: 1, 1
 		Footprint: x
 	Warhead@Projectiles6: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
-		Dimensions: 1, 1
-		Footprint: x
+		Dimensions: 3,3
+		Footprint: _x_ xxx _x_
 	Warhead@Projectiles7: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
 		Dimensions: 1, 1
 		Footprint: x
 	Warhead@Projectiles8: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
-		Dimensions: 1, 1
-		Footprint: x
+		Dimensions: 3,3
+		Footprint: _x_ xxx _x_
 	Warhead@Projectiles9: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
 		Dimensions: 1, 1
 		Footprint: x
 	Warhead@Projectiles10: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
-		Dimensions: 1, 1
-		Footprint: x
+		Dimensions: 3,3
+		Footprint: _x_ xxx _x_
 	Warhead@Projectiles11: FireCluster
 		Weapon: wc2deathknightDeathAndDecay_Hit
 		Dimensions: 1, 1
 		Footprint: x
 
 wc2deathknightDeathAndDecay_Hit:
+	Inherits: ^HeavyCannon
+	Inherits: ^MediumChemicalWeapon
 	Inherits: ^LightFlameWeapon
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: InstantHit
 		Speed: 0c512
 		Image: wc2_effect_blizzard
 		Sequences: idle1, idle2
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 40000
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		Damage: 8000
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 20000
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		Damage: 4000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 20
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		Damage: 4
 	Warhead@Effect: CreateEffect
 		Image: wc2_effect_death_and_decay
 		Explosions: idle
@@ -1284,68 +1368,68 @@ wc2deathanddecaySuper:
 	Warhead@InitialSpreader1: FireCluster
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 2
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 3,3
+		Footprint: _x_ xxx _x_
 	Warhead@InitialSpreader2: FireCluster
 		Delay: 20
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 4
 		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@InitialSpreader3: FireCluster
 		Delay: 40
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 6
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 7,7
+		Footprint: ___x___ __xxx__ _xxxxx_ xxxxxxx _xxxxx_ __xxx__ ___x___
 	Warhead@InitialSpreader4: FireCluster
 		Delay: 60
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 8
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 9,9
+		Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader5: FireCluster
 		Delay: 80
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 10
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 9,9
+		Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader6: FireCluster
 		Delay: 100
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 12
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 9,9
+		Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader7: FireCluster
 		Delay: 120
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 10
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 9,9
+		Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader8: FireCluster
 		Delay: 150
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 8
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 9,9
+		Footprint: ____x____ ___xxx___ __xxxxx__ _xxxxxxx_ xxxxxxxxx _xxxxxxx_ __xxxxx__ ___xxx___ ____x____
 	Warhead@InitialSpreader9: FireCluster
 		Delay: 180
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 6
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 7,7
+		Footprint: ___x___ __xxx__ _xxxxx_ xxxxxxx _xxxxx_ __xxx__ ___x___
 	Warhead@InitialSpreader10: FireCluster
 		Delay: 210
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 4
 		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Footprint: __x__ _xxx_ xxxxx _xxx_ __x__
 	Warhead@InitialSpreader11: FireCluster
 		Delay: 240
 		Weapon: wc2deathanddecaySuper_Spread
 		RandomClusterCount: 2
-		Dimensions: 5,5
-		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		Dimensions: 3,3
+		Footprint: _x_ xxx _x_
 
 # This spreads a bunch of projectiles out, which then become...
 wc2deathanddecaySuper_Spread:
@@ -1396,8 +1480,10 @@ wc2dragonFireVisible:
 	Inherits: ^MediumMissile
 	Inherits: ^Chaingun
 	Inherits: ^FlakWeapon
-	ReloadDelay: 67
-	Range: 5062
+	Range: 5010
+	ReloadDelay: 120
+	Burst: 2
+	BurstDelays: 0
 	Report: wc2_axe.aud
 	ValidTargets: Ground, Water, Air
 	Projectile: Missile

@@ -2535,7 +2535,11 @@ SCCREEPCOLONY:
 		Name: Spore Colony
 		RequiresCondition: spore
 	Valued:
-		Cost: 600
+		Cost: 1000
+	ProductionCostMultiplier@guardtower:
+		Multiplier: 50
+	ProductionTimeMultiplier@guardtower:
+		Multiplier: 50
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 20
@@ -2645,7 +2649,7 @@ scsporecolonyupgrade:
 	Tooltip:
 		Name: Sunken Colony
 	Valued:
-		Cost: 400
+		Cost: 500
 	Buildable:
 		Queue: Defence, RADefence
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
@@ -2660,7 +2664,7 @@ scsunkencolonyupgrade:
 	Tooltip:
 		Name: Spore Colony
 	Valued:
-		Cost: 400
+		Cost: 500
 	Buildable:
 		Queue: Defence, RADefence
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
@@ -6505,7 +6509,7 @@ SCIDOL:
 	Shielded:
 		RegenAmount: 280
 	Armor:
-		Type: Heavy
+		Type: Medium
 	Armament@Upgrade1: ##########
 		Weapon: WaveforceCannonChargedLaser
 		Recoil: 256

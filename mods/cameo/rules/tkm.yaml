@@ -10,7 +10,7 @@ World:
 		Game: Red Alert 2
 		Side: RA2 Mod
 		Description: Hybridized paramilitary faction forged from the remnants of fragmented armies, known for its modular combat doctrine.
-		
+
 ####################################################################################################
 #		MPSTARTUNITS
 ####################################################################################################
@@ -32,7 +32,7 @@ World:
 		Factions: tkm
 		BaseActor: tkmmcv
 		SupportActors: tkmrifleman,tkmrifleman,tkmrifleman,tkmrocketeer,tkmrocketeer,technicaltank,tkmtechnical,tkmtechnical,tkmtechnical,tkmtechnical
-		
+
 #######################################
 # TKM Defaults
 #######################################
@@ -288,6 +288,9 @@ tkminfantryupgrade:
 	FirepowerMultiplier@upinfweapon:
 		Modifier: 125
 		RequiresCondition: tkminfantryupgrade
+	GrantConditionOnPrerequisite@tkminfantryupgrade:
+		Condition: tkminfantryupgrade
+		Prerequisites: tkminfantryupgrade
 
 #######################################
 # TKM MCV and Construction Yard
@@ -1799,7 +1802,7 @@ tkmtechnical:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Upgrades: uptkmapbullets
-	WithSpriteTurret: 
+	WithSpriteTurret:
 	Selectable:
 		Class: tkmtechnical
 	RenderSprites:
@@ -1933,7 +1936,7 @@ tkmquadtruck:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades: 
+		Upgrades:
 	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmtechnicaltruck
@@ -2006,7 +2009,7 @@ tkmzaza:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades: 
+		Upgrades:
 	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmzaza
@@ -2417,7 +2420,7 @@ tkmhuey:
 	RenderSprites:
 		Image: tkmhuey
 		PlayerPalette: player_rgba
-		
+
 tkmhueytwin:
 	Inherits: tkmhuey
 	Buildable:
@@ -2445,7 +2448,7 @@ tkmhueytwin:
 	RenderSprites:
 		Image: tkmhuey
 		PlayerPalette: player_rgba
-		
+
 tkmhueyfire:
 	Inherits: tkmhuey
 	Buildable:
@@ -2473,7 +2476,7 @@ tkmhueyfire:
 	RenderSprites:
 		Image: tkmhuey
 		PlayerPalette: player_rgba
-		
+
 tkmhueycryo:
 	Inherits: tkmhuey
 	Buildable:
@@ -2501,7 +2504,7 @@ tkmhueycryo:
 	RenderSprites:
 		Image: tkmhuey
 		PlayerPalette: player_rgba
-		
+
 tkmhuey.husk:
 	Inherits: ^LargeHelicopterHusk
 	Tooltip:
@@ -2672,7 +2675,7 @@ tkmdrone:
 ####################################################################################################
 #		TKM Promotions
 ####################################################################################################
-	
+
 tkmradartruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
@@ -2710,7 +2713,7 @@ tkmradartruck:
 	RenderSprites:
 		Image: tkmradartruck
 		PlayerPalette: player_rgba
-		
+
 tkmrepairtruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
@@ -2758,7 +2761,7 @@ tkmrepairtruck:
 	RenderSprites:
 		Image: tkmrepairtruck
 		PlayerPalette: player_rgba
-	
+
 tkmmedictruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
@@ -2810,7 +2813,7 @@ tkmmedictruck:
 	RenderSprites:
 		Image: tkmmedictruck
 		PlayerPalette: player_rgba
-	
+
 t30:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
