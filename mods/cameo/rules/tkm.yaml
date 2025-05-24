@@ -453,10 +453,9 @@ tkmbarracks:
 tkmfactory:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TKMSpawnActorsOnSell
+	Inherits@shape: ^3x4Shape
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
-	Inherits@prod: ^ProducesUnits
-	Inherits@shape: ^3x4Shape
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
 		Type: Rectangle
@@ -469,7 +468,7 @@ tkmfactory:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 14
-		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
+		Prerequisites: ~tkmcommandcenter, ~tkmrefinery
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
