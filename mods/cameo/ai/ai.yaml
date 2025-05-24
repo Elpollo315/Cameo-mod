@@ -6334,6 +6334,9 @@ Player:
 			tkmrepairtruck: 1
 			tkmmedictruck: 1
 			tkmbattlebus: 3
+			tkmbattlebuscamo: 3
+			tkmbattlebustitan: 3
+			tkmbattlebusnato: 3
 			tkmsandmarine: 1
 			t30: 1
 			upberezkacloak: 1
