@@ -811,7 +811,7 @@ wc2_human_mcv:
 	Defaults:
 		Filename: wc2_human_peasant.shp
 		Scale: 3
-	Inherits: ^WC2OrcInfantry
+	Inherits: ^WC2HumanInfantry
 	stand:
 		Offset: 0,0
 	idle:
@@ -901,6 +901,15 @@ wc2_human_peasant:
 		Start: 80
 	die-crushed:
 		Start: 80
+	idle1:
+		Start: 8
+		Length: 4
+		Tick: 800
+	idle2:
+		Start: 40
+		Length: 5
+		Facings: -8
+		Tick: 800
 	icon:
 		Start: 0
 	townhall_icon:
@@ -2007,6 +2016,15 @@ wc2_orc_peon:
 		Start: 80
 	die-crushed:
 		Start: 80
+	idle1:
+		Start: 8
+		Length: 4
+		Tick: 800
+	idle2:
+		Start: 40
+		Length: 5
+		Facings: -8
+		Tick: 800
 	icon:
 		Start: 0
 	greathall_icon:

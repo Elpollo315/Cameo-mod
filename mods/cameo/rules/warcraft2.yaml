@@ -3058,6 +3058,8 @@ wc2_human_footman:
 	Armament:
 		Weapon: wc2footmanslice
 		FireDelay: 7
+	Targetable@dog:
+		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voicehumanfootman
 
@@ -3093,6 +3095,9 @@ wc2_human_elven_archer:
 	Armament:
 		Weapon: wc2arrowFire
 		FireDelay: 7
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2arrowFire
 	Voiced:
 		VoiceSet: wc2voicehumanelvenarcher
 	# Animation and upgrade stuff
@@ -3423,6 +3428,9 @@ wc2_human_mage:
 		Weapon: wc2mageFire
 		FireDelay: 7
 		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner) || (FSD_cond_2 && !mageslow_upg) || (FSD_cond_3 && !magepolymorph_upg) || (FSD_cond_4 && !mageblizzard_upg)
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2mageFire
 	Armament@FIREBALL_VISIBLE:
 		Name: fireball
 		Weapon: wc2mageFireballVisible
@@ -4769,6 +4777,8 @@ wc2_orc_grunt:
 	Armament:
 		Weapon: wc2gruntslice
 		FireDelay: 7
+	Targetable@dog:
+		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voiceorcpeongrunt
 
@@ -4804,6 +4814,9 @@ wc2_orc_troll_axethrower:
 	Armament:
 		Weapon: wc2axeFire
 		FireDelay: 7
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2axeFire
 	Voiced:
 		VoiceSet: wc2voiceorctrollaxethrower
 	# Animation and upgrade stuff
@@ -5201,6 +5214,9 @@ wc2_orc_deathknight:
 		Weapon: wc2deathknightFire
 		FireDelay: 7
 		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner) || (FSD_cond_2 && !deathknighthaste_upg) || (FSD_cond_3 && !deathknightdeathanddecay_upg) || (FSD_cond_4 && !deathknightraisedead_upg)
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2deathknightFire
 	Armament@DEATHCOIL:
 		Name: deathcoil
 		Weapon: wc2deathknightDeathCoil

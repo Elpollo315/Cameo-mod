@@ -3026,7 +3026,7 @@ tkmbattlebustitan:
 		Upgrades: upnatoarsenal
 	RenderSprites:
 		Image: tkmbattlebus
-		
+
 tkmbattlebusnato:
 	Inherits: tkmbattlebus
 	Tooltip:
@@ -3047,7 +3047,7 @@ tkmbattlebusnato:
 		Upgrades: upnatoarsenal
 	RenderSprites:
 		Image: tkmbattlebus
-		
+
 tkmsandmarine:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
