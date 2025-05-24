@@ -2798,22 +2798,27 @@ SteelEmpBomb:
 	ReloadDelay: 250
 	Projectile: InstantExplode
 	Warhead@TeslaChargedWeapon: SpreadDamage
+		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 50000
 		Spread: 2500
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 25000
 		Spread: 5000
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 25
 		Spread: 2500
 	Warhead@EMPUnit: AffectsIntegrity
+		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 250000
 		Spread: 10000
 	Warhead@Effect: CreateEffect
+		ValidTargets: Ground, Water
 		Explosions: mobileemp
 		ExplosionPalette: ra2unit
 		ImpactSounds: mobemp1.aud
@@ -6069,9 +6074,13 @@ LatinAADefenderCannon:
 		Delay: 23
 
 12MissilesSpawnerScud:
-	Inherits: RA2TOPOLCuba
+	Inherits: ^HeavyBomb
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^RA2Grenade
+	Inherits: ^RA2HeavyMissile
 	Report: vaegatta.wav, vaegattb.wav
 	Range: 10000
+	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: 12MissilesSpawnerScud
 		MissileImage: latin_12_miss
@@ -6143,11 +6152,14 @@ RA2TOPOLCubaTarget:
 	Warhead@1Dam: TargetDamage
 
 RA2TOPOLCuba:
-	Inherits@2: ^HeavyBomb
-	Inherits: RA2SCUD
-	Inherits@rad: ^RA2RadShell
+	Inherits: ^NuclearWarhead
+	Inherits: ^HeavyBomb
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^LightChemicalWeapon
+	Inherits: ^Grenade
 	Report: vaegatta.wav, vaegattb.wav
-	ReloadDelay: 500
+	ReloadDelay: 750
 	Range: 32000
 	MinRange: 3200
 	TargetActorCenter: true
@@ -6162,46 +6174,70 @@ RA2TOPOLCuba:
 		TrailSequences: idle
 		TrailDelay: 0
 		TrailInterval: 1
+	Warhead@NuclearWarhead: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 20000
+		Spread: 10000
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10
+		Spread: 10000
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 256000
-		Spread: 4000
+		Damage: 20000
+		Spread: 5000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 128
-		Spread: 4000
-	Warhead@Grenade: SpreadDamage
-		ValidTargets: Ground, Water, Air
-		Damage: 256000
-		Spread: 8000
-	Warhead@GrenadeFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Air
-		Damage: 256000
-		Spread: 8000
-	Warhead@GrenadePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
-		Damage: 128
-		Spread: 8000
+		Damage: 10
+		Spread: 5000
 	Warhead@MediumFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 256000
-		Spread: 2000
+		Damage: 20000
+		Spread: 7500
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 256000
-		Spread: 2000
+		Damage: 20000
+		Spread: 7500
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 128
-		Spread: 2000
-	Warhead@HeavyMissile: SpreadDamage
+		Damage: 10
+		Spread: 7500
+	Warhead@ShrapnelWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 256000
-		Spread: 1000
-	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 20000
+		Spread: 6000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 128
-		Spread: 1000
+		Damage: 20000
+		Spread: 6000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10
+		Spread: 6000
+	Warhead@LightChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 20000
+		Spread: 3333
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 20000
+		Spread: 3333
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10
+		Spread: 3333
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 20000
+		Spread: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 20000
+		Spread: 4000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10
+		Spread: 4000
 	Warhead@3Eff_impact: CreateEffect
 		Explosions: ra2nuke
 		ExplosionPalette: ra2effect
@@ -6560,7 +6596,7 @@ Future_Robot_Shotgun:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_piffs
 		ExplosionPalette: ra2effect
-        
+
 ACV_Machinegun:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
@@ -6843,7 +6879,7 @@ Future_CoilerFriend:
 		Duration: 300
 		ValidTargets: RobotEnergizable
 		ValidRelationships: Ally
-        
+
 Future_CoilerFriendMain:
 	Inherits: Future_CoilerFriend
 	Warhead@2: FireShrapnel
