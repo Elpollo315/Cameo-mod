@@ -1095,6 +1095,16 @@ tkmdiglarge:
 		ZOffset: -1200
 		Offset: 0, 0, 256
 
+tkmdronepodtruck:
+	Defaults:
+		Scale: 0.6
+	idle:
+		Filename: tkmdronepodtruck.png
+		Facings: -32
+	icon:
+		Filename: tkmradartruckicon.png
+		AddExtension: False
+
 ####################################################################################################
 #		TKM Upgrade Icons
 ####################################################################################################

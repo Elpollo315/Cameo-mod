@@ -936,7 +936,7 @@ tkmjug:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~tkmbarracks, ~upnatoarsenal, ~!uptkmapbullets, ~tkmradar
+		Prerequisites: ~tkmbarracks, ~upjugg, ~!uptkmapbullets, ~tkmradar
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
@@ -1005,7 +1005,7 @@ tkmjug:
 	Selectable:
 		Class: tkmjug
 	ActorStatValues:
-		Upgrades: uptitanarsenal, tkminfantryupgrade
+		Upgrades: tkminfantryupgrade
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -1018,7 +1018,7 @@ tkmjugap:
 	Inherits: tkmjug
 	Inherits@speed: ^uptkmapbullets
 	Buildable:
-		Prerequisites: ~tkmbarracks, ~uptkmapbullets
+		Prerequisites: ~tkmbarracks, ~upjugg, ~uptkmapbullets
 	Tooltip:
 		Name: Juggernaut (Titan Plating & AP Bullets)
 	Armament@PRIMARY:
@@ -1028,7 +1028,7 @@ tkmjugap:
 		Weapon: tkmjuggap
 		Name: garrisoned
 	ActorStatValues:
-		Upgrades: uptitanarsenal, uptkmapbullets, tkminfantryupgrade
+		Upgrades: uptkmapbullets, tkminfantryupgrade
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tkmjug
@@ -1815,7 +1815,7 @@ tkmtechnicalapbullets:
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Armament:
-		Weapon: tkmjuggap
+		Weapon: tkmtechnicalmgap
 		LocalOffset: 500,0,400
 	ActorStatValues:
 		Upgrades: uptkmapbullets
@@ -2551,7 +2551,7 @@ tkmviper:
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 30
-		Prerequisites: ~tkmairpad, ~tkmtechcenter
+		Prerequisites: ~tkmairpad, ~tkmtechcenter, ~upviper
 		Description: actor-yak.description
 	Valued:
 		Cost: 2900
@@ -2710,7 +2710,7 @@ tkmdrone:
 			TopLeft: -512, -512
 			BottomRight: 512, 512
 	Voiced:
-		VoiceSet: TSVehicle
+		VoiceSet: RobotTankVoice
 	BodyOrientation:
 		QuantizedFacings: 32
 	-SpawnActorOnDeath:
@@ -2737,7 +2737,7 @@ tkmradartruck:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 25
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~upradartruck
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -2775,7 +2775,7 @@ tkmrepairtruck:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 26
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~uprepairtruck
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Armament@repair:
@@ -2823,7 +2823,7 @@ tkmmedictruck:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 27
-		Prerequisites: ~tkmfactory
+		Prerequisites: ~tkmfactory, ~upmedictruck
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Armament@Heal:
@@ -2860,6 +2860,85 @@ tkmmedictruck:
 		Image: tkmmedictruck
 		PlayerPalette: player_rgba
 
+tkmdronepodtruck:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ArtilleryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@AntiBuil: ^PrioritizeBuilding
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Drone Pod Truck
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 26
+		Prerequisites: ~tkmfactory, ~updronepodtruck, ~tkmtechcenter
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Armament:
+		Weapon: DronePodTruckLaser
+		LocalOffset: 240,160,240
+	AttackFrontal:
+		FacingTolerance: 64
+	Mobile:
+		Speed: 75
+		TurnSpeed: 15
+	Health:
+		HP: 27500
+	Repairable:
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 11
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+	CarrierMaster:
+		Actors: tkmsuicidedrone, tkmsuicidedrone, tkmsuicidedrone, tkmsuicidedrone, tkmsuicidedrone, tkmsuicidedrone, tkmsuicidedrone, tkmsuicidedrone
+		RearmTicks: 25
+		RespawnTicks: 75
+		InstaRepair: true
+		SlaveDisposalOnKill: KillSlaves
+		SpawnAllAtOnce: false
+	ActorStatValues:
+		Upgrades:
+	WithFacingSpriteBody:
+	RenderSprites:
+		Image: tkmdronepodtruck
+		PlayerPalette: player_rgba
+
+tkmsuicidedrone:
+	Inherits: SCSCOURGE
+	SelectionDecorations:
+	Tooltip:
+		Name: Suicide Drone
+	Power:
+		Amount: 0
+	-Buildable:
+	Aircraft:
+		VTOL: false
+		Repulsable: false
+		TakeUpCellWhenLand: false
+	CarrierSlave:
+		LandingDistance: 8000
+	HasParent:
+	RejectsOrders:
+	AutoTarget:
+		InitialStanceAI: AttackAnything
+		InitialStance: AttackAnything
+	Voiced:
+		VoiceSet: RobotTankVoice
+	Armament@PRIMARY:
+		Weapon: TKMDroneExplosion
+	RenderSprites:
+		Image: tkmdrone
+		PlayerPalette: player_rgba
+
+
 t30:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
@@ -2873,7 +2952,7 @@ t30:
 		Name: T-30
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!t30
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!t30, ~upt30
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 		BuildLimit: 1
@@ -2935,7 +3014,7 @@ tkmbattlebus:
 		OverrideActor: yrbfrt
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!upberezkacloak, ~!uptitanarsenal, ~!upnatoarsenal
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!upberezkacloak, ~!uptitanarsenal, ~!upnatoarsenal, ~upbattlebus
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Mobile:
@@ -2975,6 +3054,8 @@ tkmbattlebus:
 		Armaments: garrisoned
 		PortOffsets: 384,0,128, -384,0,128, 224,-341,128, -224,-341,128, 224,341,128, -224,341,128
 		PauseOnCondition: chronobeamed
+	ActorStatValues:
+		Upgrades: upberezkacloak, uptitanarsenal, upnatoarsenal
 	RevealOnFire:
 		ArmamentNames: primary, garrisoned
 	AutoTarget:
@@ -2991,7 +3072,7 @@ tkmbattlebuscamo:
 		Name: Battle Bus
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~upberezkacloak
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~upberezkacloak, ~upbattlebus
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Cargo:
@@ -3002,7 +3083,7 @@ tkmbattlebuscamo:
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	ActorStatValues:
-		Upgrades: upnatoarsenal
+		Upgrades: upberezkacloak
 	RenderSprites:
 		Image: tkmbattlebus
 
@@ -3012,7 +3093,7 @@ tkmbattlebustitan:
 		Name: Battle Bus
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~uptitanarsenal
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~uptitanarsenal, ~upbattlebus
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Cargo:
@@ -3023,7 +3104,7 @@ tkmbattlebustitan:
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	ActorStatValues:
-		Upgrades: upnatoarsenal
+		Upgrades: uptitanarsenal
 	RenderSprites:
 		Image: tkmbattlebus
 
@@ -3033,7 +3114,7 @@ tkmbattlebusnato:
 		Name: Battle Bus
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~upnatoarsenal
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~upnatoarsenal, ~upbattlebus
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Cargo:
@@ -3065,7 +3146,7 @@ tkmsandmarine:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!tkmsandmarine
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!tkmsandmarine, ~upsandmarine
 		Queue: Vehicle, RAVehicle
 		Description: Subterranean super vehicle. Strong against everything ground.
 		BuildLimit: 1
@@ -3209,7 +3290,7 @@ tkmbigshiee:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 190
-		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!tkmbigshiee
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!tkmbigshiee, ~upbigshiee
 		Queue: Vehicle, RAVehicle
 		Description: Super Open Topped vehicle. Strong against everything ground.
 		BuildLimit: 1
@@ -3332,3 +3413,166 @@ tkmbigshiee:
 	RenderSprites:
 		Image: tkmbigshiee
 		PlayerPalette: player_rgba
+
+## TKM Promotions
+### Berezka Promotion Tree
+
+upmedictruck:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Medic Truck
+	Buildable:
+		BuildPaletteOrder: 8043
+		Queue: Promotions
+		Description: Unlocks the Medic Truck.
+		Prerequisites: ~tkmcommandcenter, !upmedictruck, rank1
+	RenderSprites:
+		Image: tkmmedictruck
+	ProvidesPrerequisite:
+
+upjugg:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Juggernaut
+	Buildable:
+		BuildPaletteOrder: 8046
+		Queue: Promotions
+		Description: Allows training of the Juggernaut.
+		Prerequisites: ~tkmcommandcenter, upmedictruck, !upjugg, rank1
+	RenderSprites:
+		Image: tkmjug
+	ProvidesPrerequisite:
+
+upbattlebus:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Battle Bus
+	Buildable:
+		BuildPaletteOrder: 8049
+		Queue: Promotions
+		Description: Unlocks the Battle Bus.
+		Prerequisites: ~tkmcommandcenter, upjugg, !upbattlebus, rank1
+	RenderSprites:
+		Image: tkmbattlebus
+	ProvidesPrerequisite:
+
+upsandmarine:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock the Sand Marine
+	Buildable:
+		BuildPaletteOrder: 8052
+		Queue: Promotions
+		Description: Allows construction of the Sand Marine.
+		Prerequisites: ~tkmcommandcenter, upbattlebus, !upsandmarine, rank1
+	RenderSprites:
+		Image: tkmsandmarine
+	ProvidesPrerequisite:
+
+### Titan Promotion Tree
+
+uprepairtruck:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Repair Truck
+	Buildable:
+		BuildPaletteOrder: 8044
+		Queue: Promotions
+		Description: Unlocks a Repair Truck.
+		Prerequisites: ~tkmcommandcenter, !uprepairtruck, rank1
+	RenderSprites:
+		Image: tkmrepairtruck
+	ProvidesPrerequisite:
+
+upserpenttank:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Serpent Tank
+	Buildable:
+		BuildPaletteOrder: 8047
+		Queue: Promotions
+		Description: Allows construction of the Serpent Tank.
+		Prerequisites: ~tkmcommandcenter, uprepairtruck, !upserpenttank, rank1
+	RenderSprites:
+		Image: disabledicon
+	ProvidesPrerequisite:
+
+upbustertank:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Buster Tank
+	Buildable:
+		BuildPaletteOrder: 8050
+		Queue: Promotions
+		Description: Unlocks Buster Tank
+		Prerequisites: ~tkmcommandcenter, upserpenttank, !upbustertank, rank1
+	RenderSprites:
+		Image: disabledicon
+	ProvidesPrerequisite:
+
+upbigshiee:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock the Big Shiee
+	Buildable:
+		BuildPaletteOrder: 8053
+		Queue: Promotions
+		Description: Unlocks the Big Shiee.
+		Prerequisites: ~tkmcommandcenter, upbustertank, !upbigshiee, rank1
+	RenderSprites:
+		Image: tkmbigshiee
+	ProvidesPrerequisite:
+
+### NATO Promotion Tree
+
+upradartruck:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Radar Truck
+	Buildable:
+		BuildPaletteOrder: 8045
+		Queue: Promotions
+		Description: Allows construction of Radar Trucks.
+		Prerequisites: ~tkmcommandcenter, !upradartruck, rank1
+	RenderSprites:
+		Image: tkmradartruck
+	ProvidesPrerequisite:
+
+upviper:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Viper
+	Buildable:
+		BuildPaletteOrder: 8048
+		Queue: Promotions
+		Description: Allows construction of Vipers.
+		Prerequisites: ~tkmcommandcenter, upradartruck, !upviper, rank1
+	RenderSprites:
+		Image: tkmviper
+	ProvidesPrerequisite:
+
+updronepodtruck:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Drone Pod Truck
+	Buildable:
+		BuildPaletteOrder: 8051
+		Queue: Promotions
+		Description: Allows construction of Drone Pod Trucks.
+		Prerequisites: ~tkmcommandcenter, upviper, !updronepodtruck, rank1
+	RenderSprites:
+		Image: tkmdronepodtruck
+	ProvidesPrerequisite:
+
+upt30:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock T30
+	Buildable:
+		BuildPaletteOrder: 8054
+		Queue: Promotions
+		Description: Allows construction of the T30.
+		Prerequisites: ~tkmcommandcenter, updronepodtruck, !upt30, rank1
+	RenderSprites:
+		Image: tkmt30
+	ProvidesPrerequisite:

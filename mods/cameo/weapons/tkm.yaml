@@ -39,9 +39,24 @@ tkmjuggap:
 	BurstDelays: 6
 	Range: 4792
 	Report: mgun11.aud
+	ValidTargets: Ground, Water, Trees
 	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Trees
 		Damage: 2000
 	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 6000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 3
+
+tkmtechnicalmgap:
+	Inherits: tkmjuggap
+	ValidTargets: Ground, Water, Trees
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Trees
 		Damage: 6000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		Damage: 3
@@ -338,7 +353,7 @@ tkmturretcannon:
 tkmstrykerrockets:
 	Inherits: ^LightMissile
 	ReloadDelay: 63
-	Range: 8000
+	Range: 6000
 	Burst: 2
 	Report: bazook1.aud
 	ValidTargets: Ground, Water, Trees, Air
@@ -352,7 +367,7 @@ tkmstrykerrockets:
 tkmstrykercryorockets:
 	Inherits: ^LightMissile
 	ReloadDelay: 63
-	Range: 8000
+	Range: 6000
 	Burst: 2
 	Report: bazook1.aud
 	ValidTargets: Ground, Water, Trees, Air
@@ -381,7 +396,7 @@ tkmstrykermg:
 	Inherits: ^SmallArms
 	Inherits: ^RA2Chaingun
 	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
-	Range: 8000
+	Range: 6000
 	ReloadDelay: 6
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: Bullet
@@ -918,3 +933,66 @@ ViperMissilesFire:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+
+DronePodTruckLaser:
+	ReloadDelay: 5
+	ValidTargets: Ground, Water, Trees
+	Range: 12000
+	Projectile: LaserZap
+		Width: 30
+		Duration: 3
+		Color: ff0000
+		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 50
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: ff000030
+		Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 3
+		Damage: 1
+
+TKMDroneExplosion:
+	Inherits: SCScourgeDroneExplosion
+	Range: 2000
+	Projectile: Missile
+		Speed: 200
+		Image: tkmdrone
+	Warhead@Effect: CreateEffect
+		Explosions: med_napalm
+		ValidTargets: Ground, Water
+		ImpactSounds: bazook1.aud
+
+TKMDroneExplode:
+	Inherits: ^HeavyBomb
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^RA2Grenade
+	-Report:
+	ValidTargets: Ground, Water
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 10000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 5
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 5
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 10000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water
+		Damage: 5000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 5
+	-Warhead@Effect1:
+	-Warhead@Effect2:
+	-Warhead@Effect:
