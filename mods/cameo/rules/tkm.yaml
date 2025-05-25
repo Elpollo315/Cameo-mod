@@ -3190,3 +3190,145 @@ tkmsandmarine:
 	RenderSprites:
 		Image: tkmsandmarine
 		PlayerPalette: player_rgba
+
+tkmbigshiee:
+	Inherits: ^Tank
+	Inherits@Template: ^EpicVehicleTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	Inherits@crush: ^VehicleCrusher
+	Inherits@cargo: ^OpenToppedVehicle
+	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Valued:
+		Cost: 5000
+	Tooltip:
+		Name: Big Shiee
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 190
+		Prerequisites: ~tkmfactory, ~tkmtechcenter, ~!tkmbigshiee
+		Queue: Vehicle, RAVehicle
+		Description: Super Open Topped vehicle. Strong against everything ground.
+		BuildLimit: 1
+	Mobile:
+		Locomotor: heavytracked
+		Speed: 60
+		TurnSpeed: 12
+	Health:
+		HP: 1000000
+	Repairable:
+		HpPerStep: 6000
+	ChangesHealth@SelfHealing:
+		Step: 48
+	Armor:
+		Type: Heavy
+	#Turreted:
+	#	TurnSpeed: 1023
+	Armament@PRIMARY:
+		Weapon: SandmarineTusk
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: !upcryorockets && !uptwinrockets && !uptitanarsenalupgrade
+	Armament@SECONDARY:
+		Weapon: SandmarineTusk
+		LocalOffset: -160,276,232
+		LocalYaw: -100
+		MuzzleSequence: muzzle
+		RequiresCondition: !upcryorockets && !uptwinrockets && !uptitanarsenalupgrade
+	Armament@PRIMARYNATO:
+		Weapon: SandmarineTuskCryo
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upcryorockets
+	Armament@SECONDARYNATO:
+		Weapon: SandmarineTuskCryo
+		LocalOffset: -160,276,232
+		LocalYaw: -100
+		MuzzleSequence: muzzle
+		RequiresCondition: upcryorockets
+	Armament@PRIMARYBEREZKA:
+		Weapon: SandmarineTuskTwin
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: uptwinrockets
+	Armament@SECONDARYBEREZKA:
+		Weapon: SandmarineTuskTwin
+		LocalOffset: -160,276,232
+		LocalYaw: -100
+		MuzzleSequence: muzzle
+		RequiresCondition: uptwinrockets
+	Armament@PRIMARYTITAN:
+		Weapon: SandmarineTuskFire
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upincendiaryrockets
+	Armament@SECONDARYTITAN:
+		Weapon: SandmarineTuskFire
+		LocalOffset: -160,276,232
+		LocalYaw: -100
+		MuzzleSequence: muzzle
+		RequiresCondition: upincendiaryrockets
+	Armament@Mortar:
+		LocalOffset: 1800,0,500
+		Weapon: sandmarinemortar
+		MuzzleSequence: muzzle
+	GrantConditionOnPrerequisite@upcryorockets:
+		Condition: upcryorockets
+		Prerequisites: upcryorockets
+	GrantConditionOnPrerequisite@uptwinrockets:
+		Condition: uptwinrockets
+		Prerequisites: uptwinrockets
+	GrantConditionOnPrerequisite@upincendiaryrockets:
+		Condition: upincendiaryrockets
+		Prerequisites: upincendiaryrockets
+	Cargo:
+		UnloadVoice: Move
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 10
+		InitialUnits: tkmjugap,tkmjugap,tkmjugap,tkmjugap,tkmjugap,tkmjugap,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary
+		ExclusiveDeploy: true
+		DeployType: Battlefortress
+	AttackOpenTopped:
+		Voice: Attack
+		Armaments: garrisoned
+		PortOffsets: 384,0,128, -384,0,128, 224,-341,128, -224,-341,128, 224,341,128, -224,341,128
+		PauseOnCondition: chronobeamed
+	RenderRangeCircle:
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 0
+	RevealOnFire:
+		ArmamentNames: primary, garrisoned
+	AutoTarget:
+		AllowMovement: true
+	Selectable:
+		DecorationBounds: 1440, 1440, 0, -128
+	Voiced:
+		VoiceSet: TSVehicle
+	WithFacingSpriteBody:
+	WithDecoration@UNDERGROUND:
+		RequiresCondition: submerged
+		Position: Center
+		Image: gpsdot
+		Sequence: Vehicle
+		RequiresSelection: false
+		Palette: player
+		IsPlayerPalette: true
+	AnnounceOnSeen@subterranean:
+		PingRadar: true
+		Notification: SubterraneanUnitDetected
+	GrantCondition@untargetable:
+		Condition: untargetable
+		RequiresCondition: chronobeamed || invulnerability || submerged
+	ActorStatValues:
+		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets
+	RenderSprites:
+		Image: tkmbigshiee
+		PlayerPalette: player_rgba

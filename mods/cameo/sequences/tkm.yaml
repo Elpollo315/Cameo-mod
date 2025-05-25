@@ -1073,6 +1073,19 @@ tkmsandmarine:
 		Filename: tkmsandmarineicon.png
 		AddExtension: False
 
+tkmbigshiee:
+	Defaults:
+		Scale: 0.7
+	idle:
+		Filename: tkmbigshiee.png
+		Facings: 32
+	muzzle:
+		Filename: ra2_gunfire.shp
+		Length: *
+	icon:
+		Filename: tkmsandmarineicon.png
+		AddExtension: False
+
 tkmdiglarge:
 	idle:
 		Scale: 4.0
