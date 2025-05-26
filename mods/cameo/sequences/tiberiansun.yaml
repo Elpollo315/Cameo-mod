@@ -1793,7 +1793,74 @@ tsgtpile2:
 		Filename: tshandicon.png
 		Offset: 0, 0
 		UseTilesetCode: false
+forgot_barracks:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_barracks.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_barracks.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_barracks.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_barracks.png
+		Length: 16
+	icon:
+		Filename: tshandicon.png
+		Offset: 0, 0
+		UseTilesetCode: false
 
+forgot_refin:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_refin.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_refin.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_refin.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_refin.png
+		Length: 16
+	icon:
+		Filename: tshandicon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+
+forgot_radar:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_radar.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_radar.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_radar.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_radar.png
+		Length: 16
+	icon:
+		Filename: tshandicon.png
+		Offset: 0, 0
+		UseTilesetCode: false
 tsntweap:
 	Inherits: ^WithBuildingBib2
 	Defaults:

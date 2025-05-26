@@ -837,21 +837,60 @@ tsproccabal:
 		Image: tsproc.nod
 
 tsprocmutant:
-	Inherits: TSPROC
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@ref: ^Refinery
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 853
+	HitShape@TOP:
+		Type: Rectangle
+			TopLeft: -512, -1450
+			BottomRight: 896, -512
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Forgotten Refinery
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstmutant
 		Queue: Building, RABuilding
 		Description: Processes raw Tiberium\ninto useable resources
+	Building:
+		Footprint: _x_ xxx === ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	RevealsShroud:
+		Range: 6c0
+	Refinery:
+	DockHost:
+		DockAngle: 680
+		DockOffset: 1c0, 1c0, 0
+	StoresResources:
+		Capacity: 1000
+	Selectable:
+		Bounds: 3072, 2560, 0, 0
+		DecorationBounds: 3072, 2560, 0, 0
+	CustomSellValue:
+		Value: 500
 	FreeActor:
 		Actor: TSHARVMUTANT
 		SpawnOffset: 1,2
 		Facing: 256
+	Power:
+		Amount: -40
 	ProvidesPrerequisite@buildingname:
-	Tooltip:
-		Name: Tiberium Refinery (Mutant)
+	SelectionDecorations:
+	GivesBuildableArea: ##########
+		AreaTypes: building, cityi
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 10
 	RenderSprites:
-		Image: tsprocmutant
+		Image: forgot_refin
+		PlayerPalette: player_rgba
 
 tsntwast:
 	Inherits: ^BaseBuilding
@@ -1344,20 +1383,52 @@ TSNTHAND2:
 		PlayerPalette: playerra2
 
 tsgtpile2:
-	Inherits: TSNTHAND
+	Inherits: ^BaseBuilding
+	Inherits@CPQWP: ^CPQConditionWithPrimary
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@barr: ^IsBarrack
+	Inherits@prod: ^ProducesUnits
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,-256,0, 840,512,0, 210,-512,0, -71,512,0
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 640
+	Valued:
+		Cost: 500
 	Tooltip:
 		Name: Forgotten Barracks
+	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~tsgtcnstmutant, tsntpowrmutant
 		Queue: Building, RABuilding
 		Description: Trains infantry
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -426,85,0
+		ExitCell: 0,1
+	Exit@2:
+		SpawnOffset: 298,298,0
+		ExitCell: 1,1
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ParallelProductionQueue@INFANTRY:
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 1280, 1280
+		DecorationBounds: 1280, 1024
 	RenderSprites:
-		Image: tsgtpile2
-		PlayerPalette: playerra2
+		Image: forgot_barracks
+		PlayerPalette: player_rgba
 
 tsgtweap:
 	Inherits: ^BaseBuilding
@@ -1947,59 +2018,52 @@ tsgtradr:
 		PlayerPalette: playerra2
 
 tsgtradrmutant:
-	Inherits: tsgtradr
-	Inherits@SW: ^PrimarySuperweapon
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@radar: ^RadarBuilding
+	Inherits@spy: ^InfiltrateForSupportPowerReset
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
+		Type: Rectangle
+			TopLeft: -1024, -384
+			BottomRight: 1024, 1024
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Radar
+	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 70
 		Prerequisites: ~tsgtcnstmutant, tsprocmutant
 		Queue: Building, RABuilding
 		Description: Provides radar and support powers.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
-	# DetonateWeaponPower:
-	# 	OrderName: MutantCommando
-	# 	Prerequisites: ~techlevel.superweapons
-	# 	Cursor: ability
-	# 	PauseOnCondition: lowpower
-	# 	Icon: mutcommando
-	# 	Name: Mutant Commando
-	# 	Description: Deploys elite Ghost Stalkers and Snipers\nvia Subterranean APC.
-	# 	InsufficientPowerSpeechNotification: InsufficientPower
-	# 	IncomingSpeechNotification: EnemyUnitsApproaching
-	# 	SelectTargetSpeechNotification: SelectTarget
-	# 	DisplayRadarPing: True
-	# 	DisplayTimerStances: Ally, Neutral, Enemy
-	# 	ChargeInterval: 7500
-	# 	Weapon: MutSAPCSpawner
-	# 	ActivationDelay: 60
-	# 	CameraRemoveDelay: 90
-	# 	BeaconPoster: rapinficon
-	# DetonateWeaponPower@wildlife:
-	# 	AllowMultiple: true
-	# 	OrderName: WildlifeRampage
-	# 	Prerequisites: tek, ~techlevel.superweapons
-	# 	Cursor: ability
-	# 	PauseOnCondition: lowpower
-	# 	Icon: mutwildlife
-	# 	Name: Wildlife Rampage
-	# 	Description: Spawns numerous Tiberium creatures\ncausing massive havoc.
-	# 	InsufficientPowerSpeechNotification: InsufficientPower
-	# 	IncomingSpeechNotification: EnemyUnitsApproaching
-	# 	SelectTargetSpeechNotification: SelectTarget
-	# 	DisplayTimerStances: Ally, Neutral, Enemy
-	# 	DisplayRadarPing: True
-	# 	ChargeInterval: 9000
-	# 	ActivationDelay: 50
-	# 	Weapon: MutWildlifeSpawner
-	# 	CameraActor: camera
-	# 	CameraRemoveDelay: 240
-	# 	DisplayBeacon: True
-	# 	ArrowSequence: arrow
-	# 	ClockSequence: clock
-	# 	CircleSequence: circles
-	# 	BeaconPoster: rapinficon
-	ProvidesPrerequisite@buildingname:
+	Building:
+		Footprint: X_ xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 2048, 2048
+		DecorationBounds: 2248, 2248
+	SelectionDecorations:
+	WithSpriteBody:
+		PauseOnCondition: lowpower
+	RevealsShroud:
+		Range: 10c0
+	WithBuildingBib:
+	ProvidesRadar:
+		RequiresCondition: !jammed && !lowpower
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 5c0
+		RequiresCondition: !lowpower
+	SupportPowerChargeBar:
+	Power:
+		Amount: -50
+	ExternalCondition@JAMMED:
+		Condition: jammed
 	RenderSprites:
-		Image: tsgtradrmutant
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
+		Image: forgot_radar
 
 tsnttech:
 	Inherits: ^BaseBuilding
