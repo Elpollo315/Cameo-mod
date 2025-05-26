@@ -209,17 +209,23 @@ tkmt72cannon:
 	Inherits: ^MediumCannon
 	ReloadDelay: 76
 	Range: 5469
-	Burst: 2
+	Burst: 1
 	BurstDelays: 5
 	Report: cannon1.aud
 	Projectile: Bullet
 		Speed: 546
 	Warhead@MediumCannon: SpreadDamage
-		Damage: 10000
+		Damage: 20000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
 		Damage: 5
 	Warhead@Effect: CreateEffect
-		Explosions: small_poof
+		Explosions: ra2_medium_clsn
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_small_watersplash
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpwasa.wav
 
 tkmabramscannon:
 	Inherits: ^MediumCannon
@@ -231,11 +237,17 @@ tkmabramscannon:
 	Projectile: Bullet
 		Speed: 546
 	Warhead@MediumCannon: SpreadDamage
-		Damage: 10000
+		Damage: 20000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
 		Damage: 5
 	Warhead@Effect: CreateEffect
-		Explosions: small_poof
+		Explosions: ra2_medium_clsn
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_small_watersplash
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpwasa.wav
 
 tkmquadcannonmg:
 	Inherits: ^SmallArms
@@ -348,12 +360,18 @@ tkmturretcannon:
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
 		Damage: 5
 	Warhead@Effect: CreateEffect
-		Explosions: small_poof
+		Explosions: ra2_medium_clsn
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_small_watersplash
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpwasa.wav
 
 tkmstrykerrockets:
 	Inherits: ^LightMissile
 	ReloadDelay: 63
-	Range: 6000
+	Range: 5000
 	Burst: 2
 	Report: bazook1.aud
 	ValidTargets: Ground, Water, Trees, Air
@@ -367,7 +385,7 @@ tkmstrykerrockets:
 tkmstrykercryorockets:
 	Inherits: ^LightMissile
 	ReloadDelay: 63
-	Range: 6000
+	Range: 5000
 	Burst: 2
 	Report: bazook1.aud
 	ValidTargets: Ground, Water, Trees, Air
@@ -396,7 +414,7 @@ tkmstrykermg:
 	Inherits: ^SmallArms
 	Inherits: ^RA2Chaingun
 	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
-	Range: 6000
+	Range: 5000
 	ReloadDelay: 6
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: Bullet
@@ -410,13 +428,13 @@ tkmstrykermg:
 		Width: 100
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 1000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 1000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
@@ -705,7 +723,7 @@ tkmkatyushalalauncherrockets:
 	ReloadDelay: 185
 	Burst: 8
 	BurstDelays: 4
-	Range: 12000
+	Range: 14000
 	Report: vintatta.wav
 	ValidTargets: Ground, Water
 	Projectile: Bullet
@@ -744,6 +762,66 @@ tkmkatyushalalauncherrockets:
 		Explosions: ra2_small_watersplash
 		ExplosionPalette: ra2effect
 		ImpactSounds: gexpwasa.wav
+
+tkmkatyushalalauncherrocketscryo:
+	Inherits: ^CryoMissileProjectile
+	Inherits: tkmkatyushalalauncherrockets
+	Report: vintatta.wav
+	Range: 14000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_medium_clsn
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_small_watersplash
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpwasa.wav
+
+tkmkatyushalalauncherrocketsfire:
+	Inherits: ^LightFlameWeapon
+	Inherits: ^LightMissile
+	Inherits: tkmkatyushalalauncherrockets
+	Report: vintatta.wav
+	Range: 14000
+	Projectile: Bullet
+		Speed: 250
+		Arm: 2
+		Inaccuracy: 1500
+		RangeLimit: 15000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: fb2
+		TrailInterval: 1
+		TrailDelay: 0
+		MinimumLaunchAngle: 25
+		MaximumLaunchAngle: 125
+		MaximumLaunchSpeed: 125
+		MinimumLaunchSpeed: 125
+		Acceleration: 5
+	Warhead@LightFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_medium_clsn
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_small_watersplash
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpwasa.wav
+
+tkmkatyushalalauncherrocketstwin:
+	Inherits: tkmkatyushalalauncherrockets
+	Burst: 16
 
 SandmarineTusk:
 	Inherits: ^Grenade

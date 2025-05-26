@@ -3354,7 +3354,7 @@ Player:
 	LoadGarrisonerBotModuleCA@Infantry:
 		RequiresCondition: genericbot && !easiestbot
 		PassengersPerScan: 6
-		GarrisonerUnit: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_mp40, nax_shrek, tkmrifleman, tkmriflemancamo, tkmriflecamosemiauto, tkmjug, tkmjugap, tkmtrooper, tkmtrooperm203, tkmrocketeer, tkmrocketeercamo, tkmrocketeertitan, tkmrocketeertwinrockets, tkmrocketeerincendiary, tkmrocketeercryo, tkmspetsnaz
+		GarrisonerUnit: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_mp40, nax_shrek, tkmrifleman, tkmriflemancamo, tkmriflecamosemiauto, tkmjug, tkmtrooper, tkmtrooperm203, tkmrocketeer, tkmrocketeercamo, tkmrocketeertitan, tkmrocketeertwinrockets, tkmrocketeerincendiary, tkmrocketeercryo, tkmspetsnaz
 	LoadCargoBotModule@Infantry:
 		RequiresCondition: genericbot
 		TransportTypesAndLoadRequirement:
@@ -3386,7 +3386,7 @@ Player:
 			miss: All
 			ramiss: All
 			fcom: All
-		PassengerTypes: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, tkmrifleman, tkmriflemancamo, tkmriflecamosemiauto, tkmjug, tkmjugap, tkmtrooper, tkmtrooperm203, tkmrocketeer, tkmrocketeercamo, tkmrocketeertitan, tkmrocketeertwinrockets, tkmrocketeerincendiary, tkmrocketeercryo, tkmspetsnaz
+		PassengerTypes: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, tkmrifleman, tkmriflemancamo, tkmriflecamosemiauto, tkmjug, tkmtrooper, tkmtrooperm203, tkmrocketeer, tkmrocketeercamo, tkmrocketeertitan, tkmrocketeertwinrockets, tkmrocketeerincendiary, tkmrocketeercryo, tkmspetsnaz
 		ValidTransportOwner: AlliedBot
 	LoadCargoBotModule@TankBunker:
 		RequiresCondition: genericbot
@@ -4714,6 +4714,7 @@ Player:
 			# tkmpowerplant: 15
 			tkmrefinery: 15
 			tkmbarracks: 15
+			tkmslavelabor: 1
 			tkmfactory: 15
 			tkmairpad: 15
 			tkmradar: 1
@@ -6170,6 +6171,20 @@ Player:
 			leangusagunship: 1
 			leangclustermines: 1
 			leangcarpetbomb: 1
+			#################### TKM Promotions
+			upmedictruck: 1
+			upjugg: 1
+			upbattlebus: 1
+			upsandmarine: 1
+			uprepairtruck: 1
+			upserpenttank: 1
+			upbustertank: 1
+			upbigshiee: 1
+			upradartruck: 1
+			upviper: 1
+			updronepodtruck: 1
+			uptrenchtank: 1
+			upt30: 1
 			#################### UnitsToBuild Dark Imperium
 			drguardian: 65
 			drext: 25
@@ -6296,7 +6311,6 @@ Player:
 			tkmriflemancamo: 7
 			tkmriflecamosemiauto: 7
 			tkmjug: 7
-			tkmjugap: 7
 			tkmtrooper: 7
 			tkmtrooperm203: 7
 			tkmspetsnaz: 7
@@ -6321,7 +6335,6 @@ Player:
 			tkmstrykercryo: 5
 			tkmzaza: 5
 			tkmtechnicaltank: 5
-			tkmtechnicaltankrocketaddon: 5
 			tkmabrams: 5
 			tkmabramspoint: 5
 			tkmthermonaut: 5
@@ -6333,11 +6346,15 @@ Player:
 			tkmradartruck: 1
 			tkmrepairtruck: 1
 			tkmmedictruck: 1
+			tkmdronepodtruck: 3
 			tkmbattlebus: 3
 			tkmbattlebuscamo: 3
 			tkmbattlebustitan: 3
 			tkmbattlebusnato: 3
 			tkmsandmarine: 1
+			tkmbigshiee: 1
+			tkmtrenchtank: 3
+			tkmtrenchtruck: 3
 			t30: 1
 			upberezkacloak: 1
 			uptitanarsenal: 1
