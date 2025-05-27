@@ -1555,21 +1555,41 @@ tkmvon:
 	ChangesHealth@SelfHealing:
 		Step: 50
 	Armament@lockdown:
-		Weapon: GhostSniperLockdown
+		Weapon: VonSniperLockdown
 		LocalOffset: 128,0,256
 		AmmoUsage: 6
+		PauseOnCondition: ammo < 12
 	Armament@PRIMARY:
 		Weapon: VonSniper
 		LocalOffset: 128,0,256
-	Armament@GARRISONEDlockdown:
-		Name: garrisoned
-		Weapon: VonSniperLockdown
-		MuzzleSequence: muzzle
-		AmmoUsage: 6
+		PauseOnCondition: !ammo
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: VonSniper
 		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 12
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 44
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 6
+	ReloadAmmoDelayMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 85
+	ReloadAmmoDelayMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 70
+	ReloadAmmoDelayMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 55
+	ReloadAmmoDelayMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 40
 	AttackFrontal:
 		FacingTolerance: 0
 	ActorStatValues:

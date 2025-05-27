@@ -1075,74 +1075,13 @@ TKMDroneExplode:
 	-Warhead@Effect2:
 	-Warhead@Effect:
 
-VonSniperLockdown:
-	Inherits: ^TeslaChargedWeapon
-	Inherits: GhostSniper
-	ValidTargets: Vehicle, Air
-	InvalidTargets: lockdowned
-	ReloadDelay: 33
-	Projectile: Bullet
-		ContrailStartWidth: 300
-		ContrailEndWidth: 150
-		ContrailStartColor: 4488FF
-		ContrailEndColor: 22446688
-	Warhead@TeslaChargedWeapon: SpreadDamage
-		ValidTargets: Shielded
-		Damage: 20000
-		ValidRelationships: Enemy, Neutral
-	Warhead@TeslaChargedExtraDamage: SpreadDamage
-		ValidTargets: Shielded
-		Damage: 10000
-		ValidRelationships: Enemy, Neutral
-	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Shielded
-		Damage: 10
-		ValidRelationships: Enemy, Neutral
-	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 100000
-		ValidRelationships: Enemy, Neutral
-		ValidTargets: Vehicle, Air, Shielded
-
-VonLockdown:
-	Projectile: Missile
-		Blockable: false
-		Image: DRAGON
-		Shadow: true
-		TrailImage: smokey
-		Speed: 426
-		RangeLimit: 12c0
-		PointDefenseType: Missile
-	ValidTargets: Vehicle
-	InvalidTargets: OrganicAircraft, lockdowned
-	Range: 9153
-	ReloadDelay: 33
-	TargetActorCenter: true
-	Warhead@1: TargetDamage
-	#Warhead@2: GrantExternalCondition
-	#	Range: 0c768
-	#	Duration: 90
-	#	Condition: GhostLockdown
-	#	ValidTargets: Vehicle
-	Warhead@2: AttachDelayedWeapon
-		Weapon: RemovableDebuffDummy
-		Type: lockdown
-		TriggerTime: 90
-		Range: 0c768
-		ValidTargets: Vehicle
-
-VonLockdownAA:
-	Inherits: GhostLockdown
-	ValidTargets: Air
-	Warhead@2: AttachDelayedWeapon
-		ValidTargets: Air
-
 VonSniper:
 	Inherits: ^MediumMissile
 	Inherits: ^HeavyCannon
 	Inherits: ^SmallArms
 	Inherits: ^FlakWeapon
 	Inherits: ^Chaingun
-	ReloadDelay: 33
+	ReloadDelay: 22
 	Range: 9153
 	Report: TGhFir00.aud
 	ValidTargets: Ground, Water, Air, Trees
@@ -1158,34 +1097,116 @@ VonSniper:
 		Inaccuracy: 0
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 8000
+		Damage: 4000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 1
 	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 8000
+		Damage: 4000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 1
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 8000
+		Damage: 4000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 1
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 8000
+		Damage: 4000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 8000
+		Damage: 4000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 1
 	Warhead@Effect: CreateEffect
 		Explosions: small_poof
 		ImpactSounds: xplos.aud
+
+VonSniperLockdown:
+	Inherits: ^TeslaChargedWeapon
+	Inherits: GhostSniper
+	ValidTargets: Vehicle, Air, Shielded
+	InvalidTargets: lockdowned
+	ReloadDelay: 44
+	Projectile: Bullet
+		ContrailStartWidth: 300
+		ContrailEndWidth: 150
+		ContrailStartColor: 4488FF
+		ContrailEndColor: 22446688
+	Warhead@TeslaChargedWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaChargedExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 2
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 2
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 2
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 2
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 2
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 2
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		ValidTargets: Ground, Water, Air, Trees
+		ValidRelationships: Enemy, Neutral
+		Damage: 48000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
