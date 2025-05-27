@@ -2680,7 +2680,7 @@ wc2_human_scout_tower:
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~wc2_human_barracks
-		Queue: Building, RABuilding
+		Queue: Defence, RADefence
 		Description: Can be upgraded to Guard or Cannon Tower.
 	Building:
 		Footprint: xx xx
@@ -4426,7 +4426,7 @@ wc2_orc_watch_tower:
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~wc2_orc_barracks
-		Queue: Building, RABuilding
+		Queue: Defence, RADefence
 		Description: Can be upgraded to Guard or Cannon Tower.
 	Building:
 		Footprint: xx xx

@@ -919,7 +919,7 @@
 ^GlobalBuffs:
 	Inherits: ^GPSSatelliteSupport
 	FirepowerMultiplier@GlobalBuffs:
-		Modifier: 75
+		Modifier: 85
 
 ^InfantryBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
@@ -1162,6 +1162,24 @@
 		CrushClasses: vehicle
 	Buildable:
 		BuildDurationModifier: 50
+	SpeedMultiplier@meleeinfantrydamagecooldown:
+		RequiresCondition: meleeinfantrydamage && (!meleeinfantrydamagecooldown || meleeinfantryattack)
+		Modifier: 125
+	GrantConditionOnAttack@meleeinfantryattack:
+		Condition: meleeinfantryattack
+		RevokeDelay: 24
+	GrantTimedCondition@meleeinfantrydamage:
+		RequiresCondition: meleeinfantrydamage
+		PauseOnCondition: !meleeinfantrydamage
+		Condition: meleeinfantrydamagecooldown
+		Duration: 12
+	SpeedMultiplier@meleeinfantrydamage:
+		RequiresCondition: meleeinfantrydamage
+		Modifier: 125
+	GrantConditionOnDamage@meleeinfantrydamage:
+		Condition: meleeinfantrydamage
+		Duration: 24
+		PlayerRelationship: Ally, Neutral, Enemy
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, Kills, Experience
 	TooltipExtras@Melee:
