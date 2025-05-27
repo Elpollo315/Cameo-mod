@@ -268,7 +268,7 @@ tkmbunker:
 		Length: *
 		Offset: -1,-2
 	icon:
-		Filename: gtwricnh.shp
+		Filename: tkmbunkericon.png
 		AddExtension: False
 
 tkmairpad:
@@ -327,7 +327,7 @@ tkmbunkerquadturret:
 		Facings: -32
 		Scale: 0.5
 	icon:
-		Filename: gtwricnh.shp
+		Filename: tkmquadturreticon.png
 		AddExtension: False
 
 tkmbunkertankturret:
@@ -370,7 +370,7 @@ tkmbunkertankturret:
 		Facings: -32
 		Scale: 0.8
 	icon:
-		Filename: gtwricnh.shp
+		Filename: tkmtankturreticon.png
 		AddExtension: False
 
 #######################################

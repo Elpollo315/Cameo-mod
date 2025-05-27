@@ -445,7 +445,7 @@ tkmrefinery:
 tkmslavelabor:
 	Inherits: ^BuildingPlug
 	Tooltip:
-		Name: TKM Manual Labor
+		Name: TKM Support Labor
 	Valued:
 		Cost: 2500
 	Buildable:
@@ -459,6 +459,8 @@ tkmslavelabor:
 
 tkmworker:
 	Inherits: YRSLAV
+	Tooltip:
+		Name: Worker
 	Targetable@SlaveFaster:
 		TargetTypes: SlaveFaster
 		RequiresCondition: SlaveFaster <= 3 && !untargetable
@@ -673,7 +675,7 @@ tkmbunker:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@shape: ^1x1Shape
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: TKM Bunker
 	Buildable:
@@ -729,7 +731,7 @@ tkmbunkerquadturret:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@shape: ^1x1Shape
 	Valued:
-		Cost: 500
+		Cost: 1000
 	Tooltip:
 		Name: TKM Quad Turret Bunker
 	Buildable:
@@ -772,7 +774,7 @@ tkmbunkertankturret:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@shape: ^1x1Shape
 	Valued:
-		Cost: 500
+		Cost: 700
 	Tooltip:
 		Name: TKM Tank Turret Bunker
 	Buildable:
@@ -994,7 +996,7 @@ tkmjug:
 		LocalOffset: 544,100,256
 		RequiresCondition: !uptkmapbullets
 	Armament@PRIMARYUPGRADE:
-		Weapon: tkmjuggap
+		Weapon: tkmjug
 		LocalOffset: 544,100,256
 		RequiresCondition: uptkmapbullets
 	Armament@GARRISONED:
@@ -1552,22 +1554,22 @@ tkmvon:
 		HP: 50000
 	ChangesHealth@SelfHealing:
 		Step: 50
+	Armament@lockdown:
+		Weapon: GhostSniperLockdown
+		LocalOffset: 128,0,256
+		AmmoUsage: 6
 	Armament@PRIMARY:
-		Weapon: RA2AWP
-		LocalOffset: 0,0,427
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: RA2AWPE
-		LocalOffset: 0,0,427
-		RequiresCondition: rank-elite
+		Weapon: VonSniper
+		LocalOffset: 128,0,256
+	Armament@GARRISONEDlockdown:
+		Name: garrisoned
+		Weapon: VonSniperLockdown
+		MuzzleSequence: muzzle
+		AmmoUsage: 6
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: RA2AWP
-		RequiresCondition: !rank-elite
-	Armament@GARRISONEDELITE:
-		Name: garrisoned
-		Weapon: RA2AWPE
-		RequiresCondition: rank-elite
+		Weapon: VonSniper
+		MuzzleSequence: muzzle
 	AttackFrontal:
 		FacingTolerance: 0
 	ActorStatValues:
@@ -1873,18 +1875,16 @@ tkmtechnicaltank:
 		BuildPaletteOrder: 21
 		Prerequisites: ~tkmfactory, ~!tkmrocketaddon
 		Queue: Vehicle, RAVehicle
-		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
+		Description: TKM Russian medium armor tank.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 	Mobile:
 		Locomotor: tracked
 		Speed: 126
-	Armor:
-		Type: Medium
 	Health:
 		HP: 80000
 	Repairable:
 		HpPerStep: 2637
 	Armor:
-		Type: Heavy
+		Type: Medium
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
@@ -3669,7 +3669,7 @@ tkmbigshiee:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 10
-		InitialUnits: tkmjugap,tkmjugap,tkmjugap,tkmjugap,tkmjugap,tkmjugap,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary
+		InitialUnits: tkmjug,tkmjug,tkmjug,tkmjug,tkmjug,tkmjug,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	AttackOpenTopped:
