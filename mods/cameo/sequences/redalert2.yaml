@@ -8251,6 +8251,26 @@ ra2_chronosk:
 		Offset: 0,24
 		ZOffset: 1023
 
+ra2uniontank:
+	Defaults:
+		Filename: UnionTankBody.png
+	idle:
+		Facings: 32
+		Scale: 0.4
+	turret:
+		Filename: UnionTankTurret.png
+		Facings: 32
+		Scale: 0.25
+	icon:
+		Filename: ra2apocicon.shp
+		AddExtension: False
+	muzzle:
+		Filename: ra2_apmuzzle.shp
+		Length: *
+	muzzle-2:
+		Filename: ra2_vtmuzzle.shp
+		Length: *
+
 ra2superapocalypse:
 	Defaults:
 		Filename: superapocalypsebody.png
