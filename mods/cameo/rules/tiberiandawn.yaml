@@ -5113,7 +5113,7 @@ tsstealthsoldier:
 		Prerequisites: tmpl, ~upstealthsoldier
 		Description: actor-stealthsoldier.description
 	Valued:
-		Cost: 400
+		Cost: 500
 	Tooltip:
 		Name: Stealth Soldier
 	UpdatesPlayerStatistics:

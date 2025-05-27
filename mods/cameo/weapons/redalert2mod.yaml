@@ -6159,7 +6159,7 @@ RA2TOPOLCuba:
 	Inherits: ^LightChemicalWeapon
 	Inherits: ^Grenade
 	Report: vaegatta.wav, vaegattb.wav
-	ReloadDelay: 750
+	ReloadDelay: 250
 	Range: 32000
 	MinRange: 3200
 	TargetActorCenter: true
