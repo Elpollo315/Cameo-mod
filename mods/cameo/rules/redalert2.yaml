@@ -12984,525 +12984,525 @@ ra2_tractor_driveby:
 
 # RA2 New Promotions
 
-RA2UNIONTANK:
-	Inherits: ^Tank
-	Inherits@Template: ^HighTechTankTemplate
-	Inherits@anim: ^RA2Vehicle
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@vo: ^AttackTurretedVoice
-	Inherits@EMP: ^TurretEMP
-	Inherits@updrone: ^TerrorDroneSurprise
-	Inherits@rad: ^RA2RadShells
-	Inherits@armor: ^RA2SovietArmor
-	Valued:
-		Cost: 1750
-	Tooltip:
-		Name: Union Tank
-	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~ra2natech
-		Queue: Vehicle, RAVehicle
-		Description: actor-htnk.description
-	Mobile:
-		Speed: 55
-		TurnSpeed: 11
-	Passenger:
-		Weight: 4
-	Health:
-		HP: 350000
-	Repairable:
-		HpPerStep: 17500
-	ChangesHealth@SelfHealing:
-		Step: 140
-	Armor:
-		Type: Superheavy
-	Turreted:
-		TurnSpeed: 11
-		Offset: 50,0,150
-	Armament@PRIMARY:
-		Name: primary
-		Weapon: RA2120xmm
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite && !upradshells
-	Armament@PRIMARYRAD:
-		Name: primary
-		Weapon: RA2120xmm_rad
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite && upradshells
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: RA2MammothTusk
-		LocalOffset: -85,90,340, -85,-90,340
-		LocalYaw: -100, 100
-		Recoil: 10
-		RequiresCondition: !rank-elite
-	Armament@PRIMARYELITE:
-		Name: primary
-		Weapon: RA2120xmm_elite
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite && !upradshells
-	Armament@PRIMARYELITERAD:
-		Name: primary
-		Weapon: RA2120xmm_elite_rad
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite && upradshells
-	Armament@SECONDARYELITE:
-		Name: secondary
-		Weapon: RA2MammothTusk_elite
-		LocalOffset: -85,90,340, -85,-90,340
-		LocalYaw: -100, 100
-		Recoil: 10
-		RequiresCondition: rank-elite
-	AttackTurreted:
-	WithMuzzleOverlay:
-	WithSpriteTurret:
-	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 1280, 1280
-	Voiced:
-		VoiceSet: ApocalypseTankVoice
-	DeliversCash:
-		Payload: 900
-	RenderSprites:
-		PlayerPalette: playerra2
-	FirepowerMultiplier@RadShells:
-		Types: primary
-	ActorStatValues:
-		Upgrades: updronesurprise, upradshells, upsovietarmor
-	RenderSprites:
-		Image: ra2uniontank
-		PlayerPalette: player_rgba
+# RA2UNIONTANK:
+# 	Inherits: ^Tank
+# 	Inherits@Template: ^HighTechTankTemplate
+# 	Inherits@anim: ^RA2Vehicle
+# 	Inherits@EXPERIENCE: ^GainsExperienceRA2
+# 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+# 	Inherits@vo: ^AttackTurretedVoice
+# 	Inherits@EMP: ^TurretEMP
+# 	Inherits@updrone: ^TerrorDroneSurprise
+# 	Inherits@rad: ^RA2RadShells
+# 	Inherits@armor: ^RA2SovietArmor
+# 	Valued:
+# 		Cost: 1750
+# 	Tooltip:
+# 		Name: Union Tank
+# 	Buildable:
+# 		BuildPaletteOrder: 60
+# 		Prerequisites: ~ra2natech
+# 		Queue: Vehicle, RAVehicle
+# 		Description: actor-htnk.description
+# 	Mobile:
+# 		Speed: 55
+# 		TurnSpeed: 11
+# 	Passenger:
+# 		Weight: 4
+# 	Health:
+# 		HP: 350000
+# 	Repairable:
+# 		HpPerStep: 17500
+# 	ChangesHealth@SelfHealing:
+# 		Step: 140
+# 	Armor:
+# 		Type: Superheavy
+# 	Turreted:
+# 		TurnSpeed: 11
+# 		Offset: 50,0,150
+# 	Armament@PRIMARY:
+# 		Name: primary
+# 		Weapon: RA2120xmm
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: !rank-elite && !upradshells
+# 	Armament@PRIMARYRAD:
+# 		Name: primary
+# 		Weapon: RA2120xmm_rad
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: !rank-elite && upradshells
+# 	Armament@SECONDARY:
+# 		Name: secondary
+# 		Weapon: RA2MammothTusk
+# 		LocalOffset: -85,90,340, -85,-90,340
+# 		LocalYaw: -100, 100
+# 		Recoil: 10
+# 		RequiresCondition: !rank-elite
+# 	Armament@PRIMARYELITE:
+# 		Name: primary
+# 		Weapon: RA2120xmm_elite
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle-2
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: rank-elite && !upradshells
+# 	Armament@PRIMARYELITERAD:
+# 		Name: primary
+# 		Weapon: RA2120xmm_elite_rad
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle-2
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: rank-elite && upradshells
+# 	Armament@SECONDARYELITE:
+# 		Name: secondary
+# 		Weapon: RA2MammothTusk_elite
+# 		LocalOffset: -85,90,340, -85,-90,340
+# 		LocalYaw: -100, 100
+# 		Recoil: 10
+# 		RequiresCondition: rank-elite
+# 	AttackTurreted:
+# 	WithMuzzleOverlay:
+# 	WithSpriteTurret:
+# 	SelectionDecorations:
+# 	Selectable:
+# 		DecorationBounds: 1280, 1280
+# 	Voiced:
+# 		VoiceSet: ApocalypseTankVoice
+# 	DeliversCash:
+# 		Payload: 900
+# 	RenderSprites:
+# 		PlayerPalette: playerra2
+# 	FirepowerMultiplier@RadShells:
+# 		Types: primary
+# 	ActorStatValues:
+# 		Upgrades: updronesurprise, upradshells, upsovietarmor
+# 	RenderSprites:
+# 		Image: ra2uniontank
+# 		PlayerPalette: player_rgba
 
-RA2SUPERAPOC:
-	Inherits: ^Tank
-	Inherits@Template: ^HighTechTankTemplate
-	Inherits@anim: ^RA2Vehicle
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@vo: ^AttackTurretedVoice
-	Inherits@EMP: ^TurretEMP
-	Inherits@updrone: ^TerrorDroneSurprise
-	Inherits@rad: ^RA2RadShells
-	Inherits@armor: ^RA2SovietArmor
-	Valued:
-		Cost: 1750
-	Tooltip:
-		Name: Apocalypse Tank
-	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~ra2natech
-		Queue: Vehicle, RAVehicle
-		Description: actor-htnk.description
-	Mobile:
-		Speed: 55
-		TurnSpeed: 11
-	Passenger:
-		Weight: 4
-	Health:
-		HP: 350000
-	Repairable:
-		HpPerStep: 17500
-	ChangesHealth@SelfHealing:
-		Step: 140
-	Armor:
-		Type: Superheavy
-	Turreted:
-		TurnSpeed: 11
-		Offset: 50,0,150
-	Armament@PRIMARY:
-		Name: primary
-		Weapon: RA2120xmm
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite && !upradshells
-	Armament@PRIMARYRAD:
-		Name: primary
-		Weapon: RA2120xmm_rad
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite && upradshells
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: RA2MammothTusk
-		LocalOffset: -85,90,340, -85,-90,340
-		LocalYaw: -100, 100
-		Recoil: 10
-		RequiresCondition: !rank-elite
-	Armament@PRIMARYELITE:
-		Name: primary
-		Weapon: RA2120xmm_elite
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite && !upradshells
-	Armament@PRIMARYELITERAD:
-		Name: primary
-		Weapon: RA2120xmm_elite_rad
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite && upradshells
-	Armament@SECONDARYELITE:
-		Name: secondary
-		Weapon: RA2MammothTusk_elite
-		LocalOffset: -85,90,340, -85,-90,340
-		LocalYaw: -100, 100
-		Recoil: 10
-		RequiresCondition: rank-elite
-	AttackTurreted:
-	WithMuzzleOverlay:
-	WithSpriteTurret:
-	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 1280, 1280
-	Voiced:
-		VoiceSet: ApocalypseTankVoice
-	DeliversCash:
-		Payload: 900
-	RenderSprites:
-		PlayerPalette: playerra2
-	FirepowerMultiplier@RadShells:
-		Types: primary
-	ActorStatValues:
-		Upgrades: updronesurprise, upradshells, upsovietarmor
-	RenderSprites:
-		Image: ra2superapocalypse
-		PlayerPalette: player_rgba
+# RA2SUPERAPOC:
+# 	Inherits: ^Tank
+# 	Inherits@Template: ^HighTechTankTemplate
+# 	Inherits@anim: ^RA2Vehicle
+# 	Inherits@EXPERIENCE: ^GainsExperienceRA2
+# 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+# 	Inherits@vo: ^AttackTurretedVoice
+# 	Inherits@EMP: ^TurretEMP
+# 	Inherits@updrone: ^TerrorDroneSurprise
+# 	Inherits@rad: ^RA2RadShells
+# 	Inherits@armor: ^RA2SovietArmor
+# 	Valued:
+# 		Cost: 1750
+# 	Tooltip:
+# 		Name: Apocalypse Tank
+# 	Buildable:
+# 		BuildPaletteOrder: 60
+# 		Prerequisites: ~ra2natech
+# 		Queue: Vehicle, RAVehicle
+# 		Description: actor-htnk.description
+# 	Mobile:
+# 		Speed: 55
+# 		TurnSpeed: 11
+# 	Passenger:
+# 		Weight: 4
+# 	Health:
+# 		HP: 350000
+# 	Repairable:
+# 		HpPerStep: 17500
+# 	ChangesHealth@SelfHealing:
+# 		Step: 140
+# 	Armor:
+# 		Type: Superheavy
+# 	Turreted:
+# 		TurnSpeed: 11
+# 		Offset: 50,0,150
+# 	Armament@PRIMARY:
+# 		Name: primary
+# 		Weapon: RA2120xmm
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: !rank-elite && !upradshells
+# 	Armament@PRIMARYRAD:
+# 		Name: primary
+# 		Weapon: RA2120xmm_rad
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: !rank-elite && upradshells
+# 	Armament@SECONDARY:
+# 		Name: secondary
+# 		Weapon: RA2MammothTusk
+# 		LocalOffset: -85,90,340, -85,-90,340
+# 		LocalYaw: -100, 100
+# 		Recoil: 10
+# 		RequiresCondition: !rank-elite
+# 	Armament@PRIMARYELITE:
+# 		Name: primary
+# 		Weapon: RA2120xmm_elite
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle-2
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: rank-elite && !upradshells
+# 	Armament@PRIMARYELITERAD:
+# 		Name: primary
+# 		Weapon: RA2120xmm_elite_rad
+# 		Recoil: 128
+# 		RecoilRecovery: 38
+# 		LocalOffset: 768,85,90, 768,-85,90
+# 		MuzzleSequence: muzzle-2
+# 		MuzzlePalette: ra2effect
+# 		RequiresCondition: rank-elite && upradshells
+# 	Armament@SECONDARYELITE:
+# 		Name: secondary
+# 		Weapon: RA2MammothTusk_elite
+# 		LocalOffset: -85,90,340, -85,-90,340
+# 		LocalYaw: -100, 100
+# 		Recoil: 10
+# 		RequiresCondition: rank-elite
+# 	AttackTurreted:
+# 	WithMuzzleOverlay:
+# 	WithSpriteTurret:
+# 	SelectionDecorations:
+# 	Selectable:
+# 		DecorationBounds: 1280, 1280
+# 	Voiced:
+# 		VoiceSet: ApocalypseTankVoice
+# 	DeliversCash:
+# 		Payload: 900
+# 	RenderSprites:
+# 		PlayerPalette: playerra2
+# 	FirepowerMultiplier@RadShells:
+# 		Types: primary
+# 	ActorStatValues:
+# 		Upgrades: updronesurprise, upradshells, upsovietarmor
+# 	RenderSprites:
+# 		Image: ra2superapocalypse
+# 		PlayerPalette: player_rgba
 
-ra2katyusha:
-	Inherits: ^Vehicle
-	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^ArtilleryTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@EMP: ^FrontalEMP
-	Buildable:
-		Queue: Vehicle, RAVehicle
-		BuildPaletteOrder: 80
-		Prerequisites: ~ra2natech
-		Description: actor-latin_burrito.description
-	Valued:
-		Cost: 1200
-	Tooltip:
-		Name: Katyusha Launcher
-	Health:
-		HP: 35000
-	Repairable:
-		HpPerStep: 1750
-	ChangesHealth@SelfHealing:
-		Step: 14
-	Armor:
-		Type: Medium
-	Mobile:
-		Speed: 80
-		TurnSpeed: 16
-	Armament:
-		Weapon: RA2RBurritoRocket
-		LocalOffset: -250,300,125, -250,150,250, -250,-150,375, -250,-300,500, -250,300,125, -250,150,250, -250,-150,375, -250,-300,500
-	Armament@PRIMARYELITE:
-		Weapon: RA2RBurritoRocket
-		LocalOffset: -250,-300,500, -250,-150,375, -250,150,250, -250,300,125, -250,-300,500, -250,-150,375, -250,150,250, -250,300,125
-		RequiresCondition: rank-elite
-	FirepowerMultiplier@RANK-1:
-		Modifier: 125
-	FirepowerMultiplier@RANK-2:
-		Modifier: 150
-	FirepowerMultiplier@RANK-3:
-		Modifier: 175
-	FirepowerMultiplier@RANK-ELITE:
-		Modifier: 200
-	AttackFrontal:
-		FacingTolerance: 0
-	SelectionDecorations:
-	FireWarheadsOnDeath:
-		Weapon: V3Explode
-	Selectable:
-		DecorationBounds: 1280, 1280
-	Voiced:
-		VoiceSet: TSVehicle
-	WithFacingSpriteBody:
-	DeliversCash:
-		Payload: 500
-	ActorStatValues:
-		Upgrades:
-	RenderSprites:
-		PlayerPalette: player_rgba
-		Image: ra2katyusha
+# ra2katyusha:
+# 	Inherits: ^Vehicle
+# 	Inherits@anim: ^RA2Vehicle
+# 	Inherits@Template: ^ArtilleryTemplate
+# 	Inherits@EXPERIENCE: ^GainsExperienceRA2
+# 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+# 	Inherits@vo: ^AttackFrontalVoice
+# 	Inherits@EMP: ^FrontalEMP
+# 	Buildable:
+# 		Queue: Vehicle, RAVehicle
+# 		BuildPaletteOrder: 80
+# 		Prerequisites: ~ra2natech
+# 		Description: actor-latin_burrito.description
+# 	Valued:
+# 		Cost: 1200
+# 	Tooltip:
+# 		Name: Katyusha Launcher
+# 	Health:
+# 		HP: 35000
+# 	Repairable:
+# 		HpPerStep: 1750
+# 	ChangesHealth@SelfHealing:
+# 		Step: 14
+# 	Armor:
+# 		Type: Medium
+# 	Mobile:
+# 		Speed: 80
+# 		TurnSpeed: 16
+# 	Armament:
+# 		Weapon: RA2RBurritoRocket
+# 		LocalOffset: -250,300,125, -250,150,250, -250,-150,375, -250,-300,500, -250,300,125, -250,150,250, -250,-150,375, -250,-300,500
+# 	Armament@PRIMARYELITE:
+# 		Weapon: RA2RBurritoRocket
+# 		LocalOffset: -250,-300,500, -250,-150,375, -250,150,250, -250,300,125, -250,-300,500, -250,-150,375, -250,150,250, -250,300,125
+# 		RequiresCondition: rank-elite
+# 	FirepowerMultiplier@RANK-1:
+# 		Modifier: 125
+# 	FirepowerMultiplier@RANK-2:
+# 		Modifier: 150
+# 	FirepowerMultiplier@RANK-3:
+# 		Modifier: 175
+# 	FirepowerMultiplier@RANK-ELITE:
+# 		Modifier: 200
+# 	AttackFrontal:
+# 		FacingTolerance: 0
+# 	SelectionDecorations:
+# 	FireWarheadsOnDeath:
+# 		Weapon: V3Explode
+# 	Selectable:
+# 		DecorationBounds: 1280, 1280
+# 	Voiced:
+# 		VoiceSet: TSVehicle
+# 	WithFacingSpriteBody:
+# 	DeliversCash:
+# 		Payload: 500
+# 	ActorStatValues:
+# 		Upgrades:
+# 	RenderSprites:
+# 		PlayerPalette: player_rgba
+# 		Image: ra2katyusha
 
-ra2shilka:
-	Inherits: ^Vehicle
-	Inherits@Template: ^SupportVehicleTemplate
-	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@EMP: ^TurretEMP
-	Inherits@AntiInf: ^PrioritizeInfantry
-	Valued:
-		Cost: 1600
-	Tooltip:
-		Name: Shilka
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~ra2natech
-		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
-	Mobile:
-		Speed: 75
-		TurnSpeed: 15
-	Health:
-		HP: 125000
-	Repairable:
-		HpPerStep: 6250
-	ChangesHealth@SelfHealing:
-	ChangesHealth@SelfHealing:
-		Step: 11
-	Turreted:
-		TurnSpeed: 30
-		Offset: -100,0,300
-	Armament:
-		Weapon: HeavyAATankCannontkm
-		Recoil: 85
-		LocalOffset: 800,80,360, 800,-80,360
-		MuzzleSequence: muzzle
-	FirepowerMultiplier@GattlingSpeed1:
-		RequiresCondition: ammo == 3
-		Modifier: 125
-	FirepowerMultiplier@GattlingSpeed2:
-		RequiresCondition: ammo == 2
-		Modifier: 133
-	FirepowerMultiplier@GattlingSpeed3:
-		RequiresCondition: ammo <= 1
-		Modifier: 150
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: ammo == 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: ammo == 2
-		Modifier: 70
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: ammo <= 1
-		Modifier: 50
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: ammo == 3
-		Modifier: 105
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: ammo == 2
-		Modifier: 110
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: ammo <= 1
-		Modifier: 115
-	WithMuzzleOverlay:
-	AttackTurreted:
-	FireWarheadsOnDeath:
-		Weapon: UnitExplodeSmall
-	Voiced:
-		VoiceSet: RA2SovietVehicleVoice
-	ActorStatValues:
-		Upgrades:
-	WithSpriteTurret:
-	RenderSprites:
-		Image: ra2shilka
-		PlayerPalette: player_rgba
+# ra2shilka:
+# 	Inherits: ^Vehicle
+# 	Inherits@Template: ^SupportVehicleTemplate
+# 	Inherits@EXP: ^GainsExperienceTD
+# 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+# 	Inherits@EMP: ^TurretEMP
+# 	Inherits@AntiInf: ^PrioritizeInfantry
+# 	Valued:
+# 		Cost: 1600
+# 	Tooltip:
+# 		Name: Shilka
+# 	UpdatesPlayerStatistics:
+# 		AddToArmyValue: true
+# 	Buildable:
+# 		BuildPaletteOrder: 20
+# 		Prerequisites: ~ra2natech
+# 		Queue: Vehicle, RAVehicle
+# 		Description: actor-jeep.description
+# 	Mobile:
+# 		Speed: 75
+# 		TurnSpeed: 15
+# 	Health:
+# 		HP: 125000
+# 	Repairable:
+# 		HpPerStep: 6250
+# 	ChangesHealth@SelfHealing:
+# 	ChangesHealth@SelfHealing:
+# 		Step: 11
+# 	Turreted:
+# 		TurnSpeed: 30
+# 		Offset: -100,0,300
+# 	Armament:
+# 		Weapon: HeavyAATankCannontkm
+# 		Recoil: 85
+# 		LocalOffset: 800,80,360, 800,-80,360
+# 		MuzzleSequence: muzzle
+# 	FirepowerMultiplier@GattlingSpeed1:
+# 		RequiresCondition: ammo == 3
+# 		Modifier: 125
+# 	FirepowerMultiplier@GattlingSpeed2:
+# 		RequiresCondition: ammo == 2
+# 		Modifier: 133
+# 	FirepowerMultiplier@GattlingSpeed3:
+# 		RequiresCondition: ammo <= 1
+# 		Modifier: 150
+# 	ReloadDelayMultiplier@GattlingSpeed1:
+# 		RequiresCondition: ammo == 3
+# 		Modifier: 90
+# 	ReloadDelayMultiplier@GattlingSpeed2:
+# 		RequiresCondition: ammo == 2
+# 		Modifier: 70
+# 	ReloadDelayMultiplier@GattlingSpeed3:
+# 		RequiresCondition: ammo <= 1
+# 		Modifier: 50
+# 	RangeMultiplier@GattlingSpeed1:
+# 		RequiresCondition: ammo == 3
+# 		Modifier: 105
+# 	RangeMultiplier@GattlingSpeed2:
+# 		RequiresCondition: ammo == 2
+# 		Modifier: 110
+# 	RangeMultiplier@GattlingSpeed3:
+# 		RequiresCondition: ammo <= 1
+# 		Modifier: 115
+# 	WithMuzzleOverlay:
+# 	AttackTurreted:
+# 	FireWarheadsOnDeath:
+# 		Weapon: UnitExplodeSmall
+# 	Voiced:
+# 		VoiceSet: RA2SovietVehicleVoice
+# 	ActorStatValues:
+# 		Upgrades:
+# 	WithSpriteTurret:
+# 	RenderSprites:
+# 		Image: ra2shilka
+# 		PlayerPalette: player_rgba
 
-ra2advanceteslatank:
-	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
-	Inherits@anim: ^RA2Vehicle
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@vo: ^AttackTurretedVoice
-	Inherits@EMP: ^TurretEMP
-	Inherits@SHADOWS: ^Shadows
-	Inherits@TeslaTargeting: ^PrioritizeTesla
-	Inherits@updrone: ^TerrorDroneSurprise
-	Inherits@tesla: ^RA2ArcTesla
-	Valued:
-		Cost: 1800
-	Tooltip:
-		Name: Advance Tesla Tank
-	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~ra2naradr
-		Queue: Vehicle, RAVehicle
-		Description: actor-ttnk.description
-	Mobile:
-		Speed: 75
-		TurnSpeed: 15
-	Health:
-		HP: 75000
-	Repairable:
-		HpPerStep: 3750
-	ChangesHealth@SelfHealing:
-		Step: 30
-	Armor:
-		Type: Medium
-	Turreted:
-		TurnSpeed: 15
-		Offset: 0,0,300
-	Armament@PRIMARY:
-		Weapon: RA2TankBolt
-		LocalOffset: 600,200,200, 600,-200,200
-		Recoil: 170
-		RecoilRecovery: 42
-		RequiresCondition: !rank-elite && !arctesla
-	Armament@PRIMARY2:
-		Weapon: RA2TankBolt2
-		LocalOffset: 600,200,200, 600,-200,200
-		Recoil: 170
-		RecoilRecovery: 42
-		RequiresCondition: !rank-elite && arctesla
-	Armament@PRIMARY3:
-		Weapon: RA2TankBolt3
-		LocalOffset: 600,200,200, 600,-200,200
-		Recoil: 170
-		RecoilRecovery: 42
-		RequiresCondition: !rank-elite && arctesla
-	Armament@ELITE:
-		Weapon: RA2TankBoltE
-		LocalOffset: 600,200,200, 600,-200,200
-		Recoil: 170
-		RecoilRecovery: 42
-		RequiresCondition: rank-elite
-	AttackTurreted:
-	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 1280, 1280
-	WithSpriteTurret:
-	Voiced:
-		VoiceSet: Ra2TeslaTankVoice
-	RenderSprites:
-		Image: ra2advanceteslatank
-		PlayerPalette: player_rgba
-	ActorStatValues:
-		Upgrades: uparctesla, updronesurprise
+# ra2advanceteslatank:
+# 	Inherits: ^Tank
+# 	Inherits@Template: ^FireSupportTemplate
+# 	Inherits@anim: ^RA2Vehicle
+# 	Inherits@EXPERIENCE: ^GainsExperienceRA2
+# 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+# 	Inherits@vo: ^AttackTurretedVoice
+# 	Inherits@EMP: ^TurretEMP
+# 	Inherits@SHADOWS: ^Shadows
+# 	Inherits@TeslaTargeting: ^PrioritizeTesla
+# 	Inherits@updrone: ^TerrorDroneSurprise
+# 	Inherits@tesla: ^RA2ArcTesla
+# 	Valued:
+# 		Cost: 1800
+# 	Tooltip:
+# 		Name: Advance Tesla Tank
+# 	Buildable:
+# 		BuildPaletteOrder: 60
+# 		Prerequisites: ~ra2naradr
+# 		Queue: Vehicle, RAVehicle
+# 		Description: actor-ttnk.description
+# 	Mobile:
+# 		Speed: 75
+# 		TurnSpeed: 15
+# 	Health:
+# 		HP: 75000
+# 	Repairable:
+# 		HpPerStep: 3750
+# 	ChangesHealth@SelfHealing:
+# 		Step: 30
+# 	Armor:
+# 		Type: Medium
+# 	Turreted:
+# 		TurnSpeed: 15
+# 		Offset: 0,0,300
+# 	Armament@PRIMARY:
+# 		Weapon: RA2TankBolt
+# 		LocalOffset: 600,200,200, 600,-200,200
+# 		Recoil: 170
+# 		RecoilRecovery: 42
+# 		RequiresCondition: !rank-elite && !arctesla
+# 	Armament@PRIMARY2:
+# 		Weapon: RA2TankBolt2
+# 		LocalOffset: 600,200,200, 600,-200,200
+# 		Recoil: 170
+# 		RecoilRecovery: 42
+# 		RequiresCondition: !rank-elite && arctesla
+# 	Armament@PRIMARY3:
+# 		Weapon: RA2TankBolt3
+# 		LocalOffset: 600,200,200, 600,-200,200
+# 		Recoil: 170
+# 		RecoilRecovery: 42
+# 		RequiresCondition: !rank-elite && arctesla
+# 	Armament@ELITE:
+# 		Weapon: RA2TankBoltE
+# 		LocalOffset: 600,200,200, 600,-200,200
+# 		Recoil: 170
+# 		RecoilRecovery: 42
+# 		RequiresCondition: rank-elite
+# 	AttackTurreted:
+# 	SelectionDecorations:
+# 	Selectable:
+# 		DecorationBounds: 1280, 1280
+# 	WithSpriteTurret:
+# 	Voiced:
+# 		VoiceSet: Ra2TeslaTankVoice
+# 	RenderSprites:
+# 		Image: ra2advanceteslatank
+# 		PlayerPalette: player_rgba
+# 	ActorStatValues:
+# 		Upgrades: uparctesla, updronesurprise
 
-ra2mig:
-	Inherits: ^RANeutralPlane
-	Inherits@Template: ^FighterTemplate
-	Inherits@exp: ^GainsExperienceRA
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@AntiInf: ^PrioritizeInfantry
-	Inherits@AntiAir: ^PrioritizeAir
-	Inherits@eject: ^AircraftEjectOnDeath
-	Buildable:
-		Queue: Aircraft, RAAircraft
-		BuildPaletteOrder: 30
-		Prerequisites: ~ra2naairf
-		Description: actor-yak.description
-	Valued:
-		Cost: 3200
-	Tooltip:
-		Name: Mig
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 85000
-	ChangesHealth@SelfHealing:
-		Step: 34
-	Armament@BOMBS:
-		Weapon: BlackEagleMissiles
-		LocalOffset: 0,-256,-32, 0,256,-32
-	Armament@PRIMARY:
-		Weapon: YakChainGun
-		LocalOffset: 256,-213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: YakChainGun
-		LocalOffset: 256,213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-	FirepowerMultiplier@doublecannonsandbombs:
-		Modifier: 25
-	AttackAircraft:
-		FacingTolerance: 100
-	Aircraft:
-		TurnSpeed: 11
-		Speed: 170
-	SelectionDecorations:
-	WithMuzzleOverlay:
-	Contrail:
-		Offset: -853,0,0
-	SpawnActorOnDeath:
-		Actor: ra2mig.husk
-	EjectOnDeath:
-		PilotActor: tkmrifleman
-	LeavesTrails:
-		Offsets: -853,0,0
-		MovingInterval: 2
-		Image: smokey
-		StationaryInterval: 2
-		SpawnAtLastPosition: False
-		TrailWhileStationary: True
-		Type: CenterPosition
-		RequiresCondition: enable-smoke
-	Selectable:
-		DecorationBounds: 1280, 1280, 0, 128
-	Voiced:
-		VoiceSet: TSVehicle
-	AmmoPool:
-		Ammo: 8
-		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 8
-		Count: 1
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: True
-		PipCount: 6
-	GrantConditionOnDamageState@SmokeTrail:
-		Condition: enable-smoke
-	RenderSprites:
-		Image: ra2mig
-		PlayerPalette: player_rgba
+# ra2mig:
+# 	Inherits: ^RANeutralPlane
+# 	Inherits@Template: ^FighterTemplate
+# 	Inherits@exp: ^GainsExperienceRA
+# 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+# 	Inherits@AntiInf: ^PrioritizeInfantry
+# 	Inherits@AntiAir: ^PrioritizeAir
+# 	Inherits@eject: ^AircraftEjectOnDeath
+# 	Buildable:
+# 		Queue: Aircraft, RAAircraft
+# 		BuildPaletteOrder: 30
+# 		Prerequisites: ~ra2naairf
+# 		Description: actor-yak.description
+# 	Valued:
+# 		Cost: 3200
+# 	Tooltip:
+# 		Name: Mig
+# 	UpdatesPlayerStatistics:
+# 		AddToArmyValue: true
+# 	Health:
+# 		HP: 85000
+# 	ChangesHealth@SelfHealing:
+# 		Step: 34
+# 	Armament@BOMBS:
+# 		Weapon: BlackEagleMissiles
+# 		LocalOffset: 0,-256,-32, 0,256,-32
+# 	Armament@PRIMARY:
+# 		Weapon: YakChainGun
+# 		LocalOffset: 256,-213,0
+# 		MuzzleSequence: muzzle
+# 		PauseOnCondition: !ammo
+# 	Armament@SECONDARY:
+# 		Name: secondary
+# 		Weapon: YakChainGun
+# 		LocalOffset: 256,213,0
+# 		MuzzleSequence: muzzle
+# 		PauseOnCondition: !ammo
+# 	FirepowerMultiplier@doublecannonsandbombs:
+# 		Modifier: 25
+# 	AttackAircraft:
+# 		FacingTolerance: 100
+# 	Aircraft:
+# 		TurnSpeed: 11
+# 		Speed: 170
+# 	SelectionDecorations:
+# 	WithMuzzleOverlay:
+# 	Contrail:
+# 		Offset: -853,0,0
+# 	SpawnActorOnDeath:
+# 		Actor: ra2mig.husk
+# 	EjectOnDeath:
+# 		PilotActor: tkmrifleman
+# 	LeavesTrails:
+# 		Offsets: -853,0,0
+# 		MovingInterval: 2
+# 		Image: smokey
+# 		StationaryInterval: 2
+# 		SpawnAtLastPosition: False
+# 		TrailWhileStationary: True
+# 		Type: CenterPosition
+# 		RequiresCondition: enable-smoke
+# 	Selectable:
+# 		DecorationBounds: 1280, 1280, 0, 128
+# 	Voiced:
+# 		VoiceSet: TSVehicle
+# 	AmmoPool:
+# 		Ammo: 8
+# 		AmmoCondition: ammo
+# 	ReloadAmmoPool:
+# 		Delay: 8
+# 		Count: 1
+# 	WithAmmoPipsDecoration:
+# 		Position: BottomLeft
+# 		RequiresSelection: True
+# 		PipCount: 6
+# 	GrantConditionOnDamageState@SmokeTrail:
+# 		Condition: enable-smoke
+# 	RenderSprites:
+# 		Image: ra2mig
+# 		PlayerPalette: player_rgba
 
-ra2mig.husk:
-	Inherits: ^PlaneHusk
-	Tooltip:
-		Name: Mig
-	Contrail:
-		Offset: -853,0,0
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 150
-	LeavesTrails:
-		Offsets: -853,0,0
-		MovingInterval: 2
-		Image: smokey
-		StationaryInterval: 2
-		SpawnAtLastPosition: False
-		TrailWhileStationary: True
-		Type: CenterPosition
-	RenderSprites:
-		Image: ra2mig
-		PlayerPalette: raplayer
+# ra2mig.husk:
+# 	Inherits: ^PlaneHusk
+# 	Tooltip:
+# 		Name: Mig
+# 	Contrail:
+# 		Offset: -853,0,0
+# 	Aircraft:
+# 		TurnSpeed: 20
+# 		Speed: 150
+# 	LeavesTrails:
+# 		Offsets: -853,0,0
+# 		MovingInterval: 2
+# 		Image: smokey
+# 		StationaryInterval: 2
+# 		SpawnAtLastPosition: False
+# 		TrailWhileStationary: True
+# 		Type: CenterPosition
+# 	RenderSprites:
+# 		Image: ra2mig
+# 		PlayerPalette: raplayer
