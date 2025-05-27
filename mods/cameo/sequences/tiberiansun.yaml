@@ -1861,6 +1861,28 @@ forgot_radar:
 		Filename: tshandicon.png
 		Offset: 0, 0
 		UseTilesetCode: false
+forgot_church:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_church.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_church.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_church.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_church.png
+		Length: 16
+	icon:
+		Filename: tshandicon.png
+		Offset: 0, 0
+		UseTilesetCode: false
 tsntweap:
 	Inherits: ^WithBuildingBib2
 	Defaults:
@@ -3150,6 +3172,44 @@ tsgtsilo.nod:
 	Inherits: tsgtsilo.gdi
 	icon:
 		Filename: tssiloicon.shp
+		Offset: 0, 0
+		UseTilesetCode: false
+
+
+forgot_silo:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+		Filename: forgot_silo.png
+	idle:
+		Filename: forgot_silo.png
+		Start: 32
+	damaged-idle:
+		Filename: invisibleitem.shp
+	stages:
+		Filename: forgot_silo.png
+		Start: 32
+		Length: 12
+	damaged-stages:
+		Filename: forgot_silo.png
+		Start: 45
+		Length: 12
+	idle-underlay:
+		Filename: forgot_silo.png
+		Start: 32
+		ZOffset: -512
+	damaged-idle-underlay:
+		Filename: forgot_silo.png
+		Start: 45
+		ZOffset: -512
+	dead:
+		Filename: forgot_silo.png
+		Start: 45
+		ZOffset: -512
+	make:
+		Filename: forgot_silo.png
+		Length: 32
+	icon:
+		Filename: tssilo2icon.shp
 		Offset: 0, 0
 		UseTilesetCode: false
 

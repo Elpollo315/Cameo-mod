@@ -1232,17 +1232,50 @@ TSGTSILONOD:
 		Image: tsgtsilo.nod
 
 TSGTSILOMUTANT:
-	Inherits: TSGTSILO
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Selectable:
+		Bounds: 2048, 2048
+	Valued:
+		Cost: 300
 	Tooltip:
 		Name: Silo
+	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 100
 		Queue: Defence, RADefence
 		Description: Stores excess Tiberium.
 		Prerequisites: ~tsgtcnstmutant, tsprocmutant
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 200000
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -10
 	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	StoresResources:
+		Capacity: 3000
+	WithResourceLevelOverlay@FILLSTAGE:
+		RequiresCondition: !build-incomplete
+		Sequence: stages
+	WithSpriteBody:
+		Sequence: idle-underlay
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 8
 	RenderSprites:
-		Image: tsgtsilo.gdi
+		PlayerPalette: playerra2
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: forgot_silo
 
 TSGTSILOCABAL:
 	Inherits: TSGTSILO
@@ -2142,21 +2175,41 @@ tsgttech:
 		PlayerPalette: playerra2
 
 tsfgttech:
-	Inherits: tsgttech
-	Tooltip:
-		Name: Forgotten Tech Center
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@tech: ^IsTechnoBuilding
+	Inherits@shape: ^3x2Shape
 	Selectable:
-		Bounds: 2048, 2048
+		Bounds: 131072, 87381
+	HitShape:
+		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 150
 		Prerequisites: ~tsgtcnstmutant, tsgtradrmutant
 		Description: Provides Forgotten advanced technologies.\nCan be only built once
 		BuildLimit: 1
+	Tooltip:
+		Name: Forgotten Church
+	Selectable:
+		Bounds: 2048, 2048
+	Building:
+		Footprint: xxx ===
+		Dimensions: 3,2
+		LocalCenterOffset: 0,0,0
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c0
+	WithBuildingBib:
+	Power:
+		Amount: -100
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite:
+		Prerequisite: tstek
 	RenderSprites:
-		Image: tsfgttech
-		PlayerPalette: playerra2
-
+		Image: forgot_church
+		PlayerPalette: player_rgba
 tscabaltech:
 	Inherits: tsgttech
 	Tooltip:
