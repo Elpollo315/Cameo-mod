@@ -1324,70 +1324,21 @@ tkmengineer:
 		Prerequisites: uptitanarsenal
 	DamageMultiplier:
 		Modifier: 75
-		RequiresCondition: uptitanarsenal
-	Cloak:
-		RequiresCondition: upberezkacloak
-	Selectable:
-		Class: tkmengineer
-	RenderSprites:
-		PlayerPalette: playerra2
-
-tkmengineercamo:
-	Inherits: tkmengineer
-	Inherits@speed: ^upberezkacloakupgrade
-	Tooltip:
-		Name: Engineer (Camo)
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~upberezkacloak
-	ActorStatValues:
-		Upgrades: upberezkacloak, tkminfantryupgrade
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmengineer
-
-tkmengineertitan:
-	Inherits: tkmengineer
-	Inherits@speed: ^uptitanarsenalupgrade
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~uptitanarsenal
-	Tooltip:
-		Name: Engineer (Titan Plating)
-	Health:
-		HP: 15000
-	Mobile:
-		Speed: 50
-	ActorStatValues:
-		Upgrades: uptitanarsenal, tkminfantryupgrade
-	GrantConditionOnPrerequisite@uptitanarsenal:
-		Condition: uptitanarsenal
-		Prerequisites: uptitanarsenal
-	DamageMultiplier:
-		Modifier: 75
-		RequiresCondition: uptitanarsenal
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmengineer
-
-tkmengineernato:
-	Inherits: tkmengineer
-	Tooltip:
-		Name: Engineer (NATO)
-		Description: Can deploy drones.
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~upnatoarsenal
+		RequiresCondition: uptitanarsenal, upberezkacloak, upnatoarsenal
 	GrantConditionOnDeploy:
 		DeployedCondition: summon
 		SkipMakeAnimation: true
 		UndeployOnMove: true
 		UndeployOnPickup: true
 		PauseOnCondition: disabled
+		RequiresCondition: upnatoarsenal
 	AmmoPool:
 		Name: summon
 		Ammo: 1
 		Armaments: tkmdronesummon
 	ReloadAmmoPool:
 		AmmoPool: summon
-		Delay: 1000000
+		Delay: 100
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -1402,11 +1353,10 @@ tkmengineernato:
 		DeployChance: 100
 		Position: BottomLeft
 		RequiresSelection: True
-	ActorStatValues:
-		Upgrades: upnatoarsenal, tkminfantryupgrade
+	Selectable:
+		Class: tkmengineer
 	RenderSprites:
 		PlayerPalette: playerra2
-		Image: tkmengineer
 
 tkmsniper:
 	Inherits: ^Soldier
@@ -1829,7 +1779,7 @@ tkmtechnicaltank:
 		Name: Technical Tank
 	Buildable:
 		BuildPaletteOrder: 21
-		Prerequisites: ~tkmfactory, ~!tkmrocketaddon
+		Prerequisites: ~tkmfactory
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian medium armor tank.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 	Mobile:
@@ -3285,7 +3235,7 @@ tkmbattlebuscamo:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 6
-		InitialUnits: tkmrifleman,tkmrifleman,tkmrocketeerrockets,tkmrocketeerrockets,tkmrocketeerrockets,tkmrocketeerrockets
+		InitialUnits: tkmrifleman,tkmrifleman,tkmrocketeer,tkmrocketeer,tkmrocketeer,tkmrocketeer
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	ActorStatValues:
