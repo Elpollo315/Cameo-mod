@@ -1210,3 +1210,43 @@ VonSniperLockdown:
 		ValidRelationships: Enemy, Neutral
 		Damage: 48000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+
+FlakbusAA:
+	Inherits: NaxQuadCannonAA
+	ReloadDelay: 160
+	Range: 15200
+	Burst: 8
+	BurstDelays: 0
+	Report: nax_aa2.wav
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailStartColor: FF9933
+		ContrailEndColor: 000000
+		ContrailEndColorUsePlayerColor: true
+		ContrailWidth: 222
+		ContrailLength: 22
+		Speed: 4400
+		Width: 44
+		Inaccuracy: 2000
+	ValidTargets: Air
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Air
+		Damage: 6000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Air
+		Damage: 4000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Air
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Air
+		Damage: 8000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Air
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Air
+		Damage: 8000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Air
+		Damage: 1

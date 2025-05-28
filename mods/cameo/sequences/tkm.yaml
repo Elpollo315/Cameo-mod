@@ -1081,6 +1081,59 @@ tkmradartruck:
 		Filename: tkmradartruckicon.png
 		AddExtension: False
 
+tkmratflak:
+	Defaults:
+		Scale: 0.2
+	idle:
+		Filename: tkmflakbus.png
+		Facings: -32
+	icon:
+		Filename: tkmflakbusicon.png
+		AddExtension: False
+
+tkmratflakdeployed:
+	Defaults:
+		Filename: tkmflakbusdeployed.png
+		Scale: 0.2
+	idle:
+		Start: 71
+		Length: 1
+	damaged-idle:
+		Start: 71
+		Length: 1
+	dead:
+		Start: 71
+		Length: 1
+	make:
+		Length: 71
+		Tick: 15
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	turret:
+		Filename: tkmflakbusturret.png
+		Facings: 32
+		Scale: 0.2
+	icon:
+		Filename: tkmflakbusicon.png
+		AddExtension: False
+
 tkmrepairtruck:
 	Defaults:
 		Scale: 0.4

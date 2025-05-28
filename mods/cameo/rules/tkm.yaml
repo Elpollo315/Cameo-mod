@@ -980,7 +980,7 @@ tkmjug:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~tkmbarracks, ~upjugg, ~!uptkmapbullets, ~tkmradar
+		Prerequisites: ~tkmbarracks, ~upjugg, ~tkmradar
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
@@ -1520,7 +1520,6 @@ tkmsniper:
 		FacingTolerance: 0
 	ActorStatValues:
 		Upgrades: upberezkacloak, tkminfantryupgrade
-	Cloak:
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -2366,8 +2365,6 @@ tkmtrenchtruck:
 		HP: 100000
 	Repairable:
 		HpPerStep: 2637
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	SelectionDecorations:
@@ -3177,8 +3174,6 @@ tkmtrenchtank:
 		HP: 150000
 	Repairable:
 		HpPerStep: 2637
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
@@ -3587,6 +3582,104 @@ tkmsandmarine:
 		Image: tkmsandmarine
 		PlayerPalette: player_rgba
 
+tkmratflak:
+	Inherits: ^Vehicle
+	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Flak Bus
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 25
+		Prerequisites: ~tkmfactory, ~upflakbus, ~tkmradar
+		Queue: Vehicle, RAVehicle
+		Description: actor-jeep.description
+	Transforms:
+		IntoActor: tkmratflakdeployed
+		Offset: 0,0
+		Facing: 100
+		TransformSounds: tsplace2.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+	Mobile:
+		Speed: 75
+		TurnSpeed: 15
+	Health:
+		HP: 100000
+	Repairable:
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 10
+	Armor:
+		Type: Heavy
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Upgrades:
+	WithFacingSpriteBody:
+	RenderSprites:
+		Image: tkmratflak
+		PlayerPalette: player_rgba
+
+tkmratflakdeployed:
+	Inherits: ^Defense
+	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@EMP: ^TurretEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@shape: ^1x1Shape
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Flak Bus (Deployed)
+	-Buildable:
+	Building:
+	Health:
+		HP: 100000
+	ChangesHealth@SelfHealing:
+		Step: 10
+	WithBuildingBib:
+		HasMinibib: true
+	Armament:
+		Weapon: FlakbusAA
+		LocalOffset: 256,0,256
+		MuzzleSequence: muzzle
+	Transforms:
+		IntoActor: tkmratflak
+		Offset: 0,0
+		TransformSounds: tsplace2.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+		Facing: 100
+	Armor:
+		Type: Medium
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+		PauseOnCondition: disabled
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithMuzzleOverlay:
+	WithMakeAnimation:
+	Turreted:
+		TurnSpeed: 40
+		Offset: 0,445,-15
+		InitialFacing: 640
+	WithSpriteBody:
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	RevealsShroud:
+		Range: 6720
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: tkmratflakdeployed
+
 tkmbigshiee:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
@@ -3813,17 +3906,17 @@ uptrenchtank:
 		Image: tkmtrenchtank
 	ProvidesPrerequisite:
 
-upbustertank:
+upflakbus:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Buster Tank
+		Name: Unlock Flak Bus
 	Buildable:
 		BuildPaletteOrder: 8050
 		Queue: Promotions
-		Description: Unlocks Buster Tank
-		Prerequisites: ~tkmcommandcenter, uptrenchtank, !upbustertank, rank1
+		Description: Unlocks the Flak Bus
+		Prerequisites: ~tkmcommandcenter, uptrenchtank, !upflakbus, rank1
 	RenderSprites:
-		Image: disabledicon
+		Image: tkmratflak
 	ProvidesPrerequisite:
 
 upbigshiee:
@@ -3834,7 +3927,7 @@ upbigshiee:
 		BuildPaletteOrder: 8053
 		Queue: Promotions
 		Description: Unlocks the Big Shiee.
-		Prerequisites: ~tkmcommandcenter, upbustertank, !upbigshiee, rank1
+		Prerequisites: ~tkmcommandcenter, upflakbus, !upbigshiee, rank1
 	RenderSprites:
 		Image: tkmbigshiee
 	ProvidesPrerequisite:
