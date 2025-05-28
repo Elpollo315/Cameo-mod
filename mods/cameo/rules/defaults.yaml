@@ -6141,11 +6141,20 @@ CPQDEBUGDUMMY:
 		StartIfBelow: 100
 		DamageCooldown: 25
 		RequiresCondition: shieldgen >= 5
+	ChangesShield@supershielded:
+		Step: 2000
+		PercentageStep: 1
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: supershielded
 	ChangesShield@shielddischarge:
 		PercentageStep: -1
 		Delay: 25
 		StartIfBelow: 101
 		RequiresCondition: shielded && !shieldgen && !shieldpermanent
+	ExternalCondition@supershielded:
+		Condition: supershielded
 	ExternalCondition@shielddischarge:
 		Condition: shieldpermanent
 	ExternalCondition@shieldgen:
