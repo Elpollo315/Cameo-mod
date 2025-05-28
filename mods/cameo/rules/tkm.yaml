@@ -2933,7 +2933,7 @@ tkmdronepodtruck:
 		Upgrades: tkmheavydutyarmor
 	DamageMultiplier:
 		Modifier: 75
-		RequiresCondition: 
+		RequiresCondition: tkmheavydutyarmor
 	GrantConditionOnPrerequisite@uptitanarsenal:
 		Condition: tkmheavydutyarmor
 		Prerequisites: tkmheavydutyarmor
@@ -3175,7 +3175,7 @@ t30:
 		Upgrades: tkmheavydutyarmor
 	DamageMultiplier:
 		Modifier: 75
-		RequiresCondition: 
+		RequiresCondition: tkmheavydutyarmor
 	GrantConditionOnPrerequisite@uptitanarsenal:
 		Condition: tkmheavydutyarmor
 		Prerequisites: tkmheavydutyarmor
@@ -3461,7 +3461,7 @@ tkmsandmarine:
 		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets, tkmheavydutyarmor
 	DamageMultiplier:
 		Modifier: 75
-		RequiresCondition: 
+		RequiresCondition: tkmheavydutyarmor
 	GrantConditionOnPrerequisite@uptitanarsenal:
 		Condition: tkmheavydutyarmor
 		Prerequisites: tkmheavydutyarmor
@@ -3513,7 +3513,7 @@ tkmratflak:
 		Upgrades: tkmheavydutyarmor
 	DamageMultiplier:
 		Modifier: 75
-		RequiresCondition: 
+		RequiresCondition: tkmheavydutyarmor
 	GrantConditionOnPrerequisite@uptitanarsenal:
 		Condition: tkmheavydutyarmor
 		Prerequisites: tkmheavydutyarmor
@@ -3569,6 +3569,14 @@ tkmratflakdeployed:
 	WithSpriteBody:
 	WithSpriteTurret:
 		RequiresCondition: !build-incomplete
+	ActorStatValues:
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	RevealsShroud:
 		Range: 6720
 	RenderSprites:
@@ -3716,7 +3724,7 @@ tkmbigshiee:
 		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets, tkmheavydutyarmor
 	DamageMultiplier:
 		Modifier: 75
-		RequiresCondition: 
+		RequiresCondition: tkmheavydutyarmor
 	GrantConditionOnPrerequisite@uptitanarsenal:
 		Condition: tkmheavydutyarmor
 		Prerequisites: tkmheavydutyarmor
