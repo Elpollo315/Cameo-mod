@@ -760,6 +760,7 @@ tkmbunkerquadturret:
 	Turreted:
 		TurnSpeed: 30
 		Offset: 0,0,200
+		RealignDelay: -1
 	Power:
 		Amount: -25
 	WithSpriteTurret:
@@ -803,6 +804,7 @@ tkmbunkertankturret:
 	Turreted:
 		TurnSpeed: 30
 		Offset: 0,0,300
+		RealignDelay: -1
 	Power:
 		Amount: -25
 	WithSpriteTurret:
@@ -1652,7 +1654,7 @@ tkmas42:
 		Step: 11
 	Armament@Missiles:
 		Weapon: Rockets
-		LocalOffset: 85,250,-85, 85,-250,-85
+		LocalOffset: 85,250,232, 85,-250,232
 		MuzzleSequence: muzzle
 		AmmoUsage: 2
 		RequiresCondition: !upcryorockets && !uptwinrockets && !upincendiaryrockets
@@ -2022,7 +2024,7 @@ tkmstryker:
 	RenderSprites:
 		Image: tkmstryker
 		PlayerPalette: player_rgba
-		
+
 tkmabrams:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
