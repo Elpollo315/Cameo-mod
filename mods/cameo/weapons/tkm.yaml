@@ -1144,6 +1144,64 @@ VonSniper:
 		Explosions: small_poof
 		ImpactSounds: xplos.aud
 
+VonSniperAP:
+	Inherits: ^RA2Grenade
+	Inherits: ^MediumMissile
+	Inherits: ^HeavyCannon
+	Inherits: ^SmallArms
+	Inherits: ^FlakWeapon
+	Inherits: ^Chaingun
+	ReloadDelay: 22
+	Range: 9153
+	Report: TGhFir00.aud
+	ValidTargets: Ground, Water, Air, Trees
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailStartColor: FF9933
+		ContrailEndColor: FFFFFF
+		ContrailEndColorUsePlayerColor: true
+		ContrailWidth: 250
+		ContrailLength: 25
+		Speed: 2500
+		Width: 100
+		Inaccuracy: 0
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 1
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 1
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 1
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@Effect: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+
 VonSniperLockdown:
 	Inherits: ^TeslaChargedWeapon
 	Inherits: GhostSniper

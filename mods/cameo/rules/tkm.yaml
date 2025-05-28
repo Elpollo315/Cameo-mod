@@ -170,7 +170,7 @@ uptwinrockets:
 uptkmapbullets:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: Armor Piercing Bullets Upgrade
+		Name: NATO Armor Piercing Bullets Upgrade
 	Valued:
 		Cost: 2400
 	Buildable:
@@ -468,7 +468,11 @@ tkmworker:
 		Condition: SlaveFaster
 		TotalCap: 3
 	Voiced:
-		VoiceSet: TSInfantry
+		VoiceSet: SlaveWorkerVoice
+		RequiresCondition: !freed
+	Voiced@2:
+		VoiceSet: FreedSlaveVoice
+		RequiresCondition: freed
 	RenderSprites:
 		Image: tkmworker
 
@@ -1487,14 +1491,26 @@ tkmvon:
 		LocalOffset: 128,0,256
 		AmmoUsage: 6
 		PauseOnCondition: ammo < 12
-	Armament@PRIMARY:
 		Weapon: VonSniper
 		LocalOffset: 128,0,256
+		RequiresCondition: !uptkmapbullets
 		PauseOnCondition: !ammo
-	Armament@GARRISONED:
+	Armament@PRIMARYUPGRADE:
+		Weapon: VonSniperAP
+		LocalOffset: 500,0,400
+		RequiresCondition: uptkmapbullets
+		PauseOnCondition: !ammo
+	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: VonSniper
-		MuzzleSequence: muzzle
+		MuzzleSequence: garrison-muzzle
+		RequiresCondition: !uptkmapbullets
+		PauseOnCondition: !ammo
+	Armament@GARRISONEDUPGRADE: ##########
+		Name: garrisoned
+		Weapon: VonSniperAP
+		MuzzleSequence: garrison-muzzle
+		RequiresCondition: uptkmapbullets
 		PauseOnCondition: !ammo
 	AmmoPool:
 		Ammo: 12
@@ -2010,7 +2026,7 @@ tkmstryker:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 22
-		Prerequisites: ~tkmfactory, ~upnatoarsenal, ~tkmtechcenter
+		Prerequisites: ~tkmfactory, ~upnatoarsenal, ~tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
