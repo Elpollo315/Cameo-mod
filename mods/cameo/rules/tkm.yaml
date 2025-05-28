@@ -93,7 +93,7 @@ uptitanarsenal:
 		Condition: upspeed
 		Prerequisites: uptitanarsenal
 	DamageMultiplier@titanplatinghealth:
-		Modifier: 150
+		Modifier: 75
 		RequiresCondition: upspeed
 	SpeedMultiplier@titanplatingspeed:
 		Modifier: 70
@@ -3616,6 +3616,8 @@ tkmratflak:
 		HpPerStep: 1375
 	ChangesHealth@SelfHealing:
 		Step: 10
+	DamageMultiplier:
+		Modifier: 50
 	Armor:
 		Type: Heavy
 	FireWarheadsOnDeath:
