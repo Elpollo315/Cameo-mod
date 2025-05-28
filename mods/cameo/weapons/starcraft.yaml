@@ -3656,10 +3656,10 @@ StarshipSovereignBeam:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 
-ScienceVesselIronCurtain:
-	ValidTargets: Vehicle
+ScienceVesselDefenseMatrix:
+	ValidTargets: Vehicle, Ship, Air
 	ValidStances: Ally
-	InvalidTargets: lockdowned
+	InvalidTargets: lockdowned, shielded
 	Range: 7500
 	ReloadDelay: 260
 	TargetActorCenter: true
@@ -3667,44 +3667,25 @@ ScienceVesselIronCurtain:
 		Blockable: false
 		Image: DRAGON
 		Shadow: true
-		TrailImage: smokey
+		TrailImage: blue_smokey_small
 		Speed: 375
 		RangeLimit: 12500
 		PointDefenseType: Missile
+		ContrailStartColor: 77CCFF
+		ContrailEndColorUsePlayerColor: true
+		ContrailEndColor: FFFFFF
 	Warhead@1: TargetDamage
 	Warhead@2: GrantExternalCondition
 		Range: 750
-		Duration: 250
-		Condition: shielded
-		ValidTargets: Vehicle
-		ValidRelationships: Ally
-	Warhead@2: GrantExternalCondition
-		Range: 750
-		Duration: 250
-		Condition: shieldgen
-		ValidTargets: Vehicle
-		ValidRelationships: Ally
-	Warhead@3: GrantExternalCondition
-		Range: 750
-		Duration: 250
-		Condition: shieldpermanent
-		ValidTargets: Vehicle
-		ValidRelationships: Ally
-	Warhead@4: GrantExternalCondition
-		Range: 750
-		Duration: 250
-		Condition: upsteel_shielresistance
-		ValidTargets: Vehicle
+		Duration: 50
+		Condition: supershielded
+		ValidTargets: Vehicle, Ship, Air
 		ValidRelationships: Ally
 	Warhead@Effect: CreateEffect
+		Explosions: drneutronexp
 		ImpactSounds: sc_defensivematrix.aud
 		ImpactActors: false
-
-ScienceVesselIronCurtainAA:
-	Inherits: ScienceVesselIronCurtain
-	ValidTargets: Air
-	Warhead@2: GrantExternalCondition
-		ValidTargets: Air
+		ValidTargets: Ground, Water, Air
 
 ScienceVesselIrradiate:
 	ValidTargets: Ground
@@ -3726,6 +3707,7 @@ ScienceVesselIrradiate:
 		Spread: 1250
 		Falloff: 100, 75, 50, 25
 		Level: 250
+		MaxLevel: 1250
 		LayerName: genradiation
 	Warhead@Condition: GrantExternalCondition
 		Range: 2500
@@ -3742,7 +3724,7 @@ ScienceVesselEMP:
 	InvalidTargets: lockdowned
 	ValidStances: Enemy
 	Range: 7500
-	ReloadDelay: 350
+	ReloadDelay: 360
 	TargetActorCenter: true
 	Projectile: Missile
 		Blockable: false

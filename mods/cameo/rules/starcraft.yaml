@@ -5524,13 +5524,7 @@ SCSCIENCEVESSEL:
 	ChangesHealth@SelfHealing:
 		Step: 80
 	Armament@IronCourtain:
-		Weapon: ScienceVesselIronCurtain
-		LocalOffset: 1,0,11
-		TargetRelationships: Ally
-		ForceTargetRelationships: None
-		PauseOnCondition: deployed
-	Armament@IronCourtainAA:
-		Weapon: ScienceVesselIronCurtainAA
+		Weapon: ScienceVesselDefenseMatrix
 		LocalOffset: 1,0,11
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
