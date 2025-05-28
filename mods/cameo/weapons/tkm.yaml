@@ -153,6 +153,21 @@ tkmm16:
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		Damage: 1
 
+tkmakap:
+	Inherits: ^RA2Grenade
+	Inherits: ^SmallArms
+	ReloadDelay: 17
+	Range: 5621
+	Report: mgun2.aud
+	Warhead@SmallArms: SpreadDamage
+		Burst: 3
+		Damage: 6000
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+
 tkmm203:
 	Inherits: ^Grenade
 	Inherits: ^LightFlameWeapon

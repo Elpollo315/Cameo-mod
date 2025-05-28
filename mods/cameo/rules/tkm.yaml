@@ -176,7 +176,7 @@ uptkmapbullets:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Changes Juggernauts and Technicals' Ammo to APFSDS Armor Piercing Rounds which deals extra damage to armored units.
+		Description: Changes Bullets to APFSDS Armor Piercing Rounds which deals extra damage to armored units.
 		Prerequisites: ~tkmradar, ~!uptkmapbullets, ~upnatoarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
@@ -253,13 +253,13 @@ uppointdefensesystem:
 tkmheavydutyarmor:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: Heavy Duty Armor
+		Name: Heavy Titan Plating
 	Valued:
 		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Gives T72s and Zazas heavier armors.
+		Description: Gives Vehicles heavier armors.
 		Prerequisites: ~tkmtechcenter, ~!tkmheavydutyarmor, ~uptitanarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
@@ -831,7 +831,7 @@ tkmrifleman:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
+		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upnatoarsenal
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
@@ -845,15 +845,24 @@ tkmrifleman:
 		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: NaxiRifle
-		RequiresCondition: !rank-elite
 		LocalOffset: 500,0,400
-	Armament@ELITE:
-		Weapon: NaxiRifle
-		RequiresCondition: rank-elite
+		RequiresCondition: !upsemiautorifles
+	Armament@PRIMARYUPGRADE:
+		Weapon: tkmriflemansemiautorifle
 		LocalOffset: 500,0,400
+		RequiresCondition: upsemiautorifles
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: NaxiRifle
+	GrantConditionOnPrerequisite@upsemiautorifles:
+		Condition: upsemiautorifles
+		Prerequisites: upsemiautorifles
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
 	GrantConditionOnPrerequisite@cloakon:
 		Condition: upberezkacloak
 		Prerequisites: upberezkacloak
@@ -868,7 +877,7 @@ tkmrifleman:
 	# AcceptsDeliveredExperience: ##########
 	# 	ValidTypes: infantry ##########
 	ActorStatValues:
-		Upgrades: tkminfantryupgrade
+		Upgrades: tkminfantryupgrade, upsemiautorifles
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -876,42 +885,6 @@ tkmrifleman:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
-
-tkmriflemancamo:
-	Inherits: tkmrifleman
-	Inherits@speed: ^upberezkacloakupgrade
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~!upsemiautorifles
-	Tooltip:
-		Name: Rifleman (Camo)
-	ActorStatValues:
-		Upgrades: upberezkacloak, tkminfantryupgrade
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmrifleman
-
-tkmriflecamosemiauto:
-	Inherits: tkmriflemancamo
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~upsemiautorifles
-	Tooltip:
-		Name: Rifleman (Camo & Semi Auto)
-	Valued:
-		Cost: 200
-	Armament@PRIMARY:
-		Weapon: tkmriflemansemiautorifle
-		RequiresCondition: !rank-elite
-		LocalOffset: 500,0,400
-	Armament@ELITE:
-		Weapon: tkmriflemansemiautorifle
-		RequiresCondition: rank-elite
-		LocalOffset: 500,0,400
-	Armament@GARRISONED: ##########
-		Name: garrisoned
-		Weapon: tkmriflemansemiautorifle
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmrifleman
 
 tkmspetsnaz:
 	Inherits: ^Soldier
@@ -942,12 +915,32 @@ tkmspetsnaz:
 	Armament@PRIMARY: ##########
 		Weapon: tkmm16
 		LocalOffset: 128,0,256
+		RequiresCondition: !uptkmapbullets
+	Armament@PRIMARYUPGRADE:
+		Weapon: tkmakap
+		LocalOffset: 500,0,400
+		RequiresCondition: uptkmapbullets
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: tkmm16
 		MuzzleSequence: garrison-muzzle
+		RequiresCondition: !uptkmapbullets
+	Armament@GARRISONEDUPGRADE: ##########
+		Name: garrisoned
+		Weapon: tkmjuggap
+		MuzzleSequence: garrison-muzzle
+		RequiresCondition: uptkmapbullets
+	GrantConditionOnPrerequisite@uptkmapbullets:
+		Condition: uptkmapbullets
+		Prerequisites: uptkmapbullets
 	ActorStatValues:
-		Upgrades: uptitanarsenal, tkminfantryupgrade
+		Upgrades: uptitanarsenal, tkminfantryupgrade, uptkmapbullets
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
 	Selectable:
 		Class: tkmspetsnaz
 	WithInfantryBody:
@@ -996,7 +989,7 @@ tkmjug:
 		LocalOffset: 544,100,256
 		RequiresCondition: !uptkmapbullets
 	Armament@PRIMARYUPGRADE:
-		Weapon: tkmjug
+		Weapon: tkmjuggap
 		LocalOffset: 544,100,256
 		RequiresCondition: uptkmapbullets
 	Armament@GARRISONED:
@@ -1005,7 +998,7 @@ tkmjug:
 		MuzzleSequence: garrison-muzzle
 		RequiresCondition: !uptkmapbullets
 	Armament@GARRISONEDUPGRADE:
-		Weapon: tkmjug
+		Weapon: tkmjuggap
 		Name: garrisoned
 		MuzzleSequence: garrison-muzzle
 		RequiresCondition: uptkmapbullets
@@ -1064,6 +1057,12 @@ tkmjug:
 		Class: tkmjug
 	ActorStatValues:
 		Upgrades: tkminfantryupgrade, uptkmapbullets
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
@@ -1121,6 +1120,12 @@ tkmthermonaut:
 	# Inherits@EXT: ^ExternalConditions ##########
 	# AcceptsDeliveredExperience: ##########
 	# 	ValidTypes: infantry ##########
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
 	ActorStatValues:
 		Upgrades: uptitanarsenal, tkminfantryupgrade
 	Selectable:
@@ -1147,7 +1152,7 @@ tkmtrooper:
 		Cost: 160
 	Buildable:
 		BuildPaletteOrder: 1
-		Prerequisites: ~tkmbarracks, ~upnatoarsenal, ~!upm16m203
+		Prerequisites: ~tkmbarracks, ~upnatoarsenal
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 	Tooltip:
@@ -1167,6 +1172,19 @@ tkmtrooper:
 		Name: garrisoned
 		Weapon: tkmm16
 		MuzzleSequence: garrison-muzzle
+	Armament@m203:
+		Weapon: tkmm203
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upm16m203
+	Armament@GARRISONEDM203:
+		Name: garrisoned
+		Weapon: tkmm203
+		RequiresCondition: upm16m203
+	GrantConditionOnPrerequisite@upm16m203:
+		Condition: upm16m203
+		Prerequisites: upm16m203
 	ActorStatValues:
 		Upgrades: upnatoarsenal, upm16m203
 	WithInfantryBody:
@@ -1176,27 +1194,6 @@ tkmtrooper:
 		DeathSequencePalette: playerra2
 	Selectable:
 		Class: tkmtrooper
-	RenderSprites:
-		Image: tkmtrooper
-		PlayerPalette: playerra2
-
-tkmtrooperm203:
-	Inherits: tkmtrooper
-	Buildable:
-		BuildPaletteOrder: 1
-		Prerequisites: ~tkmbarracks, ~upm16m203
-		Queue: Infantry, RAInfantry
-		IconPalette: ra2
-	Tooltip:
-		Name: Trooper (M203)
-	Armament@SECONDARY:
-		Weapon: tkmm203
-		LocalOffset: 128,0,256
-	Armament@GARRISONED: ##########
-		Name: garrisoned
-		Weapon: tkmm16
-	ActorStatValues:
-		Upgrades: upnatoarsenal, upm16m203
 	RenderSprites:
 		Image: tkmtrooper
 		PlayerPalette: playerra2
@@ -1220,7 +1217,7 @@ tkmrocketeer:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 11
-		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak, ~!upcryorockets
+		Prerequisites: ~tkmbarracks
 		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
@@ -1234,12 +1231,41 @@ tkmrocketeer:
 		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: Rockets
-		RequiresCondition: !rank-elite
 		LocalOffset: 500,0,400
-	Armament@ELITE:
-		Weapon: Rockets
-		RequiresCondition: rank-elite
-		LocalOffset: 500,0,400
+		RequiresCondition: !upcryorockets && !uptwinrockets && !upincendiaryrockets
+	Armament@PRIMARYNATO:
+		Weapon: tkmcryorockets
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upcryorockets
+	Armament@PRIMARYBEREZKA:
+		Weapon: tkmtwinrockets
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: uptwinrockets
+	Armament@PRIMARYTITAN:
+		Weapon: tkmfirerockets
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upincendiaryrockets
+	GrantConditionOnPrerequisite@upcryorockets:
+		Condition: upcryorockets
+		Prerequisites: upcryorockets
+	GrantConditionOnPrerequisite@uptwinrockets:
+		Condition: uptwinrockets
+		Prerequisites: uptwinrockets
+	GrantConditionOnPrerequisite@upincendiaryrockets:
+		Condition: upincendiaryrockets
+		Prerequisites: upincendiaryrockets
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: Rockets
@@ -1255,7 +1281,7 @@ tkmrocketeer:
 	# AcceptsDeliveredExperience: ##########
 	# 	ValidTypes: infantry ##########
 	ActorStatValues:
-		Upgrades: tkminfantryupgrade
+		Upgrades: tkminfantryupgrade, uptwinrockets, upcryorockets, upincendiaryrockets
 	Selectable:
 		Class: tkmrocketeer
 	Voiced:
@@ -1265,115 +1291,6 @@ tkmrocketeer:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
-
-tkmrocketeercamo:
-	Inherits: tkmrocketeer
-	Inherits@speed: ^upberezkacloakupgrade
-	Tooltip:
-		Name: Rocketeer (Camo)
-	Health:
-		HP: 9000
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~upberezkacloak, ~!uptwinrockets
-	ActorStatValues:
-		Upgrades: upberezkacloak, tkminfantryupgrade
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmrocketeer
-
-tkmrocketeertitan:
-	Inherits: tkmrocketeer
-	Inherits@speed: ^uptitanarsenalupgrade
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~uptitanarsenal, ~!upincendiaryrockets
-	Tooltip:
-		Name: Rocketeer (Titan Plating)
-	Health:
-		HP: 15000
-	Mobile:
-		Speed: 50
-	ActorStatValues:
-		Upgrades: uptitanarsenal, tkminfantryupgrade
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmrocketeer
-
-tkmrocketeertwinrockets:
-	Inherits: tkmrocketeer
-	Inherits@speed: ^uptwinrockets
-	Tooltip:
-		Name: Rocketeer (Camo & Twin Rockets)
-	Health:
-		HP: 9000
-	Armament@PRIMARY:
-		Weapon: tkmtwinrockets
-		RequiresCondition: !rank-elite
-		LocalOffset: 500,0,400
-	Armament@ELITE:
-		Weapon: tkmtwinrockets
-		RequiresCondition: rank-elite
-		LocalOffset: 500,0,400
-	Armament@GARRISONED: ##########
-		Name: garrisoned
-		Weapon: tkmtwinrockets
-	ActorStatValues:
-		Upgrades: upberezkacloak, uptwinrockets, tkminfantryupgrade
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~uptwinrockets, ~!~uptitanarsenal
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmrocketeer
-
-tkmrocketeerincendiary:
-	Inherits: tkmrocketeer
-	Inherits@speed: ^upincendiaryrockets
-	Tooltip:
-		Name: Rocketeer (Plating & Incendiary Rockets)
-	Health:
-		HP: 15000
-	Armament@PRIMARY:
-		Weapon: tkmfirerockets
-		RequiresCondition: !rank-elite
-		LocalOffset: 500,0,400
-	Armament@ELITE:
-		Weapon: tkmfirerockets
-		RequiresCondition: rank-elite
-		LocalOffset: 500,0,400
-	Armament@GARRISONED: ##########
-		Name: garrisoned
-		Weapon: tkmfirerockets
-	ActorStatValues:
-		Upgrades: uptitanarsenal, upincendiaryrockets, tkminfantryupgrade
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~upincendiaryrockets, ~!~upberezkacloak
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmrocketeer
-
-tkmrocketeercryo:
-	Inherits: tkmrocketeer
-	Tooltip:
-		Name: Rocketeer (Cryo Rockets)
-	Health:
-		HP: 9000
-	Buildable:
-		Prerequisites: ~tkmbarracks, ~upcryorockets
-	Armament@PRIMARY:
-		Weapon: tkmcryorockets
-		RequiresCondition: !rank-elite
-		LocalOffset: 500,0,400
-	Armament@ELITE:
-		Weapon: tkmcryorockets
-		RequiresCondition: rank-elite
-		LocalOffset: 500,0,400
-	Armament@GARRISONED: ##########
-		Name: garrisoned
-		Weapon: tkmcryorockets
-	ActorStatValues:
-		Upgrades: upnatoarsenal, upcryorockets, tkminfantryupgrade
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tkmrocketeer
 
 tkmengineer:
 	Inherits: E6
@@ -1398,6 +1315,12 @@ tkmengineer:
 	GrantConditionOnPrerequisite@cloakon:
 		Condition: upberezkacloak
 		Prerequisites: upberezkacloak
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
 	Cloak:
 		RequiresCondition: upberezkacloak
 	Selectable:
@@ -1431,6 +1354,12 @@ tkmengineertitan:
 		Speed: 50
 	ActorStatValues:
 		Upgrades: uptitanarsenal, tkminfantryupgrade
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tkmengineer
@@ -1592,7 +1521,7 @@ tkmvon:
 	AttackFrontal:
 		FacingTolerance: 0
 	ActorStatValues:
-		Upgrades: upberezkacloak, tkminfantryupgrade
+		Upgrades: tkminfantryupgrade
 	Cloak:
 	Voiced:
 		VoiceSet: TSInfantry
@@ -1661,7 +1590,7 @@ tkmspecialforce:
 		AttackSequences:
 			primary: shoot
 	ActorStatValues:
-		Upgrades: upnatoarsenal, tkminfantryupgrade
+		Upgrades: tkminfantryupgrade
 	Voiced:
 		VoiceSet: SealVoice
 	RenderSprites:
@@ -1714,6 +1643,14 @@ tkmharv:
 	WithHarvesterSpriteBody:
 		ImageByFullness: tkmharv, tkmharvfull
 	-WithFacingSpriteBody:
+	ActorStatValues:
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	Voiced:
 		VoiceSet: RAVehicleVoice
 	RenderSprites:
@@ -1735,7 +1672,7 @@ tkmas42:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~!uptwinrockets, ~!upincendiaryrockets, ~!upcryorockets
+		Prerequisites: ~tkmfactory
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description3
 	Mobile:
@@ -1747,72 +1684,58 @@ tkmas42:
 		HpPerStep: 1375
 	ChangesHealth@SelfHealing:
 		Step: 11
-	Armament:
+	Armament@Missiles:
 		Weapon: Rockets
-		LocalOffset: 171,0,85
+		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
+		AmmoUsage: 2
+		RequiresCondition: !upcryorockets && !uptwinrockets && !upincendiaryrockets
+	Armament@PRIMARYNATO:
+		Weapon: tkmcryorockets
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upcryorockets
+	Armament@PRIMARYBEREZKA:
+		Weapon: tkmtwinrockets
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: uptwinrockets
+	Armament@PRIMARYTITAN:
+		Weapon: tkmfirerockets
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upincendiaryrockets
+	GrantConditionOnPrerequisite@upcryorockets:
+		Condition: upcryorockets
+		Prerequisites: upcryorockets
+	GrantConditionOnPrerequisite@uptwinrockets:
+		Condition: uptwinrockets
+		Prerequisites: uptwinrockets
+	GrantConditionOnPrerequisite@upincendiaryrockets:
+		Condition: upincendiaryrockets
+		Prerequisites: upincendiaryrockets
+	ActorStatValues:
+		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets
 	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades: uptwinrockets, upincendiaryrockets
+		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets, tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	Selectable:
 		Class: tkmas42
 	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmas42
 		PlayerPalette: player_rgba
-
-tkmas42twinrockets:
-	Inherits: tkmas42
-	Tooltip:
-		Name: TKM AS42 (Twin Rockets)
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~uptwinrockets
-		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
-	Armament:
-		Weapon: tkmtwinrockets
-		LocalOffset: 500,0,400
-	ActorStatValues:
-		Upgrades: uptwinrockets
-	RenderSprites:
-		Image: tkmas42
-
-tkmas42incendiaryrockets:
-	Inherits: tkmas42
-	Tooltip:
-		Name: TKM AS42 (Incendiary Rockets)
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~upincendiaryrockets
-		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
-	Armament:
-		Weapon: tkmfirerockets
-		LocalOffset: 500,0,400
-	ActorStatValues:
-		Upgrades: upincendiaryrockets
-	RenderSprites:
-		Image: tkmas42
-
-tkmas42cryorockets:
-	Inherits: tkmas42
-	Tooltip:
-		Name: TKM AS42 (Cryo Rockets)
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~upcryorockets
-		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
-	Armament:
-		Weapon: tkmcryorockets
-		LocalOffset: 500,0,400
-	ActorStatValues:
-		Upgrades: upcryorockets
-	RenderSprites:
-		Image: tkmas42
 
 tkmtechnical:
 	Inherits: ^Vehicle
@@ -1829,7 +1752,7 @@ tkmtechnical:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~!uptkmapbullets
+		Prerequisites: ~tkmfactory
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -1848,36 +1771,34 @@ tkmtechnical:
 		Weapon: tkmjug
 		LocalOffset: 171,0,285
 		MuzzleSequence: muzzle
-		RequiresCondition: !up_armorpiercingbullets
+		RequiresCondition: !uptkmapbullets
+	Armament@PRIMARYNATO:
+		Weapon: tkmtechnicalmgap
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: uptkmapbullets
+	GrantConditionOnPrerequisite@uptkmapbullets:
+		Condition: uptkmapbullets
+		Prerequisites: uptkmapbullets
 	WithMuzzleOverlay:
 	AttackTurreted:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades: uptkmapbullets
+		Upgrades: uptkmapbullets, tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	WithSpriteTurret:
 	Selectable:
 		Class: tkmtechnical
 	RenderSprites:
 		Image: tkmtechnical
 		PlayerPalette: player_rgba
-
-tkmtechnicalapbullets:
-	Inherits: tkmtechnical
-	Tooltip:
-		Name: TKM Technical (AP Bullets)
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~uptkmapbullets
-		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
-	Armament:
-		Weapon: tkmtechnicalmgap
-		LocalOffset: 500,0,400
-	ActorStatValues:
-		Upgrades: uptkmapbullets
-	RenderSprites:
-		Image: tkmtechnical
 
 tkmtechnicaltank:
 	Inherits: ^Tank
@@ -1935,7 +1856,13 @@ tkmtechnicaltank:
 	DeliversCash:
 		Payload: 400
 	ActorStatValues:
-		Upgrades: uptwinrockets
+		Upgrades: uptwinrockets, tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	Selectable:
 		Class: tkmtechnicaltank
 	RenderSprites:
@@ -2051,28 +1978,19 @@ tkmzaza:
 		Modifier: 115
 	WithMuzzleOverlay:
 	AttackTurreted:
-	FireWarheadsOnDeath:
-		Weapon: UnitExplodeSmall
 	ActorStatValues:
 		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
 	Selectable:
 		Class: tkmzaza
 	WithSpriteTurret:
-	RenderSprites:
-		Image: tkmzaza
-		PlayerPalette: player_rgba
-
-tkmzazaheavydutyarmor:
-	Inherits: tkmzaza
-	Tooltip:
-		Name: TKM Zaza (Heavy Duty Armor)
-	Health:
-		HP: 225000
-	Buildable:
-		BuildPaletteOrder: 22
-		Prerequisites: ~tkmfactory, ~tkmradar, ~tkmheavydutyarmor
-		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
 	RenderSprites:
 		Image: tkmzaza
 		PlayerPalette: player_rgba
@@ -2092,7 +2010,7 @@ tkmstryker:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 22
-		Prerequisites: ~tkmfactory, ~upnatoarsenal, ~!upcryorockets, ~tkmtechcenter
+		Prerequisites: ~tkmfactory, ~upnatoarsenal, ~tkmtechcenter
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -2138,26 +2056,7 @@ tkmstryker:
 	RenderSprites:
 		Image: tkmstryker
 		PlayerPalette: player_rgba
-
-tkmstrykercryo:
-	Inherits: tkmstryker
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: TKM Stryker (Cryo Rockets)
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmfactory, ~upcryorockets, ~tkmradar
-		Queue: Vehicle, RAVehicle
-		Description: actor-jeep.description
-	Armament@missile:
-		Weapon: tkmstrykercryorockets
-		LocalOffset: 171,0,85
-		MuzzleSequence: muzzle
-	RenderSprites:
-		Image: tkmstryker
-		PlayerPalette: player_rgba
-
+		
 tkmabrams:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -2263,7 +2162,7 @@ t72:
 		Name: T-72M
 	Buildable:
 		BuildPaletteOrder: 23
-		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~!tkmheavydutyarmor, ~tkmradar
+		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~tkmradar
 		Queue: Vehicle, RAVehicle
 		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
 	Mobile:
@@ -2302,28 +2201,16 @@ t72:
 	DeliversCash:
 		Payload: 400
 	ActorStatValues:
-		Upgrades: uptitanarsenal
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	Selectable:
 		Class: tkmt72
 	WithSpriteTurret:
-	RenderSprites:
-		Image: tkmt72
-		PlayerPalette: player_rgba
-
-t72heavydutyarmor:
-	Inherits: t72
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: T-72M (Heavy Duty Armor)
-	Health:
-		HP: 250000
-	Buildable:
-		Prerequisites: ~tkmfactory, ~tkmheavydutyarmor, ~tkmradar
-		Queue: Vehicle, RAVehicle
-		Description: TKM Russian heavy armor.\n Strong vs Vehicles\n Weak vs Aircraft, Infantry
-	ActorStatValues:
-		Upgrades: uptitanarsenal, tkmheavydutyarmor
 	RenderSprites:
 		Image: tkmt72
 		PlayerPalette: player_rgba
@@ -2467,7 +2354,13 @@ tkmkatyushalauncher:
 		Condition: upincendiaryrockets
 		Prerequisites: upincendiaryrockets
 	ActorStatValues:
-		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets
+		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets, tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	AttackFrontal:
 		FacingTolerance: 0
 	SelectionDecorations:
@@ -2500,7 +2393,7 @@ tkmhuey:
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 20
-		Prerequisites: ~tkmairpad, ~!upcryorockets, ~!uptwinrockets, ~!upincendiaryrockets
+		Prerequisites: ~tkmairpad
 		Description: actor-hind.description
 	Valued:
 		Cost: 1800
@@ -2514,12 +2407,6 @@ tkmhuey:
 		HpPerStep: 5000
 	ChangesHealth@SelfHealing:
 		Step: 40
-	Armament@Missiles:
-		Weapon: HindMissiles
-		LocalOffset: 85,250,-85, 85,-250,-85
-		MuzzleSequence: muzzle
-		AmmoUsage: 2
-		PauseOnCondition: ammo < 2
 	Armament@PRIMARY:
 		Weapon: ChainGun
 		LocalOffset: 85,-200,-85, 85,200,-85
@@ -2533,6 +2420,48 @@ tkmhuey:
 		MuzzleSequence: muzzle
 		AmmoUsage: 1
 		PauseOnCondition: ammo < 2
+	Armament@Missiles:
+		Weapon: HindMissiles
+		LocalOffset: 85,250,-85, 85,-250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !upcryorockets && !uptwinrockets && !upincendiaryrockets
+	Armament@PRIMARYNATO:
+		Weapon: HueyCryoMissiles
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upcryorockets
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
+	Armament@PRIMARYBEREZKA:
+		Weapon: HueyTwinMissiles
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: uptwinrockets
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+	Armament@PRIMARYTITAN:
+		Weapon: HueyTwinMissiles
+		LocalOffset: -160,-276,232
+		LocalYaw: 100
+		MuzzleSequence: muzzle
+		RequiresCondition: upincendiaryrockets
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
+	GrantConditionOnPrerequisite@upcryorockets:
+		Condition: upcryorockets
+		Prerequisites: upcryorockets
+	GrantConditionOnPrerequisite@uptwinrockets:
+		Condition: uptwinrockets
+		Prerequisites: uptwinrockets
+	GrantConditionOnPrerequisite@upincendiaryrockets:
+		Condition: upincendiaryrockets
+		Prerequisites: upincendiaryrockets
+	ActorStatValues:
+		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
 	AttackAircraft:
@@ -2588,92 +2517,6 @@ tkmhuey:
 		PlayerPalette: raplayer
 	Selectable:
 		Class: tkmhuey
-	ActorStatValues:
-		Upgrades:
-	RenderSprites:
-		Image: tkmhuey
-		PlayerPalette: player_rgba
-
-tkmhueytwin:
-	Inherits: tkmhuey
-	Buildable:
-		Queue: Aircraft, RAAircraft
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmairpad, ~uptwinrockets
-		Description: actor-hind.description
-	Valued:
-		Cost: 1800
-	Tooltip:
-		Name: Iroquois (Twin Missiles)
-	Armament@Missiles:
-		Weapon: HueyTwinMissiles
-		LocalOffset: 85,250,-85, 85,-250,-85
-		MuzzleSequence: muzzle
-		AmmoUsage: 2
-		PauseOnCondition: ammo < 2
-		RequiresCondition: !up_advancedthermobarics
-	SpawnActorOnDeath:
-		Actor: tkmhuey.husk
-	EjectOnDeath:
-		PilotActor: tkmrifleman
-	ActorStatValues:
-		Upgrades: uptwinrockets
-	RenderSprites:
-		Image: tkmhuey
-		PlayerPalette: player_rgba
-
-tkmhueyfire:
-	Inherits: tkmhuey
-	Buildable:
-		Queue: Aircraft, RAAircraft
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmairpad, ~upincendiaryrockets
-		Description: actor-hind.description
-	Valued:
-		Cost: 1800
-	Tooltip:
-		Name: Iroquois (Incendiary Missiles)
-	Armament@Missiles:
-		Weapon: HueyFireMissiles
-		LocalOffset: 85,250,-85, 85,-250,-85
-		MuzzleSequence: muzzle
-		AmmoUsage: 2
-		PauseOnCondition: ammo < 2
-		RequiresCondition: !up_advancedthermobarics
-	SpawnActorOnDeath:
-		Actor: tkmhuey.husk
-	EjectOnDeath:
-		PilotActor: tkmrifleman
-	ActorStatValues:
-		Upgrades: upincendiaryrockets
-	RenderSprites:
-		Image: tkmhuey
-		PlayerPalette: player_rgba
-
-tkmhueycryo:
-	Inherits: tkmhuey
-	Buildable:
-		Queue: Aircraft, RAAircraft
-		BuildPaletteOrder: 20
-		Prerequisites: ~tkmairpad, ~upcryorockets
-		Description: actor-hind.description
-	Valued:
-		Cost: 1800
-	Tooltip:
-		Name: Iroquois (Cryo Missiles)
-	Armament@Missiles:
-		Weapon: HueyCryoMissiles
-		LocalOffset: 85,250,-85, 85,-250,-85
-		MuzzleSequence: muzzle
-		AmmoUsage: 2
-		PauseOnCondition: ammo < 2
-		RequiresCondition: !up_advancedthermobarics
-	SpawnActorOnDeath:
-		Actor: tkmhuey.husk
-	EjectOnDeath:
-		PilotActor: tkmrifleman
-	ActorStatValues:
-		Upgrades: upcryorockets
 	RenderSprites:
 		Image: tkmhuey
 		PlayerPalette: player_rgba
@@ -2915,7 +2758,13 @@ tkmradartruck:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades:
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmradartruck
@@ -2964,7 +2813,13 @@ tkmrepairtruck:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades:
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmrepairtruck
@@ -3015,7 +2870,13 @@ tkmmedictruck:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades:
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: tkmheavydutyarmor
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	WithFacingSpriteBody:
 	WithSpriteTurret:
 	AttackTurreted:
@@ -3069,7 +2930,13 @@ tkmdronepodtruck:
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
 	ActorStatValues:
-		Upgrades:
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: 
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmdronepodtruck
@@ -3198,6 +3065,14 @@ tkmtrenchtank:
 		Payload: 400
 	Selectable:
 		Class: tkmtrenchtank
+	ActorStatValues:
+		Upgrades: uptitanarsenal
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: uptitanarsenal
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: uptitanarsenal
+		Prerequisites: uptitanarsenal
 	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmtrenchtank
@@ -3297,7 +3172,13 @@ t30:
 	DeliversCash:
 		Payload: 400
 	ActorStatValues:
-		Upgrades: uptitanarsenal
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: 
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	WithSpriteTurret:
 	RenderSprites:
 		Image: tkmt30
@@ -3388,7 +3269,7 @@ tkmbattlebuscamo:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 6
-		InitialUnits: tkmriflecamosemiauto,tkmriflecamosemiauto,tkmrocketeertwinrockets,tkmrocketeertwinrockets,tkmrocketeertwinrockets,tkmrocketeertwinrockets
+		InitialUnits: tkmrifleman,tkmrifleman,tkmrocketeerrockets,tkmrocketeerrockets,tkmrocketeerrockets,tkmrocketeerrockets
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	ActorStatValues:
@@ -3409,7 +3290,7 @@ tkmbattlebustitan:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 6
-		InitialUnits: tkmspetsnaz,tkmspetsnaz,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary
+		InitialUnits: tkmspetsnaz,tkmspetsnaz,tkmrocketeer,tkmrocketeer,tkmrocketeer,tkmrocketeer
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	ActorStatValues:
@@ -3430,7 +3311,7 @@ tkmbattlebusnato:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 6
-		InitialUnits: tkmtrooperm203,tkmtrooperm203,tkmrocketeercryo,tkmrocketeercryo,tkmrocketeercryo,tkmrocketeercryo
+		InitialUnits: tkmtrooper,tkmtrooper,tkmrocketeer,tkmrocketeer,tkmrocketeer,tkmrocketeer
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	ActorStatValues:
@@ -3577,7 +3458,13 @@ tkmsandmarine:
 		Condition: untargetable
 		RequiresCondition: chronobeamed || invulnerability || submerged
 	ActorStatValues:
-		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets
+		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets, tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: 
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	RenderSprites:
 		Image: tkmsandmarine
 		PlayerPalette: player_rgba
@@ -3623,7 +3510,13 @@ tkmratflak:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades:
+		Upgrades: tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: 
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	WithFacingSpriteBody:
 	RenderSprites:
 		Image: tkmratflak
@@ -3784,7 +3677,7 @@ tkmbigshiee:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 10
-		InitialUnits: tkmjug,tkmjug,tkmjug,tkmjug,tkmjug,tkmjug,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary,tkmrocketeerincendiary
+		InitialUnits: tkmjug,tkmjug,tkmjug,tkmjug,tkmjug,tkmjug,tkmrocketeer,tkmrocketeer,tkmrocketeer,tkmrocketeer
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	AttackOpenTopped:
@@ -3820,7 +3713,13 @@ tkmbigshiee:
 		Condition: untargetable
 		RequiresCondition: chronobeamed || invulnerability || submerged
 	ActorStatValues:
-		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets
+		Upgrades: uptwinrockets, upcryorockets, upincendiaryrockets, tkmheavydutyarmor
+	DamageMultiplier:
+		Modifier: 75
+		RequiresCondition: 
+	GrantConditionOnPrerequisite@uptitanarsenal:
+		Condition: tkmheavydutyarmor
+		Prerequisites: tkmheavydutyarmor
 	RenderSprites:
 		Image: tkmbigshiee
 		PlayerPalette: player_rgba
