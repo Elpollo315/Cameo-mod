@@ -173,6 +173,11 @@ CRATE:
 		NoBaseSelectionShares: 10000
 		Units: wc2_orc_mcv
 		ValidFactions: orc2
+	GiveBaseBuilderCrateAction@tkm:
+		SelectionShares: 0
+		NoBaseSelectionShares: 10000
+		Units: tkmmcv
+		ValidFactions: tkm
 
 WWCRATE:
 	Inherits: CRATE
