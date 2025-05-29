@@ -170,14 +170,14 @@ uptwinrockets:
 uptkmapbullets:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: NATO Armor Piercing Bullets Upgrade
+		Name: Titan Armor Piercing Bullets Upgrade
 	Valued:
 		Cost: 2400
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
 		Description: Changes Bullets to APFSDS Armor Piercing Rounds which deals extra damage to armored units.
-		Prerequisites: ~tkmradar, ~!uptkmapbullets, ~upnatoarsenal
+		Prerequisites: ~tkmradar, ~!uptkmapbullets, ~uptitanarsenal
 	ProvidesPrerequisite:
 	RenderSprites:
 		Image: tkmapbullets
@@ -937,7 +937,7 @@ tkmspetsnaz:
 		RequiresCondition: !uptkmapbullets
 	Armament@GARRISONEDUPGRADE: ##########
 		Name: garrisoned
-		Weapon: tkmjuggap
+		Weapon: tkmakap
 		MuzzleSequence: garrison-muzzle
 		RequiresCondition: uptkmapbullets
 	GrantConditionOnPrerequisite@uptkmapbullets:
@@ -1473,6 +1473,9 @@ tkmvon:
 		MuzzleSequence: garrison-muzzle
 		RequiresCondition: uptkmapbullets
 		PauseOnCondition: !ammo
+	GrantConditionOnPrerequisite@uptkmapbullets:
+		Condition: uptkmapbullets
+		Prerequisites: uptkmapbullets
 	AmmoPool:
 		Ammo: 12
 		AmmoCondition: ammo
@@ -1498,7 +1501,7 @@ tkmvon:
 	AttackFrontal:
 		FacingTolerance: 0
 	ActorStatValues:
-		Upgrades: tkminfantryupgrade
+		Upgrades: uptkmapbullets, tkminfantryupgrade
 	Cloak:
 	Voiced:
 		VoiceSet: TSInfantry

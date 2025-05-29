@@ -1145,7 +1145,7 @@ VonSniper:
 		ImpactSounds: xplos.aud
 
 VonSniperAP:
-	Inherits: ^RA2Grenade
+	Inherits: ^LightMissile
 	Inherits: ^MediumMissile
 	Inherits: ^HeavyCannon
 	Inherits: ^SmallArms
@@ -1156,15 +1156,10 @@ VonSniperAP:
 	Report: TGhFir00.aud
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Bullet
-		Image: 50CAL
-		ContrailStartColor: FF9933
-		ContrailEndColor: FFFFFF
-		ContrailEndColorUsePlayerColor: true
-		ContrailWidth: 250
-		ContrailLength: 25
-		Speed: 2500
-		Width: 100
-		Inaccuracy: 0
+		ContrailStartWidth: 300
+		ContrailEndWidth: 150
+		ContrailStartColor: 4488FF
+		ContrailEndColor: 22446688
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 4000
@@ -1195,9 +1190,8 @@ VonSniperAP:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 1
-	Warhead@Grenade: SpreadDamage
-		ValidTargets: Ground, Water, Trees
-		Damage: 2000
+	Warhead@LightMissile: SpreadDamage
+		Damage: 18000
 	Warhead@Effect: CreateEffect
 		Explosions: small_poof
 		ImpactSounds: xplos.aud
