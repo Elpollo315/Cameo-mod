@@ -748,9 +748,15 @@ tkmbunkerquadturret:
 		HP: 100000
 	WithBuildingBib:
 		HasMinibib: true
-	Armament:
-		Weapon: tkmheavyaaturret
-		LocalOffset: 85,250,-85, 85,-250,-85
+	Armament@AG:
+		Weapon: RAGatlingTankCannon
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
+		MuzzleSequence: muzzle
+	Armament@AA:
+		Weapon: RAGatlingTankCannonAA
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
@@ -1301,7 +1307,7 @@ tkmengineer:
 	Inherits@speed: ^upberezkacloakupgrade
 	Inherits@infantryweapon: ^tkminfantryupgrade
 	Buildable:
-		Prerequisites: ~tkmbarracks, ~!uptitanarsenal, ~!upberezkacloak, ~!upnatoarsenal
+		Prerequisites: ~tkmbarracks
 		Queue: Infantry, RAInfantry
 	Tooltip:
 		Name: Engineer
@@ -1322,9 +1328,12 @@ tkmengineer:
 	GrantConditionOnPrerequisite@uptitanarsenal:
 		Condition: uptitanarsenal
 		Prerequisites: uptitanarsenal
+	GrantConditionOnPrerequisite@upnatoarsenal:
+		Condition: upnatoarsenal
+		Prerequisites: upnatoarsenal
 	DamageMultiplier:
 		Modifier: 75
-		RequiresCondition: uptitanarsenal, upberezkacloak, upnatoarsenal
+		RequiresCondition: uptitanarsenal
 	GrantConditionOnDeploy:
 		DeployedCondition: summon
 		SkipMakeAnimation: true
@@ -1345,6 +1354,7 @@ tkmengineer:
 		RequiresSelection: True
 		PipCount: 1
 		AmmoPool: summon
+		RequiresCondition: upnatoarsenal
 	PeriodicExplosion@projections:
 		Weapon: tkmdronesummon
 		RequiresCondition: summon
@@ -1441,8 +1451,9 @@ tkmvon:
 		LocalOffset: 128,0,256
 		AmmoUsage: 6
 		PauseOnCondition: ammo < 12
+	Armament@PRIMARY:
 		Weapon: VonSniper
-		LocalOffset: 128,0,256
+		LocalOffset: 500,0,400
 		RequiresCondition: !uptkmapbullets
 		PauseOnCondition: !ammo
 	Armament@PRIMARYUPGRADE:
@@ -1652,7 +1663,7 @@ tkmas42:
 		Step: 11
 	Armament@Missiles:
 		Weapon: Rockets
-		LocalOffset: 85,250,-85, 85,-250,-85
+		LocalOffset: -160,-276,232
 		MuzzleSequence: muzzle
 		AmmoUsage: 2
 		RequiresCondition: !upcryorockets && !uptwinrockets && !upincendiaryrockets
@@ -1865,9 +1876,15 @@ tkmquadtruck:
 	Turreted:
 		TurnSpeed: 30
 		Offset: -350,0,250
-	Armament:
-		Weapon: HeavyAATankCannontkm
-		LocalOffset: 85,250,-85, 85,-250,-85
+	Armament@AG:
+		Weapon: RAGatlingTankCannon
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
+		MuzzleSequence: muzzle
+	Armament@AA:
+		Weapon: RAGatlingTankCannonAA
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	AttackTurreted:
@@ -1910,10 +1927,15 @@ tkmzaza:
 	Turreted:
 		TurnSpeed: 30
 		Offset: -160,0,500
-	Armament:
-		Weapon: HeavyAATankCannontkm
+	Armament@AG:
+		Weapon: RAGatlingTankCannon
 		Recoil: 85
-		LocalOffset: 800,80,360, 800,-80,360
+		LocalOffset: 500,100,450, 500,-100,450
+		MuzzleSequence: muzzle
+	Armament@AA:
+		Weapon: RAGatlingTankCannonAA
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@GattlingSpeed1:
 		RequiresCondition: ammo == 3
@@ -3440,7 +3462,7 @@ tkmratflak:
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@Template: ^AntiAirDefenseTemplate
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
