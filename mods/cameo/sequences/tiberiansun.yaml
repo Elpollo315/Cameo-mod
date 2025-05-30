@@ -780,7 +780,14 @@ tsmemp:
 
 ts1tnk:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_ltnk.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_ltnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
@@ -793,12 +800,12 @@ tswini2:
 	idle:
 		Filename: forgot_wini.png
 		Facings: 64
-		Scale: 0.6
+		Scale: 0.5
 	turret:
 		Filename: forgot_wini.png
 		Start: 64
 		Facings: 64
-		Scale: 0.6
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
@@ -809,12 +816,12 @@ tscar2:
 	idle:
 		Filename: forgot_car.png
 		Facings: 64
-		Scale: 0.6
+		Scale: 0.5
 	turret:
 		Filename: forgot_car.png
 		Start: 64
 		Facings: 64
-		Scale: 0.6
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
@@ -823,7 +830,14 @@ tscar2:
 
 ts2tnk:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_mtnk.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_mtnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
@@ -832,7 +846,14 @@ ts2tnk:
 
 ts3tnk:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_htnk.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_htnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
@@ -1879,6 +1900,28 @@ forgot_church:
 	make:
 		Filename: forgot_church.png
 		Length: 16
+	icon:
+		Filename: tshandicon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+forgot_chemicalplant:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_chemicalplant.png
+		Start: 40
+		Length: 20
+	damaged-idle:
+		Filename: forgot_chemicalplant.png
+		Start: 61
+		Length: 20
+	dead:
+		Filename: forgot_chemicalplant.png
+		Start: 61
+		Length: 20
+	make:
+		Filename: forgot_chemicalplant.png
+		Length: 40
 	icon:
 		Filename: tshandicon.png
 		Offset: 0, 0

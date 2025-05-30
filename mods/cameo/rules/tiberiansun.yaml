@@ -2210,6 +2210,41 @@ tsfgttech:
 	RenderSprites:
 		Image: forgot_church
 		PlayerPalette: player_rgba
+
+forgot_chemicalplant:
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@tech: ^IsTechnoBuilding
+	Inherits@shape: ^3x2Shape
+	Selectable:
+		Bounds: 131072, 87381
+	HitShape:
+		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+	Buildable:
+		Queue: Building, RABuilding
+		BuildPaletteOrder: 150
+		Prerequisites: ~tsgtcnstmutant, tsfgttech
+		Description: Provides Forgotten advanced technologies.\nCan be only built once
+		BuildLimit: 1
+	Tooltip:
+		Name: Forgotten Chemical Plant
+	Selectable:
+		Bounds: 2048, 2048
+	Building:
+		Footprint: xxx ===
+		Dimensions: 3,2
+		LocalCenterOffset: 0,0,0
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c0
+	WithBuildingBib:
+	Power:
+		Amount: -100
+	ProvidesPrerequisite@buildingname:
+	RenderSprites:
+		Image: forgot_chemicalplant
+		PlayerPalette: player_rgba
 tscabaltech:
 	Inherits: tsgttech
 	Tooltip:
@@ -6648,13 +6683,12 @@ TS1TNK:
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Light Tank
+		Name: Ratty Tank
 	Buildable:
 		BuildPaletteOrder: 170
 		Prerequisites: ~tsgtweapmutant
@@ -6687,30 +6721,25 @@ TS1TNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 325
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
 
 TS2TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Medium Tank
+		Name: Warrior Tank
 	Buildable:
 		BuildPaletteOrder: 180
 		Prerequisites: ~tsgtweapmutant, tsgtradrmutant
@@ -6744,28 +6773,24 @@ TS2TNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 400
-	RenderVoxels:
-		Scale: 15
-
+	RenderSprites:
+		PlayerPalette: player_rgba
 TS3TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Heavy Tank
+		Name: Scooper Tank
 	Buildable:
 		BuildPaletteOrder: 190
 		Prerequisites: ~tsgtweapmutant, tsfgttech
@@ -6799,16 +6824,13 @@ TS3TNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 400
-	RenderVoxels:
-		Scale: 15
-
+	RenderSprites:
+		PlayerPalette: player_rgba
 TSFTNK:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
