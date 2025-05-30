@@ -4636,7 +4636,6 @@ chembike:
 
 chemstnk:
 	Inherits: ^Vehicle
-	Inherits@Template: ^FireSupportTemplate
 	Inherits@Template: ^HighTechTankTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -4651,17 +4650,17 @@ chemstnk:
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
 	Inherits@decoration: ^NodRankDecoration
 	Valued:
-		Cost: 1200
+		Cost: 1800
 	Mobile:
 		Locomotor: heavywheeled
-		Speed: 125
-		TurnSpeed: 25
+		Speed: 120
+		TurnSpeed: 24
 	Health:
-		HP: 40000
+		HP: 90000
 	Repairable:
-		HpPerStep: 2000
+		HpPerStep: 4500
 	ChangesHealth@SelfHealing:
-		Step: 16
+		Step: 36
 	Armor:
 		Type: Medium
 	Tooltip:
@@ -5114,7 +5113,7 @@ tsstealthsoldier:
 		Prerequisites: tmpl, ~upstealthsoldier
 		Description: actor-stealthsoldier.description
 	Valued:
-		Cost: 400
+		Cost: 500
 	Tooltip:
 		Name: Stealth Soldier
 	UpdatesPlayerStatistics:
@@ -5770,7 +5769,7 @@ gdiempgrenadier:
 	Inherits@CuttingEdge: ^CuttingEdgeEquipment
 	Inherits@decoration: ^GDIRankDecoration
 	Valued:
-		Cost: 400
+		Cost: 500
 	Tooltip:
 		Name: EMP Grenadier
 	UpdatesPlayerStatistics:
@@ -5829,7 +5828,7 @@ gdimissilesoldier:
 	Inherits@CuttingEdge: ^CuttingEdgeEquipment
 	Inherits@decoration: ^GDIRankDecoration
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Sonic Missile Soldier
 	UpdatesPlayerStatistics:
@@ -5932,11 +5931,11 @@ gdiassaultapc:
 		Speed: 100
 		TurnSpeed: 20
 	Health:
-		HP: 100000
+		HP: 250000
 	Repairable:
-		HpPerStep: 5000
+		HpPerStep: 12500
 	ChangesHealth@SelfHealing:
-		Step: 40
+		Step: 100
 	Armor:
 		Type: Heavy
 	RenderSprites:

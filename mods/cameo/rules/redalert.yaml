@@ -11304,18 +11304,18 @@ modhovert:
 		BuildPaletteOrder: 120
 		Description: actor-jphovert.description
 	Valued:
-		Cost: 1200
+		Cost: 1700
 	Tooltip:
 		Name: Hovercraft Flametank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 60000
+		HP: 120000
 	Repairable:
-		HpPerStep: 3000
+		HpPerStep: 6000
 	ChangesHealth@SelfHealing:
-		Step: 48
+		Step: 96
 	Armor:
 		Type: Medium
 	Mobile:

@@ -1043,11 +1043,11 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ParallelProductionQueue@INFANTRY:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
-		Multiplier: 150
+		Multiplier: 200
 	ProductionTimeMultiplier@wc2:
-		Multiplier: 150
+		Multiplier: 200
 	DamageMultiplier@wc2:
-		Modifier: 75
+		Modifier: 50
 
 ^wc2_lumber_mill:
 	Inherits@ref: ^Refinery
@@ -1144,11 +1144,11 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ParallelProductionQueue@VEHICLE:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
-		Multiplier: 150
+		Multiplier: 200
 	ProductionTimeMultiplier@wc2:
-		Multiplier: 150
+		Multiplier: 200
 	DamageMultiplier@wc2:
-		Modifier: 75
+		Modifier: 50
 
 ^wc2_stables:
 	Inherits@shape: ^3x3Shape
@@ -1263,11 +1263,11 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ParallelProductionQueue@AIRCRAFT:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
-		Multiplier: 150
+		Multiplier: 200
 	ProductionTimeMultiplier@wc2:
-		Multiplier: 150
+		Multiplier: 200
 	DamageMultiplier@wc2:
-		Modifier: 75
+		Modifier: 50
 
 ^wc2_shipyard:
 	Inherits@shipyard: ^IsShipyard
@@ -2671,12 +2671,16 @@ wc2_human_scout_tower:
 		Name: Human Cannon Tower
 		RequiresCondition: cannon
 	Valued:
-		Cost: 600
+		Cost: 1200
+	ProductionCostMultiplier@guardtower:
+		Multiplier: 50
+	ProductionTimeMultiplier@guardtower:
+		Multiplier: 50
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~wc2_human_barracks
-		Queue: Building, RABuilding
+		Queue: Defence, RADefence
 		Description: Can be upgraded to Guard or Cannon Tower.
 	Building:
 		Footprint: xx xx
@@ -3054,6 +3058,8 @@ wc2_human_footman:
 	Armament:
 		Weapon: wc2footmanslice
 		FireDelay: 7
+	Targetable@dog:
+		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voicehumanfootman
 
@@ -3089,6 +3095,9 @@ wc2_human_elven_archer:
 	Armament:
 		Weapon: wc2arrowFire
 		FireDelay: 7
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2arrowFire
 	Voiced:
 		VoiceSet: wc2voicehumanelvenarcher
 	# Animation and upgrade stuff
@@ -3145,6 +3154,7 @@ wc2_human_knight:
 	Mobile:
 		Speed: 110
 		TurnSpeed: 44
+		Locomotor: tracked
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~wc2_human_stables, ~!wc2_h_paladinupg
@@ -3153,6 +3163,8 @@ wc2_human_knight:
 	Voiced:
 		VoiceSet: wc2voicehumanknight
 	# Animation and upgrade stuff
+	-Integrity:
+	-GrantCondition@electronics:
 	-WithFacingSpriteBody:
 	-WithMoveAnimation:
 	-WithAttackAnimation:
@@ -3170,6 +3182,8 @@ wc2_human_knight:
 		MoveSequence: run-paladin
 		DefaultAttackSequence: shoot-paladin
 		RequiresCondition: paladin_upg
+	Targetable:
+		TargetTypes: Ground, Vehicle, Monster
 	#Weapons
 	Inherits@attacks_and_spells: ^wc2_knight_paladin_attacks_spells
 
@@ -3342,6 +3356,8 @@ wc2_human_ballista:
 		FireDelay: 20
 	Voiced:
 		VoiceSet: wc2voicehumanballista
+	-Integrity:
+	-GrantCondition@electronics:
 	-WithDeathAnimation:
 	FireWarheadsOnDeath:
 		Weapon: wc2visualexplode
@@ -3412,6 +3428,9 @@ wc2_human_mage:
 		Weapon: wc2mageFire
 		FireDelay: 7
 		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner) || (FSD_cond_2 && !mageslow_upg) || (FSD_cond_3 && !magepolymorph_upg) || (FSD_cond_4 && !mageblizzard_upg)
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2mageFire
 	Armament@FIREBALL_VISIBLE:
 		Name: fireball
 		Weapon: wc2mageFireballVisible
@@ -3674,13 +3693,13 @@ wc2_human_gryphon_rider:
 	Tooltip:
 		Name: Gryphon Rider
 	Valued:
-		Cost: 4800
+		Cost: 1500
 	Power:
-		Amount: -240
+		Amount: -75
 	Health:
-		HP: 275000
+		HP: 125000
 	ChangesHealth@SelfHealing:
-		Step: 110
+		Step: 50
 	Aircraft:
 		Speed: 145
 		TurnSpeed: 29
@@ -4398,12 +4417,16 @@ wc2_orc_watch_tower:
 		Name: Orc Cannon Tower
 		RequiresCondition: cannon
 	Valued:
-		Cost: 600
+		Cost: 1200
+	ProductionCostMultiplier@guardtower:
+		Multiplier: 50
+	ProductionTimeMultiplier@guardtower:
+		Multiplier: 50
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~wc2_orc_barracks
-		Queue: Building, RABuilding
+		Queue: Defence, RADefence
 		Description: Can be upgraded to Guard or Cannon Tower.
 	Building:
 		Footprint: xx xx
@@ -4754,6 +4777,8 @@ wc2_orc_grunt:
 	Armament:
 		Weapon: wc2gruntslice
 		FireDelay: 7
+	Targetable@dog:
+		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voiceorcpeongrunt
 
@@ -4789,6 +4814,9 @@ wc2_orc_troll_axethrower:
 	Armament:
 		Weapon: wc2axeFire
 		FireDelay: 7
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2axeFire
 	Voiced:
 		VoiceSet: wc2voiceorctrollaxethrower
 	# Animation and upgrade stuff
@@ -4822,7 +4850,7 @@ wc2_orc_troll_berserker:
 
 # Ogre also has built-in ogremage stuff so that ogremage's upgrades and spells will be applied to already-built ogres, just as in WC2.
 wc2_orc_ogre:
-	Inherits: ^WC2Vehicle
+	Inherits@WC2VEHICLE: ^WC2Vehicle
 	Inherits@Template: ^LineBreakerTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -4845,6 +4873,7 @@ wc2_orc_ogre:
 	Mobile:
 		Speed: 90
 		TurnSpeed: 36
+		Locomotor: tracked
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~wc2_orc_ogre_mound, ~!wc2_o_ogremageupg
@@ -4853,6 +4882,8 @@ wc2_orc_ogre:
 	Voiced:
 		VoiceSet: wc2voiceorcogre
 	# Animation and upgrade stuff
+	-Integrity:
+	-GrantCondition@electronics:
 	-WithFacingSpriteBody:
 	-WithMoveAnimation:
 	-WithAttackAnimation:
@@ -4877,6 +4908,8 @@ wc2_orc_ogre:
 		CrushedPaletteIsPlayerPalette: true
 		UseDeathTypeSuffix: false
 		RequiresCondition: ogremage_upg
+	Targetable:
+		TargetTypes: Ground, Vehicle, Monster
 	#Weapons
 	Inherits@attacks_and_spells: ^wc2_ogre_ogremage_attacks_spells
 
@@ -5089,6 +5122,8 @@ wc2_orc_catapult:
 		FireDelay: 5
 	Voiced:
 		VoiceSet: wc2orccatapult
+	-Integrity:
+	-GrantCondition@electronics:
 	-WithDeathAnimation:
 	WithAttackAnimation@After:
 		Sequence: after-shoot
@@ -5179,6 +5214,9 @@ wc2_orc_deathknight:
 		Weapon: wc2deathknightFire
 		FireDelay: 7
 		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner) || (FSD_cond_2 && !deathknighthaste_upg) || (FSD_cond_3 && !deathknightdeathanddecay_upg) || (FSD_cond_4 && !deathknightraisedead_upg)
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2deathknightFire
 	Armament@DEATHCOIL:
 		Name: deathcoil
 		Weapon: wc2deathknightDeathCoil
@@ -5465,13 +5503,13 @@ wc2_orc_dragon:
 	Tooltip:
 		Name: Dragon
 	Valued:
-		Cost: 4000
+		Cost: 2000
 	Power:
-		Amount: -200
+		Amount: -100
 	Health:
-		HP: 250000
+		HP: 150000
 	ChangesHealth@SelfHealing:
-		Step: 100
+		Step: 60
 	Aircraft:
 		Speed: 125
 		TurnSpeed: 25
@@ -5486,7 +5524,8 @@ wc2_orc_dragon:
 		Description: Flying ranged attacker.\nFire breath can hit multiple targets in a line.\nStrong vs Aircraft
 	Armament@VISIBLE:
 		Weapon: wc2dragonFireVisible
-		LocalOffset: 400,0,0
+		LocalOffset: 400,-64,64, 400,64,64
+		LocalYaw: 64, -64
 		Name: primary
 		FireDelay: 3
 	Armament@EXPLOSIONS:

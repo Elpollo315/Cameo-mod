@@ -6877,7 +6877,11 @@ latin_topol:
 		Weapon: RA2TOPOLCuba
 		EmptyWeapon: RA2TOPOLCuba
 	ActorStatValues:
-		ReloadDelay: 500
+		ReloadDelay: 750
+	RevealsShroud@SWReveal:
+		Range: 2500
+		ValidRelationships: Neutral, Enemy
+		RequiresCondition: swreveal
 	ReloadArmamentsBar:
 		Armaments: secondary
 	SelectionDecorations:

@@ -3874,12 +3874,13 @@ tscloud1:
 # 	Inherits: tscloud1
 # 	die: tscloud2d
 
-flameall:
+tsflameall:
 	idle:
 		Filename: tsflameall.shp
+		Scale: 0.5
 		Length: 19
 		Facings: -8
-		Tick: 160
+		Tick: 114
 		ZOffset: 1023
 
 tsdroppod:

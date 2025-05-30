@@ -3136,7 +3136,7 @@ Player:
 		EnemyScanRadius: 15
 	CaptureManagerBotModuleCA:
 		RequiresCondition: genericbot && !easiestbot
-		CapturingActorTypes: e6, rae6, ra2engineer, ra2engineer.soviet, ra2engineer.yuri, ra2engineer.asian, ra2engineer.syndicate, steel_fedeng, nax_eng, tsengineer, tsengineer2, engineer, d2k_hijacker, d2k_mechanic, scscv, tkmengineer, tkmengineercamo, tkmengineertitan, tkmengineernato
+		CapturingActorTypes: e6, rae6, ra2engineer, ra2engineer.soviet, ra2engineer.yuri, ra2engineer.asian, ra2engineer.syndicate, steel_fedeng, nax_eng, tsengineer, tsengineer2, engineer, d2k_hijacker, d2k_mechanic, scscv, tkmengineer
 		PriorityCapturableActorTypes: v19, hosp, fcom, miss, ramiss, rabio, oilb, v19.husk, hosp.husk, bio.husk, miss.husk, fcom.husk, oilb.husk
 		CapturableActorTypes: fact.gdi, fact.nod, proc.gdi, proc.nod, weap, afld, hq.nod, hq.gdi, tsntradr, tsntradrcabal, tsgtradr, tsgtradrmutant, eye, tsnttech, tsgttech, tsfgttech, tscabaltech, tsnttmpl, tscore, tmpl, rafact.allies, rafact.soviet, rafact.japan, raproc.allies, raproc.soviet, jproc, raweap, raweapa, modraweapj, dome.allies, dome.soviet, dome.japan, raafld, modraafld, modspaceport, atek, stek, modjtek, ra2nacnst, ra2gacnst, yrnacnst, ra2narefn, ra2garefn, ra2naweap, ra2gaweap, yrygweap, ra2gaairc, ra2naradr, ra2napsis, ra2gatech, ra2natech, yrygtech, aa_cgcnst, aa_cgweap, aa_cgradr, aa_cgtech, construction_yard.ixian, heavy_factory.ixian, refinery.atreides, research_centre.ixian, starport.ixian, latin_cgcnst, latin_cgweap, latin_cgauto, latin_cgspy, nax_conyard, nax_weap, nax_refin, nax_tek, nax_tech, nax2_conyard, nax2_weap, nax2_refin, nax2_radar, nax2_tech, sccommandcenter, scfactory, scengineeringbay, scacademy, scarmory, scsciencefacility, tkmcommandcenter
 		PriorityCaptureChance: 75
@@ -3169,7 +3169,7 @@ Player:
 		IgnoredEnemyTargetTypes: TechHusk, DisguisedSpy
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
 		SuggestedNavyLeaderLocomotor: naval
-		ExcludeFromSquadsTypes: e6, rae6, ra2engineer, ra2engineer.soviet, ra2engineer.yuri, ra2engineer.asian, ra2engineer.syndicate, steel_fedeng, tsengineer, tsengineer2, engineer, d2k_hijacker, d2k_mechanic, harv.gdi, harv.nod, tanodharv, mcv.gdi, mcv.nod, raharv.soviet, raharv.allies, raharv.japan, ramcv.allies, ramcv.soviet, ramcv.japan, mnly, modcore, modcore1, modcore2, modcore3, modcore4, modcore5, modcore6, modcore7, ra2cmin, ra2harv, yrslav, yrsmin, aa_drmn, scoverlord, tsharv, ra2amcv, ra2smcv, yrpcv, aa_acv, tsmcvgdi, tsmcvnod, tsmcvmutant, tsmcvcabal, glworker, chharv, usahook, chhacker, harvester, carryall, carryall.reinforce, d2k_mcv.ixian, d2k_mcv.ordos, raspy, ra2spy, ra2cleg, dtrk, ctnk, qtnk, quake_tank, ra2dtruck, ra2terror, tran.gdi, tran.nod, ratran, modhip, ra2shad, aa_shinobi, aa_oilt, steel_qmcv, steel_qmin, latin_mcv, latin_harv, nax_mcv, nax2_mcv, nax2_armor_harv, nax_slavemaster, nax_slav, latin_ra2terror, latin_ra2dtruck, latin_nuketruk, sczmcv, scpmcv, sctmcv, scscv, scprobe, scdrone, scdropship, scmedivac, scshuttle, wc2_human_mcv, wc2_orc_mcv, wc2_human_peasant, wc2_orc_peon, wc2_human_demolitionsquad, wc2_orc_goblin_sappers, ordos_harv, tkmmcv, tkmharv, tkmengineer, tkmengineercamo, tkmengineertitan, tkmengineernato
+		ExcludeFromSquadsTypes: e6, rae6, ra2engineer, ra2engineer.soviet, ra2engineer.yuri, ra2engineer.asian, ra2engineer.syndicate, steel_fedeng, tsengineer, tsengineer2, engineer, d2k_hijacker, d2k_mechanic, harv.gdi, harv.nod, tanodharv, mcv.gdi, mcv.nod, raharv.soviet, raharv.allies, raharv.japan, ramcv.allies, ramcv.soviet, ramcv.japan, mnly, modcore, modcore1, modcore2, modcore3, modcore4, modcore5, modcore6, modcore7, ra2cmin, ra2harv, yrslav, yrsmin, aa_drmn, scoverlord, tsharv, ra2amcv, ra2smcv, yrpcv, aa_acv, tsmcvgdi, tsmcvnod, tsmcvmutant, tsmcvcabal, glworker, chharv, usahook, chhacker, harvester, carryall, carryall.reinforce, d2k_mcv.ixian, d2k_mcv.ordos, raspy, ra2spy, ra2cleg, dtrk, ctnk, qtnk, quake_tank, ra2dtruck, ra2terror, tran.gdi, tran.nod, ratran, modhip, ra2shad, aa_shinobi, aa_oilt, steel_qmcv, steel_qmin, latin_mcv, latin_harv, nax_mcv, nax2_mcv, nax2_armor_harv, nax_slavemaster, nax_slav, latin_ra2terror, latin_ra2dtruck, latin_nuketruk, sczmcv, scpmcv, sctmcv, scscv, scprobe, scdrone, scdropship, scmedivac, scshuttle, wc2_human_mcv, wc2_orc_mcv, wc2_human_peasant, wc2_orc_peon, wc2_human_demolitionsquad, wc2_orc_goblin_sappers, ordos_harv, tkmmcv, tkmharv, tkmengineer, tkmradartruck, tkmworker
 		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabal, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, steel_qacst, tkmcommandcenter
 		NavalUnitsTypes: ss, msub, dd, ca, pt, japanspeedboat, japancarrier, yamatobattleship, cncss, nodlasercorvette, ssmsub, cncdd, cncca, cncpt, ra2sqd, ra2dlph, ra2dest, ra2aegis, ra2sub, ra2hyd, ra2dred, ra2carrier, yrbsub, glgunboat, chflameboat, usagunboat, usabattleship, usacarrier, aa_gunb, aa_lsub, aa_quasfrig, aa_karrier, aa_tsun, aa_ksub, latin_triton, latin_sub, nax_tuboat, nax_muboat
 		NavalProductionTypes: raspen, ra1syrd, ra1jsyrd, cncsyrd, cncspen, yrygyard, ra2gayard, ra2nayard, glsyrd, chsyrd, usasyrd, aa_cgyard, latin_cgyard, nax_naval
@@ -3354,7 +3354,7 @@ Player:
 	LoadGarrisonerBotModuleCA@Infantry:
 		RequiresCondition: genericbot && !easiestbot
 		PassengersPerScan: 6
-		GarrisonerUnit: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_mp40, nax_shrek, tkmrifleman, tkmriflemancamo, tkmriflecamosemiauto, tkmjug, tkmjugap, tkmtrooper, tkmtrooperm203, tkmrocketeer, tkmrocketeercamo, tkmrocketeertitan, tkmrocketeertwinrockets, tkmrocketeerincendiary, tkmrocketeercryo, tkmspetsnaz
+		GarrisonerUnit: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_mp40, nax_shrek, tkmrifleman, tkmtrooper, tkmrocketeer, tkmspetsnaz
 	LoadCargoBotModule@Infantry:
 		RequiresCondition: genericbot
 		TransportTypesAndLoadRequirement:
@@ -3386,7 +3386,7 @@ Player:
 			miss: All
 			ramiss: All
 			fcom: All
-		PassengerTypes: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, tkmrifleman, tkmriflemancamo, tkmriflecamosemiauto, tkmjug, tkmjugap, tkmtrooper, tkmtrooperm203, tkmrocketeer, tkmrocketeercamo, tkmrocketeertitan, tkmrocketeertwinrockets, tkmrocketeerincendiary, tkmrocketeercryo, tkmspetsnaz
+		PassengerTypes: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, tkmrifleman, tkmjug, tkmtrooper, tkmrocketeer, tkmspetsnaz
 		ValidTransportOwner: AlliedBot
 	LoadCargoBotModule@TankBunker:
 		RequiresCondition: genericbot
@@ -3401,16 +3401,6 @@ Player:
 		PassengerTypes: e1.gdi, e1.nod, rae1, rare1, raje1, ra2e1, ra2e2, yrinit, light_inf, aa_gren, steel_fedinf, latin_mili, nax_rifle, nax_lunar, scmarine
 		ValidTransportOwner: AlliedBot
 		ScanTick: 799
-	GrantConditionOnPrerequisite@OilReactor:
-		Condition: aa_cgtnkr
-		Prerequisites: aa_cgtnkr
-	LoadCargoBotModule@OilReactor:
-		RequiresCondition: genericbot && aa_cgtnkr
-		TransportTypesAndLoadRequirement:
-			aa_cgtnkr: All
-		PassengerTypes: aa_oilt
-		ValidTransportOwner: AlliedBot
-		ScanTick: 1000
 	MinelayerBotModule:
 		RequiresCondition: genericbot
 		MinelayingActorTypes: mnly
@@ -4714,6 +4704,7 @@ Player:
 			# tkmpowerplant: 15
 			tkmrefinery: 15
 			tkmbarracks: 15
+			tkmslavelabor: 1
 			tkmfactory: 15
 			tkmairpad: 15
 			tkmradar: 1
@@ -6170,6 +6161,20 @@ Player:
 			leangusagunship: 1
 			leangclustermines: 1
 			leangcarpetbomb: 1
+			#################### TKM Promotions
+			upmedictruck: 1
+			upjugg: 1
+			upbattlebus: 1
+			upsandmarine: 1
+			uprepairtruck: 1
+			upserpenttank: 1
+			upbustertank: 1
+			upbigshiee: 1
+			upradartruck: 1
+			upviper: 1
+			updronepodtruck: 1
+			uptrenchtank: 1
+			upt30: 1
 			#################### UnitsToBuild Dark Imperium
 			drguardian: 65
 			drext: 25
@@ -6293,43 +6298,38 @@ Player:
 			#################### UnitsToBuild TKM
 			tkmharv: 10
 			tkmrifleman: 7
-			tkmriflemancamo: 7
-			tkmriflecamosemiauto: 7
 			tkmjug: 7
-			tkmjugap: 7
 			tkmtrooper: 7
-			tkmtrooperm203: 7
 			tkmspetsnaz: 7
 			tkmrocketeer: 5
-			tkmrocketeercamo: 5
-			tkmrocketeertitan: 5
-			tkmrocketeertwinrockets: 5
-			tkmrocketeerincendiary: 5
-			tkmrocketeercryo: 5
 			tkmengineer: 1
-			tkmengineercamo: 1
-			tkmengineertitan: 1
-			tkmengineernato: 1
 			tkmas42: 10
-			tkmas42twinrockets: 10
-			tkmas42incendiaryrockets: 10
-			tkmas42cryorockets: 10
 			tkmtechnical: 10
 			tkmquadtruck: 5
 			tkmstryker: 5
-			tkmstrykercryo: 5
 			tkmzaza: 5
 			tkmtechnicaltank: 5
-			tkmtechnicaltankrocketaddon: 5
 			tkmabrams: 5
 			tkmabramspoint: 5
 			tkmthermonaut: 5
 			t72: 5
-			t72heavydutyarmor: 5
 			tkmkatyushalauncher: 3
 			tkmhuey: 5
 			tkmviper: 5
+			tkmvon: 1
+			tkmratflak: 2
 			tkmradartruck: 1
+			tkmrepairtruck: 1
+			tkmmedictruck: 1
+			tkmdronepodtruck: 3
+			tkmbattlebus: 3
+			tkmbattlebuscamo: 3
+			tkmbattlebustitan: 3
+			tkmbattlebusnato: 3
+			tkmsandmarine: 1
+			tkmbigshiee: 1
+			tkmtrenchtank: 3
+			tkmtrenchtruck: 3
 			t30: 1
 			upberezkacloak: 1
 			uptitanarsenal: 1

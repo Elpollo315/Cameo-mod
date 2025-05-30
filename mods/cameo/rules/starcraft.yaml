@@ -2535,7 +2535,11 @@ SCCREEPCOLONY:
 		Name: Spore Colony
 		RequiresCondition: spore
 	Valued:
-		Cost: 600
+		Cost: 1000
+	ProductionCostMultiplier@guardtower:
+		Multiplier: 50
+	ProductionTimeMultiplier@guardtower:
+		Multiplier: 50
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 20
@@ -2645,7 +2649,7 @@ scsporecolonyupgrade:
 	Tooltip:
 		Name: Sunken Colony
 	Valued:
-		Cost: 400
+		Cost: 500
 	Buildable:
 		Queue: Defence, RADefence
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
@@ -2660,7 +2664,7 @@ scsunkencolonyupgrade:
 	Tooltip:
 		Name: Spore Colony
 	Valued:
-		Cost: 400
+		Cost: 500
 	Buildable:
 		Queue: Defence, RADefence
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
@@ -3727,12 +3731,6 @@ SCGHOST:
 		Weapon: GhostSniper
 		LocalOffset: 128,0,256
 		PauseOnCondition: !ammo
-	Armament@GARRISONEDlockdown:
-		Name: garrisoned
-		Weapon: GhostSniperLockdown
-		MuzzleSequence: muzzle
-		AmmoUsage: 6
-		PauseOnCondition: ammo < 12
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: GhostSniper
@@ -3813,12 +3811,6 @@ SCSILVERTONGUE:
 		Weapon: SpecterSniper
 		LocalOffset: 128,0,256
 		PauseOnCondition: !ammo
-	Armament@GARRISONEDlockdown:
-		Name: garrisoned
-		Weapon: SpecterSniperLockdown
-		MuzzleSequence: muzzle
-		AmmoUsage: 4
-		PauseOnCondition: ammo < 12
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: SpecterSniper
@@ -5532,13 +5524,7 @@ SCSCIENCEVESSEL:
 	ChangesHealth@SelfHealing:
 		Step: 80
 	Armament@IronCourtain:
-		Weapon: ScienceVesselIronCurtain
-		LocalOffset: 1,0,11
-		TargetRelationships: Ally
-		ForceTargetRelationships: None
-		PauseOnCondition: deployed
-	Armament@IronCourtainAA:
-		Weapon: ScienceVesselIronCurtainAA
+		Weapon: ScienceVesselDefenseMatrix
 		LocalOffset: 1,0,11
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
@@ -6505,7 +6491,7 @@ SCIDOL:
 	Shielded:
 		RegenAmount: 280
 	Armor:
-		Type: Heavy
+		Type: Medium
 	Armament@Upgrade1: ##########
 		Weapon: WaveforceCannonChargedLaser
 		Recoil: 256

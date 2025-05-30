@@ -104,6 +104,55 @@ tkmrefinery:
 		AddExtension: False
 		Offset: 0,0
 
+tkmworker:
+	Inherits: ^RA2BasicInfantry
+	Defaults:
+		Filename: modwor.shp
+		Scale: 0.6
+	idle:
+		Filename: invisibleitem.shp
+	run:
+		Start: 8
+		Length: 10
+		Tick: 120
+	harvest:
+		Start: 188
+		Length: 10
+		Tick: 120
+		Facings: 1
+	full-run:
+		Start: 8
+		Length: 10
+		Tick: 120
+	empty-harvest:
+		Filename: invisibleitem.shp
+	half-harvest:
+		Filename: invisibleitem.shp
+	full-harvest:
+		Filename: invisibleitem.shp
+	shoot:
+		Start: 164
+	dock:
+		Start: 0
+		Facings: 8
+	dock-loop:
+		Start: 0
+		Facings: 8
+	die1:
+		Start: 268
+		Length: 15
+		Tick: 120
+	die2:
+		Start: 268
+		Length: 15
+		Tick: 120
+	cheer:
+		Start: 0
+		Facings: 8
+	icon:
+		Filename: workericon.png
+		AddExtension: false
+
 tkmfactory:
 	Defaults:
 		Filename: ugarms.shp
@@ -219,7 +268,7 @@ tkmbunker:
 		Length: *
 		Offset: -1,-2
 	icon:
-		Filename: gtwricnh.shp
+		Filename: tkmbunkericon.png
 		AddExtension: False
 
 tkmairpad:
@@ -278,7 +327,7 @@ tkmbunkerquadturret:
 		Facings: -32
 		Scale: 0.5
 	icon:
-		Filename: gtwricnh.shp
+		Filename: tkmquadturreticon.png
 		AddExtension: False
 
 tkmbunkertankturret:
@@ -321,7 +370,7 @@ tkmbunkertankturret:
 		Facings: -32
 		Scale: 0.8
 	icon:
-		Filename: gtwricnh.shp
+		Filename: tkmtankturreticon.png
 		AddExtension: False
 
 #######################################
@@ -820,6 +869,15 @@ tkmengineer:
 		Filename: tkmengineericon.png
 		AddExtension: False
 
+tkmvon:
+	Inherits: ^RA2ArmedInfantry
+	Defaults:
+		Filename: ra2_snipe.shp
+	paradrop:
+		Start: 292
+	icon:
+		Filename: tkmvonicon.png
+
 #######################################
 # TKM Vehicles
 #######################################
@@ -978,7 +1036,7 @@ tkmkatyushalauncher:
 		Facings: -32
 		Offset: 0,20
 	icon:
-		Filename: tkmkatyushaicon.png
+		Filename: tkmtornadogicon.png
 		AddExtension: False
 
 tkmtechnical:
@@ -1015,12 +1073,75 @@ technicaltank:
 
 tkmradartruck:
 	Defaults:
-		Scale: 0.7
+		Scale: 0.6
 	idle:
 		Filename: tkmradartruck.png
 		Facings: 32
 	icon:
-		Filename: tkmas42icon.png
+		Filename: tkmradartruckicon.png
+		AddExtension: False
+
+tkmratflak:
+	Defaults:
+		Scale: 0.2
+	idle:
+		Filename: tkmflakbus.png
+		Facings: -32
+	icon:
+		Filename: tkmflakbusicon.png
+		AddExtension: False
+
+tkmratflakdeployed:
+	Defaults:
+		Filename: tkmflakbusdeployed.png
+		Scale: 0.2
+	idle:
+		Start: 71
+		Length: 1
+	damaged-idle:
+		Start: 71
+		Length: 1
+	dead:
+		Start: 71
+		Length: 1
+	make:
+		Length: 71
+		Tick: 15
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	turret:
+		Filename: tkmflakbusturret.png
+		Facings: 32
+		Scale: 0.2
+	icon:
+		Filename: tkmflakbusicon.png
+		AddExtension: False
+
+tkmrepairtruck:
+	Defaults:
+		Scale: 0.4
+	idle:
+		Filename: tkmrepairtruck.png
+		Facings: -32
+	icon:
+		Filename: tkmrepairtruckicon.png
 		AddExtension: False
 
 tkmbattlebus:
@@ -1034,7 +1155,124 @@ tkmbattlebus:
 		Length: 6
 		Facings: 8
 	icon:
-		Filename: tkmas42icon.png
+		Filename: tkmbattlebusicon.png
+		AddExtension: False
+
+tkmmedictruck:
+	Defaults:
+		Scale: 0.4
+	idle:
+		Filename: tkmmedictruckbody.png
+		Facings: -32
+	turret:
+		Filename: tkmmedictruckturret.png
+		Facings: -32
+	icon:
+		Filename: tkmmedictruckicon.png
+		AddExtension: False
+
+tkmsandmarine:
+	Defaults:
+		Scale: 0.5
+	idle:
+		Filename: tkmsandmarine.png
+		Facings: -32
+	muzzle:
+		Filename: ra2_gunfire.shp
+		Length: *
+	icon:
+		Filename: tkmsandmarineicon.png
+		AddExtension: False
+
+tkmbigshiee:
+	Defaults:
+		Scale: 0.7
+	idle:
+		Filename: tkmbigshiee.png
+		Facings: 32
+	muzzle:
+		Filename: ra2_gunfire.shp
+		Length: *
+	icon:
+		Filename: tkmbigshieeicon.png
+		AddExtension: False
+
+tkmdiglarge:
+	idle:
+		Scale: 4.0
+		Filename: tsdig.shp
+		Length: *
+		Tick: 74
+		ZOffset: -1200
+		Offset: 0, 0, 256
+
+tkmdronepodtruck:
+	Defaults:
+		Scale: 0.6
+	idle:
+		Filename: tkmdronepodtruck.png
+		Facings: -32
+	icon:
+		Filename: tkmdronepodtruckicon.png
+		AddExtension: False
+
+tkmtrenchtank:
+	idle:
+		Filename: tkmtrenchtankbody.png
+		Facings: -32
+		Scale: 0.2
+	turret:
+		Filename: technicaltankturret.png
+		Facings: -32
+		Scale: 0.6
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: tkmtrenchtankicon.png
+
+tkmtrenchtankdeployed:
+	Defaults:
+		Filename: tkmtrenchtankdeployed.png
+		Scale: 0.2
+	idle:
+		Start: 10
+		Length: 1
+	damaged-idle:
+		Start: 10
+		Length: 1
+	dead:
+		Start: 10
+		Length: 1
+	make:
+		Length: 11
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		Filename: mbGUN.tem
+		TilesetFilenames:
+			DESERT: mbGUN.des
+			WINTER: mbGUN.win
+			SNOW: mbGUN.sno
+			BARREN: mbGUN.bar
+			JUNGLE: mbGUN.jun
+			RA_SNOW: mbGUN.sno
+			RA_DESERT: mbGUN.des
+			RA_INTERIOR: mbGUN.int
+			ARRAKIS: mbGUN.des
+			ARRAKIS2: mbGUN.des
+		Length: *
+		Offset: -1,-2
+	turret:
+		Filename: technicaltankturret.png
+		Facings: -32
+		Scale: 0.6
+	icon:
+		Filename: tkmtrenchtankicon.png
 		AddExtension: False
 
 ####################################################################################################
@@ -1130,6 +1368,10 @@ tkmdrone:
 	idle:
 		Facings: -32
 		Scale: 0.5
+	die:
+		Filename: invisibleitem.shp
+		Facings: 1
+		Length: 1
 	icon:
 		Filename: tkmdroneicon.png
 

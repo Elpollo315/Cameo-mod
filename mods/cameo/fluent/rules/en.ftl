@@ -69,6 +69,8 @@ actor-jeep =
         Strong vs Infantry
    .description2 = Scout vehicle armed with a recoilless gun.
         Strong vs Infantry, Light Vehicles, Aircraft
+   .description3 = Scout vehicle armed with a rocket launcher.
+        Strong vs Vehicles, Aircraft
    .name = Humvee
    .raname = Ranger
    .recon = Recon Ranger

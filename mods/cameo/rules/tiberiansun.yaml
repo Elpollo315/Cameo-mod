@@ -5907,6 +5907,7 @@ TSSTNK:
 		Queue: Vehicle, RAVehicle
 		Description: Lightly armoured tank equipped with a \nstealth generator. Armed with missiles.\nCan be spotted by infantry at close range.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 	Mobile:
+		Locomotor: heavywheeled
 		Speed: 108
 	Health:
 		HP: 25000
@@ -6256,7 +6257,7 @@ TSSUBTANK:
 	RevealsShroud:
 		Range: 6c0
 	Armament@PRIMARY:
-		Weapon: TSFireballLauncher
+		Weapon: TSFireballLauncher2
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions ##########
@@ -7043,7 +7044,7 @@ tsm113:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@cargo: ^CargoVehicle
 	Valued:
-		Cost: 700
+		Cost: 1500
 	Tooltip:
 		Name: M113 APC
 	UpdatesPlayerStatistics:
@@ -7077,8 +7078,8 @@ tsm113:
 	Cargo:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
-		MaxWeight: 8
-		InitialUnits: TSMUTANT,TSMUTANT,TSMWMN,TSMUTANT3,TSE3.MUTANT,TSE3.MUTANT,TSMUTANT,TSMUTANT
+		MaxWeight: 4
+		InitialUnits: TSMUTANT,TSMWMN,TSMUTANT3,TSE3.MUTANT
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
 	AttackOpenTopped:
@@ -8384,7 +8385,7 @@ TSKODK:
 		Effect: tsioncannon
 		EffectSequence: targeting
 		EffectPalette: ra2effect
-		Names: 
+		Names:
 			1: Drop Pods
 		Descriptions:
 			1: Deploys elite infantry from orbit.
