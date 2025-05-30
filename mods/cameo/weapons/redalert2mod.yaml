@@ -6177,7 +6177,7 @@ RA2TOPOLCuba:
 	Warhead@NuclearWarhead: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 10000
+		Spread: 1000
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
