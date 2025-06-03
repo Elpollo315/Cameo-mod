@@ -7391,6 +7391,10 @@ CPQDEBUGDUMMY:
 		RequiresSelection: true
 		FullSequence: pip-red
 		PipCount: 5
+	# RenderRangeCircle:
+	# 	RangeCircleType: pointdefense
+	# 	Color: FF000088
+	# 	PauseOnCondition: !pdammo || disabled
 
 ^CashTricklerMultipliers:
 	CashTrickler:

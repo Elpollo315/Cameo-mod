@@ -1384,12 +1384,13 @@ BIKE:
 	Inherits@Template: ^FireSupportTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@PLD: ^PointLaserDefenseSystem
 	Inherits@GuerillaTactics: ^GuerillaTactics
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
+	Inherits@BlackMarketUpgrades: ^BlackMarketUpgrades
 	Inherits@decoration: ^NodRankDecoration
 	Valued:
 		Cost: 500
@@ -1418,13 +1419,27 @@ BIKE:
 		LocalOffset: -128, -170, 170, -128, 170, 170
 		LocalYaw: 100, -100
 		MuzzleSequence: muzzle
-	AttackFrontal:
-		FacingTolerance: 0
+	AmmoPool@pld:
+		RequiresCondition: up_blackmarketupgrades
+	WithAmmoPipsDecoration:
+		RequiresCondition: up_blackmarketupgrades
+	Armament@pointdefense:
+		Weapon: PDLaserBike
+		Turret: pointdefense
+		RequiresCondition: up_blackmarketupgrades
+	Turreted:
+		Turret: pointdefense
+		TurnSpeed: 80
+	AttackTurreted:
+		PauseOnCondition: disabled
+	AttackFollowFrontal:
+		FacingTolerance: 512
+		PauseOnCondition: disabled
 	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 	ActorStatValues:
-		Upgrades: up_guerillatactics, up_advancedguerillatactics
+		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_blackmarketupgrades
 
 LTNK:
 	Inherits: ^Tank
@@ -4586,14 +4601,15 @@ chembike:
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@EMP: ^FrontalEMP
 	Inherits: ^GenericGroundDetector
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@PLD: ^PointLaserDefenseSystem
 	Inherits@ElementalWarfare: ^ElementalWarfare
 	Inherits@GuerillaTactics: ^GuerillaTactics
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
+	Inherits@BlackMarketUpgrades: ^BlackMarketUpgrades
 	Inherits@decoration: ^NodRankDecoration
 	Valued:
 		Cost: 750
@@ -4622,6 +4638,22 @@ chembike:
 		LocalOffset: -128, -170, 170, -128, 170, 170
 		LocalYaw: 100, -100
 		MuzzleSequence: muzzle
+	AmmoPool@pld:
+		RequiresCondition: up_blackmarketupgrades
+	WithAmmoPipsDecoration:
+		RequiresCondition: up_blackmarketupgrades
+	Armament@pointdefense:
+		Weapon: PDLaserBike
+		Turret: pointdefense
+		RequiresCondition: up_blackmarketupgrades
+	Turreted:
+		Turret: pointdefense
+		TurnSpeed: 70
+	AttackTurreted:
+		PauseOnCondition: disabled
+	AttackFollowFrontal:
+		FacingTolerance: 512
+		PauseOnCondition: disabled
 	WithMuzzleOverlay:
 	AttackFrontal:
 		FacingTolerance: 0
@@ -4632,7 +4664,7 @@ chembike:
 	FireWarheadsOnDeath:
 		Weapon: ChemicalBikeRocketsExplosion
 	ActorStatValues:
-		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_elementalwarfare
+		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_elementalwarfare, up_blackmarketupgrades
 
 chemstnk:
 	Inherits: ^Vehicle
@@ -4882,9 +4914,6 @@ nodltnk2:
 		Step: 32
 	Armor:
 		Type: Medium
-	RenderRangeCircle:
-		RangeCircleType: pointdefense
-		Color: FF000088
 	Turreted:
 		TurnSpeed: 20
 	AttackTurreted:

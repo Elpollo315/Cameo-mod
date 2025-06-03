@@ -524,6 +524,10 @@ BikeRockets:
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		Damage: 1
 
+PDLaserBike:
+	Inherits: PDLaser
+	Range: 7500
+
 70mm:
 	Inherits: ^MediumCannon
 	ReloadDelay: 45

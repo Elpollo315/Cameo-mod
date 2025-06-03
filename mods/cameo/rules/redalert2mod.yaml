@@ -1741,8 +1741,6 @@ aa_alligator:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: AsianCrocVoice
-	DeliversCash:
-		Payload: 250
 	Passenger:
 		Weight: 2
 	Targetable@dog:
@@ -5730,8 +5728,6 @@ latin_rtruck:
 		RequiresCondition: firing
 		Sequence: empty-idle
 		Name: reloading
-	DeliversCash:
-		Payload: 500
 	ActorStatValues:
 		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 	RenderSprites:
@@ -5801,8 +5797,6 @@ latin_burrito:
 		RequiresCondition: firing
 		Sequence: empty-idle
 		Name: reloading
-	DeliversCash:
-		Payload: 500
 	ActorStatValues:
 		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 	RenderSprites:
@@ -5874,8 +5868,6 @@ latin_lars:
 		RequiresCondition: firing
 		Sequence: empty-idle
 		Name: reloading
-	DeliversCash:
-		Payload: 500
 	RenderSprites:
 		PlayerPalette: playerra2
 
@@ -12746,10 +12738,6 @@ nax_slavemaster:
 
 nax_slav:
 	Inherits: YRSLAV
-	Valued:
-		Cost: 300
-	Tooltip:
-		Name: Slave
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~nax_barr, nax_refin
@@ -12857,8 +12845,6 @@ nax_frank:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiZombie
-	DeliversCash:
-		Payload: 250
 	Passenger:
 		Weight: 2
 	-TakeCover:
@@ -13990,8 +13976,6 @@ nax2_jager:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiLunarTankVoice
-	DeliversCash:
-		Payload: 250
 	Turreted:
 		TurnSpeed: 9 #3
 		RealignDelay: 75
@@ -14063,8 +14047,6 @@ nax2_grille:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiLunarGrilleVoice
-	DeliversCash:
-		Payload: 250
 	Turreted:
 		TurnSpeed: 18 #3
 		RealignDelay: 75
@@ -14193,8 +14175,6 @@ nax2_crystal:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiLunarCrystalVoice
-	DeliversCash:
-		Payload: 250
 	Turreted:
 		TurnSpeed: 12 #3
 		RealignDelay: 75
@@ -14245,8 +14225,6 @@ nax_gravity:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiLunarCoreVoice
-	DeliversCash:
-		Payload: 250
 	ProximityExternalCondition@gravity_1:
 		Range: 12500
 		Condition: GravityGenerator
@@ -14313,7 +14291,7 @@ nax2_bradley:
 		Prerequisites: ~nax2_weap, nax2_radar
 		Description: actor-v3.description
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Tooltip:
 		Name: M-200B Bradley
 	Health:
@@ -14360,8 +14338,6 @@ nax2_bradley:
 	GrantConditionOnAttack:
 		Condition: firing
 		RevokeDelay: 12
-	DeliversCash:
-		Payload: 500
 	RenderSprites:
 		PlayerPalette: playerra2
 	Turreted:
@@ -14441,8 +14417,6 @@ nax2_aatank:
 		RequiresCondition: firing
 		Sequence: empty-idle
 		Name: reloading
-	DeliversCash:
-		Payload: 500
 	RenderSprites:
 		PlayerPalette: playerra2
 	Turreted:
@@ -14746,7 +14720,7 @@ nax_wirbelwind:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Valued:
-		Cost: 1200
+		Cost: 1800
 	Tooltip:
 		Name: Wirbelwind
 	Buildable:
@@ -14919,7 +14893,7 @@ nax_kingtiger:
 		Speed: 100
 		TurnSpeed: 20
 	Health:
-		HP: 300000
+		HP: 200000
 	Repairable:
 		HpPerStep: 10000
 	ChangesHealth@SelfHealing:
@@ -14969,7 +14943,7 @@ nax_maus:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Valued:
-		Cost: 3300
+		Cost: 4200
 	Tooltip:
 		Name: Maus
 	Buildable:
@@ -15008,7 +14982,7 @@ nax_maus:
 		LocalOffset: 1500,0,300
 		MuzzleSequence: muzzle-2
 		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite 
+		RequiresCondition: rank-elite
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -15064,13 +15038,13 @@ nax_ratte:
 		RequiresCondition: !rank-elite
 	Armament@elite:
 		Name: primary
-		Weapon: NaxRatteCannon
+		Weapon: NaxRatteCannon_elite
 		Recoil: 500
 		RecoilRecovery: 50
 		LocalOffset: 2000,250,500, 2000,-250,500
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite
+		RequiresCondition: rank-elite
 	Armament@AA1:
 		Name: secondary
 		Weapon: NaxQuadCannonAAE
@@ -15108,7 +15082,7 @@ nax_grille:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Valued:
-		Cost: 700
+		Cost: 800
 	Tooltip:
 		Name: Grille
 	Buildable:
@@ -15118,17 +15092,26 @@ nax_grille:
 		Description: actor-nax_grille.description
 	Mobile:
 		Locomotor: lighttracked
-		Speed: 90
-		TurnSpeed: 18
+		Speed: 80
+		TurnSpeed: 16
 	Health:
-		HP: 45000
+		HP: 40000
 	Repairable:
 		HpPerStep: 2000
+	ChangesHealth@SelfHealing:
+		Step: 16
 	Armament@AG:
 		Weapon: NaxGrilleArty
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: NaxGrilleArtyE
+		LocalOffset: -400,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	WithMuzzleOverlay:
 	Selectable:
 		DecorationBounds: 1280, 1280
@@ -15137,8 +15120,6 @@ nax_grille:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiArtyVoice
-	DeliversCash:
-		Payload: 250
 
 nax_brummbar:
 	Inherits: ^Tank
@@ -15149,7 +15130,7 @@ nax_brummbar:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Valued:
-		Cost: 1400
+		Cost: 1100
 	Tooltip:
 		Name: Brummbär
 	Buildable:
@@ -15164,12 +15145,21 @@ nax_brummbar:
 	Health:
 		HP: 90000
 	Repairable:
-		HpPerStep: 2000
+		HpPerStep: 4500
+	ChangesHealth@SelfHealing:
+		Step: 36
 	Armament@AG:
 		Weapon: NaxBrummbarArty
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: NaxBrummbarArtyE
+		LocalOffset: -400,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	WithMuzzleOverlay:
 	Selectable:
 		DecorationBounds: 1280, 1280
@@ -15177,8 +15167,6 @@ nax_brummbar:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiArtyVoice
-	DeliversCash:
-		Payload: 250
 
 nax_sturmtiger:
 	Inherits: ^Tank
@@ -15203,10 +15191,12 @@ nax_sturmtiger:
 		TurnSpeed: 6
 	Health:
 		HP: 250000
-	Armor:
-		Type: Heavy
 	Repairable:
 		HpPerStep: 2000
+	ChangesHealth@SelfHealing:
+		Step: 100
+	Armor:
+		Type: Heavy
 	Armament@AG:
 		Weapon: NaxSturmArty
 		LocalOffset: -400,0,300
@@ -15220,8 +15210,6 @@ nax_sturmtiger:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiArtyVoice
-	DeliversCash:
-		Payload: 250
 
 nax_hetzer:
 	Inherits: ^Tank
@@ -15232,7 +15220,7 @@ nax_hetzer:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Valued:
-		Cost: 1000
+		Cost: 1300
 	Tooltip:
 		Name: Hetzer
 	Buildable:
@@ -15245,9 +15233,11 @@ nax_hetzer:
 		Speed: 75
 		TurnSpeed: 30
 	Health:
-		HP: 62500
+		HP: 75000
 	Repairable:
-		HpPerStep: 2500
+		HpPerStep: 3750
+	ChangesHealth@SelfHealing:
+		Step: 30
 	Armor:
 		Type: Medium
 	Armament@AG:
@@ -15255,6 +15245,13 @@ nax_hetzer:
 		LocalOffset: 300,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: NaxiHetzerDestroyer_elite
+		LocalOffset: 300,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	AttackFrontal:
 	WithMuzzleOverlay:
 	Selectable:
@@ -15273,7 +15270,7 @@ nax_jagdpanzer:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Valued:
-		Cost: 1200
+		Cost: 2000
 	Tooltip:
 		Name: Jagdpanzer
 	Buildable:
@@ -15283,19 +15280,28 @@ nax_jagdpanzer:
 		Description: actor-nax_jagdpanzer.description
 	Mobile:
 		Locomotor: tracked
-		Speed: 60
-		TurnSpeed: 24
+		Speed: 50
+		TurnSpeed: 20
 	Health:
-		HP: 82500
+		HP: 125000
 	Repairable:
-		HpPerStep: 3125
+		HpPerStep: 6250
+	ChangesHealth@SelfHealing:
+		Step: 50
 	Armor:
-		Type: Medium
+		Type: Heavy
 	Armament@AG:
 		Weapon: NaxiJadgDestroyer
 		LocalOffset: 400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: NaxiJadgDestroyer_elite
+		LocalOffset: 400,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	AttackFrontal:
 	WithMuzzleOverlay:
 	Selectable:
@@ -15304,8 +15310,6 @@ nax_jagdpanzer:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
-	DeliversCash:
-		Payload: 250
 
 nax_eng:
 	Inherits: ^Tank
@@ -15379,7 +15383,7 @@ nax_brad:
 		Prerequisites: ~nax_weap, nax_radar, ~upnax_brad
 		Description: actor-nax_brad.description
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Tooltip:
 		Name: M-15A Bradley
 	Health:
@@ -15431,21 +15435,19 @@ nax_brad:
 		RequiresCondition: firing
 		Sequence: empty-idle
 		Name: reloading
-	DeliversCash:
-		Payload: 500
 	RenderSprites:
 		PlayerPalette: playerra2
 
 nax_miniv2:
 	Inherits: ^ShootableMissile
 	CruiseMissile:
-		MaxAltitude: 2500
+		MaxAltitude: 2560
 		MinAirborneAltitude: 128
 		LaunchAngle: 128
-		Speed: 225
+		Speed: 256
 		TurnSpeed: 25
 		LaunchSounds: vbooat1a.wav
-		MaxTargetMovement: 12500
+		MaxTargetMovement: 12800
 		TrackTarget: true
 		AirborneCondition: airborne
 	LeavesTrails:
@@ -15510,8 +15512,6 @@ nax_sarubia:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
-	DeliversCash:
-		Payload: 250
 
 nax_sarubia_bomb:
 	Inherits: ^ShootableMissile
@@ -15887,8 +15887,6 @@ nax_imperial:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
-	DeliversCash:
-		Payload: 250
 
 #		Support Tanks
 nax_panzer:
@@ -18707,8 +18705,6 @@ futu_antena:
 		PlayerPalette: player_rgba
 	Voiced:
 		VoiceSet: FutureAnthenaVoice
-	DeliversCash:
-		Payload: 250
 
 futu_coiler:
 	Inherits: ^Tank
