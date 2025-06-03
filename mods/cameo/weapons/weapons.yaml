@@ -1477,7 +1477,7 @@
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
-		Spread: 500
+		Spread: 250
 		Damage: 1000
 		Versus:
 			Shield: 110
@@ -1577,7 +1577,7 @@
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
-		Spread: 750
+		Spread: 375
 		Damage: 1000
 		Versus:
 			Shield: 125
@@ -1675,7 +1675,7 @@
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
-		Spread: 1000
+		Spread: 500
 		Damage: 1000
 		Versus:
 			Shield: 140
@@ -1774,7 +1774,7 @@
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
-		Spread: 333
+		Spread: 166
 		Damage: 1000
 		Versus:
 			Shield: 110
@@ -1871,7 +1871,7 @@
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
-		Spread: 666
+		Spread: 333
 		Damage: 1000
 		Versus:
 			Shield: 125
@@ -1968,7 +1968,7 @@
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
 		InvalidTargets: Wall
-		Spread: 999
+		Spread: 500
 		Damage: 1000
 		Versus:
 			Shield: 140
@@ -2067,7 +2067,7 @@
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
-		Spread: 400
+		Spread: 200
 		Damage: 1000
 		Versus:
 			Shield: 110
@@ -2177,7 +2177,7 @@
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
-		Spread: 600
+		Spread: 300
 		Damage: 1000
 		Falloff: 100, 75, 50, 25, 0
 		Versus:
@@ -2469,7 +2469,7 @@
 		ValidRelationships: Ally
 		ValidTargets: Ground, Water, Trees
 		Falloff: 100, 50
-		Spread: 333
+		Spread: 166
 		Damage: 1000
 		Versus:
 			Shield: 125
@@ -2754,7 +2754,7 @@
 		InvalidTargets: Wall, Mine, ToxinImmune
 		AffectsParent: True
 		Falloff: 111, 33, 11, 3
-		Spread: 333
+		Spread: 166
 		Damage: 333
 		Versus:
 			Shield: 17

@@ -1138,22 +1138,26 @@ hightech.atreides:
 ixian_launchpad:
 	Defaults:
 		Filename: IxHoverpad.png
-		Offset: 0,-4
+		Offset: 0,16
 	idle:
-		Start: 9
+		Length: 10
 		ZOffset: -1023
+		Tick: 50
 	damaged-idle:
-		Start: 9
+		Filename: IxHoverpadDamaged.png
+		Length: 10
 		ZOffset: -1023
+		Tick: 50
 	active:
 		Start: 10
-		Length: 7
-		Tick: 70
+		Length: 6
+		Tick: 60
 		ZOffset: -1023
 	damaged-active:
+		Filename: IxHoverpadDamaged.png
 		Start: 10
-		Length: 7
-		Tick: 70
+		Length: 6
+		Tick: 60
 		ZOffset: -1023
 	dead:
 		Start: 9
@@ -9159,8 +9163,7 @@ d2k_defender:
 d2k_ixbomber:
 	Defaults:
 		Filename: IxHeavyDrone.png
-		Offset: 0, 16
-		Scale: 1.5
+		Offset: 0, 32
 	idle:
 		Facings: 64
 	icon:
