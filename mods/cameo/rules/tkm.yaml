@@ -3456,7 +3456,6 @@ tkmratflak:
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@Template: ^AntiAirDefenseTemplate
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
@@ -3509,7 +3508,8 @@ tkmratflakdeployed:
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@exp: ^GainsExperienceTDBuilding
-	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@Template: ^AntiAirDefenseTemplate
+	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@shape: ^1x1Shape
