@@ -2583,8 +2583,8 @@ RA2SCUD:
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^RA2Grenade
 	Inherits: ^RA2HeavyMissile
-	ReloadDelay: 250
-	Range: 16000
+	ReloadDelay: 125
+	Range: 20000
 	MinRange: 4000
 	-Report:
 	-Projectile:
@@ -2638,8 +2638,8 @@ RA2SCUD_rad:
 RA2SCUDELITE:
 	Inherits: ^NuclearWarhead
 	Inherits: RA2SCUD
-	ReloadDelay: 200
-	Range: 20000
+	ReloadDelay: 160
+	Range: 24000
 	Warhead@NuclearWarhead: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 30000

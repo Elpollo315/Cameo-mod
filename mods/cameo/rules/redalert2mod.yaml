@@ -2933,8 +2933,6 @@ aa_panth:
 		Range: 7500
 	Selectable:
 		DecorationBounds: 1536, 1536
-	DeliversCash:
-		Payload: 450
 	Cargo:
 		Types: Infantry, Hacker, Fremen, Vehicle
 		MaxWeight: 12
@@ -14929,14 +14927,13 @@ nax_kingtiger:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: NaxiTankVoice
-	DeliversCash:
-		Payload: 450
 	RenderSprites:
 		PlayerPalette: playerra2
 
 nax_maus:
 	Inherits: ^Tank
 	Inherits@Template: ^HighTechTankTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -14997,6 +14994,7 @@ nax_maus:
 nax_ratte:
 	Inherits: ^Tank
 	Inherits@GAINSEXPERIENCE: ^EpicVehicleTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -15066,8 +15064,6 @@ nax_ratte:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: NaxiBigTankVoice
-	DeliversCash:
-		Payload: 450
 	RenderSprites:
 		PlayerPalette: playerra2
 	Passenger:
@@ -15537,7 +15533,7 @@ nax_sarubia_bomb:
 
 nax_shoe:
 	Inherits: ^Tank
-	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@Template: ^HighTechTankTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -15615,8 +15611,6 @@ nax_shoe:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: NaxiBigTankVoice
-	DeliversCash:
-		Payload: 450
 	RenderSprites:
 		PlayerPalette: playerra2
 

@@ -6280,11 +6280,11 @@ RA2V3:
 	Tooltip:
 		Name: V3 Rocket Launcher
 	Health:
-		HP: 25000
+		HP: 37500
 	Repairable:
-		HpPerStep: 1250
+		HpPerStep: 1875
 	ChangesHealth@SelfHealing:
-		Step: 10
+		Step: 15
 	Armor:
 		Type: Light
 	Mobile:
@@ -6300,13 +6300,13 @@ RA2V3:
 		RequiresCondition: rank-elite
 	MissileSpawnerMasterCA@1:
 		Actors: ra2v3rocket
-		RespawnTicks: 250
+		RespawnTicks: 125
 		LoadedCondition: ammo
 		RequiresCondition: !rank-elite
 		SpawnOffset: 0,640,300
 	MissileSpawnerMasterCA@2:
 		Actors: ra2v3rocketelite
-		RespawnTicks: 200
+		RespawnTicks: 150
 		LoadedCondition: ammoelite
 		RequiresCondition: rank-elite
 		SpawnOffset: 0,640,300
@@ -6333,8 +6333,6 @@ RA2V3:
 		RequiresCondition: (!ammo && !rank-elite) || (!ammoelite && rank-elite)
 		Sequence: empty-idle
 		Name: reloading
-	DeliversCash:
-		Payload: 500
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
@@ -6345,6 +6343,9 @@ ra2v3rocket:
 	Inherits@rad: ^RA2RadShells
 	Health:
 		HP: 25000
+	RevealsShroud:
+		Range: 5000
+		Type: GroundPosition
 	BallisticMissileCA:
 		LaunchAngle: 125
 		Speed: 175
@@ -6358,6 +6359,7 @@ ra2v3rocket:
 		SpawnAtLastPosition: false
 		Offsets: -450, 0, 0
 	MissileSpawnerSlave:
+	-FireWarheadsOnDeath:
 	SpawnedExplodes:
 		Weapon: RA2Scud
 		EmptyWeapon: RA2Scud
@@ -6375,6 +6377,8 @@ ra2v3rocketelite:
 	Inherits: ra2v3rocket
 	Health:
 		HP: 50000
+	RevealsShroud:
+		Range: 10000
 	SpawnedExplodes:
 		Weapon: RA2SCUDELITE
 		EmptyWeapon: RA2SCUDELITE

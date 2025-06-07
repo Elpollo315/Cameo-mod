@@ -962,9 +962,9 @@ SCBUNKER:
 		Prerequisites: ~scbarracks
 		Description: Static defense with fireports for up to 4 garrisoned soldiers.
 	Valued:
-		Cost: 2000
+		Cost: 1200
 	Health:
-		HP: 350000
+		HP: 240000
 	Turreted:
 		TurnSpeed: 1023
 	BodyOrientation:
@@ -973,7 +973,7 @@ SCBUNKER:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 4
 		EjectOnDeath: false
-		InitialUnits: scmarine, scfirebat, scmarauder, scmarine
+		# InitialUnits: scmarine, scfirebat, scmarauder, scmarine
 	WithCargoSounds:
 		EnterSounds: tdrtra00.wav
 		ExitSounds: tdrtra00.wav
@@ -1059,7 +1059,7 @@ SCSENTINEL:
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
-		Prerequisites: ~scengineeringbay
+		Prerequisites: ~scbarracks
 		Description: template-anti-infantry-defense.description
 	Valued:
 		Cost: 800

@@ -5709,19 +5709,19 @@ upgdimammoth3:
 	ProvidesPrerequisite:
 		Prerequisite: upgdimammoth3
 
-upgdiexosuit:
+upgdidefenserig:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Experimental Exosuit
+		Name: Unlock GDI Defense Rig
 	Buildable:
 		BuildPaletteOrder: 23
 		Queue: Promotions
-		Description: Allows construction of the Experimental Exosuit.
-		Prerequisites: ~fact.gdi, !upgdiexosuit, upgdimammoth3, rank1
+		Description: Allows construction of the GDI Defense Rig.
+		Prerequisites: ~fact.gdi, !upgdidefenserig, upgdimammoth3, rank1
 	RenderSprites:
-		Image: gdiexosuit
+		Image: gdirig
 	ProvidesPrerequisite:
-		Prerequisite: upgdiexosuit
+		Prerequisite: upgdidefenserig
 
 upgdishotgunner:
 	Inherits: ^promotion_upgrade.template
@@ -5754,14 +5754,14 @@ upgdiofficer:
 upgdihavoc:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Havoc
+		Name: Unlock Havoc and Exosuit
 	Buildable:
 		BuildPaletteOrder: 21
 		Queue: Promotions
-		Description: Allows training of Havoc.
+		Description: Allows training of Havoc and construction of the Exosuit.
 		Prerequisites: ~fact.gdi, !upgdihavoc, upgdiofficer, rank1
 	RenderSprites:
-		Image: gdihavoc
+		Image: havocexosuit
 	ProvidesPrerequisite:
 		Prerequisite: upgdihavoc
 
@@ -6325,7 +6325,7 @@ gdiexosuit:
 		BuildLimit: 1
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 20
-		Prerequisites: eye, ~upgdiexosuit
+		Prerequisites: eye, ~upgdihavoc
 		Description: actor-exosuit.description
 	Mobile:
 		TurnSpeed: 40
@@ -6755,3 +6755,198 @@ gdifirehawk.Husk:
 		Type: CenterPosition
 	RenderSprites:
 		Image: gdifirehawk
+
+gdirig:
+	Inherits: ^Tank
+	Inherits@Template: ^EpicVehicleTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@LongRangeSensors: ^LongRangeSensors
+	Inherits@ArmorPiercingBullets: ^ArmorPiercingBullets
+	Inherits@LightWeightArmorPlating: ^LightWeightArmorPlating
+	Inherits@HighVelocityCannons: ^HighVelocityCannons
+	Inherits@CuttingEdge: ^CuttingEdgeEquipment
+	Inherits@decoration: ^GDIRankDecoration
+	Valued:
+		Cost: 5000
+	Tooltip:
+		Name: GDI Defense Rig (Mobile)
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: eye, ~upgdidefenserig
+		Queue: Vehicle, RAVehicle
+		Description: actor-htnk.description
+	Mobile:
+		Locomotor: heavytracked
+		Speed: 60
+		TurnSpeed: 12
+	Passenger:
+		Weight: 4
+	Health:
+		HP: 400000
+	Repairable:
+		HpPerStep: 20000
+	ChangesHealth@SelfHealing:
+		Step: 160
+	Armor:
+		Type: Heavy
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 12
+		Offset: -800,0,480
+	Armament@PRIMARY:
+		Weapon: GDIRigPhalanxAG
+		LocalOffset: 640,0,480
+		Recoil: 64
+		RecoilRecovery: 32
+		MuzzleSequence: muzzle
+	Armament@AA:
+		Weapon: GDIRigPhalanxAA
+		LocalOffset: 640,0,480
+		Recoil: 64
+		RecoilRecovery: 32
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithMuzzleOverlay:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeBig
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1536, 1536
+	RenderSprites:
+		Image: gdirig
+		PlayerPalette: player_rgba
+	Voiced:
+		VoiceSet: TSVehicle
+	Transforms:
+		IntoActor: gdirigtower
+		Offset: -1,-1
+		Facing: 384
+		TransformSounds: uplace.wav
+		NoTransformNotification: BuildingCannotPlaceAudio
+		PauseOnCondition: disabled || terrordroned
+	TransferTimedExternalConditionOnTransform:
+		Condition: invulnerability
+	ActorStatValues:
+		Upgrades: up_longrangesensors, up_armorpiercingbullets, up_highvelocitycannons, up_cuttingedgeequipment, up_lightweightarmorplating
+
+gdirigtower:
+	Inherits: ^Defense
+	Inherits@Template: ^AdvancedDefenseTemplate
+	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@detect: ^GenericAllDetector
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@AntiTank: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@shape: ^3x3Shape
+	Inherits@LongRangeSensors: ^LongRangeSensors
+	Inherits@ArmorPiercingBullets: ^ArmorPiercingBullets
+	Inherits@LightWeightArmorPlating: ^LightWeightArmorPlating
+	Inherits@HighVelocityCannons: ^HighVelocityCannons
+	Inherits@CuttingEdge: ^CuttingEdgeEquipment
+	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Valued:
+		Cost: 5000
+	Tooltip:
+		Name: GDI Defense Rig (Deployed)
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	-Buildable:
+	Selectable:
+		Bounds: 3072, 3072, 0, -512
+		DecorationBounds: 3072, 3072, 0, -512
+	SelectionDecorations:
+	Health:
+		HP: 400000
+	ChangesHealth@SelfHealing:
+		Step: 160
+	-WithSpriteBody:
+	WithEmbeddedTurretSpriteBody:
+	# WithSpriteTurret@Phalanx:
+	# 	Turret: main
+	# 	Sequence: turret
+	Turreted@Phalanx:
+		Turret: main
+		Offset: -128,128,1800
+		TurnSpeed: 24
+		RealignDelay: -1
+	Armament@Phalanx:
+		Turret: main
+		Weapon: GDIRigPhalanxTower
+		LocalOffset: 640,0,480
+		Recoil: 64
+		RecoilRecovery: 32
+		MuzzleSequence: muzzle
+	# WithSpriteTurret@Railgun:
+	# 	Turret: railgun
+	# 	Sequence: railgun
+	Turreted@Railgun:
+		Turret: railgun
+		Offset: -480,800,1280
+		TurnSpeed: 24
+		RealignDelay: -1
+	Armament@Railgun:
+		Turret: railgun
+		Weapon: GDIRigRailgun
+		LocalOffset: 512,0,0
+		Recoil: 64
+		RecoilRecovery: 32
+		MuzzleSequence: muzzle
+	# WithSpriteTurret@MissilePod:
+	# 	Turret: missilepod
+	# 	Sequence: missilepod
+	Turreted@MissilePod:
+		Turret: missilepod
+		Offset: 480,-640,1280
+		TurnSpeed: 24
+		RealignDelay: -1
+	Armament@MissilePod:
+		Turret: missilepod
+		Weapon: GDIRigMissilePod
+		LocalOffset: 640,0,480
+		Recoil: 64
+		RecoilRecovery: 32
+		MuzzleSequence: muzzle
+		RequiresCondition: !up_advancedmissiletargeting
+	Armament@AdvancedMissileTargeting:
+		Turret: missilepod
+		Weapon: GDIRigMissilePodAMT
+		LocalOffset: 640,0,480
+		Recoil: 64
+		RecoilRecovery: 32
+		MuzzleSequence: muzzle
+		RequiresCondition: up_advancedmissiletargeting
+	FirepowerMultiplier@TripleWeapon:
+		Modifier: 33
+	AttackTurreted:
+		Turrets: main, railgun, missilepod
+		RequiresCondition: !build-incomplete
+		PauseOnCondition: lowpower || disabled
+	RenderSprites:
+		Image: gdirigtower
+		PlayerPalette: player_rgba
+	WithMuzzleOverlay:
+	DamageMultiplier@3x3Shape:
+		Modifier: 25
+	RevealsShroud:
+		Range: 10000
+	DetectCloaked:
+		Range: 5000
+	Transforms:
+		IntoActor: gdirig
+		Offset: 1,1
+		Facing: 432
+		TransformSounds: uplace.wav
+		PauseOnCondition: being-demolished || build-incomplete || disabled
+	TransferTimedExternalConditionOnTransform:
+		Condition: invulnerability
+	ActorStatValues:
+		Upgrades: up_longrangesensors, up_armorpiercingbullets, up_highvelocitycannons, up_cuttingedgeequipment, up_lightweightarmorplating

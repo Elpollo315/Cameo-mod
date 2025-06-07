@@ -993,6 +993,11 @@
 
 ^DefenseBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
+	ChangesHealth@SelfHealing:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 10
 
 ^MedicTemplate:
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
@@ -1180,8 +1185,6 @@
 		Condition: meleeinfantrydamage
 		Duration: 24
 		PlayerRelationship: Ally, Neutral, Enemy
-	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, Kills, Experience
 	TooltipExtras@Melee:
 		Description: Melee
 
@@ -6410,7 +6413,7 @@ CPQDEBUGDUMMY:
 		Range: 15000
 	Transforms:
 		RequiresCondition: factundeploy
-		PauseOnCondition: being-demolished || build-incomplete
+		PauseOnCondition: being-demolished || build-incomplete || disabled
 		IntoActor: mcv
 		Offset: 1,1
 		Facing: 432

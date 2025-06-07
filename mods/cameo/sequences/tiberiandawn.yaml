@@ -4330,6 +4330,72 @@ cncsyrd:
 	icon:
 		Filename: gdishipyardicon.png
 
+gdirig:
+	Defaults:
+		Filename: GDIRigMobile.png
+		# Scale: 1.25
+		# Offset: 0,8
+	idle:
+		Facings: 64
+	turret:
+		Filename: GDIRigPhalanx.png
+		Facings: 64
+		Offset: 0,32
+		Scale: 1.5
+	muzzle:
+		Filename: gunfire2.shp
+		Length: *
+	icon:
+		Filename: gdirigicon.png
+
+gdirigtower:
+	Defaults:
+		Filename: GDIRigTower.png
+		# Scale: 1.25
+		# Offset: 0,8
+	idle:
+		Facings: 64
+		# Start: 71
+		# Length: 4
+	damaged-idle:
+		Facings: 64
+		# Start: 71
+		# Length: 4
+	dead:
+		Filename: GDIRigMobile.png
+		Start: 70
+		Tick: 800
+	make:
+		Filename: GDIRigMobile.png
+		Start: 64
+		Length: 11
+		Tick: 110
+	# turret:
+	# 	Filename: GDIRigPhalanx.png
+	# 	Facings: 64
+	# 	Scale: 1.25
+	# 	Offset: 0,32
+	# railgun:
+	# 	Filename: GDIRigRailgun.png
+	# 	Facings: 64
+	# 	Scale: 1.25
+	# 	Offset: -16,32
+	# missilepod:
+	# 	Filename: GDIRigMissilePod.png
+	# 	Facings: 64
+	# 	Scale: 1.25
+	# 	Offset: 16,32
+	muzzle:
+		Filename: gunfire2.shp
+		Length: *
+	muzzle:
+		Filename: gunfire2.shp
+		Length: *
+	icon:
+		Filename: atwricnh.shp
+		AddExtension: False
+		Offset: 0,0
+
 guerillatacticsicon:
 	icon:
 		Filename: guerillatacticsicon.png
@@ -4389,3 +4455,7 @@ highvelocitycannonsicon:
 lightweightarmorplatingicon:
 	icon:
 		Filename: lightweightarmorplatingicon.png
+
+havocexosuit:
+	icon:
+		Filename: havocexosuit.png
