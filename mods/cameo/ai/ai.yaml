@@ -4892,10 +4892,11 @@ Player:
 			gdihumvee: 1
 			gdipredator: 3
 			gdimammoth3: 5
-			gdiexosuit: 1
+			gdirig: 1
 			gdishotgunner: 1
 			gdiofficer: 3
 			gdihavoc: 1
+			gdiexosuit: 1
 			gdifirehawk: 3
 			up_elementalwarfare: 1
 			up_elitecapacitors: 1

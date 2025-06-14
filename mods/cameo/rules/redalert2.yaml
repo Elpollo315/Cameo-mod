@@ -4572,7 +4572,7 @@ YRSLAV:
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@genemod: ^YuriGeneMod
 	Valued:
-		Cost: 200
+		Cost: 250
 	Tooltip:
 		Name: Slave
 		RequiresCondition: !freed
@@ -6345,7 +6345,7 @@ ra2v3rocket:
 		HP: 25000
 	RevealsShroud:
 		Range: 5000
-		Type: GroundPosition
+		Type: CenterPosition
 	BallisticMissileCA:
 		LaunchAngle: 125
 		Speed: 175
@@ -9463,91 +9463,6 @@ ra2_ctoutp.husk:
 		Sequence: idle-side
 	WithIdleOverlay@bib:
 		Sequence: bib
-ra2mine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Ore Driller
-	RadarColorFromTerrain:
-		Terrain: Ore
-	SeedsResource:
-		ResourceType: RA2Ore
-		Interval: 100
-		MaxRange: 200
-	RenderSprites:
-		Palette: ra2infantry
-	-WithMakeAnimation:
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.2
-		GreenTint: 0.1
-		BlueTint: 0.05
-
-ra2gmine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Gem Driller
-	RadarColorFromTerrain:
-		Terrain: Gems
-	SeedsResource:
-		ResourceType: RA2Gems
-		Interval: 75
-		MaxRange: 100
-	RenderSprites:
-		Palette: ra2temperat
-	-WithMakeAnimation:
-	RadarColorFromTerrain:
-		Terrain: Gems
-	AppearsOnMapPreview:
-		Terrain: Gems
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.1
-		GreenTint: 0.05
-		BlueTint: 0.2
-
-ra2smine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Silver Driller
-	RadarColorFromTerrain:
-		Terrain: Ore
-	SeedsResource:
-		ResourceType: RA2Ore
-		Interval: 100
-		MaxRange: 200
-	RenderSprites:
-		Palette: ra2silverdrill
-		Image: ra2rmine
-	-WithMakeAnimation:
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.2
-		GreenTint: 0.1
-		BlueTint: 0.05
-
-ra2cmine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Copper Driller
-	RadarColorFromTerrain:
-		Terrain: Ore
-	SeedsResource:
-		ResourceType: RA2Ore
-		Interval: 100
-		MaxRange: 200
-	RenderSprites:
-		Palette: racopperdrill
-		Image: ra2rmine
-	-WithMakeAnimation:
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.2
-		GreenTint: 0.1
-		BlueTint: 0.05
 
 # Black Operation Soldiers
 ra2e2.black:

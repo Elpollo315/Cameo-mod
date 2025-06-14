@@ -2040,7 +2040,7 @@ tkmstryker:
 	RenderSprites:
 		Image: tkmstryker
 		PlayerPalette: player_rgba
-		
+
 tkmabrams:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -3456,6 +3456,7 @@ tkmratflak:
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:

@@ -933,6 +933,8 @@
 ^VehicleBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
 	Inherits: ^NanoTechRepairs
+	DamageMultiplier@VehicleBuffs:
+		Modifier: 90
 	ChangesHealth@SelfHealing:
 		Step: 10
 		Delay: 1
@@ -993,6 +995,10 @@
 
 ^DefenseBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
+	DamageMultiplier@DefenseBuffs:
+		Modifier: 75
+	FirepowerMultiplier@DefenseBuffs:
+		Modifier: 110
 	ChangesHealth@SelfHealing:
 		Step: 10
 		Delay: 1
@@ -1321,8 +1327,10 @@
 	Inherits@EXPERIENCE: ^GainsExperienceVehicle
 	Inherits@EXT: ^ExternalConditions
 	Inherits@TankBuffs: ^TankBuffs
-	DamageMultiplier@MMainBattleTankBuff:
-		Modifier: 80
+	FirepowerMultiplier@MainBattleTankBuff:
+		Modifier: 110
+	DamageMultiplier@MainBattleTankBuff:
+		Modifier: 90
 	Armor:
 		Type: Medium
 	RevealsShroud:
@@ -1338,9 +1346,7 @@
 	Inherits@TankBuffs: ^TankBuffs
 	Inherits@Crushes: ^VehicleCrusher
 	DamageMultiplier@HighTechTankBuff:
-		Modifier: 90
-	FirepowerMultiplier@HighTechTankBuff:
-		Modifier: 110
+		Modifier: 80
 	Armor:
 		Type: Medium
 	RevealsShroud:
@@ -1656,7 +1662,7 @@
 ^BunkerTemplate:
 	Inherits@DefenseBuffs: ^DefenseBuffs
 	Armor:
-		Type: Concrete
+		Type: Steel
 	Buildable:
 		BuildDurationModifier: 75
 
@@ -1676,6 +1682,14 @@
 		Type: Steel
 	Buildable:
 		BuildDurationModifier: 75
+	IgnoresDisguise:
+
+^SuperDefenseTemplate:
+	Inherits@DefenseBuffs: ^DefenseBuffs
+	Armor:
+		Type: Steel
+	Buildable:
+		BuildDurationModifier: 50
 	IgnoresDisguise:
 
 ^PromotionUnitBuff:

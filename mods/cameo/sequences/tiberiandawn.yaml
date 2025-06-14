@@ -4337,11 +4337,30 @@ gdirig:
 		# Offset: 0,8
 	idle:
 		Facings: 64
+	deployed:
+		Filename: GDIRigTower.png
+		Facings: 64
+	damaged-deployed:
+		Filename: GDIRigTower.png
+		Facings: 64
 	turret:
 		Filename: GDIRigPhalanx.png
 		Facings: 64
 		Offset: 0,32
 		Scale: 1.5
+	make:
+		Filename: GDIRigMobile.png
+		Start: 64
+		Length: 11
+		Tick: 110
+	dead:
+		Filename: GDIRigMobile.png
+		Start: 70
+		Tick: 800
+	pointdefense:
+		Filename: invisibleitem.shp
+	targeting:
+		Filename: invisibleitem.shp
 	muzzle:
 		Filename: gunfire2.shp
 		Length: *
@@ -4394,6 +4413,37 @@ gdirigtower:
 	icon:
 		Filename: atwricnh.shp
 		AddExtension: False
+		Offset: 0,0
+
+gdirigdrone:
+	Defaults:
+		Filename: gdirigdrone.png
+		Offset: 0,24
+	idle:
+		Start: 8
+		Facings: 8
+		InterpolatedFacings: 32
+		Length: 8
+		Tick: 64
+	move:
+		Start: 8
+		Facings: 8
+		InterpolatedFacings: 32
+		Length: 8
+		Tick: 64
+	icon:
+		Filename: steel_scalpel_icon.shp
+	muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+		InterpolatedFacings: 32
+		Tick: 30
+		Offset: 0,0
+	muzzle2:
+		Filename: steel_energymuzzle.shp
+		Length: 14
 		Offset: 0,0
 
 guerillatacticsicon:

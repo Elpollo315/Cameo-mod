@@ -1134,45 +1134,71 @@ HighVAP:
 		Damage: 2
 
 TowerMissile:
+	Inherits: ^TankDestroyerCannon
 	Inherits: ^Grenade
+	Inherits: ^ShrapnelWeapon
 	Inherits: ^FlakWeapon
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^HeavyMissile
 	Inherits: ^MediumMissile
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 25
-	Range: 7795
+	Burst: 2
+	BurstDelays: 5
+	Range: 8772
 	Report: rocket2.aud
 	Projectile: Missile
 		Acceleration: 5
 		AllowSnapping: true
 		CloseEnough: 500
-	Warhead@Grenade: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
-	Warhead@GrenadeFriendlyFire: SpreadDamage
+	Warhead@TankDestroyerCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 1
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 1
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
 	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 1
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 1
 	Warhead@Effect: CreateEffect
 		Explosions: med_frag
 		ImpactSounds: xplobig4.aud
@@ -2372,17 +2398,16 @@ MammothTank3MissilesAMT:
 
 ExosuitRailgun:
 	Inherits: ^RailgunWeapon
-	ReloadDelay: 80
-	BurstDelays: 4
-	Range: 6675
-	MinRange: 667
+	ReloadDelay: 75
+	BurstDelays: 5
+	Range: 6806
 	Burst: 2
 	Warhead@RailgunWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees
-		Damage: 160000
+		Damage: 20000
 	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees
-		Damage: 80
+		Damage: 10
 
 OfficerMachineGun:
 	Inherits: ^SmallArms
@@ -2417,14 +2442,54 @@ OfficerMachineGunAP:
 		ValidTargets: Ground, Air, Water
 		Damage: 2
 
-GDIRigPhalanxAG:
+GDIRigDroneTargeting:
+	ValidTargets: SpecialRepair, Repairing, Repair, lockdowned, plagued, ivanattached
+	ValidRelationships: Ally
+	ReloadDelay: 1
+	Range: 6000
+	Projectile: InstantHit
+	Warhead@Dummy: Dummy
+
+GDIRigPDLaser:
+	Inherits: ^LaserWeapon
+	ValidTargets: Ground, Water, Trees, Air, Missile, BulletAS, BallisticMissile
+	ValidRelationships: Enemy, Neutral
+	ReloadDelay: 25
+	Range: 6000
+	Report: vpalwe2d.aud
+	Projectile: LaserZap
+		Width: 25
+		Duration: 3
+		Color: ff0000
+		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 50
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: ff000033
+		Blockable: true
+		-HitAnim:
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+
+GDIRigDroneRepair:
+	Inherits: ^RepairWeapon
+	ValidTargets: SpecialRepair, Repairing, Repair, lockdowned, plagued, ivanattached
+	ValidRelationships: Ally
+	ReloadDelay: 5
+	Range: 6000
+	Burst: 1
+
+GDIRigPhalanx:
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^SmallArms
 	Inherits: ^Grenade
 	Inherits: ^MediumCannon
 	Inherits: ^FlakWeapon
 	Inherits: ^Chaingun
-	ValidTargets: Ground, Water, Trees
+	ValidTargets: Ground, Water, Trees, Air
+	ValidRelationships: Enemy, Neutral
 	ReloadDelay: 4
 	Range: 6000
 	Report: vgatlo5a.wav, vgatlo5b.wav
@@ -2434,141 +2499,66 @@ GDIRigPhalanxAG:
 		ContrailEndColor: 00000000
 		ContrailEndColorUsePlayerColor: true
 	Warhead@TankDestroyerCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@Grenade: SpreadDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
 	Warhead@GrenadePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@MediumCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@Effect: CreateEffect
 		Explosions: piffs
 
-GDIRigPhalanxAA:
-	Inherits: GDIRigPhalanxAG
-	Range: 9000
-	ValidTargets: Air
-	Warhead@TankDestroyerCannon: SpreadDamage
-		ValidTargets: Air
-	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
-		ValidTargets: Air
-	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Air
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		ValidTargets: Air
-	Warhead@Grenade: SpreadDamage
-		ValidTargets: Air
-	Warhead@GrenadeFriendlyFire: SpreadDamage
-		ValidTargets: Air
-	Warhead@GrenadePercentage: HealthPercentageDamage
-		ValidTargets: Air
-	Warhead@MediumCannon: SpreadDamage
-		ValidTargets: Air
-	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		ValidTargets: Air
-	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Air
-	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Air
-	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Air
-	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Air
+GDIRigDroneTargetingTower:
+	Inherits: GDIRigDroneTargeting
+	Range: 9350
+
+GDIRigPDLaserTower:
+	Inherits: GDIRigPDLaser
+	Range: 9350
 
 GDIRigPhalanxTower:
-	Inherits: ^TankDestroyerCannon
-	Inherits: ^SmallArms
-	Inherits: ^Grenade
-	Inherits: ^MediumCannon
-	Inherits: ^FlakWeapon
-	Inherits: ^Chaingun
-	ValidTargets: Ground, Water, Trees, Air
+	Inherits: GDIRigPhalanx
 	ReloadDelay: 5
 	Range: 9350
-	Report: vgatlo5a.wav, vgatlo5b.wav
-	Projectile: Bullet
-		-LaunchAngle:
-		ContrailStartColor: FF884488
-		ContrailEndColor: 00000000
-		ContrailEndColorUsePlayerColor: true
-	Warhead@TankDestroyerCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@Grenade: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@GrenadeFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
-	Warhead@GrenadePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@MediumCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@Effect: CreateEffect
-		Explosions: piffs
 
 GDIRigRailgun:
 	Inherits: ^RailgunWeapon
+	ValidTargets: Ground, Water, Trees, Air
+	ValidRelationships: Enemy, Neutral
 	ReloadDelay: 95
 	Range: 9350
-	ValidTargets: Ground, Water, Trees, Air
 	Warhead@RailgunWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 160000
@@ -2582,6 +2572,7 @@ GDIRigMissilePod:
 	Inherits: ^HeavyMissile
 	Inherits: ^MediumMissile
 	ValidTargets: Ground, Water, Trees, Air
+	ValidRelationships: Enemy, Neutral
 	ReloadDelay: 45
 	Range: 9350
 	Burst: 4
@@ -2629,7 +2620,7 @@ GDIRigMissilePod:
 		ValidTargets: Ground, Ship, Trees
 
 GDIRigMissilePodAMT:
-	Inherits: 227mm
+	Inherits: GDIRigMissilePod
 	Inherits: ^AMTProjectile
 
 CommandoSniper:

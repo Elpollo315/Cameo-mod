@@ -13013,13 +13013,12 @@ d2k_neocymek:
 	Armor:
 		Type: Heavy
 	Shielded:
-		MaxPercentageStrength: 100
-		DamageRegenDelay: 240
-		RegenAmount: 80
+		DamageRegenDelay: 125
+		RegenAmount: 240
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
-		RequiresCondition: d2k_advanced_ixian_technology
 		SelectionBarColor: 8888FFFF
+		RequiresCondition: !disabled && d2k_advanced_ixian_technology
 	Armament@Cannon:
 		Name: primary
 		Weapon: D2K_StormGunCymek
