@@ -323,7 +323,7 @@ ReaperGrenade:
 	ValidTargets: Structure
 	ReloadDelay: 45
 	Range: 4375
-	MinRange: 437
+	MinRange: 875
 	Report: grenadepin.wav
 	Projectile: Bullet
 		Speed: 256
@@ -752,9 +752,9 @@ SiegeTankSiegeCannon:
 	Inherits: ^MediumCannon
 	Inherits: ^TankDestroyerCannon
 	Report: TTaFi200.aud
-	ReloadDelay: 75
-	MinRange: 3980
-	Range: 11940
+	ReloadDelay: 148
+	Range: 11775
+	MinRange: 2355
 	Projectile: InstantHit
 	Warhead@NuclearWarhead: SpreadDamage
 		Damage: 10000
@@ -1380,7 +1380,7 @@ ArbiterStasis:
 	Projectile: InstantHit
 	Report: plsecan2.aud
 	Range: 5000
-	MinRange: 2500
+	MinRange: 1000
 	ReloadDelay: 250
 	ValidTargets: Chronobeamable
 	Warhead@Condition: GrantExternalCondition
@@ -3491,8 +3491,8 @@ CorsairFlash:
 CorsairEMP:
 	Inherits: ^TeslaChargedWeapon
 	ReloadDelay: 250
-	Range: 5300
-	MinRange: 2650
+	Range: 5000
+	MinRange: 1000
 	Report: plsecan2.aud
 	ValidTargets: Vehicle
 	Projectile: Bullet
@@ -3503,29 +3503,29 @@ CorsairEMP:
 	Warhead@TeslaChargedWeapon: SpreadDamage
 		ValidTargets: Vehicle
 		Falloff: 100, 75, 50, 25
-		Damage: 50000
-		Spread: 2500
+		Damage: 5000
+		Spread: 250
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
 		ValidTargets: Vehicle
 		Falloff: 100, 75, 50, 25
-		Damage: 25000
-		Spread: 5000
+		Damage: 2500
+		Spread: 500
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Vehicle
 		Falloff: 100, 75, 50, 25
-		Damage: 25
+		Damage: 5
 		Spread: 2500
-	Warhead@EMPUnit: AffectsIntegrity
-		ValidTargets: Vehicle
-		Falloff: 100, 75, 50, 25
-		Damage: 250000
-		Spread: 10000
 	Warhead@Cam: RevealShroud
-		Radius: 5300
-		RevealGeneratedShroud: true
+		Radius: 5000
 		Duration: 250
+		RevealGeneratedShroud: true
+	Warhead@Condition: GrantExternalCondition
+		Condition: blinded
+		Duration: 125
+		Range: 2500
+		ValidTargets: Ground, Water, Trees
 	Warhead@Effect: CreateEffect
-		Explosions: pulse_explosion
+		Explosions: pulse_explosion_small
 		ExplosionPalette: tseffect
 		ImpactSounds: ptesto00.aud
 		ImpactActors: false

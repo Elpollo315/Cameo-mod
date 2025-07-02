@@ -228,16 +228,16 @@
 		Condition: rank-elite
 	DamageMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
-		Modifier: 95
+		Modifier: 90
 	DamageMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 90
+		Modifier: 80
 	DamageMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 85
+		Modifier: 70
 	DamageMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 75
+		Modifier: 60
 	FirepowerMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
 		Modifier: 110
@@ -246,58 +246,70 @@
 		Modifier: 120
 	FirepowerMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 135
+		Modifier: 130
 	FirepowerMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 150
+		Modifier: 140
 	ReloadDelayMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
-		Modifier: 95
+		Modifier: 90
 	ReloadDelayMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 90
+		Modifier: 80
 	ReloadDelayMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 85
+		Modifier: 70
 	ReloadDelayMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 75
+		Modifier: 60
+	ReloadAmmoDelayMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 85
+	ReloadAmmoDelayMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 70
+	ReloadAmmoDelayMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 55
+	ReloadAmmoDelayMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 40
 	RangeMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
 		Modifier: 105
 	RangeMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 115
+		Modifier: 110
 	RangeMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 125
+		Modifier: 115
 	RangeMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 135
+		Modifier: 120
 	RevealsShroudMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
 		Modifier: 105
 	RevealsShroudMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 115
+		Modifier: 110
 	RevealsShroudMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 125
+		Modifier: 115
 	RevealsShroudMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 135
+		Modifier: 120
 	DetectCloakedMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
 		Modifier: 105
 	DetectCloakedMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 115
+		Modifier: 110
 	DetectCloakedMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 125
+		Modifier: 115
 	DetectCloakedMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 135
+		Modifier: 120
 	InaccuracyMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
 		Modifier: 95
@@ -312,9 +324,9 @@
 		Modifier: 80
 	ChangesHealth@ELITE:
 		PercentageStep: 1
-		Delay: 25
+		Delay: 50
 		StartIfBelow: 100
-		DamageCooldown: 25
+		DamageCooldown: 50
 		RequiresCondition: rank-elite && damaged
 	WithDecoration@RANK-1:
 		Image: rank
@@ -384,13 +396,13 @@
 		Modifier: 105
 	SpeedMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 115
+		Modifier: 110
 	SpeedMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 125
+		Modifier: 115
 	SpeedMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 135
+		Modifier: 120
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Kills, Experience
 	ExternalCondition@crate-speed:
@@ -409,55 +421,26 @@
 ^GainsExperienceMelee:
 	Inherits: ^GainsExperienceMobile
 	DamageMultiplier@RANK-1:
-		Modifier: 95
-	DamageMultiplier@RANK-2:
 		Modifier: 85
+	DamageMultiplier@RANK-2:
+		Modifier: 70
 	DamageMultiplier@RANK-3:
-		Modifier: 75
+		Modifier: 55
 	DamageMultiplier@RANK-ELITE:
-		Modifier: 65
+		Modifier: 40
 	FirepowerMultiplier@RANK-1:
 		Modifier: 115
 	FirepowerMultiplier@RANK-2:
 		Modifier: 130
 	FirepowerMultiplier@RANK-3:
-		Modifier: 150
+		Modifier: 145
 	FirepowerMultiplier@RANK-ELITE:
-		Modifier: 175
-	SpeedMultiplier@RANK-1:
-		Modifier: 110
-	SpeedMultiplier@RANK-2:
-		Modifier: 120
-	SpeedMultiplier@RANK-3:
-		Modifier: 135
-	SpeedMultiplier@RANK-ELITE:
-		Modifier: 150
-	ReloadDelayMultiplier@RANK-1:
-		Modifier: 95
-	ReloadDelayMultiplier@RANK-2:
-		Modifier: 85
-	ReloadDelayMultiplier@RANK-3:
-		Modifier: 75
-	ReloadDelayMultiplier@RANK-ELITE:
-		Modifier: 65
-	ChangesHealth@ELITE:
-		PercentageStep: 1
-		Delay: 10
-		StartIfBelow: 100
-		DamageCooldown: 10
+		Modifier: 160
 	TooltipExtras@Melee:
 		Description: Melee
 
 ^GainsExperienceBuildings:
 	Inherits: ^GainsExperience
-	DamageMultiplier@RANK-1:
-		Modifier: 90
-	DamageMultiplier@RANK-2:
-		Modifier: 80
-	DamageMultiplier@RANK-3:
-		Modifier: 65
-	DamageMultiplier@RANK-ELITE:
-		Modifier: 50
 	FirepowerMultiplier@RANK-1:
 		Modifier: 125
 	FirepowerMultiplier@RANK-2:
@@ -466,43 +449,6 @@
 		Modifier: 175
 	FirepowerMultiplier@RANK-ELITE:
 		Modifier: 200
-	ReloadDelayMultiplier@RANK-1:
-		Modifier: 90
-	ReloadDelayMultiplier@RANK-2:
-		Modifier: 80
-	ReloadDelayMultiplier@RANK-3:
-		Modifier: 65
-	ReloadDelayMultiplier@RANK-ELITE:
-		Modifier: 50
-	RangeMultiplier@RANK-1:
-		Modifier: 105
-	RangeMultiplier@RANK-2:
-		Modifier: 110
-	RangeMultiplier@RANK-3:
-		Modifier: 115
-	RangeMultiplier@RANK-ELITE:
-		Modifier: 120
-	DetectCloakedMultiplier@RANK-1:
-		Modifier: 105
-	DetectCloakedMultiplier@RANK-2:
-		Modifier: 110
-	DetectCloakedMultiplier@RANK-3:
-		Modifier: 115
-	DetectCloakedMultiplier@RANK-ELITE:
-		Modifier: 120
-	InaccuracyMultiplier@RANK-1:
-		Modifier: 85
-	InaccuracyMultiplier@RANK-2:
-		Modifier: 70
-	InaccuracyMultiplier@RANK-3:
-		Modifier: 55
-	InaccuracyMultiplier@RANK-ELITE:
-		Modifier: 40
-	ChangesHealth@ELITE:
-		PercentageStep: 1
-		Delay: 20
-		StartIfBelow: 100
-		DamageCooldown: 20
 
 ^UnstableEffect:
 	ExternalCondition@unstableeffect:
@@ -918,8 +864,12 @@
 
 ^GlobalBuffs:
 	Inherits: ^GPSSatelliteSupport
+	# FirepowerMultiplier@GlobalBuffs:
+	# 	Modifier: 85
 	FirepowerMultiplier@GlobalBuffs:
-		Modifier: 85
+		Modifier: 50
+	DamageMultiplier@GlobalBuffs:
+		Modifier: 150
 
 ^InfantryBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
@@ -1439,7 +1389,7 @@
 	Targetable@Epic:
 		TargetTypes: Epic
 	DamageMultiplier@EpicBuff:
-		Modifier: 50
+		Modifier: 40
 	Armor:
 		Type: Superheavy
 	RevealsShroud:
@@ -1462,7 +1412,7 @@
 	DamageMultiplier@FighterBuff:
 		Modifier: 80
 	FirepowerMultiplier@FighterBuff:
-		Modifier: 120
+		Modifier: 125
 	Aircraft:
 		CruiseAltitude: 4000
 		RepulsionSpeed: 40

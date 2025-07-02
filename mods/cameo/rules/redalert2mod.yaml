@@ -6318,6 +6318,77 @@ latin_narco:
 	Voiced:
 		VoiceSet: LatinNarcoVoice
 
+ra2hind:
+	Inherits: ^Helicopter
+	Inherits@Template: ^HelicopterTemplate
+	Inherits@cargo: ^CargoAircraft
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Hind Transport
+	Buildable:
+		BuildPaletteOrder: 97
+		Prerequisites:  ~latin_cgair
+		Queue: Aircraft, RAAircraft
+		IconPalette: ra2cameo
+		Description: actor-ra2hind.description
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Aircraft:
+		TurnSpeed: 18
+		Speed: 90
+		RepulsionSpeed: 18
+	Health:
+		HP: 95000
+	Repairable:
+		HpPerStep: 4750
+	ChangesHealth@SelfHealing:
+		Step: 38
+	Armament@PRIMARY:
+		Weapon: BlackHawkCannon
+		LocalOffset: 128,-213,-85, 128,213,-85
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	WithMuzzleOverlay:
+	AttackAircraft:
+		FacingTolerance: 80
+	WithIdleOverlay@ROTORAIR:
+		Offset: 0,0,20
+		Sequence: rotor
+		RequiresCondition: airborne
+		PauseOnCondition: disabled
+	WithIdleOverlay@ROTORGROUND:
+		Offset: 0,0,20
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		PauseOnCondition: disabled
+	SpawnActorOnDeath:
+		Actor: ra2hind.husk
+	Selectable:
+		DecorationBounds: 1280, 1024
+	Carryall:
+		LocalOffset: 0,0,-256
+	Voiced:
+		VoiceSet: SiegeChopperVoice
+	DeathSounds:
+	RenderSprites:
+		PlayerPalette: playerra2
+	FirepowerMultiplier@FirerateCompensation:
+		Modifier: 75
+
+ra2hind.husk:
+	Inherits: ^LargeHelicopterHusk
+	Tooltip:
+		Name: Hind Transport
+	Aircraft:
+		TurnSpeed: 17
+		Speed: 85
+	RenderSprites:
+		Image: ra2hind
+		PlayerPalette: playerra2
+
 latin_yakolev:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^FighterTemplate

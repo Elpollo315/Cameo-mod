@@ -3746,18 +3746,6 @@ SCGHOST:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 6
-	ReloadAmmoDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
-		Modifier: 85
-	ReloadAmmoDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 70
-	ReloadAmmoDelayMultiplier@RANK-3:
-		RequiresCondition: rank-veteran == 3
-		Modifier: 55
-	ReloadAmmoDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
-		Modifier: 40
 	GrantConditionOnPrerequisite@cloakon:
 		Condition: upghostcloak
 		Prerequisites: upghostcloak
@@ -3826,18 +3814,6 @@ SCSILVERTONGUE:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 6
-	ReloadAmmoDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
-		Modifier: 85
-	ReloadAmmoDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 70
-	ReloadAmmoDelayMultiplier@RANK-3:
-		RequiresCondition: rank-veteran == 3
-		Modifier: 55
-	ReloadAmmoDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
-		Modifier: 40
 	GrantConditionOnPrerequisite@cloakon:
 		Condition: upghostcloak
 		Prerequisites: upghostcloak
@@ -4066,6 +4042,10 @@ SCSIEGETANK:
 		ArmamentNames: primary, deployed
 	Armor:
 		Type: Heavy
+		RequiresCondition: !shielded && undeployed
+	Armor@deployed:
+		Type: Steel
+		RequiresCondition: !shielded && !undeployed
 	Turreted:
 		TurnSpeed: 15
 		Offset: -256,0,256
@@ -4087,9 +4067,9 @@ SCSIEGETANK:
 		Weapon: SiegeTankSiegeCannon
 		LocalOffset: 750,0,250
 		RequiresCondition: deployed
-	FirepowerMultiplier@deployed:
-		Modifier: 50
-		RequiresCondition: deployed
+	# FirepowerMultiplier@deployed:
+	# 	Modifier: 50
+	# 	RequiresCondition: deployed
 	RevealsShroudMultiplier@deployed:
 		Modifier: 150
 		RequiresCondition: deployed
@@ -4136,9 +4116,6 @@ SCSIEGETANK:
 		UndeploySounds: TankSiege.aud
 		UndeployOnMove: true
 		SmartDeploy: True
-	RejectsOrders@deployment:
-		Reject: AttackMove, AssaultMove
-		RequiresCondition: !botmicro && deployed
 	RejectsMoveToAttack:
 		RequiresCondition: !botmicro && deployed
 	Passenger:
@@ -4202,6 +4179,10 @@ SCMATADOR:
 		ArmamentNames: primary, deployed
 	Armor:
 		Type: Medium
+		RequiresCondition: !shielded && undeployed
+	Armor@deployed:
+		Type: Steel
+		RequiresCondition: !shielded && !undeployed
 	Turreted:
 		TurnSpeed: 15
 		Offset: 0,0,0
@@ -4253,9 +4234,6 @@ SCMATADOR:
 		UndeploySounds: TankSiege.aud
 		UndeployOnMove: true
 		SmartDeploy: True
-	RejectsOrders@deployment:
-		Reject: AttackMove, AssaultMove
-		RequiresCondition: !botmicro && deployed
 	RejectsMoveToAttack:
 		RequiresCondition: !botmicro && deployed
 	Passenger:
@@ -6073,9 +6051,9 @@ upbehemoth:
 	GrantCondition@shieldpermanent:
 		Condition: shieldpermanent
 	DamageMultiplier@shieldpermanent:
-		Modifier: 75
+		Modifier: 150
 	FirepowerMultiplier@shieldpermanent:
-		Modifier: 50
+		Modifier: 100
 	ChangesShield@personal_shield:
 		Step: 40
 		Delay: 1

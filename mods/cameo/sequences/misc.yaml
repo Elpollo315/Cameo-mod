@@ -2340,8 +2340,7 @@ explosion:
 		Filename: tspulsefx2.shp
 		Scale: 2
 	pulse_explosion_small:
-		Filename: genemp.shp
-		Scale: 2
+		Filename: tspulsefx2.shp
 	mobileemp:
 		Filename: tsmempfx.shp
 		Scale: 2
@@ -2678,7 +2677,7 @@ explosion:
 		Scale: 0.4
 	scsiegetanksiegeexplosion:
 		Filename: scsiegetanksiegeexplosion.png
-		Frames: 0, 1, 2, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11, 11		
+		Frames: 0, 1, 2, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11, 11
 	scblueexplosion:
 		Filename: scblueexplosion.png
 		Length: *
@@ -3028,7 +3027,7 @@ ionsfx:
 		Offset: 0, 0
 		Start: 10
 		Alpha: 0.2
-		Length: *		
+		Length: *
 
 bomblet:
 	idle:
@@ -4065,7 +4064,7 @@ hakurei_giphy:
 		IgnoreWorldTint: True
 	idle:
 	fades:
-		Alpha: 0.1		
+		Alpha: 0.1
 
 scorch_flames:
 	large_flame:

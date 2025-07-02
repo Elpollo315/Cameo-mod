@@ -31,7 +31,7 @@ AsianKamikazeChaingun:
 	Burst: 3
 	BurstDelays: 2
 	Range: 7000
-	MinRange: 350
+	MinRange: 1400
 	Report: vifvat2a.wav, vifvat2b.wav, vifvat2c.wav
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -389,7 +389,7 @@ AsianHowitzerCannon:
 	ReloadDelay: 200
 	Report: aa_bgart.wav
 	Range: 20000
-	MinRange: 2000
+	MinRange: 4000
 	Projectile: Bullet
 		Blockable: false
 		Speed: 200
@@ -722,7 +722,7 @@ AsianTurretPlasma:
 	Inherits: ^HeavyBomb
 	ReloadDelay: 50
 	Range: 14000
-	MinRange: 1750
+	MinRange: 2800
 	Burst: 2
 	Report: bgraatta.wav
 	Projectile: Bullet
@@ -1476,7 +1476,7 @@ AsianPhoenixRocket:
 	Inherits: ^RA2HeavyMissile
 	ReloadDelay: 60
 	Range: 6000
-	MinRange: 600
+	MinRange: 1200
 	Burst: 2
 	BurstDelays: 2
 	Report: vmigatta.wav
@@ -1522,7 +1522,7 @@ AsianPhoenixRocket:
 AsianPhoenixRocketAA:
 	Inherits: AsianPhoenixRocket
 	Range: 8000
-	MinRange: 800
+	MinRange: 1600
 	ValidTargets: Air
 	Warhead@MediumFlameWeapon: SpreadDamage
 		ValidTargets: Air
@@ -2293,7 +2293,6 @@ SteelMegaSword:
 	ReloadDelay: 25
 	Report: megasword.wav
 	Range: 2000
-	MinRange: 0
 	Projectile: InstantHit
 	Warhead@LightChemicalWeapon: SpreadDamage
 		Damage: 20000
@@ -2571,8 +2570,8 @@ SteelTwisterMissiles:
 	Burst: 4
 	BurstDelays: 2
 	Range: 8000
+	MinRange: 1600
 	Report: twisterfire.wav
-	MinRange: 1000
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
 		Inaccuracy: 500
@@ -2649,7 +2648,7 @@ SteelKatyCannons:
 	BurstDelays: 10
 	Report: aa_bgart.wav
 	Range: 7250
-	MinRange: 1250
+	MinRange: 1450
 	Projectile: Bullet
 		Blockable: false
 		Speed: 500
@@ -2699,7 +2698,7 @@ SteelKatyCannonsEMP:
 	BurstDelays: 10
 	Report: aa_bgart.wav
 	Range: 7250
-	MinRange: 1250
+	MinRange: 1450
 	Projectile: Bullet
 		Blockable: false
 		Speed: 500
@@ -2874,7 +2873,7 @@ SteelDaggerCannon:
 	Inherits: ^RA2Grenade
 	Inherits: ^SteelHeavyCannon
 	Range: 20000
-	MinRange: 2000
+	MinRange: 4000
 	ReloadDelay: 100
 	Burst: 4
 	BurstDelays: 0
@@ -2930,7 +2929,7 @@ SteelCruiserArtillery:
 	Inherits: ^RA2Grenade
 	ReloadDelay: 20
 	Range: 8000
-	MinRange: 2000
+	MinRange: 1600
 	Report: vdesatta.wav, vdesattb.wav
 	Projectile: Bullet
 		LaunchAngle: 100
@@ -3090,7 +3089,7 @@ NaxGrilleArty:
 	Inherits: ^RA2Grenade
 	ReloadDelay: 111
 	Range: 12345
-	MinRange: 1234
+	MinRange: 2468
 	Report: vdesatta.wav, vdesattb.wav
 	Projectile: Bullet
 		LaunchAngle: 111
@@ -3128,7 +3127,7 @@ NaxBrummbarArty:
 	Inherits: ^RA2MediumCannon
 	ReloadDelay: 140
 	Range: 14000
-	MinRange: 1400
+	MinRange: 2800
 	Report: vdesatta.wav, vdesattb.wav
 	Projectile: Bullet
 		LaunchAngle: 140
@@ -3936,7 +3935,7 @@ NaxSturmArty:
 	Inherits: ^RA2Grenade
 	ReloadDelay: 140
 	Range: 14000
-	MinRange: 1400
+	MinRange: 2800
 	Report: trashcannon.wav
 	Projectile: Bullet
 		Inaccuracy: 1400
@@ -3967,7 +3966,7 @@ NaxMausCannon:
 	ReloadDelay: 99
 	Report: aa_bgart.wav
 	Range: 6666
-	MinRange: 666
+	MinRange: 1333
 	Projectile: Bullet
 		Blockable: false
 		Speed: 666
@@ -4025,8 +4024,8 @@ LunarTigerCannon:
 	Inherits: NaxMausCannon
 	ReloadDelay: 80
 	Report: trashcannon.wav
-	Range: 5105
-	MinRange: 510
+	Range: 5100
+	MinRange: 1020
 	Warhead@LightChemicalWeapon: SpreadDamage
 		Damage: 4000
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
@@ -4473,9 +4472,9 @@ NaxCorrosionRocket:
 	Burst: 2
 	BurstDelays: 2
 	Range: 8000
+	MinRange: 1600
 	Report: nax_corrokit.wav
 	SoundVolume: 2.0
-	MinRange: 1000
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
 		Inaccuracy: 600
@@ -4975,7 +4974,7 @@ NaxiV1Rocket:
 	Report: vaegatta.wav, vaegattb.wav
 	ReloadDelay: 500
 	Range: 32000
-	MinRange: 3200
+	MinRange: 6400
 	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: NaxiV1Rocket
@@ -5259,7 +5258,7 @@ NaxisBlackBombSmaller:
 	Inherits: ^RA2MediumCannon
 	ReloadDelay: 141
 	Range: 6666
-	MinRange: 666
+	MinRange: 1333
 	Projectile: Bullet
 		Blockable: false
 		Speed: 666
@@ -5886,7 +5885,7 @@ RA2MortarBike:
 	Inherits: ^RA2MediumCannon
 	ReloadDelay: 124
 	Range: 8000
-	MinRange: 800
+	MinRange: 1600
 	Report: vdesatta.wav, vdesattb.wav
 	Projectile: Bullet
 		LaunchAngle: 100
@@ -6216,7 +6215,7 @@ LatinAADefenderCannon:
 RA2TOPOLCubaTarget:
 	ReloadDelay: 4
 	Range: 32000
-	MinRange: 3200
+	MinRange: 6400
 	Projectile: InstantHit
 		Inaccuracy: 1000
 	Warhead@1Dam: TargetDamage
@@ -6231,7 +6230,7 @@ RA2TOPOLCuba:
 	Report: vaegatta.wav, vaegattb.wav
 	ReloadDelay: 250
 	Range: 32000
-	MinRange: 3200
+	MinRange: 6400
 	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: RA2TOPOLCuba
@@ -6412,7 +6411,7 @@ SMLLauncher:
 	ReloadDelay: 125
 	Burst: 4
 	Range: 15000
-	MinRange: 1500
+	MinRange: 3000
 	Projectile: InstantHit
 		Inaccuracy: 1000
 
@@ -6564,7 +6563,7 @@ NaxisBradleyTarget:
 	Burst: 4
 	BurstDelays: 10
 	Range: 17350
-	MinRange: 1735
+	MinRange: 3470
 	Projectile: InstantHit
 		Inaccuracy: 1735
 
@@ -6572,7 +6571,7 @@ NaxisSarubianTarget:
 	ValidTargets: Ground, Water
 	ReloadDelay: 40
 	Range: 7800
-	MinRange: 700
+	MinRange: 1560
 	Projectile: InstantHit
 		Inaccuracy: 1000
 
@@ -6584,7 +6583,7 @@ Naxis_Jagerline_AA:
 	ValidTargets: Air
 	ReloadDelay: 50
 	Range: 18000
-	MinRange: 1800
+	MinRange: 3600
 	Burst: 2
 	BurstDelays: 5
 	TargetActorCenter: true
@@ -6802,7 +6801,7 @@ FutureMicrotorpedos:
 		ImpactSounds: gexpwasa.wav
 AntenaLaser:
 	Range: 16000
-	MinRange: 800
+	MinRange: 3200
 	ReloadDelay: 250
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: LaserZap
@@ -6877,7 +6876,7 @@ AntenaLaser:
 AntenaVisualLaser:
 	ReloadDelay: 6
 	Range: 16000
-	MinRange: 800
+	MinRange: 3200
 	Report: 2100rotlsr.wav
 	TargetActorCenter: true
 	ValidTargets: Ground, Water, Structure, Wall

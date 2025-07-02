@@ -4357,10 +4357,15 @@ gdirig:
 		Filename: GDIRigMobile.png
 		Start: 70
 		Tick: 800
+	dot:
+		Filename: invisibleitem.shp
+		ZOffset: -9999
 	pointdefense:
 		Filename: invisibleitem.shp
+		ZOffset: -9999
 	targeting:
 		Filename: invisibleitem.shp
+		ZOffset: -9999
 	muzzle:
 		Filename: gunfire2.shp
 		Length: *

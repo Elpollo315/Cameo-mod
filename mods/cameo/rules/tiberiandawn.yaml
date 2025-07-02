@@ -4869,18 +4869,6 @@ nodltnk2:
 	#	Actor: LTNK.Husk
 	#	OwnerType: InternalName
 	#	EffectiveOwnerFromOwner: true
-	ReloadAmmoDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
-		Modifier: 85
-	ReloadAmmoDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 70
-	ReloadAmmoDelayMultiplier@RANK-3:
-		RequiresCondition: rank-veteran == 3
-		Modifier: 55
-	ReloadAmmoDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
-		Modifier: 40
 	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 	ActorStatValues:
@@ -5368,18 +5356,6 @@ nodlasercommando:
 	ReloadAmmoDelayMultiplier@up_elitecapacitors:
 		Modifier: 80
 		RequiresCondition: up_elitecapacitors
-	ReloadAmmoDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
-		Modifier: 90
-	ReloadAmmoDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 80
-	ReloadAmmoDelayMultiplier@RANK-3:
-		RequiresCondition: rank-veteran == 3
-		Modifier: 70
-	ReloadAmmoDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
-		Modifier: 60
 	ActorStatValues:
 		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_elitecapacitors, up_tiberiuminfusion, up_cyberneticmodifications
 
@@ -6500,18 +6476,6 @@ gdihavoc:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-	ReloadAmmoDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
-		Modifier: 90
-	ReloadAmmoDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 80
-	ReloadAmmoDelayMultiplier@RANK-3:
-		RequiresCondition: rank-veteran == 3
-		Modifier: 65
-	ReloadAmmoDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
-		Modifier: 50
 	RangeMultiplier@up_advancedmissiletargeting:
 		Modifier: 105
 	FirepowerMultiplier@up_cuttingedgeequipment:
@@ -6670,13 +6634,13 @@ gdirig:
 	Inherits@CuttingEdge: ^CuttingEdgeEquipment
 	Inherits@decoration: ^GDIRankDecoration
 	Tooltip:
-		Name: GDI Defense Rig (Mobile)
+		Name: GDI Defense Rig
 	Valued:
 		Cost: 5000
 	Buildable:
 		BuildLimit: 1
 		BuildPaletteOrder: 60
-		Prerequisites: #eye, ~upgdidefenserig
+		Prerequisites: eye, ~upgdidefenserig
 		Queue: Vehicle, RAVehicle
 		Description: actor-htnk.description
 	Mobile:
@@ -6684,6 +6648,8 @@ gdirig:
 		TurnSpeed: 12
 		RequireForceMoveCondition: !undeployed
 		ImmovableCondition: !undeployed
+	Crushable:
+		CrushClasses: hugevehicle
 	Health:
 		HP: 400000
 	Repairable:
@@ -6694,6 +6660,10 @@ gdirig:
 		ArmamentNames: primary, deployed
 	Armor:
 		Type: Superheavy
+		RequiresCondition: !shielded && undeployed
+	Armor@deployed:
+		Type: Steel
+		RequiresCondition: !shielded && !undeployed
 	AutoTargetPriority@Repair:
 		Priority: 0
 	Turreted@pointdefense:
@@ -6701,18 +6671,32 @@ gdirig:
 		TurnSpeed: 128
 		Offset: -800,0,480
 		RealignDelay: -1
+		RequiresCondition: undeployed
+	Turreted@pointdefensedeployed:
+		Turret: pointdefensedeployed
+		TurnSpeed: 128
+		#Offset: -800,0,480
+		RealignDelay: -1
+		RequiresCondition: deployed
 	Turreted@targeting:
 		Turret: targeting
 		TurnSpeed: 128
 		Offset: -800,0,480
 		RealignDelay: -1
+		RequiresCondition: undeployed
+	Turreted@targetingdeployed:
+		Turret: targetingdeployed
+		TurnSpeed: 128
+		#Offset: -800,0,480
+		RealignDelay: -1
+		RequiresCondition: deployed
 	Turreted@mobile:
 		TurnSpeed: 24
 		Offset: -800,0,480
 		RequiresCondition: undeployed
 	Turreted@Phalanx:
-		Turret: main
-		Offset: -128,128,1800
+		Turret: tower
+		# Offset: -128,128,1800
 		TurnSpeed: 24
 		RealignDelay: -1
 		RequiresCondition: deployed
@@ -6731,24 +6715,28 @@ gdirig:
 	Armament@pointdefense:
 		Weapon: GDIRigPDLaser
 		Turret: pointdefense
+		LocalOffset: 640,0,480
 		ForceTargetRelationships: Enemy, Neutral
 		RequiresCondition: undeployed
-	Armament@pointdefense:
+	Armament@pointdefensedeployed:
 		Weapon: GDIRigPDLaserTower
-		Turret: pointdefense
+		Turret: pointdefensedeployed
+		LocalOffset: 512,128,2280
 		ForceTargetRelationships: Enemy, Neutral
 		RequiresCondition: deployed
 	Armament@DroneTargeting:
 		Name: targeting
 		Turret: targeting
 		Weapon: GDIRigDroneTargeting
+		LocalOffset: 640,0,480
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		RequiresCondition: undeployed
-	Armament@DroneTargeting:
-		Name: targeting
-		Turret: targeting
+	Armament@DroneTargetingDeployed:
+		Name: targetingdeployed
+		Turret: targetingdeployed
 		Weapon: GDIRigDroneTargetingTower
+		LocalOffset: 512,128,2280
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		RequiresCondition: deployed
@@ -6762,11 +6750,12 @@ gdirig:
 		RequiresCondition: undeployed
 	Armament@Phalanx:
 		Name: deployed
-		Turret: main
+		Turret: tower
 		Weapon: GDIRigPhalanxTower
-		LocalOffset: 640,0,480
-		Recoil: 64
-		RecoilRecovery: 32
+		# LocalOffset: 640,0,480
+		LocalOffset: 512,128,2280
+		# Recoil: 64
+		# RecoilRecovery: 32
 		MuzzleSequence: muzzle
 		ForceTargetRelationships: Enemy, Neutral
 		RequiresCondition: deployed
@@ -6806,33 +6795,44 @@ gdirig:
 		Modifier: 125
 		RequiresCondition: deployed
 	AttackTurreted:
-		Turrets: primary, main, railgun, missilepod, pointdefense, targeting
-		Armaments: primary, deployed, pointdefense, targeting
+		Turrets: primary, tower, railgun, missilepod, pointdefense, pointdefensedeployed, targeting, targetingdeployed
+		Armaments: primary, deployed, pointdefense, pointdefensedeployed, targeting, targetingdeployed
 	WithMuzzleOverlay:
 	WithSpriteTurret@pointdefense:
 		Turret: pointdefense
 		Sequence: pointdefense
+	WithSpriteTurret@pointdefensedeployed:
+		Turret: pointdefensedeployed
+		Sequence: pointdefense
 	WithSpriteTurret@targeting:
 		Turret: targeting
+		Sequence: targeting
+	WithSpriteTurret@targetingdeployed:
+		Turret: targetingdeployed
 		Sequence: targeting
 	WithSpriteTurret:
 		Turret: primary
 		Sequence: turret
 		RequiresCondition: undeployed
-	# -WithSpriteBody:
 	WithFacingSpriteBody:
-		RequiresCondition: !deployed
+		RequiresCondition: undeployed
 		# PauseOnCondition: deployed
-	# WithSpriteTurret@deployed:
+	WithSpriteTurret@deployed:
+		Sequence: deployed
+		Turret: tower
+		RequiresCondition: deployed
+	# WithEmbeddedTurretSpriteBody@deployed:
 	# 	Sequence: deployed
 	# 	Turret: deployed
 	# 	RequiresCondition: deployed
-	WithEmbeddedTurretSpriteBody@deployed:
-		Sequence: deployed
-		Turret: deployed
-		RequiresCondition: deployed
 		# PauseOnCondition: undeployed
+	# -WithSpriteBody:
+	WithSpriteBody:
+		Sequence: dot
+		Name: dot
+		RequiresCondition: !undeployed
 	WithMakeAnimation:
+		BodyNames: dot
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 		RequiresCondition: deployed
@@ -6847,11 +6847,15 @@ gdirig:
 		UndeploySounds: TankSiege.aud
 		UndeployOnMove: true
 		SmartDeploy: True
+		Facing: 0
+	DamageMultiplier@deployed:
+		Modifier: 70
+		RequiresCondition: deployed
 	RejectsOrders@deployment:
 		Reject: AttackMove, AssaultMove
-		RequiresCondition: !botmicro && deployed
+		RequiresCondition: !(botmicro && !attacking) && deployed
 	RejectsMoveToAttack:
-		RequiresCondition: !botmicro && deployed
+		RequiresCondition: !(botmicro && !attacking) && deployed
 	Passenger:
 		Weight: 4
 		CustomPipType: blue
@@ -6859,10 +6863,15 @@ gdirig:
 	Carryable:
 		RequiresCondition: !deployed
 	AutoDeployer:
-		DeployTrigger: Attack, Damage
-		DeployChance: 50
-		DeployTicks: 500
-		UndeployTicks: 1500
+		DeployTrigger: Attack, Damage, Periodically, BecomingIdle
+		DeployChance: 100
+		DeployTicks: 100
+		UndeployTicks: 100
+		RequiresCondition: undeployed && !attacking
+	GrantConditionOnAttack:
+		ArmamentNames: primary, deployed, pointdefense, pointdefensedeployed, targeting, targetingdeployed
+		Condition: attacking
+		RevokeDelay: 100
 	Voiced:
 		VoiceSet: SCSiegeTankVoice
 	DeathSounds:
@@ -6875,7 +6884,7 @@ gdirig:
 		Weapon: UnitExplodeBig
 	DroneSpawnerMaster@steel_scalpel:
 		Actors: gdirigdrone, gdirigdrone, gdirigdrone
-		ArmamentNames: targeting, pointdefense
+		ArmamentNames: pointdefense, pointdefensedeployed, targeting, targetingdeployed
 		RespawnTicks: 250
 		ShouldSpawnInitialLoad: false
 	AmmoPool@pld:
@@ -7205,6 +7214,7 @@ gdirigdrone:
 		AttackType: Hover
 		PersistentTargeting: false
 		FacingTolerance: 20
+	-Targetable@SpecialRepair:
 	-SpawnActorOnDeath:
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:

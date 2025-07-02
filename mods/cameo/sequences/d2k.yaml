@@ -3632,7 +3632,7 @@ d2k_munitions.ordos:
 		Start: 1
 
 ####################################################
-#           MISC
+#		   MISC
 ####################################################
 
 large_trail:
@@ -8209,6 +8209,33 @@ combat_tank_a.husk:
 		Start: 1859
 		Facings: -32
 		ZOffset: -512
+
+mongoose_d2k_a:
+	Defaults:
+	idle:
+		Filename: AtrMongooseSpritesheet-256.png
+		Start: 0
+		Facings: 32
+		Remap: 54F94B
+	run:
+		Filename: AtrMongooseSpritesheet-256.png
+		Start: 32
+		Facings: 32
+		Length: 7
+		Tick: 140
+	turret:
+		Filename: AtrMongooseMissileSpritesheet-32.png
+		Facings: 32
+		Remap: 54F94B
+	muzzle:
+		Filename: DATA.R16
+		Scale: 1.5
+		Start: 4028
+		Tick: 60
+		Facings: -32
+		BlendMode: Additive
+	icon:
+		Filename: d2kmongoosecameo.png
 
 duelist_tank:
 	Defaults:
