@@ -3127,7 +3127,7 @@ Player:
 	McvManagerBotModuleCA:
 		RequiresCondition: genericbot
 		McvTypes: mcv.gdi, mcv.nod, ramcv.allies, ramcv.soviet, ramcv.japan, ra2amcv, ra2smcv, yrpcv, yrsmin, modcore, modcore1, modcore2, modcore3, modcore4, modcore5, modcore6, modcore7, aa_acv, d2k_mcv.ixian, d2k_mcv.ordos, steel_qmcv, latin_mcv, nax_mcv, nax2_mcv, sctmcv, scpmcv, sczmcv, wc2_human_mcv, wc2_orc_mcv, tsmcvgdi, tsmcvnod, tsmcvmutant, tsmcvcabal, tkmmcv
-		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabalb, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, steel_qacst, latin_cgcnst, nax_conyard, nax2_conyard, tkmcommandcenter
+		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabalb, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, steel_qacst, latin_cgcnst, nax_conyard, nax2_conyard, tkmcommandcenter, gdirig
 		McvFactoryTypes: weap, afld, raweap, raweapa, modraweapj, ra2gaweap, ra2naweap, yrygweap, aa_cgweap, tsgtweap, tsgtweapmutant, tsntweap, tsntweapcabal, schatchery, scnexus, sccommandcenter, glcommand, chcommand, usacommand, heavy_factory.ixian, heavy_factory.ordos, starport.ixian, starport.ordos, sc_zerg_larva, wc2_human_townhall, wc2_orc_greathall, steel_qaweap, latin_cgweap, nax_weap, nax2_weap, tkmcommandcenter
 		MinBaseRadius: 5
 		MaxBaseRadius: 25
@@ -3209,7 +3209,7 @@ Player:
 			latin_mig: Aircraft, Building, Epic, Naval
 			d2k_air_drone: Ground
 			d2k_ixbomber: Ground
-		GuerrillaTypes: rmbo.gdi, rmbo.nod, apc, bggy, bike, ltnk, ftnk, jeep, mtnk, mlrs, gdiarcher, mssm, stnk, orca, heli, nodvenom, chembike, chemstnk, nodbuggy2, nodltnk2, nodftnk2, nodspecter, nodlasercommando, gdiassaultapc, gdihumvee, gdipredator, gdiexosuit, gdihavoc, dog, cyberdog, sniper, e7, 1tnk, 2tnk, 3tnk, rajeep, raapc, ftrk, modkubel, modtypej, modhover, raheli, mh60, yak, hind, jhind, modkami,  reconranger, modtiger, ctnk, sapc, volkov, modgtnk, ttnk2, monstertank, modbtr, kotin, rocketangel, hakurei, modcarr, typechiha, modhovert,  modbggy, ra2fv, ra2htk, ra2dron, yrrobo, ra2sref, yrcaos, yrdisk, yrmind, aa_viper, rocket_raider_ixian, shock_raider, combat_tank_ixian, storm_raider, heavy_rocket_raider_ixian, combat_siege_tank, d2k_air_drone, d2k_heavy_air_drone, steel_mako, aa_pelican
+		GuerrillaTypes: gdirig, rmbo.gdi, rmbo.nod, apc, bggy, bike, ltnk, ftnk, jeep, mtnk, mlrs, gdiarcher, mssm, stnk, orca, heli, nodvenom, chembike, chemstnk, nodbuggy2, nodltnk2, nodftnk2, nodspecter, nodlasercommando, gdiassaultapc, gdihumvee, gdipredator, gdiexosuit, gdihavoc, dog, cyberdog, sniper, e7, 1tnk, 2tnk, 3tnk, rajeep, raapc, ftrk, modkubel, modtypej, modhover, raheli, mh60, yak, hind, jhind, modkami,  reconranger, modtiger, ctnk, sapc, volkov, modgtnk, ttnk2, monstertank, modbtr, kotin, rocketangel, hakurei, modcarr, typechiha, modhovert,  modbggy, ra2fv, ra2htk, ra2dron, yrrobo, ra2sref, yrcaos, yrdisk, yrmind, aa_viper, rocket_raider_ixian, shock_raider, combat_tank_ixian, storm_raider, heavy_rocket_raider_ixian, combat_siege_tank, d2k_air_drone, d2k_heavy_air_drone, steel_mako, aa_pelican
 	SendUnitToAttackBotModule:
 		RequiresCondition: genericbot
 		ActorTypesAndAttackOptions:
@@ -4880,7 +4880,7 @@ Player:
 			upgdihumvee: 1
 			upgdipredator: 1
 			upgdimammoth3: 1
-			upgdiexosuit: 1
+			upgdidefenserig: 1
 			upgdishotgunner: 1
 			upgdiofficer: 1
 			upgdihavoc: 1
@@ -4892,10 +4892,11 @@ Player:
 			gdihumvee: 1
 			gdipredator: 3
 			gdimammoth3: 5
-			gdiexosuit: 1
+			gdirig: 1
 			gdishotgunner: 1
 			gdiofficer: 3
 			gdihavoc: 1
+			gdiexosuit: 1
 			gdifirehawk: 3
 			up_elementalwarfare: 1
 			up_elitecapacitors: 1
@@ -5567,6 +5568,8 @@ Player:
 			upordos_ordos_stealth_tank: 3
 			upordos_banshee: 3
 			upordos_python: 3
+			########### Units Atreides
+			d2katreidesmongoose: 5
 			#################### UnitsToBuild Dune Universe
 			quake_tank: 1
 			d2k_heavy_air_drone: 1

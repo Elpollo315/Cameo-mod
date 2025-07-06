@@ -668,8 +668,8 @@ SiegeMortar:
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^LightFlameWeapon
 	ReloadDelay: 88
-	Range: 10828
-	MinRange: 2707
+	Range: 10830
+	MinRange: 2166
 	Report: tnkfire2.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -921,7 +921,7 @@ JapanMaidenBow:
 	Inherits: ^ArrowWeapon
 	ReloadDelay: 100
 	Range: 7500
-	MinRange: 2500
+	MinRange: 1500
 	Report: dune2smalllaser.aud
 	Projectile: Missile
 		HorizontalRateOfTurn: 40
@@ -1295,7 +1295,7 @@ RocketAngelRockets:
 	Burst: 4
 	BurstDelays: 2
 	Range: 6060
-	MinRange: 1515
+	MinRange: 1212
 	Report: dune2smalllaser.aud
 	Projectile: Missile
 		HorizontalRateOfTurn: 25
@@ -1886,7 +1886,7 @@ v1rockets:
 	Burst: 4
 	BurstDelays: 5
 	Range: 9595
-	MinRange: 3000
+	MinRange: 1919
 	Report: v1rocket.wav
 	Projectile: Bullet
 		Blockable: false
@@ -1918,8 +1918,8 @@ v1rocketsThermobaric:
 	ReloadDelay: 115
 	Burst: 4
 	BurstDelays: 5
-	Range: 9500
-	MinRange: 3000
+	Range: 9595
+	MinRange: 1919
 	Report: v1rocket.wav
 	Projectile: Bullet
 		Blockable: false
@@ -1957,8 +1957,8 @@ SCUD:
 	Inherits: ^HeavyMissile
 	Inherits: ^HeavyFlameWeapon
 	ReloadDelay: 125
-	Range: 13688
-	MinRange: 3422
+	Range: 13690
+	MinRange: 2738
 	Report: missile1.aud
 	Projectile: Bullet
 		Speed: 300
@@ -2008,13 +2008,23 @@ SCUDThermobaric:
 
 SCUDNUKE:
 	Inherits: ^HeavyMissile
+	Inherits: ^MediumMissile
+	Inherits: ^LightMissile
 	Inherits: ^HeavyBomb
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^Grenade
 	Inherits: ^HeavyChemicalWeapon
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^LightChemicalWeapon
 	Inherits: ^HeavyFlameWeapon
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^LightFlameWeapon
+	Inherits: ^TankDestroyerCannon
+	Inherits: ^FlakWeapon
 	Inherits: ^NuclearWarhead
 	ReloadDelay: 165
-	Range: 15400
-	MinRange: 3850
+	Range: 12500
+	MinRange: 2500
 	Report: missile1.aud
 	Projectile: Bullet
 		Speed: 240
@@ -2027,29 +2037,81 @@ SCUDNUKE:
 		Shadow: True
 		LaunchAngle: 80
 	Warhead@HeavyMissile: SpreadDamage
-		Damage: 30000
+		Damage: 20000
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 10
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 20000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@LightMissile: SpreadDamage
+		Damage: 20000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 10
 	Warhead@HeavyBomb: SpreadDamage
-		Damage: 30000
+		Damage: 20000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 10
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 10000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@Grenade: SpreadDamage
+		Damage: 20000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 10000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 10
 	Warhead@HeavyChemicalWeapon: SpreadDamage
-		Damage: 30000
+		Damage: 20000
 	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 15000
+		Damage: 10000
 	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 10
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 10000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@LightChemicalWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 10000
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 10
 	Warhead@HeavyFlameWeapon: SpreadDamage
-		Damage: 30000
+		Damage: 20000
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 15000
+		Damage: 10000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 10
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 10000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 20000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 10
 	Warhead@NuclearWarhead: SpreadDamage
-		Damage: 30000
+		Damage: 20000
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 10
 	Warhead@Effect: CreateEffect
 		ImpactSounds: kaboom22.aud
 
@@ -2223,7 +2285,7 @@ Hellfire:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 16
 	Range: 6540
-	MinRange: 1635
+	MinRange: 1308
 	Report: missile6.aud
 	Warhead@ShrapnelWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -2253,7 +2315,6 @@ ChainGunMH60:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 6
 	Range: 3375
-	MinRange: 337
 	Report: gun13.aud
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -2288,7 +2349,6 @@ ChainGun:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 8
 	Range: 5528
-	MinRange: 553
 	Report: gun13.aud
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -2304,7 +2364,6 @@ IncendiaryChainGun:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 8
 	Range: 5528
-	MinRange: 553
 	Report: gun13.aud
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -2330,7 +2389,6 @@ HindMissiles:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 16
 	Range: 5528
-	MinRange: 553
 	Report: missile6.aud
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -2377,7 +2435,6 @@ HindMissilesThermobaric:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 16
 	Range: 5528
-	MinRange: 553
 	Report: missile7.aud
 	Projectile: Missile
 		Blockable: false
@@ -2521,7 +2578,7 @@ ZeroFighterChainGun:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 4
 	Range: 7100
-	MinRange: 710
+	MinRange: 1420
 	Report: gun13.aud
 	TargetActorCenter: true
 	Warhead@Chaingun: SpreadDamage
@@ -2548,14 +2605,14 @@ ZeroFighterChainGunWaveforce:
 ZeroFighterArrows:
 	Inherits: JHindArrows
 	Range: 7500
-	MinRange: 1000
+	MinRange: 1500
 	Burst: 2
 	BurstDelays: 4
 
 ZeroFighterArrowsEnergized:
 	Inherits: JHindArrowsEnergized
 	Range: 7500
-	MinRange: 1000
+	MinRange: 1500
 	Burst: 2
 	BurstDelays: 4
 
@@ -2565,7 +2622,6 @@ JHindChainGun:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 8
 	Range: 3053
-	MinRange: 305
 	Report: gun13.aud
 	Projectile: Bullet
 		-LaunchAngle:
@@ -2593,7 +2649,6 @@ JHindCannon:
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 32
 	Range: 3053
-	MinRange: 305
 	Report: cannon2.aud
 	Projectile: Bullet
 		Speed: 305
@@ -2676,7 +2731,6 @@ JHindArrows:
 	Inherits: ^ArrowWeapon
 	ReloadDelay: 128
 	Range: 3053
-	MinRange: 305
 	Report: dune2smalllaser.aud
 	Projectile: Missile
 		HorizontalRateOfTurn: 40
@@ -2771,8 +2825,8 @@ Maverick:
 	ReloadDelay: 50
 	Burst: 2
 	BurstDelays: 4
-	Range: 5896
-	MinRange: 589
+	Range: 5900
+	MinRange: 1180
 	Report: missile7.aud
 	Projectile: Missile
 		Acceleration: 5
@@ -2831,8 +2885,8 @@ NuclearMaverick:
 	ReloadDelay: 50
 	Burst: 2
 	BurstDelays: 4
-	Range: 7887
-	MinRange: 2629
+	Range: 7890
+	MinRange: 1578
 	Report: missile7.aud
 	Projectile: Missile
 		Speed: 750
@@ -2872,8 +2926,8 @@ ThermobaricNuclearMaverick:
 	ReloadDelay: 50
 	Burst: 2
 	BurstDelays: 4
-	Range: 7887
-	MinRange: 2629
+	Range: 7890
+	MinRange: 1578
 	Report: missile7.aud
 	Projectile: Missile
 		Speed: 750
@@ -3073,46 +3127,43 @@ AphidCryo:
 	Inherits: ^CryoMissileProjectile
 
 ReconRangerRecoillessGun:
-	Inherits: ^MediumMissile
-	Inherits: ^HeavyMissile
 	Inherits: ^Grenade
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^Chaingun
 	Inherits: ^FlakWeapon
+	Inherits: ^TankDestroyerCannon
+	Inherits: ^RailgunWeapon
+	Inherits: ^MediumMissile
+	Inherits: D2K_Rocket
 	ReloadDelay: 64
-	Range: 6758
+	Range: 4925
 	Report: missile6.aud
 	ValidTargets: Ground, Water, Air, Trees
-	Projectile: Bullet
-		Image: d2k_RPG
-		Palette: d2keffect
-		TrailImage: bazooka_trail2
-		TrailPalette: effect75alpha
-		TrailDelay: 0
-		TrailInterval: 1
-		Blockable: false
-		Inaccuracy: 0
-		InaccuracyType: PerCellIncrement
-		ContrailStartColor: FF9933
-		ContrailEndColor: FFFFFF
-		ContrailEndColorUsePlayerColor: true
-		ContrailWidth: 320
-		ContrailLength: 32
-		Speed: 1350
-		Width: 135
-		-LaunchAngle:
-	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Air, Trees
-		Damage: 4000
-	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2
-	Warhead@HeavyMissile: SpreadDamage
-		ValidTargets: Ground, Water, Air, Trees
-		Damage: 4000
-	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2
+	Projectile: Missile
+		Acceleration: 6
+		Speed: 666
+		MaximumLaunchSpeed: 222
+		MinimumLaunchSpeed: 222
+		HorizontalRateOfTurn: 22
+		VerticalRateOfTurn: 22
+	# Projectile: Bullet
+	# 	Image: d2k_RPG
+	# 	Palette: d2keffect
+	# 	TrailImage: bazooka_trail2
+	# 	TrailPalette: effect75alpha
+	# 	TrailDelay: 0
+	# 	TrailInterval: 1
+	# 	Blockable: false
+	# 	Inaccuracy: 0
+	# 	InaccuracyType: PerCellIncrement
+	# 	ContrailStartColor: FF9933
+	# 	ContrailEndColor: FFFFFF
+	# 	ContrailEndColorUsePlayerColor: true
+	# 	ContrailWidth: 320
+	# 	ContrailLength: 32
+	# 	Speed: 1350
+	# 	Width: 135
+	# 	-LaunchAngle:
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 4000
@@ -3141,6 +3192,30 @@ ReconRangerRecoillessGun:
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 4000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 2
+	Warhead@TankDestroyerCannon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 2
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 2
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 2
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 2
 	Warhead@Effect: CreateEffect
@@ -3326,13 +3401,13 @@ TigerCannon:
 
 155mmBastion:
 	Inherits: 155mm
-	Range: 10184
-	MinRange: 2546
+	Range: 10185
+	MinRange: 2037
 
 155mmBastionCryo:
 	Inherits: 155mmCryo
-	Range: 10184
-	MinRange: 2546
+	Range: 10185
+	MinRange: 2037
 
 25mm:
 	Inherits: ^Grenade
@@ -3679,11 +3754,11 @@ Type89PlasmaCannon:
 Type97Cannon:
 	Inherits: ^HeavyCannon
 	Inherits: ^MediumCannon
-	ReloadDelay: 52
-	Range: 5808
+	ReloadDelay: 56
+	Range: 5692
 	Report: cannon1.aud
 	Projectile: Bullet
-		Speed: 580
+		Speed: 569
 	Warhead@HeavyCannon: SpreadDamage
 		Damage: 6000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
@@ -3700,11 +3775,11 @@ Type97PlasmaCannon:
 	Inherits: ^TeslaWeapon
 	Inherits: ^RailgunWeapon
 	Inherits: ^HeavyCannon
-	ReloadDelay: 52
-	Range: 5808
+	ReloadDelay: 56
+	Range: 5692
 	Report: WaveforceCannon.wav
 	Projectile: Bullet
-		Speed: 1160
+		Speed: 1138
 		ContrailStartColor: FF4488AA
 		ContrailEndColor: FFFFFF44
 		ContrailWidth: 250
@@ -4209,7 +4284,7 @@ ra120mm:
 	Inherits: ^MediumCannon
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^TankDestroyerCannon
-	InvalidTargets: Infantry
+	ValidTargets: Water, Vehicle, Structure, Monster
 	ReloadDelay: 95
 	Burst: 2
 	BurstDelays: 8
@@ -4244,7 +4319,7 @@ ra120mmThermobaric:
 	Inherits: ^HeavyFlameWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^HeavyCannon
-	InvalidTargets: Infantry
+	ValidTargets: Water, Vehicle, Structure, Monster
 	ReloadDelay: 95
 	Burst: 2
 	BurstDelays: 8
@@ -4273,7 +4348,7 @@ MammothTusk:
 	Inherits: ^FlakWeapon
 	Inherits: ^MediumMissile
 	Inherits: ^HeavyMissile
-	ValidTargets: Infantry, Air
+	ValidTargets: Infantry, Monster, Air
 	ReloadDelay: 91
 	Burst: 2
 	BurstDelays: 12
@@ -4322,7 +4397,7 @@ MammothTuskThermobaric:
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^MediumMissile
 	Inherits: ^HeavyMissile
-	ValidTargets: Infantry, Air
+	ValidTargets: Infantry, Monster, Air
 	ReloadDelay: 91
 	Burst: 2
 	BurstDelays: 12
@@ -4980,7 +5055,6 @@ MADTankThump:
 DT120mm:
 	Inherits: ra120mm
 	Range: 5c555
-	-InvalidTargets: Infantry
 	ReloadDelay: 55
 
 ragal120mm:
@@ -5179,7 +5253,6 @@ JHighV:
 	Burst: 5
 	BurstDelays: 5
 	Range: 6696
-	MinRange: 669
 	-Report:
 	StartBurstReport: gun8.aud
 	Warhead@SmallArms: SpreadDamage
@@ -5658,27 +5731,30 @@ ExecutionerDeath:
 
 ExecutionerSword:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 30
+	ReloadDelay: 300
 	Report: JUShoEx_swordSwipea.wav, JUShoEx_swordSwipeb.wav, JUShoEx_swordSwipec.wav, JUShoEx_swordSwiped.wav, JUShoEx_swordSwipee.wav, JUShoEx_swordSwipef.wav
+	SoundVolume: 10
 	Range: 3000
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: InstantExplode
 	Warhead@SwordWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Spread: 6000
-		Damage: 60000
+		Damage: 600000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Spread: 3000
-		Damage: 30000
+		Damage: 300000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Spread: 6000
-		Damage: 30
+		Spread: 3000
+		Damage: 300
 	Warhead@Effect: CreateEffect
-		Explosions: steel_blueexp
-		ExplosionPalette: ra2effect
-		ImpactSounds: makoexplose.wav
+		Explosions: mobileemp
+		ExplosionPalette: ra2unit
+		ImpactSounds: mobemp1.aud
+		ImpactActors: false
+		AffectsParent: true
 
 105mmirak:
 	Inherits: 105mm
@@ -5736,7 +5812,7 @@ NanoArtilleryAG:
 	Inherits: ^Grenade
 	ReloadDelay: 77
 	Range: 7777
-	MinRange: 3333
+	MinRange: 1111
 	Report: cannon2.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -5955,8 +6031,8 @@ WaveArtilleryImpact:
 WaveTurretShell:
 	Inherits: WaveArtilleryShell
 	ReloadDelay: 100
-	Range: 9824
-	MinRange: 982
+	Range: 9825
+	MinRange: 1965
 	Projectile: WarheadTrailProjectileCA
 		Weapon: WaveTurretImpact
 		FireMode: Line
@@ -6016,7 +6092,6 @@ RAGatlingTankCannon:
 	ValidTargets: Ground, Water, Trees
 	ReloadDelay: 10
 	Range: 5000
-	MinRange: 500
 	Report: gun13.aud
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees
@@ -6041,7 +6116,6 @@ IncendiaryRAGatlingTankCannon:
 	ValidTargets: Ground, Water, Trees
 	ReloadDelay: 10
 	Range: 5000
-	MinRange: 500
 	Report: gun13.aud
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees
@@ -6082,7 +6156,6 @@ HeavyAATankCannonAG:
 	ValidTargets: Ground, Water, Trees
 	ReloadDelay: 10
 	Range: 4746
-	MinRange: 474
 	Report: gun13.aud
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees
@@ -6131,17 +6204,32 @@ HeavyAATankCannonAA:
 		ValidTargets: Air
 
 ArmoredCarMG:
+	Inherits: ^ArrowWeapon
+	Inherits: ^TankDestroyerCannon
 	Inherits: ^SmallArms
 	Inherits: ^Grenade
+	Inherits: ^MediumCannon
+	Inherits: ^MediumMissile
 	Inherits: ^FlakWeapon
 	Inherits: ^Chaingun
 	ValidTargets: Ground, Water, Trees
-	ReloadDelay: 4
+	ReloadDelay: 8
 	Range: 5012
-	MinRange: 501
 	Report: vgatlo5a.wav, vgatlo5b.wav
 	Projectile: Bullet
 		-LaunchAngle:
+	Warhead@ArrowWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 1
+	Warhead@TankDestroyerCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 1
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees
 		Damage: 2000
@@ -6155,6 +6243,18 @@ ArmoredCarMG:
 		ValidTargets: Ground, Water, Trees
 		Damage: 1000
 	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 1
+	Warhead@MediumCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees
 		Damage: 1
 	Warhead@FlakWeapon: SpreadDamage
@@ -6176,6 +6276,14 @@ ArmoredCarMGAA:
 	Inherits: ArmoredCarMG
 	Range: 7518
 	ValidTargets: Air
+	Warhead@ArrowWeapon: SpreadDamage
+		ValidTargets: Air
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Air
+	Warhead@TankDestroyerCannon: SpreadDamage
+		ValidTargets: Air
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		ValidTargets: Air
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Air
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
@@ -6185,6 +6293,14 @@ ArmoredCarMGAA:
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Air
 	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Air
+	Warhead@MediumCannon: SpreadDamage
+		ValidTargets: Air
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		ValidTargets: Air
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Air
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Air
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Air
@@ -6196,11 +6312,13 @@ ArmoredCarMGAA:
 		ValidTargets: Air
 
 ArmoredCarMGWaveforce:
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^WaveforceBulletWarhead
 	Inherits: ArmoredCarMG
 	Inherits: ^WaveforceBulletProjectile
 
 ArmoredCarMGAAWaveforce:
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^WaveforceBulletWarhead
 	Inherits: ArmoredCarMGAA
 	Inherits: ^WaveforceBulletProjectile
@@ -6386,7 +6504,7 @@ DepthCharge:
 	Inherits: ^Grenade
 	ReloadDelay: 250
 	Range: 15000
-	MinRange: 2500
+	MinRange: 3000
 	Burst: 2
 	Report: turret1.aud
 	TargetActorCenter: true
@@ -6470,7 +6588,7 @@ YamatoCannon:
 	Inherits: ^HeavyCannon
 	ReloadDelay: 125
 	Range: 12500
-	MinRange: 1250
+	MinRange: 2500
 	Burst: 2
 	Report: turret1.aud
 	TargetActorCenter: true

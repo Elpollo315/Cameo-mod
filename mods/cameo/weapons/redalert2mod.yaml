@@ -31,7 +31,7 @@ AsianKamikazeChaingun:
 	Burst: 3
 	BurstDelays: 2
 	Range: 7000
-	MinRange: 350
+	MinRange: 1400
 	Report: vifvat2a.wav, vifvat2b.wav, vifvat2c.wav
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -389,7 +389,7 @@ AsianHowitzerCannon:
 	ReloadDelay: 200
 	Report: aa_bgart.wav
 	Range: 20000
-	MinRange: 2000
+	MinRange: 4000
 	Projectile: Bullet
 		Blockable: false
 		Speed: 200
@@ -722,7 +722,7 @@ AsianTurretPlasma:
 	Inherits: ^HeavyBomb
 	ReloadDelay: 50
 	Range: 14000
-	MinRange: 1750
+	MinRange: 2800
 	Burst: 2
 	Report: bgraatta.wav
 	Projectile: Bullet
@@ -1476,7 +1476,7 @@ AsianPhoenixRocket:
 	Inherits: ^RA2HeavyMissile
 	ReloadDelay: 60
 	Range: 6000
-	MinRange: 600
+	MinRange: 1200
 	Burst: 2
 	BurstDelays: 2
 	Report: vmigatta.wav
@@ -1522,7 +1522,7 @@ AsianPhoenixRocket:
 AsianPhoenixRocketAA:
 	Inherits: AsianPhoenixRocket
 	Range: 8000
-	MinRange: 800
+	MinRange: 1600
 	ValidTargets: Air
 	Warhead@MediumFlameWeapon: SpreadDamage
 		ValidTargets: Air
@@ -2293,7 +2293,6 @@ SteelMegaSword:
 	ReloadDelay: 25
 	Report: megasword.wav
 	Range: 2000
-	MinRange: 0
 	Projectile: InstantHit
 	Warhead@LightChemicalWeapon: SpreadDamage
 		Damage: 20000
@@ -2571,8 +2570,8 @@ SteelTwisterMissiles:
 	Burst: 4
 	BurstDelays: 2
 	Range: 8000
+	MinRange: 1600
 	Report: twisterfire.wav
-	MinRange: 1000
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
 		Inaccuracy: 500
@@ -2649,7 +2648,7 @@ SteelKatyCannons:
 	BurstDelays: 10
 	Report: aa_bgart.wav
 	Range: 7250
-	MinRange: 1250
+	MinRange: 1450
 	Projectile: Bullet
 		Blockable: false
 		Speed: 500
@@ -2699,7 +2698,7 @@ SteelKatyCannonsEMP:
 	BurstDelays: 10
 	Report: aa_bgart.wav
 	Range: 7250
-	MinRange: 1250
+	MinRange: 1450
 	Projectile: Bullet
 		Blockable: false
 		Speed: 500
@@ -2874,7 +2873,7 @@ SteelDaggerCannon:
 	Inherits: ^RA2Grenade
 	Inherits: ^SteelHeavyCannon
 	Range: 20000
-	MinRange: 2000
+	MinRange: 4000
 	ReloadDelay: 100
 	Burst: 4
 	BurstDelays: 0
@@ -2930,7 +2929,7 @@ SteelCruiserArtillery:
 	Inherits: ^RA2Grenade
 	ReloadDelay: 20
 	Range: 8000
-	MinRange: 2000
+	MinRange: 1600
 	Report: vdesatta.wav, vdesattb.wav
 	Projectile: Bullet
 		LaunchAngle: 100
@@ -3085,33 +3084,79 @@ SteelSupportSpawner4:
 		ContrailEndWidth: 1
 
 NaxGrilleArty:
-	Inherits: ^RA2HeavyCannon
+	Inherits: ^HeavyCannon
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^RA2Grenade
 	ReloadDelay: 111
-	Range: 11111
-	MinRange: 1111
+	Range: 12345
+	MinRange: 2468
 	Report: vdesatta.wav, vdesattb.wav
 	Projectile: Bullet
 		LaunchAngle: 111
-		Inaccuracy: 1111
+		Inaccuracy: 1234
 		Speed: 333
-		ContrailLength: 25
+		ContrailLength: 22
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 16000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 8000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 8
 	Warhead@Grenade: SpreadDamage
 		Damage: 16000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		Damage: 8000
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		Damage: 8
-	Warhead@MediumCannon: SpreadDamage
-		Damage: 16000
-	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		Damage: 8
 
 NaxGrilleArtyE:
 	Inherits: NaxGrilleArty
 	Inherits@Elite: ^RA2EliteEffects
-	Range: 12345
+	Range: 13333
+	Burst: 2
+	BurstDelays: 3
+
+NaxBrummbarArty:
+	Inherits: ^HeavyBomb
+	Inherits: ^HeavyCannon
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^RA2MediumCannon
+	ReloadDelay: 140
+	Range: 14000
+	MinRange: 2800
+	Report: vdesatta.wav, vdesattb.wav
+	Projectile: Bullet
+		LaunchAngle: 140
+		Inaccuracy: 1400
+		Speed: 280
+		ContrailLength: 28
+	Warhead@HeavyBomb: SpreadDamage
+		Damage: 14000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		Damage: 7
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 14000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 7
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 14000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 7000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 7
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 14000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 7
+
+NaxBrummbarArtyE:
+	Inherits: NaxBrummbarArty
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 15000
 	Burst: 2
 	BurstDelays: 3
 
@@ -3777,9 +3822,9 @@ NaxiHetzerDestroyer:
 	Inherits: ^MediumCannon
 	Inherits: ^RA2TankDestroyerCannon
 	ReloadDelay: 80
-	Range: 7500
+	Range: 7132
 	Projectile: Bullet
-		Speed: 750
+		Speed: 713
 	Warhead@MediumCannon: SpreadDamage
 		Damage: 20000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
@@ -3789,14 +3834,21 @@ NaxiHetzerDestroyer:
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
 		Damage: 10
 
+NaxiHetzerDestroyer_elite:
+	Inherits: NaxiHetzerDestroyer
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 6000
+	Burst: 2
+	BurstDelays: 3
+
 NaxiJadgDestroyer:
 	Inherits: ^HeavyCannon
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^RA2TankDestroyerCannon
 	ReloadDelay: 90
-	Range: 7800
+	Range: 7396
 	Projectile: Bullet
-		Speed: 780
+		Speed: 739
 	Warhead@HeavyCannon: SpreadDamage
 		Damage: 20000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
@@ -3811,6 +3863,13 @@ NaxiJadgDestroyer:
 		Damage: 20000
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
 		Damage: 10
+
+NaxiJadgDestroyer_elite:
+	Inherits: NaxiJadgDestroyer
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 8396
+	Burst: 2
+	BurstDelays: 3
 
 LunarNaxiJadgDestroyer:
 	Inherits: ^HeavyCannon
@@ -3870,41 +3929,13 @@ NaxiAntiTankCannonE:
 	Burst: 2
 	BurstDelays: 3
 
-NaxBrummbarArty:
-	Inherits: ^HeavyBomb
-	Inherits: ^RA2MediumCannon
-	Inherits: ^RA2Grenade
-	ReloadDelay: 140
-	Range: 14000
-	MinRange: 1400
-	Report: vdesatta.wav, vdesattb.wav
-	Projectile: Bullet
-		LaunchAngle: 140
-		Inaccuracy: 1400
-		Speed: 280
-		ContrailLength: 28
-	Warhead@HeavyBomb: SpreadDamage
-		Damage: 14000
-	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		Damage: 7
-	Warhead@MediumCannon: SpreadDamage
-		Damage: 14000
-	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		Damage: 7
-	Warhead@Grenade: SpreadDamage
-		Damage: 14000
-	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Damage: 7000
-	Warhead@GrenadePercentage: HealthPercentageDamage
-		Damage: 7
-
 NaxSturmArty:
 	Inherits: ^HeavyBomb
 	Inherits: ^RA2MediumCannon
 	Inherits: ^RA2Grenade
 	ReloadDelay: 140
 	Range: 14000
-	MinRange: 1400
+	MinRange: 2800
 	Report: trashcannon.wav
 	Projectile: Bullet
 		Inaccuracy: 1400
@@ -3927,12 +3958,15 @@ NaxSturmArty:
 
 NaxMausCannon:
 	Inherits: ^LightChemicalWeapon
+	Inherits: ^HeavyFlameWeapon
+	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
+	Inherits: ^TankDestroyerCannon
 	Inherits: ^RA2MediumCannon
-	ReloadDelay: 100
+	ReloadDelay: 99
 	Report: aa_bgart.wav
 	Range: 6666
-	MinRange: 666
+	MinRange: 1333
 	Projectile: Bullet
 		Blockable: false
 		Speed: 666
@@ -3948,27 +3982,50 @@ NaxMausCannon:
 		ContrailEndWidth: 22
 		TrailInterval: 1
 	Warhead@LightChemicalWeapon: SpreadDamage
-		Damage: 20000
-	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
 		Damage: 10000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 5000
 	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 5
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 5000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 5
 	Warhead@HeavyBomb: SpreadDamage
-		Damage: 20000
+		Damage: 10000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 5
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 10000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 5
 	Warhead@MediumCannon: SpreadDamage
-		Damage: 20000
+		Damage: 10000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 5
+
+NaxMausCannon_elite:
+	Inherits: NaxMausCannon
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 7777
+	Burst: 2
+	BurstDelays: 3
 
 LunarTigerCannon:
 	Inherits: ^MediumFlameWeapon
 	Inherits: NaxMausCannon
 	ReloadDelay: 80
 	Report: trashcannon.wav
-	Range: 5105
-	MinRange: 510
+	Range: 5100
+	MinRange: 1020
 	Warhead@LightChemicalWeapon: SpreadDamage
 		Damage: 4000
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
@@ -3996,21 +4053,14 @@ LunarTigerCannonE:
 	Burst: 2
 	BurstDelays: 3
 
-NaxMausCannon_elite:
-	Inherits: NaxMausCannon
-	Inherits@Elite: ^RA2EliteEffects
-	Range: 7777
-	Burst: 2
-	BurstDelays: 3
-
 NaxRatteCannon:
 	Inherits: ^LightChemicalWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^RA2MediumCannon
 	ReloadDelay: 145
 	Report: aa_bgart.wav
-	Range: 6765
-	MinRange: 1353
+	Range: 6110
+	MinRange: 1222
 	Burst: 2
 	BurstDelays: 10
 	Projectile: Bullet
@@ -4042,14 +4092,22 @@ NaxRatteCannon:
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
 		Damage: 25
 
+NaxRatteCannon_elite:
+	Inherits: NaxRatteCannon
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 7110
+	Burst: 4
+	BurstDelays: 3
+
 NaxQuadCannon:
 	Inherits: ^Grenade
 	Inherits: ^HeavyMissile
+	Inherits: ^Chaingun
 	Inherits: ^RA2FlakWeapon
 	ReloadDelay: 47
 	Burst: 6
 	BurstDelays: 4
-	Range: 5200
+	Range: 5368
 	Report: nax_aa1.wav
 	ValidTargets: Ground, Water, Trees
 	Warhead@Grenade: SpreadDamage
@@ -4067,6 +4125,12 @@ NaxQuadCannon:
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees
 		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 1
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees
 		Damage: 2000
@@ -4076,22 +4140,14 @@ NaxQuadCannon:
 
 NaxQuadCannonE:
 	Inherits: NaxQuadCannon
-	Range: 6200
+	Range: 6368
 	Burst: 8
 	BurstDelays: 3
-
-SkyMageCannon:
-	Inherits: NaxQuadCannon
-	Range: 5317
-
-SkyMageCannonE:
-	Inherits: NaxQuadCannonE
-	Range: 6317
 
 NaxQuadCannonAA:
 	Inherits: NaxQuadCannon
 	ValidTargets: Air
-	Range: 7800
+	Range: 8052
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Air
 	Warhead@GrenadeFriendlyFire: SpreadDamage
@@ -4101,6 +4157,10 @@ NaxQuadCannonAA:
 	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Air
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Air
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Air
+	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Air
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Air
@@ -4113,9 +4173,17 @@ NaxQuadCannonAA:
 
 NaxQuadCannonAAE:
 	Inherits: NaxQuadCannonAA
-	Range: 8800
+	Range: 9052
 	Burst: 8
 	BurstDelays: 3
+
+SkyMageCannon:
+	Inherits: NaxQuadCannon
+	Range: 5317
+
+SkyMageCannonE:
+	Inherits: NaxQuadCannonE
+	Range: 6317
 
 SkyMageCannonAA:
 	Inherits: NaxQuadCannonAA
@@ -4404,9 +4472,9 @@ NaxCorrosionRocket:
 	Burst: 2
 	BurstDelays: 2
 	Range: 8000
+	MinRange: 1600
 	Report: nax_corrokit.wav
 	SoundVolume: 2.0
-	MinRange: 1000
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
 		Inaccuracy: 600
@@ -4906,7 +4974,7 @@ NaxiV1Rocket:
 	Report: vaegatta.wav, vaegattb.wav
 	ReloadDelay: 500
 	Range: 32000
-	MinRange: 3200
+	MinRange: 6400
 	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: NaxiV1Rocket
@@ -5190,7 +5258,7 @@ NaxisBlackBombSmaller:
 	Inherits: ^RA2MediumCannon
 	ReloadDelay: 141
 	Range: 6666
-	MinRange: 666
+	MinRange: 1333
 	Projectile: Bullet
 		Blockable: false
 		Speed: 666
@@ -5817,7 +5885,7 @@ RA2MortarBike:
 	Inherits: ^RA2MediumCannon
 	ReloadDelay: 124
 	Range: 8000
-	MinRange: 800
+	MinRange: 1600
 	Report: vdesatta.wav, vdesattb.wav
 	Projectile: Bullet
 		LaunchAngle: 100
@@ -6147,7 +6215,7 @@ LatinAADefenderCannon:
 RA2TOPOLCubaTarget:
 	ReloadDelay: 4
 	Range: 32000
-	MinRange: 3200
+	MinRange: 6400
 	Projectile: InstantHit
 		Inaccuracy: 1000
 	Warhead@1Dam: TargetDamage
@@ -6162,7 +6230,7 @@ RA2TOPOLCuba:
 	Report: vaegatta.wav, vaegattb.wav
 	ReloadDelay: 250
 	Range: 32000
-	MinRange: 3200
+	MinRange: 6400
 	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: RA2TOPOLCuba
@@ -6343,7 +6411,7 @@ SMLLauncher:
 	ReloadDelay: 125
 	Burst: 4
 	Range: 15000
-	MinRange: 1500
+	MinRange: 3000
 	Projectile: InstantHit
 		Inaccuracy: 1000
 
@@ -6494,27 +6562,19 @@ NaxisBradleyTarget:
 	ReloadDelay: 135
 	Burst: 4
 	BurstDelays: 10
-	Range: 18000
-	MinRange: 1800
+	Range: 17350
+	MinRange: 3470
 	Projectile: InstantHit
-		Inaccuracy: 1000
-NaxisBradleyTarget:
-	ValidTargets: Ground, Water
-	ReloadDelay: 135
-	Burst: 2
-	BurstDelays: 10
-	Range: 18000
-	MinRange: 1800
-	Projectile: InstantHit
-		Inaccuracy: 1000
+		Inaccuracy: 1735
 
 NaxisSarubianTarget:
 	ValidTargets: Ground, Water
 	ReloadDelay: 40
 	Range: 7800
-	MinRange: 700
+	MinRange: 1560
 	Projectile: InstantHit
 		Inaccuracy: 1000
+
 Naxis_Jagerline_AA:
 	Inherits: ^FlakWeapon
 	Inherits: ^Grenade
@@ -6523,7 +6583,7 @@ Naxis_Jagerline_AA:
 	ValidTargets: Air
 	ReloadDelay: 50
 	Range: 18000
-	MinRange: 1800
+	MinRange: 3600
 	Burst: 2
 	BurstDelays: 5
 	TargetActorCenter: true
@@ -6741,7 +6801,7 @@ FutureMicrotorpedos:
 		ImpactSounds: gexpwasa.wav
 AntenaLaser:
 	Range: 16000
-	MinRange: 800
+	MinRange: 3200
 	ReloadDelay: 250
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: LaserZap
@@ -6816,7 +6876,7 @@ AntenaLaser:
 AntenaVisualLaser:
 	ReloadDelay: 6
 	Range: 16000
-	MinRange: 800
+	MinRange: 3200
 	Report: 2100rotlsr.wav
 	TargetActorCenter: true
 	ValidTargets: Ground, Water, Structure, Wall

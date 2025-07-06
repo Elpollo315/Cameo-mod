@@ -933,12 +933,10 @@ tkmspetsnaz:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: tkmm16
-		MuzzleSequence: garrison-muzzle
 		RequiresCondition: !uptkmapbullets
 	Armament@GARRISONEDUPGRADE: ##########
 		Name: garrisoned
 		Weapon: tkmakap
-		MuzzleSequence: garrison-muzzle
 		RequiresCondition: uptkmapbullets
 	GrantConditionOnPrerequisite@uptkmapbullets:
 		Condition: uptkmapbullets
@@ -1005,12 +1003,10 @@ tkmjug:
 	Armament@GARRISONED:
 		Weapon: tkmjug
 		Name: garrisoned
-		MuzzleSequence: garrison-muzzle
 		RequiresCondition: !uptkmapbullets
 	Armament@GARRISONEDUPGRADE:
 		Weapon: tkmjuggap
 		Name: garrisoned
-		MuzzleSequence: garrison-muzzle
 		RequiresCondition: uptkmapbullets
 	GrantConditionOnPrerequisite@uptkmapbullets:
 		Condition: uptkmapbullets
@@ -1181,7 +1177,6 @@ tkmtrooper:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: tkmm16
-		MuzzleSequence: garrison-muzzle
 	Armament@m203:
 		Weapon: tkmm203
 		LocalOffset: -160,-276,232
@@ -1464,13 +1459,11 @@ tkmvon:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: VonSniper
-		MuzzleSequence: garrison-muzzle
 		RequiresCondition: !uptkmapbullets
 		PauseOnCondition: !ammo
 	Armament@GARRISONEDUPGRADE: ##########
 		Name: garrisoned
 		Weapon: VonSniperAP
-		MuzzleSequence: garrison-muzzle
 		RequiresCondition: uptkmapbullets
 		PauseOnCondition: !ammo
 	GrantConditionOnPrerequisite@uptkmapbullets:
@@ -2047,7 +2040,7 @@ tkmstryker:
 	RenderSprites:
 		Image: tkmstryker
 		PlayerPalette: player_rgba
-		
+
 tkmabrams:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -3463,7 +3456,7 @@ tkmratflak:
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@Template: ^AntiAirDefenseTemplate
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
@@ -3516,7 +3509,8 @@ tkmratflakdeployed:
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@exp: ^GainsExperienceTDBuilding
-	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@Template: ^AntiAirDefenseTemplate
+	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@shape: ^1x1Shape

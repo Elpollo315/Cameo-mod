@@ -638,12 +638,12 @@ World:
 ^NanoTechRepairs:
 	ChangesHealth@up_nanotechrepairs1:
 		PercentageStep: 1
-		Delay: 25
+		Delay: 100
 		StartIfBelow: 100
 		DamageCooldown: 1
 		RequiresCondition: up_nanotechrepairs
 	ChangesHealth@up_nanotechrepairs2:
-		Step: 25
+		Step: 10
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
@@ -669,15 +669,15 @@ World:
 		IsDecoration: True
 	ChangesHealth@nanotechrepairsdamage1:
 		PercentageStep: 1
-		Delay: 5
+		Delay: 10
 		StartIfBelow: 100
-		DamageCooldown: 5
+		DamageCooldown: 10
 		RequiresCondition: nanotechrepairsdamage && !nanotechrepairsdamagecooldown
 	ChangesHealth@nanotechrepairsdamage2:
-		Step: 25
-		Delay: 5
+		Step: 100
+		Delay: 1
 		StartIfBelow: 100
-		DamageCooldown: 5
+		DamageCooldown: 10
 		RequiresCondition: nanotechrepairsdamage && !nanotechrepairsdamagecooldown
 	DamageMultiplier@nanotechrepairsdamage:
 		RequiresCondition: nanotechrepairsdamage && !nanotechrepairsdamagecooldown
@@ -708,8 +708,8 @@ World:
 		DamageCooldown: 10
 		RequiresCondition: extrananotechrepairsdamage && !extrananotechrepairsdamagecooldown
 	ChangesHealth@extrananotechrepairsdamage2:
-		Step: 25
-		Delay: 10
+		Step: 100
+		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 10
 		RequiresCondition: extrananotechrepairsdamage && !extrananotechrepairsdamagecooldown
@@ -8184,33 +8184,33 @@ reconranger:
 		VoiceSet: RAVehicleVoice
 	RenderSprites:
 		PlayerPalette: player_rgba
-	GrantConditionOnAttack@1:
-		Condition: firing1
-		RevokeDelay: 8
-	GrantConditionOnAttack@2:
-		Condition: firing2
-		RevokeDelay: 16
-	GrantConditionOnAttack@3:
-		Condition: firing3
-		RevokeDelay: 32
-	SpeedMultiplier@firing1:
-		RequiresCondition: firing1
-		Modifier: 75
-	TurnSpeedMultiplier@firing1:
-		RequiresCondition: firing1
-		Modifier: 75
-	SpeedMultiplier@firing2:
-		RequiresCondition: firing2
-		Modifier: 75
-	TurnSpeedMultiplier@firing2:
-		RequiresCondition: firing2
-		Modifier: 75
-	SpeedMultiplier@firing3:
-		RequiresCondition: firing3
-		Modifier: 75
-	TurnSpeedMultiplier@firing3:
-		RequiresCondition: firing3
-		Modifier: 75
+	# GrantConditionOnAttack@1:
+	# 	Condition: firing1
+	# 	RevokeDelay: 8
+	# GrantConditionOnAttack@2:
+	# 	Condition: firing2
+	# 	RevokeDelay: 16
+	# GrantConditionOnAttack@3:
+	# 	Condition: firing3
+	# 	RevokeDelay: 32
+	# SpeedMultiplier@firing1:
+	# 	RequiresCondition: firing1
+	# 	Modifier: 75
+	# TurnSpeedMultiplier@firing1:
+	# 	RequiresCondition: firing1
+	# 	Modifier: 75
+	# SpeedMultiplier@firing2:
+	# 	RequiresCondition: firing2
+	# 	Modifier: 75
+	# TurnSpeedMultiplier@firing2:
+	# 	RequiresCondition: firing2
+	# 	Modifier: 75
+	# SpeedMultiplier@firing3:
+	# 	RequiresCondition: firing3
+	# 	Modifier: 75
+	# TurnSpeedMultiplier@firing3:
+	# 	RequiresCondition: firing3
+	# 	Modifier: 75
 	ActorStatValues:
 		Upgrades: up_advancedradarsystems, up_lasertargetingsystems, up_cryomissiles, up_gpssatellitesupport
 
@@ -9698,18 +9698,6 @@ TTNK2:
 		RequiresSelection: true
 		FullSequence: pip-red
 		PipCount: 12
-	ReloadAmmoDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
-		Modifier: 90
-	ReloadAmmoDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 80
-	ReloadAmmoDelayMultiplier@RANK-3:
-		RequiresCondition: rank-veteran == 3
-		Modifier: 70
-	ReloadAmmoDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
-		Modifier: 60
 	ReloadAmmoDelayMultiplier@up_experimentalteslaweaponry:
 		RequiresCondition: up_experimentalteslaweaponry
 		Modifier: 75
@@ -9930,18 +9918,6 @@ MonsterTank:
 		RequiresSelection: true
 		FullSequence: pip-red
 		PipCount: 12
-	ReloadAmmoDelayMultiplier@RANK-1:
-		RequiresCondition: rank-veteran == 1
-		Modifier: 95
-	ReloadAmmoDelayMultiplier@RANK-2:
-		RequiresCondition: rank-veteran == 2
-		Modifier: 90
-	ReloadAmmoDelayMultiplier@RANK-3:
-		RequiresCondition: rank-veteran == 3
-		Modifier: 85
-	ReloadAmmoDelayMultiplier@RANK-ELITE:
-		RequiresCondition: rank-elite
-		Modifier: 75
 	RenderSprites:
 		PlayerPalette: player_rgba
 	FirepowerMultiplier@up_rocketenhancements:
@@ -10111,7 +10087,7 @@ V2RLNUKE:
 		Prerequisites: ~stek, ~upv2rlnuke
 		Description: actor-v2rl.description
 	Valued:
-		Cost: 1700
+		Cost: 2200
 	Tooltip:
 		Name: Nuclear V2 Launcher
 	UpdatesPlayerStatistics:
@@ -11241,7 +11217,7 @@ typechiha:
 		Prerequisites: ~modraweapj, ~upchiha
 		Description: template-mbt.description
 	Valued:
-		Cost: 1100
+		Cost: 1200
 	Tooltip:
 		Name: Chi-Ha Heavy Tank
 	UpdatesPlayerStatistics:
@@ -11274,6 +11250,16 @@ typechiha:
 		LocalOffset: 720,0,320
 		MuzzleSequence: muzzle
 		RequiresCondition: up_advancedplasmaweapons
+	ProximityExternalCondition@Leadership:
+		Range: 5000
+		ValidRelationships: Ally
+		Condition: GDIOfficerLeadership
+	ProximityExternalCondition@propaganda:
+		Range: 5000
+		ValidRelationships: Ally
+		Condition: propaganda
+	WithRangeCircle:
+		Range: 5000
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:

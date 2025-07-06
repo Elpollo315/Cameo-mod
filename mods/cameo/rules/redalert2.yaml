@@ -4572,7 +4572,7 @@ YRSLAV:
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@genemod: ^YuriGeneMod
 	Valued:
-		Cost: 200
+		Cost: 250
 	Tooltip:
 		Name: Slave
 		RequiresCondition: !freed
@@ -6280,11 +6280,11 @@ RA2V3:
 	Tooltip:
 		Name: V3 Rocket Launcher
 	Health:
-		HP: 25000
+		HP: 37500
 	Repairable:
-		HpPerStep: 1250
+		HpPerStep: 1875
 	ChangesHealth@SelfHealing:
-		Step: 10
+		Step: 15
 	Armor:
 		Type: Light
 	Mobile:
@@ -6300,13 +6300,13 @@ RA2V3:
 		RequiresCondition: rank-elite
 	MissileSpawnerMasterCA@1:
 		Actors: ra2v3rocket
-		RespawnTicks: 250
+		RespawnTicks: 125
 		LoadedCondition: ammo
 		RequiresCondition: !rank-elite
 		SpawnOffset: 0,640,300
 	MissileSpawnerMasterCA@2:
 		Actors: ra2v3rocketelite
-		RespawnTicks: 200
+		RespawnTicks: 150
 		LoadedCondition: ammoelite
 		RequiresCondition: rank-elite
 		SpawnOffset: 0,640,300
@@ -6333,8 +6333,6 @@ RA2V3:
 		RequiresCondition: (!ammo && !rank-elite) || (!ammoelite && rank-elite)
 		Sequence: empty-idle
 		Name: reloading
-	DeliversCash:
-		Payload: 500
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
@@ -6345,6 +6343,9 @@ ra2v3rocket:
 	Inherits@rad: ^RA2RadShells
 	Health:
 		HP: 25000
+	RevealsShroud:
+		Range: 5000
+		Type: CenterPosition
 	BallisticMissileCA:
 		LaunchAngle: 125
 		Speed: 175
@@ -6358,6 +6359,7 @@ ra2v3rocket:
 		SpawnAtLastPosition: false
 		Offsets: -450, 0, 0
 	MissileSpawnerSlave:
+	-FireWarheadsOnDeath:
 	SpawnedExplodes:
 		Weapon: RA2Scud
 		EmptyWeapon: RA2Scud
@@ -6375,6 +6377,8 @@ ra2v3rocketelite:
 	Inherits: ra2v3rocket
 	Health:
 		HP: 50000
+	RevealsShroud:
+		Range: 10000
 	SpawnedExplodes:
 		Weapon: RA2SCUDELITE
 		EmptyWeapon: RA2SCUDELITE
@@ -8031,15 +8035,12 @@ yrschp:
 		Queue: Vehicle, Aircraft, RAAircraft
 		Description: actor-schp.description
 	Aircraft:
-		CanForceLand: false
-		InitialFacing: 896
 		TurnSpeed: 30
 		Speed: 150
-		AltitudeVelocity: 100
-		IdealSeparation: 2500
+		RepulsionSpeed: 30
+		CanForceLand: false
 		#LandableTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice
 		VTOL: true
-		RepulsionSpeed: 75
 		Voice: Move
 		PauseOnCondition: !undeployed || disabled
 	Health:
@@ -8139,9 +8140,9 @@ RA2FALC:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@upgrade: ^RA2AdvancedAeronautics
 	Valued:
-		Cost: 1600
+		Cost: 1200
 	Tooltip:
-		Name: actor-falc.name
+		Name: Harrier
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -8162,9 +8163,9 @@ RA2FALC:
 		VTOL: true
 		Voice: Move
 	Health:
-		HP: 50000
+		HP: 60000
 	ChangesHealth@SelfHealing:
-		Step: 20
+		Step: 24
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: HarrierMissiles
@@ -8222,14 +8223,14 @@ RA2BEAG:
 	Inherits@Template: ^BomberTemplate
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
-		Name: actor-beag.name
+		Name: Black Eagle
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~ra2gatech, ~upra2beag
 		Queue: Aircraft, RAAircraft
 		Description: actor-beag.description
 	Valued:
-		Cost: 3200
+		Cost: 3000
 	Health:
 		HP: 85000
 	ChangesHealth@SelfHealing:
@@ -8304,9 +8305,9 @@ ra2shad:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@bot: ^BotAutoDeployTransport
 	Valued:
-		Cost: 2600
+		Cost: 2100
 	Tooltip:
-		Name: actor-shad.name
+		Name: Night Hawk
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 		OverrideActor: ra2shad
@@ -8316,15 +8317,15 @@ ra2shad:
 		Queue: Aircraft, RAAircraft
 		Description: actor-shad.description
 	Aircraft:
-		TurnSpeed: 20
+		TurnSpeed: 24
 		Speed: 120
-		RepulsionSpeed: 10
+		RepulsionSpeed: 24
 	Health:
-		HP: 52500
+		HP: 87500
 	Repairable:
-		HpPerStep: 2625
+		HpPerStep: 4375
 	ChangesHealth@SelfHealing:
-		Step: 21
+		Step: 35
 	Armament@PRIMARY:
 		Weapon: BlackHawkCannon
 		LocalOffset: 150,-200,-25, 150,200,-25
@@ -8376,83 +8377,6 @@ ra2shad:
 	FirepowerMultiplier@FirerateCompensation:
 		Modifier: 50
 
-ra2shad.bot1:
-	Inherits: ra2shad
-	Buildable:
-		Prerequisites: ra2gaairc, ra2gatech, ra2gapile, ~botplayer
-	Cargo:
-		InitialUnits: ra2seal, ra2seal, ra2seal, ra2seal
-	ProductionCostMultiplier:
-		Multiplier: 150
-
-ra2hind:
-	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
-	Inherits@cargo: ^CargoAircraft
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Valued:
-		Cost: 2000
-	Tooltip:
-		Name: actor-ra2hind.name
-	Buildable:
-		BuildPaletteOrder: 97
-		Prerequisites:  ~latin_cgair
-		Queue: Aircraft, RAAircraft
-		IconPalette: ra2cameo
-		Description: actor-ra2hind.description
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Aircraft:
-		TurnSpeed: 25
-		Speed: 125
-		AltitudeVelocity: 100
-		IdealSeparation: 2500
-	Health:
-		HP: 37500
-	ChangesHealth@SelfHealing:
-		Step: 15
-	Armament@PRIMARY:
-		Weapon: BlackHawkCannon
-		LocalOffset: 128,-213,-85, 128,213,-85
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	WithMuzzleOverlay:
-	AttackAircraft:
-		FacingTolerance: 80
-	WithIdleOverlay@ROTORAIR:
-		Offset: 0,0,20
-		Sequence: rotor
-		RequiresCondition: airborne
-		PauseOnCondition: disabled
-	WithIdleOverlay@ROTORGROUND:
-		Offset: 0,0,20
-		Sequence: slow-rotor
-		RequiresCondition: !airborne
-		PauseOnCondition: disabled
-	SpawnActorOnDeath:
-		Actor: ra2hind.husk
-	Selectable:
-		DecorationBounds: 1280, 1024
-	Carryall:
-		LocalOffset: 0,0,-256
-	Voiced:
-		VoiceSet: SiegeChopperVoice
-	DeathSounds:
-	RenderSprites:
-		PlayerPalette: playerra2
-
-ra2hind.husk:
-	Inherits: ^LargeHelicopterHusk
-	Tooltip:
-		Name: Hind Transport
-	Aircraft:
-		TurnSpeed: 15
-		Speed: 150
-	RenderSprites:
-		Image: ra2hind
-		PlayerPalette: playerra2
-
 YRDISK:
 	Inherits: ^Helicopter
 	Inherits@Template: ^SpaceshipTemplate
@@ -8464,7 +8388,7 @@ YRDISK:
 	Valued:
 		Cost: 2400
 	Tooltip:
-		Name: actor-disk.name
+		Name: Floating Disc
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -8473,13 +8397,14 @@ YRDISK:
 		Queue: Vehicle, Aircraft, RAAircraft
 		Description: actor-disk.description
 	Aircraft:
-		InitialFacing: 896
 		TurnSpeed: 80
 		Speed: 80
 		RepulsionSpeed: 80
 		IdealSeparation: 2000
 	Health:
 		HP: 125000
+	Repairable:
+		HpPerStep: 6250
 	ChangesHealth@SelfHealing:
 		Step: 50
 	GrantConditionOnPrerequisite@Upgrade:
@@ -8508,7 +8433,7 @@ YRDISK:
 		FacingTolerance: 512
 	AmmoPool:
 		Armaments: primary
-		Ammo: 1
+		Ammo: 3
 		AmmoCondition: ammo
 	WithShadow:
 	WithMoveAnimation:
@@ -8516,7 +8441,7 @@ YRDISK:
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	ReloadAmmoPool:
-		Delay: 120
+		Delay: 80
 		Count: 1
 	Selectable:
 		DecorationBounds: 1280, 1024
@@ -8544,7 +8469,7 @@ YRDISK:
 		RevokeDelay: 5
 		ArmamentNames: secondary
 	DamageMultiplier@stealing:
-		Modifier: 50
+		Modifier: 75
 		RequiresCondition: stealing
 	ChangesHealth@stealing:
 		Step: 100
@@ -8564,10 +8489,10 @@ ra2rock:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericAirDetector
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Tooltip:
+		Name: Rocketeer
 	Valued:
 		Cost: 600
-	Tooltip:
-		Name: actor-ra2rock.name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -8616,7 +8541,7 @@ ra2rock:
 		ForceToGround: true
 		RequiresCondition: airborne
 	FirepowerMultiplier@FirerateCompensation:
-		Modifier: 40
+		Modifier: 50
 	RenderSprites:
 		PlayerPalette: playerra2
 	ReloadDelayMultiplier@upgrade:
@@ -8660,6 +8585,8 @@ yrlunr:
 	Inherits: ra2rock
 	Tooltip:
 		Name: Cosmonaut
+	Valued:
+		Cost: 900
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		Prerequisites: yrygcomd, ~upyrlunr
@@ -8670,8 +8597,6 @@ yrlunr:
 		Actor: yrlunr.husk
 	Voiced:
 		VoiceSet: CosmonautVoice
-	FirepowerMultiplier@FirerateCompensation:
-		Modifier: 100
 
 yrlunr.husk:
 	Inherits: ra2rock.husk
@@ -8793,13 +8718,13 @@ yrbpln:
 	Inherits@turnanimation: ^RA2PlanewithTurnAnimation
 	Selectable:
 	Tooltip:
-		Name: actor-bpln.name
+		Name: MiG Bomber
 	Valued:
 		Cost: 5000
 	Health:
 		HP: 100000
 	ChangesHealth@SelfHealing:
-		Step: 80
+		Step: 40
 	HitShape:
 	Voiced:
 		VoiceSet: MiGVoice
@@ -8872,18 +8797,20 @@ yrbpln1:
 	Inherits@turnanimation: ^RA2PlanewithTurnAnimation
 	Selectable:
 	Tooltip:
-		Name: actor-bpln.name
+		Name: MiG Bomber
 	Valued:
 		Cost: 2000
 	Buildable:
 		BuildPaletteOrder: 100
-		Prerequisites: ~ra2naairf, ~upra2mig
+		Prerequisites: ~ra2natech, ~upra2mig
 		Queue: Aircraft, RAAircraft
 		Description: actor-bpln.description
 	Health:
 		HP: 57500
+	Repairable:
+		HpPerStep: 2875
 	ChangesHealth@SelfHealing:
-		Step: 46
+		Step: 23
 	HitShape:
 	Voiced:
 		VoiceSet: MiGVoice
@@ -8958,16 +8885,15 @@ ra2_tzep:
 		Queue: Aircraft, RAAircraft, Vehicle
 		Description: actor-shad.description
 	Aircraft:
-		TurnSpeed: 20
+		TurnSpeed: 14
 		Speed: 35
-		AltitudeVelocity: 0c50
-		RepulsionSpeed: 15
+		RepulsionSpeed: 14
 	Health:
-		HP: 750000
+		HP: 265000
 	Repairable:
-		HpPerStep: 2625
+		HpPerStep: 13250
 	ChangesHealth@SelfHealing:
-		Step: 21
+		Step: 106
 	Armament@PRIMARY:
 		Weapon: BlackHawkCannon
 		LocalOffset: 150,-200,-25, 150,200,-25
@@ -8975,9 +8901,9 @@ ra2_tzep:
 		MuzzlePalette: ra2effect
 	WithMuzzleOverlay:
 	Cargo:
-		InitialUnits: ra2e2, ra2e2, ra2e2, ra2e2, RA2flakt, RA2flakt, ra2shk, ra2shk
+		InitialUnits: ra2e2, ra2e2, ra2e2, ra2e2, RA2flakt, RA2flakt, ra2shk, ra2shk, RA2HTNK, RA2HTNK
 		Types: Infantry, Hacker, Fremen, Vehicle
-		MaxWeight: 8
+		MaxWeight: 14
 		AfterLoadDelay: 0
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
@@ -8995,8 +8921,7 @@ ra2_tzep:
 	Voiced:
 		VoiceSet: KirovVoice
 	DeathSounds:
-	FirepowerMultiplier@FirerateCompensation:
-		Modifier: 50
+
 ra2_tzep.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
@@ -9459,91 +9384,6 @@ ra2_ctoutp.husk:
 		Sequence: idle-side
 	WithIdleOverlay@bib:
 		Sequence: bib
-ra2mine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Ore Driller
-	RadarColorFromTerrain:
-		Terrain: Ore
-	SeedsResource:
-		ResourceType: RA2Ore
-		Interval: 100
-		MaxRange: 200
-	RenderSprites:
-		Palette: ra2infantry
-	-WithMakeAnimation:
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.2
-		GreenTint: 0.1
-		BlueTint: 0.05
-
-ra2gmine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Gem Driller
-	RadarColorFromTerrain:
-		Terrain: Gems
-	SeedsResource:
-		ResourceType: RA2Gems
-		Interval: 75
-		MaxRange: 100
-	RenderSprites:
-		Palette: ra2temperat
-	-WithMakeAnimation:
-	RadarColorFromTerrain:
-		Terrain: Gems
-	AppearsOnMapPreview:
-		Terrain: Gems
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.1
-		GreenTint: 0.05
-		BlueTint: 0.2
-
-ra2smine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Silver Driller
-	RadarColorFromTerrain:
-		Terrain: Ore
-	SeedsResource:
-		ResourceType: RA2Ore
-		Interval: 100
-		MaxRange: 200
-	RenderSprites:
-		Palette: ra2silverdrill
-		Image: ra2rmine
-	-WithMakeAnimation:
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.2
-		GreenTint: 0.1
-		BlueTint: 0.05
-
-ra2cmine:
-	Inherits@1: ^TibTree
-	Tooltip:
-		Name: Copper Driller
-	RadarColorFromTerrain:
-		Terrain: Ore
-	SeedsResource:
-		ResourceType: RA2Ore
-		Interval: 100
-		MaxRange: 200
-	RenderSprites:
-		Palette: racopperdrill
-		Image: ra2rmine
-	-WithMakeAnimation:
-	TerrainLightSource:
-		Range: 10000
-		Intensity: 0.1
-		RedTint: 0.2
-		GreenTint: 0.1
-		BlueTint: 0.05
 
 # Black Operation Soldiers
 ra2e2.black:

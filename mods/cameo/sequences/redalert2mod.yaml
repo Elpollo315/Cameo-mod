@@ -6365,6 +6365,7 @@ nax_eng:
 	icon:
 		Filename: nax_engitruk_icon.png
 		AddExtension: False
+		Offset: 0, 0
 
 nax_me262:
 	Defaults:

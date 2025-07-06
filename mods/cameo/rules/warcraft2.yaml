@@ -3078,9 +3078,9 @@ wc2_human_elven_archer:
 	Tooltip:
 		Name: Elven Archer
 	Valued:
-		Cost: 300
+		Cost: 400
 	Power:
-		Amount: -15
+		Amount: -20
 	Health:
 		HP: 12000
 	ChangesHealth@SelfHealing:
@@ -3144,16 +3144,16 @@ wc2_human_knight:
 	Tooltip:
 		Name: Knight
 	Valued:
-		Cost: 800
+		Cost: 1500
 	Power:
-		Amount: -40
+		Amount: -75
 	Health:
-		HP: 110000
+		HP: 300000
 	ChangesHealth@SelfHealing:
-		Step: 44
+		Step: 120
 	Mobile:
 		Speed: 110
-		TurnSpeed: 44
+		TurnSpeed: 88
 		Locomotor: tracked
 	Buildable:
 		BuildPaletteOrder: 30
@@ -3333,16 +3333,16 @@ wc2_human_ballista:
 	Tooltip:
 		Name: Ballista
 	Valued:
-		Cost: 700
+		Cost: 900
 	Power:
-		Amount: -35
+		Amount: -45
 	Health:
 		HP: 45000
 	ChangesHealth@SelfHealing:
 		Step: 18
 	Mobile:
 		Speed: 45
-		TurnSpeed: 9
+		TurnSpeed: 18
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~wc2_human_blacksmith
@@ -4797,9 +4797,9 @@ wc2_orc_troll_axethrower:
 	Tooltip:
 		Name: Troll Axethrower
 	Valued:
-		Cost: 300
+		Cost: 400
 	Power:
-		Amount: -15
+		Amount: -20
 	Health:
 		HP: 16000
 	ChangesHealth@SelfHealing:
@@ -4863,16 +4863,16 @@ wc2_orc_ogre:
 	Tooltip:
 		Name: Ogre
 	Valued:
-		Cost: 900
+		Cost: 1800
 	Power:
-		Amount: -45
+		Amount: -90
 	Health:
-		HP: 140000
+		HP: 360000
 	ChangesHealth@SelfHealing:
-		Step: 56
+		Step: 144
 	Mobile:
 		Speed: 90
-		TurnSpeed: 36
+		TurnSpeed: 72
 		Locomotor: tracked
 	Buildable:
 		BuildPaletteOrder: 30
@@ -5099,16 +5099,16 @@ wc2_orc_catapult:
 	Tooltip:
 		Name: Catapult
 	Valued:
-		Cost: 700
+		Cost: 800
 	Power:
-		Amount: -35
+		Amount: -40
 	Health:
 		HP: 40000
 	ChangesHealth@SelfHealing:
 		Step: 16
 	Mobile:
 		Speed: 40
-		TurnSpeed: 8
+		TurnSpeed: 16
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~wc2_orc_blacksmith

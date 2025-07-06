@@ -68,6 +68,10 @@ Player:
 			GoldTiberium: 45
 			Ore: 25
 			Gems: 50
+			RA2Ore: 40
+			RA2Gems: 50
+			RA2Silver: 30
+			RA2Copper: 20
 			SCMinerals: 25
 			Veins: 15
 			GESupplies: 50
@@ -91,10 +95,6 @@ Player:
 			SWFarms: 25
 			OP2Ore: 33
 			OP2Ore2: 67
-			RA2Ore: 40
-			RA2Gems: 50
-			RA2Silver: 30
-			RA2Copper: 20
 	DeveloperMode:
 		CheckboxDisplayOrder: 20
 	BaseAttackNotifier:

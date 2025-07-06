@@ -1722,12 +1722,13 @@ upgrade-cyberneticmodifications =
 
 upgrade-blackmarketupgrades =
    .description = Gives certain units new or additional weapons:
-   Minigunner: Gets a Laser Rifle.
-   Buggy Mk1 and Mk2: Adds a Flamethrower.
-   Light Tank Mk1 and Mk2: Adds a Missile Launcher.
-   Apache: Adds addtional Missile Launchers.
-   Artillery and Specter: Increases damage and spread of the warhead makes it more effective against vehicles.
-   Gun Turret and Attack Submarine: Increases damage and spread of the warhead.
+      Minigunner: Gets a Laser Rifle.
+      Buggy Mk1 and Mk2: Adds a Flamethrower.
+      Recon Bike: Adds a Point Defense Laser.
+      Light Tank Mk1 and Mk2: Adds a Missile Launcher.
+      Apache: Adds Missile Launchers.
+      Artillery and Specter: Increases damage and spread of the warhead makes it more effective against vehicles.
+      Gun Turret and Attack Submarine: Increases damage and spread of the warhead.
 
 upgrade-advancedguerillatactics =
    .description = TEAM UPGRADE

@@ -1138,22 +1138,26 @@ hightech.atreides:
 ixian_launchpad:
 	Defaults:
 		Filename: IxHoverpad.png
-		Offset: 0,-4
+		Offset: 0,16
 	idle:
-		Start: 9
+		Length: 10
 		ZOffset: -1023
+		Tick: 50
 	damaged-idle:
-		Start: 9
+		Filename: IxHoverpadDamaged.png
+		Length: 10
 		ZOffset: -1023
+		Tick: 50
 	active:
 		Start: 10
-		Length: 7
-		Tick: 70
+		Length: 6
+		Tick: 60
 		ZOffset: -1023
 	damaged-active:
+		Filename: IxHoverpadDamaged.png
 		Start: 10
-		Length: 7
-		Tick: 70
+		Length: 6
+		Tick: 60
 		ZOffset: -1023
 	dead:
 		Start: 9
@@ -3628,7 +3632,7 @@ d2k_munitions.ordos:
 		Start: 1
 
 ####################################################
-#           MISC
+#		   MISC
 ####################################################
 
 large_trail:
@@ -8206,6 +8210,33 @@ combat_tank_a.husk:
 		Facings: -32
 		ZOffset: -512
 
+mongoose_d2k_a:
+	Defaults:
+	idle:
+		Filename: AtrMongooseSpritesheet-256.png
+		Start: 0
+		Facings: 32
+		Remap: 54F94B
+	run:
+		Filename: AtrMongooseSpritesheet-256.png
+		Start: 32
+		Facings: 32
+		Length: 7
+		Tick: 140
+	turret:
+		Filename: AtrMongooseMissileSpritesheet-32.png
+		Facings: 32
+		Remap: 54F94B
+	muzzle:
+		Filename: DATA.R16
+		Scale: 1.5
+		Start: 4028
+		Tick: 60
+		Facings: -32
+		BlendMode: Additive
+	icon:
+		Filename: d2kmongoosecameo.png
+
 duelist_tank:
 	Defaults:
 		AddExtension: false
@@ -9159,8 +9190,7 @@ d2k_defender:
 d2k_ixbomber:
 	Defaults:
 		Filename: IxHeavyDrone.png
-		Offset: 0, 16
-		Scale: 1.5
+		Offset: 0, 32
 	idle:
 		Facings: 64
 	icon:

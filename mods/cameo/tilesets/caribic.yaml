@@ -62,6 +62,26 @@ Terrain:
 		Type: Water
 		TargetTypes: Water
 		Color: 5C74A4
+	TerrainType@RA2Copper:
+		Type: RA2Copper
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: 804000
+	TerrainType@RA2Silver:
+		Type: RA2Silver
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: 808080
+	TerrainType@RA2Ore:
+		Type: RA2Ore
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: 808020
+	TerrainType@RA2Gems:
+		Type: RA2Gems
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: 604080
 	TerrainType@Gems: ##########
 		Type: Gems
 		TargetTypes: Ground

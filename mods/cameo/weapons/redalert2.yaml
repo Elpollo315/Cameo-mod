@@ -227,9 +227,9 @@ HarrierMissiles:
 	ReloadDelay: 50
 	Burst: 4
 	BurstDelays: 2
-	Range: 7000
+	Range: 6670
+	MinRange: 1334
 	Report: vintatta.wav
-	MinRange: 1000
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
 		Inaccuracy: 300
@@ -536,7 +536,7 @@ RA2GrandCannonWeapon:
 	ReloadDelay: 200
 	Report: bgraatta.wav
 	Range: 11800
-	MinRange: 2950
+	MinRange: 2360
 	Projectile: Bullet
 		Blockable: false
 		Speed: 500
@@ -944,7 +944,7 @@ RA2KirovBomb:
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidRelationships: Neutral, Enemy
 		Damage: 40
-		Spread: 800
+		Spread: 4000
 	Warhead@EffectWater: CreateEffect
 		Explosions: large_splash
 		ImpactSounds: gexpwasa.wav
@@ -1511,8 +1511,8 @@ RA28Inch:
 
 RA2DiskLaser:
 	Inherits: ^LaserWeapon
-	ReloadDelay: 60
-	Range: 6000
+	ReloadDelay: 40
+	Range: 6840
 	Report: vfloatta.wav
 	ValidTargets: Ground, Water, Air
 	InvalidTargets: DiskSteal
@@ -1572,8 +1572,8 @@ RA2DiskDrain:
 
 RA2DiskSteal:
 	ReloadDelay: 5
-	Range: 0c256
-	MinRange: 0c1
+	Range: 125
+	MinRange: 1
 	TargetActorCenter: true
 	ValidTargets: DiskSteal
 	Projectile: InstantHit
@@ -2386,7 +2386,7 @@ RA2HornetMissile:
 	Inherits: ^RA2MediumMissile
 	ReloadDelay: 3
 	Range: 5000
-	MinRange: 500
+	MinRange: 1000
 	Report: vospatta.wav
 	Projectile: Missile
 		Speed: 500
@@ -2460,11 +2460,13 @@ RA2MedusaAG:
 
 MigMissiles:
 	Inherits: ^HeavyBomb
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^FlakWeapon
 	Inherits: ^RA2MediumMissile
 	ReloadDelay: 50
 	Burst: 4
 	BurstDelays: 2
-	Range: 7500
+	Range: 7600
 	Report: vmigatta.wav
 	ValidTargets: Ground, Water
 	Projectile: Missile
@@ -2481,16 +2483,28 @@ MigMissiles:
 		MinimumLaunchSpeed: 384
 		Acceleration: 10
 	Warhead@HeavyBomb: SpreadDamage
-		Damage: 16000
+		Damage: 8000
 		ValidTargets: Ground, Water
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		Damage: 8
+		Damage: 4
+		ValidTargets: Ground, Water
+	Warhead@HeavyAAWeapon: SpreadDamage
+		Damage: 8000
+		ValidTargets: Ground, Water
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+		ValidTargets: Ground, Water
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 8000
+		ValidTargets: Ground, Water
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 4
 		ValidTargets: Ground, Water
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 16000
+		Damage: 8000
 		ValidTargets: Ground, Water
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 8
+		Damage: 4
 		ValidTargets: Ground, Water
 	-Warhead@Effect1:
 	-Warhead@Effect2:
@@ -2506,16 +2520,20 @@ MigMissiles_AA:
 		Inaccuracy: 250
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Air
-		Damage: 16000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Air
-		Damage: 8
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Air
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Air
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Air
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Air
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Air
-		Damage: 16000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Air
-		Damage: 8
 
 MigMissiles_rad:
 	Inherits: MigMissiles
@@ -2548,7 +2566,7 @@ RA2MammothTusk_elite:
 V3Launch:
 	ReloadDelay: 50
 	Range: 15000
-	MinRange: 5000
+	MinRange: 3000
 	Projectile: InstantHit
 		Inaccuracy: 1000
 	Warhead@1Dam: TargetDamage
@@ -2556,7 +2574,7 @@ V3Launch:
 V3LaunchElite:
 	ReloadDelay: 50
 	Range: 20000
-	MinRange: 5000
+	MinRange: 4000
 	Projectile: InstantHit
 		Inaccuracy: 1000
 	Warhead@1Dam: TargetDamage
@@ -2575,7 +2593,7 @@ BoomerLaunch:
 	InvalidTargets: Ship, Underwater
 	ReloadDelay: 50
 	Range: 15000
-	MinRange: 5000
+	MinRange: 3000
 	Burst: 2
 	BurstDelays: 8
 
@@ -2583,8 +2601,8 @@ RA2SCUD:
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^RA2Grenade
 	Inherits: ^RA2HeavyMissile
-	ReloadDelay: 250
-	Range: 16000
+	ReloadDelay: 125
+	Range: 20000
 	MinRange: 4000
 	-Report:
 	-Projectile:
@@ -2638,8 +2656,8 @@ RA2SCUD_rad:
 RA2SCUDELITE:
 	Inherits: ^NuclearWarhead
 	Inherits: RA2SCUD
-	ReloadDelay: 200
-	Range: 20000
+	ReloadDelay: 160
+	Range: 24000
 	Warhead@NuclearWarhead: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 30000
@@ -2728,7 +2746,7 @@ YRBoomerTorpedo:
 	Inherits: ^RA2HeavyMissile
 	ReloadDelay: 176
 	Range: 15000
-	MinRange: 5000
+	MinRange: 3000
 	Burst: 4
 	BurstDelays: 8
 	Report: vbooat2a.wav
@@ -2970,6 +2988,9 @@ BlackHawkCannon:
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 1
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 2000
@@ -3496,17 +3517,26 @@ RA2Chemspray:
 	-Warhead@Effect:
 
 ra2roktgun:
-	Inherits: ^RA2SmallArms
-	Inherits: ^RA2FlakWeapon
+	Inherits: ^LightMissile
+	Inherits: ^SmallArms
+	Inherits: ^FlakWeapon
 	Inherits: ^RA2Chaingun
-	ReloadDelay: 15
-	Range: 3500
-	MinRange: 1
+	ReloadDelay: 14
+	Range: 5180
 	Report: irocatta.wav
 	ValidTargets: Ground, Water, Air
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 1
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 1
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 2000
@@ -3522,9 +3552,12 @@ ra2roktgun:
 	-Warhead@EffectAir:
 
 RA2CosmonautLaser:
+	Inherits: ^RailgunWeapon
 	Inherits: ^LaserWeapon
 	Inherits: ra2roktgun
 	Report: ilasatta.wav
+	ReloadDelay: 11
+	Range: 4204
 	Projectile: LaserZap
 		HitAnim: laserfire
 		Width: 40
@@ -3534,7 +3567,13 @@ RA2CosmonautLaser:
 		SecondaryBeamZOffset: 2047
 		SecondaryBeamColor: FFFFFF80
 		UsePlayerColor: true
+	Warhead@LightMissile: SpreadDamage
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@SmallArms: SpreadDamage
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@FlakWeapon: SpreadDamage
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
@@ -3543,6 +3582,12 @@ RA2CosmonautLaser:
 	Warhead@Chaingun: SpreadDamage
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@ChaingunPercentage: HealthPercentageDamage
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@LaserWeapon: SpreadDamage
 		Damage: 2000
@@ -3565,7 +3610,11 @@ RA220mmrapid:
 	Range: 5000
 	Report: vwaratta.wav, vwarattb.wav
 	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Air, Water
 		Damage: 4000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 2
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees
 		Damage: 4000

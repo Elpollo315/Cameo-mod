@@ -28,8 +28,8 @@ wc2peasantsmack:
 # 3-9 WC2 damage. 3 Base, 6 Pierce.
 wc2arrowFire:
 	Inherits: ^ArrowWeapon
-	ReloadDelay: 27
-	Range: 6484
+	ReloadDelay: 22
+	Range: 7760
 	Report: wc2_bowfire.aud
 	ValidTargets: Ground, Water, Air
 	Projectile: Missile
@@ -54,15 +54,15 @@ wc2arrowFire:
 wc2knightslice:
 	Inherits: ^SwordWeapon
 	ReloadDelay: 18
-	Range: 1357
+	Range: 1545
 	Report: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 14000
+		Damage: 12000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 7000
+		Damage: 6000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 7
+		Damage: 6
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 
@@ -235,9 +235,9 @@ wc2ballistaFire:
 	Inherits: ^Grenade
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
-	ReloadDelay: 196
-	Range: 11675
-	MinRange: 2335
+	ReloadDelay: 180
+	Range: 14450
+	MinRange: 2890
 	Report: wc2_catapult.aud
 	Projectile: Bullet
 		Speed: 384
@@ -975,7 +975,7 @@ wc2gruntslice:
 wc2axeFire:
 	Inherits: wc2arrowFire
 	ReloadDelay: 35
-	Range: 6226
+	Range: 7290
 	Report: wc2_axe.aud
 	Projectile:
 		Image: wc2_orc_trollaxethrower_axe
@@ -989,7 +989,7 @@ wc2axeFire:
 wc2ogrepunch:
 	Inherits: ^SwordWeapon
 	ReloadDelay: 24
-	Range: 1486
+	Range: 1646
 	Report: wc2_punch.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
@@ -1117,9 +1117,9 @@ wc2catapultFire:
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
-	ReloadDelay: 218
-	Range: 10360
-	MinRange: 2072
+	ReloadDelay: 240
+	Range: 13400
+	MinRange: 2680
 	Report: wc2_catapult.aud
 	Projectile: Bullet
 		Speed: 384

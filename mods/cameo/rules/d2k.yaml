@@ -6611,9 +6611,9 @@ d2k_air_drone:
 	Inherits@IxianTechnology: ^D2K_AdvancedIxianTechnology
 	Inherits@eject: ^AircraftEjectOnDeath
 	Valued:
-		Cost: 1200
+		Cost: 1800
 	Tooltip:
-		Name: Ix Air Drone
+		Name: Ixian Air Drone
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 10
@@ -6634,7 +6634,7 @@ d2k_air_drone:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	AmmoPool:
 		Name: primary
 		Ammo: 8
@@ -6666,8 +6666,6 @@ d2k_air_drone:
 		MuzzlePalette: d2keffect
 		RequiresCondition: d2k_needle_guns
 		PauseOnCondition: !ammo
-	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
 	Aircraft:
 		CruiseAltitude: 1800
 		Speed: 165
@@ -7075,9 +7073,9 @@ harvester:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Cloak:
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Mobile:
 		Speed: 45
 		TurnSpeed: 9
@@ -7159,9 +7157,9 @@ ordos_harv:
 		RegenInterval: 1
 		ShieldsUpCondition: d2k_shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Cloak:
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Mobile:
 		Speed: 45
 		TurnSpeed: 9
@@ -8055,7 +8053,7 @@ siege_tank_ixian:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Armament:
 		Weapon: D2K_155mm2
 		PauseOnCondition: !ammo
@@ -8145,7 +8143,7 @@ duelist_tank:
 		RegenInterval: 1
 		ShieldsUpCondition: d2k_shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Mobile:
 		Speed: 45
 		TurnSpeed: 9
@@ -8235,7 +8233,7 @@ missile_tank_ixian:
 		RegenInterval: 1
 		ShieldsUpCondition: d2k_shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Armament:
 		Weapon: mtank_pri2
 		LocalOffset: -128,128,171, -128,-128,171
@@ -9183,7 +9181,7 @@ rocket_raider_ixian:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	AmmoPool:
 		Ammo: 8
 		AmmoCondition: ammo
@@ -9280,7 +9278,7 @@ shock_raider:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Armor:
 		Type: Medium
 	Mobile:
@@ -9422,6 +9420,58 @@ combat_tank_a:
 		Prerequisites: ~faction.atreides, ~techlevel.medium
 	Armament:
 		Weapon: 80mm_A
+
+d2katreidesmongoose:
+	Inherits: ^Vehicle
+	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Tooltip:
+		Name: Mongoose
+	Valued:
+		Cost: 1300
+	Selectable:
+		Bounds: 1280, 1280
+	Buildable:
+		Queue: Vehicle, RAVehicle
+		Prerequisites: ~heavy_factory.ixian
+		BuildPaletteOrder: 30
+	Mobile:
+		Speed: 75
+		TurnSpeed: 15
+		Locomotor: wheeled
+	Health:
+		HP: 75000
+	Repairable:
+		HpPerStep: 3750
+	ChangesHealth@SelfHealing:
+		Step: 30
+	Armor:
+		Type: Medium
+	AutoTarget:
+	Armament@primary:
+		Weapon: MongooseRocket
+		LocalOffset: 128,0,512
+		MuzzleSequence: muzzle
+		MuzzlePalette: d2keffect
+	Turreted:
+		TurnSpeed: 15
+		Offset: -256,0,64
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal
+	AttackTurreted:
+	Voiced:
+		VoiceSet: D2kVehicleVoice
+	ActorStatValues:
+	RenderSprites:
+		Image: mongoose_d2k_a
+		PlayerPalette: player_rgba
 
 combat_tank_h:
 	Inherits@D2KT: ^D2KTank
@@ -9579,7 +9629,7 @@ combat_tank_ixian:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Mobile:
 		Speed: 65
 		TurnSpeed: 13
@@ -12653,7 +12703,7 @@ storm_raider:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Mobile:
 		Locomotor: hover
 		Speed: 95
@@ -12726,7 +12776,7 @@ storm_lasher:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	FirepowerMultiplier@d2k_advanced_ixian_technology:
 		Modifier: 200
 		RequiresCondition: d2k_advanced_ixian_technology
@@ -12827,7 +12877,7 @@ heavy_rocket_raider_ixian:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	AmmoPool:
 		Ammo: 8
 		AmmoCondition: ammo
@@ -12941,7 +12991,7 @@ combat_siege_tank:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Mobile:
 		Speed: 80
 		TurnSpeed: 16
@@ -13013,13 +13063,12 @@ d2k_neocymek:
 	Armor:
 		Type: Heavy
 	Shielded:
-		MaxPercentageStrength: 100
-		DamageRegenDelay: 240
-		RegenAmount: 80
+		DamageRegenDelay: 125
+		RegenAmount: 240
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
-		RequiresCondition: d2k_advanced_ixian_technology
 		SelectionBarColor: 8888FFFF
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Armament@Cannon:
 		Name: primary
 		Weapon: D2K_StormGunCymek
@@ -13426,9 +13475,9 @@ d2k_ixdrone:
 	Inherits@Barrel: ^D2K_ReinforcedBarrel
 	Inherits@IxianTechnology: ^D2K_AdvancedIxianTechnology
 	Valued:
-		Cost: 1000
+		Cost: 2000
 	Tooltip:
-		Name: Ix Railgun Drone
+		Name: Ixian Railgun Drone
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -13451,7 +13500,7 @@ d2k_ixdrone:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Armament@PRIMARY:
 		Weapon: IxRailgunDroneBullet
 		LocalOffset: 750,0,-250
@@ -13462,7 +13511,7 @@ d2k_ixdrone:
 		PersistentTargeting: false
 		AttackType: Hover
 	AmmoPool:
-		Ammo: 1
+		Ammo: 5
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: d2k_ixdrone.husk
@@ -13470,11 +13519,8 @@ d2k_ixdrone:
 		PilotActor: heavy_inf
 	SelectionDecorations:
 	ReloadAmmoPool:
-		Delay: 128
+		Delay: 48
 		Count: 1
-	ReloadAmmoDelayMultiplier@up_elitecapacitors:
-		Modifier: 70
-		RequiresCondition: up_elitecapacitors
 	Selectable:
 		DecorationBounds: 1280, 1024
 	WithAmmoPipsDecoration:
@@ -13650,7 +13696,7 @@ d2k_ixbomber:
 	Inherits@Armor: ^D2K_GeneralPurposeArmor
 	Inherits@IxianTechnology: ^D2K_AdvancedIxianTechnology
 	Valued:
-		Cost: 1600
+		Cost: 2400
 	Tooltip:
 		Name: Ixian EMP Bomber
 	UpdatesPlayerStatistics:
@@ -13662,20 +13708,20 @@ d2k_ixbomber:
 		Description: actor-venom.description
 	Aircraft:
 		TurnSpeed: 10
-		Speed: 150
+		Speed: 145
 	Health:
-		HP: 95000
+		HP: 111000
 	Repairable:
-		HpPerStep: 4750
+		HpPerStep: 5555
 	ChangesHealth@SelfHealing:
-		Step: 38
+		Step: 44
 	Shielded:
 		DamageRegenDelay: 125
 		RegenAmount: 76
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	Armament@PRIMARY:
 		Weapon: IxianEmpBomb
 		LocalOffset: 250,0,-250
@@ -13730,9 +13776,9 @@ d2k_resonancedrone:
 	Inherits@Barrel: ^D2K_ReinforcedBarrel
 	Inherits@IxianTechnology: ^D2K_AdvancedIxianTechnology
 	Valued:
-		Cost: 2000
+		Cost: 2500
 	Tooltip:
-		Name: Ix Resonance Drone
+		Name: Ixian Resonance Drone
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -13767,7 +13813,7 @@ d2k_resonancedrone:
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		SelectionBarColor: 8888FFFF
-		RequiresCondition: !disabled && d2k_advanced_ixian_technology
+		RequiresCondition: !disabled && (d2k_advanced_ixian_technology || shieldgen)
 	AutoTarget:
 		ScanRadius: 10
 		InitialStance: AttackAnything
