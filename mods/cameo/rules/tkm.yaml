@@ -749,12 +749,12 @@ tkmbunkerquadturret:
 	WithBuildingBib:
 		HasMinibib: true
 	Armament@AG:
-		Weapon: RAGatlingTankCannon
+		Weapon: TKMGatlingTankCannon
 		Recoil: 85
 		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
 	Armament@AA:
-		Weapon: RAGatlingTankCannonAA
+		Weapon: TKMGatlingTankCannonAA
 		Recoil: 85
 		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
@@ -1880,12 +1880,12 @@ tkmquadtruck:
 		TurnSpeed: 30
 		Offset: -350,0,250
 	Armament@AG:
-		Weapon: RAGatlingTankCannon
+		Weapon: TKMGatlingTankCannon
 		Recoil: 85
 		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
 	Armament@AA:
-		Weapon: RAGatlingTankCannonAA
+		Weapon: TKMGatlingTankCannonAA
 		Recoil: 85
 		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
@@ -1931,12 +1931,12 @@ tkmzaza:
 		TurnSpeed: 30
 		Offset: -160,0,500
 	Armament@AG:
-		Weapon: RAGatlingTankCannon
+		Weapon: TKMGatlingTankCannon
 		Recoil: 85
 		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
 	Armament@AA:
-		Weapon: RAGatlingTankCannonAA
+		Weapon: TKMGatlingTankCannonAA
 		Recoil: 85
 		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
@@ -2603,8 +2603,6 @@ tkmviper:
 	GrantConditionOnPrerequisite@upincendiaryrockets:
 		Condition: upincendiaryrockets
 		Prerequisites: upincendiaryrockets
-	FirepowerMultiplier@doublecannonsandbombs:
-		Modifier: 25
 	AttackAircraft:
 		FacingTolerance: 100
 	Aircraft:

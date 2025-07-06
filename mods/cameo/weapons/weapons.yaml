@@ -2263,7 +2263,7 @@
 		ValidTargets: Ground, Ship, Trees
 		Spread: 500
 		Damage: 1000
-		Falloff: 100, 50, 25, 12, 6, 3, 1, 0
+		Falloff: 100, 50, 25, 10, 5
 		Versus:
 			Shield: 140
 			Wood: 100
@@ -2287,7 +2287,7 @@
 		ValidTargets: Ground, Ship, Trees
 		Spread: 500
 		Damage: 1
-		Falloff: 100, 50, 25, 12, 6, 3, 1, 0
+		Falloff: 100, 50, 25, 10, 5
 		Versus:
 			Shield: 35
 			Wood: 25
@@ -2359,7 +2359,7 @@
 		AffectsParent: True
 		Spread: 1000
 		Damage: 1000
-		Falloff: 100, 50, 25, 12, 6, 3, 1, 0
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
 		Versus:
 			Shield: 140
 			Superheavy: 100
@@ -2384,7 +2384,7 @@
 		AffectsParent: True
 		Spread: 1000
 		Damage: 1
-		Falloff: 100, 50, 25, 12, 6, 3, 1, 0
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
 		Versus:
 			Shield: 35
 			Superheavy: 25

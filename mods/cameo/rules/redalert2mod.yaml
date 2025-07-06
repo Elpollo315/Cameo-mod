@@ -12746,6 +12746,15 @@ nax_slavemaster:
 
 nax_slav:
 	Inherits: YRSLAV
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Slave
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~nax_barr, nax_refin
+		Queue: Infantry, RAInfantry
+		Description: actor-nax_slavemaster.description
 	Targetable@SlaveFaster:
 		TargetTypes: SlaveFaster
 		RequiresCondition: SlaveFaster <= 3 && !untargetable
@@ -14910,7 +14919,7 @@ nax_kingtiger:
 		Speed: 100
 		TurnSpeed: 20
 	Health:
-		HP: 200000
+		HP: 300000
 	Repairable:
 		HpPerStep: 10000
 	ChangesHealth@SelfHealing:
@@ -14999,7 +15008,7 @@ nax_maus:
 		LocalOffset: 1500,0,300
 		MuzzleSequence: muzzle-2
 		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite
+		RequiresCondition: rank-elite 
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -15236,11 +15245,11 @@ nax_hetzer:
 		Speed: 75
 		TurnSpeed: 30
 	Health:
-		HP: 50000
+		HP: 62500
 	Repairable:
 		HpPerStep: 2500
 	Armor:
-		Type: Light
+		Type: Medium
 	Armament@AG:
 		Weapon: NaxiHetzerDestroyer
 		LocalOffset: 300,0,300
@@ -15277,7 +15286,7 @@ nax_jagdpanzer:
 		Speed: 60
 		TurnSpeed: 24
 	Health:
-		HP: 62500
+		HP: 82500
 	Repairable:
 		HpPerStep: 3125
 	Armor:
@@ -15433,7 +15442,7 @@ nax_miniv2:
 		MaxAltitude: 2500
 		MinAirborneAltitude: 128
 		LaunchAngle: 128
-		Speed: 200
+		Speed: 225
 		TurnSpeed: 25
 		LaunchSounds: vbooat1a.wav
 		MaxTargetMovement: 12500
@@ -15541,7 +15550,6 @@ nax_shoe:
 		Name: Shoe Karn
 	Buildable:
 		BuildPaletteOrder: 70
-		BuildLimit: 2
 		Prerequisites: ~nax_weap, nax_radar, ~upnax_shoe
 		Queue: Vehicle, RAVehicle
 		Description: actor-nax_shoe.description
@@ -15549,7 +15557,7 @@ nax_shoe:
 		Speed: 75
 		TurnSpeed: 30
 	Health:
-		HP: 200000
+		HP: 150000
 	Repairable:
 		HpPerStep: 10000
 	ChangesHealth@SelfHealing:
@@ -15700,7 +15708,7 @@ nax_zombietank:
 		OverrideActor: nax_zombietank
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~disabled
+		Prerequisites: ~nax_weap, nax_radar
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Mobile:

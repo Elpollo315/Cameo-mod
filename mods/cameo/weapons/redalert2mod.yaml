@@ -3085,7 +3085,8 @@ SteelSupportSpawner4:
 		ContrailEndWidth: 1
 
 NaxGrilleArty:
-	Inherits: ^RA2MediumCannon
+	Inherits: ^RA2HeavyCannon
+	Inherits: ^ShrapnelWeapon
 	Inherits: ^RA2Grenade
 	ReloadDelay: 111
 	Range: 11111
@@ -3928,7 +3929,7 @@ NaxMausCannon:
 	Inherits: ^LightChemicalWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^RA2MediumCannon
-	ReloadDelay: 141
+	ReloadDelay: 100
 	Report: aa_bgart.wav
 	Range: 6666
 	MinRange: 666
@@ -4046,7 +4047,7 @@ NaxQuadCannon:
 	Inherits: ^HeavyMissile
 	Inherits: ^RA2FlakWeapon
 	ReloadDelay: 47
-	Burst: 4
+	Burst: 6
 	BurstDelays: 4
 	Range: 5200
 	Report: nax_aa1.wav
@@ -6177,7 +6178,7 @@ RA2TOPOLCuba:
 	Warhead@NuclearWarhead: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 10000
+		Spread: 1000
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
@@ -6492,7 +6493,8 @@ NaxisBradleyTarget:
 	ValidTargets: Ground, Air, Water
 	ReloadDelay: 135
 	Burst: 4
-	Range: 10000
+	BurstDelays: 10
+	Range: 18000
 	MinRange: 1800
 	Projectile: InstantHit
 		Inaccuracy: 1000
@@ -6500,7 +6502,8 @@ NaxisBradleyTarget:
 	ValidTargets: Ground, Water
 	ReloadDelay: 135
 	Burst: 2
-	Range: 8000
+	BurstDelays: 10
+	Range: 18000
 	MinRange: 1800
 	Projectile: InstantHit
 		Inaccuracy: 1000
