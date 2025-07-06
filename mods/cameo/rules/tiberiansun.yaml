@@ -6836,7 +6836,6 @@ TSFTNK:
 	Inherits@Template: ^LineBreakerTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
@@ -6874,11 +6873,12 @@ TSFTNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 250
+	RenderSprites:
+		PlayerPalette: player_rgba
 
 TS4TNK:
 	Inherits: ^Tank
