@@ -6691,3 +6691,12 @@ ChronoVortex:
 	-Warhead@Effect: CreateEffect
 	-Warhead@Effect1:
 	-Warhead@Effect2:
+FakeBuildingExplode:
+	Warhead@1Eff: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: breakwood1.wav, breakwood2.wav
+		Delay: 1
+		ImpactActors: false
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		Delay: 1

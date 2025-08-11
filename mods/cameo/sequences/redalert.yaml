@@ -2459,6 +2459,8 @@ powr:
 			INTERIOR: TEMPERAT
 	icon:
 		Filename: powricon.png
+	icon-fake:
+		Filename: fpowricon.png
 
 apwr:
 	Inherits: ^WithBuildingBib2
@@ -2483,6 +2485,8 @@ apwr:
 		Offset: 0,-10
 	icon:
 		Filename: apwricon.png
+	icon-fake:
+		Filename: fapwricon.png
 
 barr:
 	Inherits: ^WithBuildingBib3
