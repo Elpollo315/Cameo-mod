@@ -136,6 +136,50 @@ CHGuardRifle:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		Damage: 1
 
+ConscriptAK47:
+	Inherits: ^SmallArms
+	Inherits: ^Chaingun
+	ReloadDelay: 11
+	Range: 4420
+	Burst: 3
+	BurstDelays: 2
+	SoundVolume: 0.5
+	ValidTargets: Ground, Water, Trees, Air
+	Report: conscriptak.wav
+	Warhead@SmallArms: SpreadDamage
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+
+VengeanceActivator:
+	Projectile: InstantExplode
+	Warhead@Condition: GrantExternalCondition
+		Range: 5000
+		Condition: PropagandaEffect
+		Duration: 100
+		ValidRelationships: Ally
+	Warhead@Condition: GrantExternalCondition
+		Range: 5000
+		Condition: HealingField
+		Duration: 100
+		ValidRelationships: Ally
+
+CommissarPistol:
+	Inherits: ^SniperWeapon
+	ReloadDelay: 20
+	Range: 6770
+	Report: gun18.aud
+	Warhead@SniperWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
+		Damage: 10000
+	Warhead@SniperWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+
 CHGuardRifleWaveforce:
 	Inherits: ^WaveforceBulletWarhead
 	Inherits: CHGuardRifle
@@ -198,6 +242,43 @@ GrenadeThermobaric:
 		Damage: 1000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+
+ConscriptMolotov:
+	Inherits: ^Grenade
+	Inherits: ^LightFlameWeapon
+	ReloadDelay: 50
+	Range: 5725
+	Report: toss1.aud
+	Projectile: Bullet
+		Speed: 150
+		LaunchAngle: 66
+		ContrailLength: 11
+		ContrailStartWidth: 66
+		ContrailEndWidth: 22
+		ContrailStartColor: FF8888FF
+		ContrailEndColor: FFFFFF22
+	Warhead@Grenade: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 1, 3
+		Duration: 50
+		Speed: 8, 24
+		TurnRate: 4
+		Image: burn-l
+		Sequences: idle
+		Palette: ra_temperat
+		Weapon: CHFlame
+		InvalidTargets: Water
 
 RocketsRA:
 	Inherits: ^MediumMissile
@@ -775,8 +856,8 @@ SiegeMortarThermobaric:
 
 PortaTesla:
 	Inherits: ^TeslaWeapon
-	ReloadDelay: 60
-	Range: 5656
+	ReloadDelay: 40
+	Range: 4651
 	Report: shktrop1.aud
 	Warhead@TeslaWeapon: SpreadDamage
 		Damage: 20000
@@ -788,7 +869,30 @@ PortaTesla:
 PortaTeslaEMP:
 	Inherits: PortaTesla
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 40000
+		Damage: 20000
+
+ZapperPortaTesla:
+	Inherits: ^TeslaWeapon
+	ReloadDelay: 30
+	Range: 5000
+	Report: shktrop1.aud
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 30000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 15000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 15
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 30000
+
+ZapperPortaTeslaArc:
+	Inherits: ZapperPortaTesla
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: PortaTesla
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
 
 PointDefenseTesla:
 	Inherits: ^TeslaWeapon
@@ -811,19 +915,28 @@ PointDefenseTesla:
 TTankZap:
 	Inherits: ^TeslaWeapon
 	ReloadDelay: 80
-	Range: 7574
+	Range: 7300
 	Report: tesla1.aud
 	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 20000
+		Damage: 40000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 10000
+		Damage: 20000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 20
 
 TTankZapEMP:
 	Inherits: TTankZap
 	Warhead@EMPUnit: AffectsIntegrity
 		Damage: 40000
+
+TTankZapEMPArc:
+	Inherits: TTankZapEMP
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: ZapperPortaTeslaArc
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
 
 TTankZap2:
 	Inherits: ^TeslaChargedWeapon
@@ -840,7 +953,16 @@ TTankZap2:
 TTankZap2EMP:
 	Inherits: TTankZap2
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 80000
+		Damage: 40000
+
+TTankZap2EMPArc:
+	Inherits: TTankZap2EMP
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TTankZapEMPArc
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
 
 TeslaZap:
 	Inherits: ^TeslaWeapon
@@ -857,7 +979,94 @@ TeslaZap:
 TeslaZapEMP:
 	Inherits: TeslaZap
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 60000
+		Damage: 30000
+
+TeslaZapEMPArc:
+	Inherits: TeslaZapEMP
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: PortaTeslaEMP
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+HeatRayBeam1:
+	Inherits: ^LaserWeapon
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^LightFlameWeapon
+	Range: 7865
+	ReloadDelay: 8
+	Report: idesat1a.wav
+	SoundVolume: 0.25
+	Projectile: RadBeam
+		Color: FFDD77CC
+		Amplitude: 160
+		WaveLength: 800
+		BeamDuration: 16
+		Thickness: 32
+		QuantizationCount: 16
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@Effect: CreateEffect
+		Volume: 0.25
+	Warhead@Condition: GrantExternalCondition
+		Range: 640
+		Condition: corroded
+		Duration: 64
+		ValidTargets: corrodible
+		ValidRelationships: Enemy
+
+HeatRayBeam2:
+	Inherits: HeatRayBeam1
+	Projectile: RadBeam
+		Color: FFBB88BB
+		Amplitude: 120
+		WaveLength: 600
+		BeamDuration: 16
+		Thickness: 48
+		QuantizationCount: 16
+
+HeatRayBeam3:
+	Inherits: HeatRayBeam1
+	Projectile: RadBeam
+		Color: FF884488
+		Amplitude: 80
+		WaveLength: 400
+		BeamDuration: 16
+		Thickness: 64
+		QuantizationCount: 16
+
+HeatRayBeam4:
+	Inherits: HeatRayBeam1
+	Projectile: RadBeam
+		Color: FF884488
+		Amplitude: 40
+		WaveLength: 200
+		BeamDuration: 16
+		Thickness: 80
+		QuantizationCount: 16
 
 LightSniper:
 	Inherits: ^SniperWeapon
@@ -1899,10 +2108,8 @@ v1rockets:
 		Speed: 300
 		LaunchAngle: 60
 	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees
 		Damage: 12000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
 		Damage: 6
 	Warhead@Grenade: SpreadDamage
 		Damage: 12000
@@ -1935,10 +2142,8 @@ v1rocketsThermobaric:
 		ContrailStartColor: FFBB8844
 		ContrailEndColor: 33221100
 	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees
 		Damage: 8000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
 		Damage: 4
 	Warhead@Grenade: SpreadDamage
 		Damage: 8000
@@ -1953,12 +2158,42 @@ v1rocketsThermobaric:
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 4
 
+GradRockets:
+	Inherits: ^HeavyMissile
+	Inherits: ^ShrapnelWeapon
+	ReloadDelay: 115
+	Burst: 8
+	BurstDelays: 5
+	Range: 13820
+	MinRange: 2764
+	Report: v1rocket.wav
+	Projectile: Bullet
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 1000
+		Image: MISSILE
+		TrailImage: smokey
+		TrailDelay: 1
+		TrailInterval: 1
+		Speed: 300
+		LaunchAngle: 60
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 8000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+
 SCUD:
 	Inherits: ^HeavyMissile
 	Inherits: ^HeavyFlameWeapon
-	ReloadDelay: 125
-	Range: 13690
-	MinRange: 2738
+	ReloadDelay: 120
+	Range: 14110
+	MinRange: 2822
 	Report: missile1.aud
 	Projectile: Bullet
 		Speed: 300
@@ -2022,9 +2257,9 @@ SCUDNUKE:
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^FlakWeapon
 	Inherits: ^NuclearWarhead
-	ReloadDelay: 165
-	Range: 12500
-	MinRange: 2500
+	ReloadDelay: 158
+	Range: 12550
+	MinRange: 2510
 	Report: missile1.aud
 	Projectile: Bullet
 		Speed: 240
@@ -4215,15 +4450,83 @@ OIHakureiring2:
 		Explosions: napalm
 		ImpactSounds: firebl3.aud
 
+HammerTankCannon:
+	Inherits: ^HeavyCannon
+	Inherits: ^MediumCannon
+	ReloadDelay: 85
+	Range: 6825
+	Burst: 2
+	BurstDelays: 5
+	Projectile: Bullet
+		Speed: 682
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 6000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 6000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@Effect: CreateEffect
+		Explosions: poof
+		ImpactSounds: xplosml2.aud
+
+ShtoraLaser:
+	Inherits: ^LightFlameWeapon
+	Inherits: ^FlakWeapon
+	Inherits: ^LaserWeapon
+	ReloadDelay: 100
+	Range: 6825
+	Report: vpalwe2d.aud
+	ValidTargets: blindable
+	Projectile: LaserZap
+		Width: 128
+		Duration: 12
+		ZOffset: 2047
+		Color: FF884488
+		SecondaryBeam: true
+		SecondaryBeamWidth: 64
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFFFF
+	Warhead@LightFlameWeapon: SpreadDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 2000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 1
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 2000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 1000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 1
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 2000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+		Damage: 1
+	Warhead@Condition: GrantExternalCondition
+		Condition: blinded
+		Duration: 50
+		Range: 500
+		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
+
 KotinCannon:
 	Inherits: ^HeavyCannon
 	Inherits: ^MediumCannon
 	ReloadDelay: 96
-	Range: 5756
+	Range: 6427
 	Burst: 2
 	BurstDelays: 4
 	Projectile: Bullet
-		Speed: 575
+		Speed: 642
 	Warhead@HeavyCannon: SpreadDamage
 		Damage: 6000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage

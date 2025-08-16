@@ -6312,7 +6312,7 @@ gdiofficer:
 	Inherits@ArmorPiercingBullets: ^ArmorPiercingBullets
 	Inherits@CuttingEdge: ^CuttingEdgeEquipment
 	Inherits@decoration: ^GDIRankDecoration
-	-ExternalCondition@GDIOfficerLeadership:
+	-ExternalCondition@PropagandaEffect:
 	Tooltip:
 		Name: GDI Officer
 	Valued:
@@ -6346,24 +6346,23 @@ gdiofficer:
 		RequiresCondition: up_armorpiercingbullets
 	ProducibleWithLevel:
 		InitialLevels: 1
-	ProximityExternalCondition@Leadership:
+	ProximityExternalCondition@PropagandaEffect:
 		Range: 3333
 		ValidRelationships: Ally
-		Condition: GDIOfficerLeadership
-	ProximityExternalCondition@propaganda:
+		Condition: PropagandaEffect
+	WithRangeCircle@propaganda:
 		Range: 3333
-		ValidRelationships: Ally
-		Condition: propaganda
-	WithRangeCircle:
-		Range: 3333
-	WithInfantryBody:
-		IdleSequences: idle1,idle2,idle3,idle4
-	AcceptsDeliveredExperience: ##########
-		ValidTypes: infantry ##########
+		Type: propaganda
+		Color: 55BBFF
+		RequiresCondition: !disabled
 	WithDecoration@CARRYALL:
 		Image: d2k_pips
 		Sequence: pickup-indicator
 		ValidRelationships: Ally, Enemy, Neutral
+	WithInfantryBody:
+		IdleSequences: idle1,idle2,idle3,idle4
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: infantry ##########
 	ActorStatValues:
 		Upgrades: up_longrangesensors, up_armorpiercingbullets, up_cuttingedgeequipment
 	GrantExternalConditionToTransport:

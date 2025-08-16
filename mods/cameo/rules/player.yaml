@@ -310,6 +310,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		InfiniteBuildLimit: 10
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@DEFENCE:
 		Type: RADefence
@@ -323,6 +324,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		InfiniteBuildLimit: 10
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@INFANTRY:
 		Type: RAInfantry
@@ -336,6 +338,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		InfiniteBuildLimit: 10
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@VEHICLE:
 		Type: RAVehicle
@@ -349,6 +352,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		InfiniteBuildLimit: 10
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@AIRCRAFT:
 		Type: RAAircraft
@@ -362,6 +366,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		InfiniteBuildLimit: 10
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@NAVAL:
 		Type: RANaval
@@ -375,6 +380,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		InfiniteBuildLimit: 10
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@ADDON:
 		Type: Addons

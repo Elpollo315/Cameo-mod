@@ -4613,16 +4613,15 @@ TSMUTANT3:
 	Armament@GARRISONED2: ##########
 		Name: garrisoned
 		Weapon: TSGrenadeG
-	ProximityExternalCondition@Leadership:
+	ProximityExternalCondition@PropagandaEffect:
 		Range: 3333
 		ValidRelationships: Ally
-		Condition: GDIOfficerLeadership
-	ProximityExternalCondition@propaganda:
+		Condition: PropagandaEffect
+	WithRangeCircle@propaganda:
 		Range: 3333
-		ValidRelationships: Ally
-		Condition: propaganda
-	WithRangeCircle:
-		Range: 3333
+		Type: propaganda
+		Color: 55BBFF
+		RequiresCondition: !disabled
 	RenderSprites:
 		PlayerPalette: playerra2
 	WithDeathAnimation:

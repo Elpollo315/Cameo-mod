@@ -659,17 +659,17 @@
 
 ^VehicleRadiation:
 	DamagedByTintedCells@rad:
-		Damage: 25
+		Damage: 30
 		DamageInterval: 1
 		DamageTypes: DefaultDeath
 		LayerName: ra2radiation
 	DamagedByTintedCells@genrad:
-		Damage: 5
+		Damage: 30
 		DamageInterval: 1
 		DamageTypes: DefaultDeath
 		LayerName: genradiation
 	DamagedByTintedCells@tib:
-		Damage: 25
+		Damage: 30
 		DamageInterval: 1
 		DamageTypes: TiberiumDeath
 		LayerName: tibradiation
@@ -873,6 +873,8 @@
 
 ^InfantryBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
+	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
+	Inherits@MenOfSteelTeamUpgradeRA1: ^MenOfSteelTeamUpgradeRA1
 	Inherits@upgrade: ^AdvancedGuerillaTactics
 	ChangesHealth@SelfHealing:
 		Step: 10
@@ -894,7 +896,8 @@
 ^TankBuffs:
 	Inherits@VehicleBuffs: ^VehicleBuffs
 	Inherits@upgrade: ^LightWeightArmorPlating
-	Inherits@upgrade: ^SovietSteel
+	Inherits@NuclearShellsTeamUpgradeRA1: ^NuclearShellsTeamUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	DamageMultiplier@TankBuffs:
 		Modifier: 80
 	FirepowerMultiplier@TankBuffs:
@@ -904,6 +907,7 @@
 		RequiresCondition: tankbunkered
 
 ^ArtilleryBuffs:
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@IxianTechnology: ^D2K_AdvancedIxianTechnologyTeamUpgrade
 
 ^AircraftBuffs:
@@ -1036,6 +1040,7 @@
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
 	Inherits@EXT: ^ExternalConditions
 	Inherits@InfantryBuffs: ^InfantryBuffs
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Armor:
 		Type: None
 	RevealsShroud:
@@ -1051,6 +1056,7 @@
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
 	Inherits@EXT: ^ExternalConditions
 	Inherits@InfantryBuffs: ^InfantryBuffs
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Armor:
 		Type: None
 	RevealsShroud:
@@ -1660,6 +1666,95 @@
 	InaccuracyMultiplier@PromotionUnit:
 		Modifier: 90
 
+####################################################################################################
+#		Upgrade Templates
+####################################################################################################
+
+### Doctrines ###
+
+^doctrine_template:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Doctrine
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 0
+		Queue: Addons
+		Description: Doctrine Description
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: icon
+	ProvidesPrerequisite:
+
+### Unit Upgrades ###
+
+^unit_upgrade_template:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Unit Upgrade
+	Valued:
+		Cost: 2500
+	Buildable:
+		BuildPaletteOrder: 1
+		Queue: Addons
+		Description: Unit Upgrade Description
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: icon
+	ProvidesPrerequisite:
+
+### Tech Upgrades ###
+
+^tech_upgrade_template:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Tech Upgrade
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 0
+		Queue: Upgrades
+		Description: Tech Upgrade Description
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: icon
+	ProvidesPrerequisite:
+
+### Team Upgrades ###
+
+^team_upgrade_template:
+	Inherits: ^upgrade.template
+	Tooltip:
+		Name: Team Upgrade
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 1
+		Queue: Upgrades
+		Description: Team Upgrade Description
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: icon
+	ProvidesTeamProxyActor:
+		Actor: ^team_upgrade_proxy_actor
+
+^team_upgrade_proxy_actor:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Team Upgrade
+	Buildable:
+		Description: Team Upgrade Description
+	PlayerDisplayUpgrade:
+	RenderSprites:
+		Image: icon
+	ProvidesPrerequisite:
+		Prerequisite: ^team_upgrade_template
+
+####################################################################################################
+#		Actor Templates
+####################################################################################################
+
 ^BasicUnit:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
@@ -1677,7 +1772,8 @@
 	Inherits@Blindable: ^Blindable
 	Inherits@Snareable: ^Snareable
 	Inherits@jammable: ^ArtilleryJammable
-	Inherits@PROPAGANDA: ^PropagandaSelfHeal
+	Inherits@PropagandaEffectBuff: ^PropagandaEffectBuff
+	Inherits@CryoFreezable: ^CryoFreezable
 	Inherits@HealingField: ^AffectedByHealingField
 	Huntable:
 	OwnerLostAction:
@@ -1753,8 +1849,6 @@
 	Inherits@unstableeffect: ^UnstableEffect
 	Inherits@LeechEggLayable: ^LeechEggLayable
 	Inherits@squid: ^SquidGrabbable
-	Inherits@GDIOfficerLeadershipBuff: ^GDIOfficerLeadershipBuff
-	Inherits@CryoFreezable: ^CryoFreezable
 	Inherits@GravityWeighter: ^GravityWeighter
 	TemporaryOwnerManager:
 	Mobile:
@@ -1849,6 +1943,9 @@
 	DamageMultiplier@METALFACTORY:
 		RequiresCondition: techmetalffact
 		Modifier: 85
+	ProductionCostMultiplier@WarEconomyTeamUpgradeRA1:
+		Multiplier: 80
+		Prerequisites: ra_upgrade_wareconomy
 	ProductionCostMultiplier@IndustrialPlant:
 		Multiplier: 75
 		Prerequisites: yrngindp
@@ -2014,8 +2111,6 @@
 	Inherits@chrono: ^Chronoshiftable
 	Inherits@unstableeffect: ^UnstableEffect
 	Inherits@LeechEggLayable: ^LeechEggLayable
-	Inherits@GDIOfficerLeadershipBuff: ^GDIOfficerLeadershipBuff
-	Inherits@CryoFreezable: ^CryoFreezable
 	Inherits@GravityWeighter: ^GravityWeighter
 	TemporaryOwnerManager:
 	Mobile:
@@ -2040,17 +2135,17 @@
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
 	DamagedByTintedCells@rad:
-		Damage: 125
+		Damage: 60
 		DamageInterval: 1
 		DamageTypes: RadiationDeath
 		LayerName: ra2radiation
 	DamagedByTintedCells@genrad:
-		Damage: 25
+		Damage: 60
 		DamageInterval: 1
 		DamageTypes: RadiationDeath
 		LayerName: genradiation
 	DamagedByTintedCells@tib:
-		Damage: 125
+		Damage: 60
 		DamageInterval: 1
 		DamageTypes: TiberiumDeath
 		LayerName: tibradiation
@@ -2079,7 +2174,6 @@
 	Inherits@corr: ^Corrodible
 	Inherits@terrordrone: ^TerrorDronableAircraft
 	Inherits@SHADOWS: ^Shadows
-	Inherits@CryoFreezable: ^CryoFreezable
 	Armor:
 		Type: Light
 	UpdatesPlayerStatistics:
@@ -2440,8 +2534,6 @@
 	Inherits@driver-dead: ^CanCaptureDriverlessVehicles
 	Inherits@poisonable: ^Poisonable
 	Inherits@unstableeffect: ^UnstableEffect
-	Inherits@GDIOfficerLeadershipBuff: ^GDIOfficerLeadershipBuff
-	Inherits@CryoFreezable: ^CryoFreezable
 	Inherits@GravityWeighter: ^GravityWeighter
 	TemporaryOwnerManager:
 	OwnerLostAction:
@@ -2449,6 +2541,9 @@
 		DeathTypes: DefaultDeath
 	Armor:
 		Type: None
+	Armor@HAZMAT:
+		Type: HAZMAT
+		RequiresCondition: hazmatsuits
 	Mobile:
 		Locomotor: foot
 		PauseOnCondition: disabled
@@ -2501,16 +2596,16 @@
 			latin_cgup: biggarrisoned
 			latin_ngbunk2: biggarrisoned
 			gdiassaultapc: battlefortresspassenger
+			yrbfrt: battlefortresspassenger
+			aa_dragonfly: battlefortresspassenger
+			aa_wtrt: battlefortresspassenger
+			latin_humvee: battlefortresspassenger
+			latin_cartel: battlefortresspassenger
 			latinscrapcar_driveby: battlefortresspassenger
 			latinscrapcar2_driveby: battlefortresspassenger
-			latin_cartel: battlefortresspassenger
-			latin_humvee: battlefortresspassenger
-			yrbfrt: battlefortresspassenger
 			nax_zombietank: battlefortresspassenger
 			nax_shoe: battlefortresspassenger
 			steel_potnk: battlefortresspassenger
-			aa_wtrt: battlefortresspassenger
-			aa_dragonfly: battlefortresspassenger
 			scpythean: battlefortresspassenger
 			scbehemoth: battlefortresspassenger
 			tsm113: battlefortresspassenger
@@ -2556,7 +2651,7 @@
 	MapEditorData:
 		Categories: Infantry
 	Parachutable: ##########
-		FallRate: 26
+		FallRate: 25
 		KilledOnImpassableTerrain: true
 		GroundCorpseSequence: corpse
 		GroundImpactSound: squishy2.aud
@@ -2574,24 +2669,45 @@
 	GrantConditionOnPrerequisite@radsuits:
 		Condition: radsuits
 		Prerequisites: upra2deso
+	GrantConditionOnPrerequisite@hazmatsuits:
+		Condition: hazmatsuits
+		Prerequisites: ra_upgrade_hazmatsuits
 	DamagedByTintedCells@rad:
-		Damage: 125
+		Damage: 120
 		DamageInterval: 1
 		DamageTypes: RadiationDeath
 		LayerName: ra2radiation
-		RequiresCondition: !parachute && !radsuits
+		RequiresCondition: !parachute && !radsuits && !hazmatsuits
 	DamagedByTintedCells@genrad:
-		Damage: 25
+		Damage: 120
 		DamageInterval: 1
 		DamageTypes: RadiationDeath
 		LayerName: genradiation
-		RequiresCondition: !parachute && !radsuits
+		RequiresCondition: !parachute && !radsuits && !hazmatsuits
 	DamagedByTintedCells@tib:
-		Damage: 125
+		Damage: 120
 		DamageInterval: 1
 		DamageTypes: TiberiumDeath
 		LayerName: tibradiation
-		RequiresCondition: !parachute
+		RequiresCondition: !parachute && !radsuits && !hazmatsuits
+	DamagedByTintedCells@radhazmat:
+		Damage: 60
+		DamageInterval: 1
+		DamageTypes: RadiationDeath
+		LayerName: ra2radiation
+		RequiresCondition: !parachute && !radsuits && hazmatsuits
+	DamagedByTintedCells@genradhazmat:
+		Damage: 60
+		DamageInterval: 1
+		DamageTypes: RadiationDeath
+		LayerName: genradiation
+		RequiresCondition: !parachute && !radsuits && hazmatsuits
+	DamagedByTintedCells@tibhatmat:
+		Damage: 60
+		DamageInterval: 1
+		DamageTypes: TiberiumDeath
+		LayerName: tibradiation
+		RequiresCondition: !parachute && !radsuits && hazmatsuits
 	EdibleByLeap:
 	DeliversCash:
 		Payload: 25
@@ -2622,14 +2738,20 @@
 
 ^AffectedByTiberium:
 	DamagedByTerrain:
-		Terrain: Tiberium, BlueTiberium
+		Terrain: Tiberium, BlueTiberium, RedTiberium, GoldTiberium
 		Damage: 20
 		DamageInterval: 1
 		DamageTypes: TiberiumDeath
 		RequiresCondition: !hazmatsuits
+	DamagedByTerrain@HAZMAT:
+		Terrain: Tiberium, BlueTiberium, RedTiberium, GoldTiberium
+		Damage: 10
+		DamageInterval: 1
+		DamageTypes: TiberiumDeath
+		RequiresCondition: hazmatsuits
 	GrantConditionOnTerrain@HAZMAT:
 		Condition: ontiberium
-		TerrainTypes: Tiberium, BlueTiberium
+		TerrainTypes: Tiberium, BlueTiberium, RedTiberium, GoldTiberium
 	GrantConditionOnPrerequisite@HAZMAT:
 		Condition: biolab
 		Prerequisites: bio
@@ -2642,7 +2764,7 @@
 		Position: BottomRight
 		RequiresCondition: hazmatsuits
 	SpawnActorOnDeath:
-		Probability: 5
+		Probability: 10
 		Actor: vice
 		OwnerType: InternalName
 		InternalOwner: Creeps
@@ -4083,17 +4205,84 @@
 #		Status Effects
 ####################################################################################################
 
-^GDIOfficerLeadershipBuff:
-	ExternalCondition@GDIOfficerLeadership:
-		Condition: GDIOfficerLeadership
-	SpeedMultiplier@GDIOfficerLeadership:
-		Modifier: 120
-		RequiresCondition: GDIOfficerLeadership
-	ReloadDelayMultiplier@GDIOfficerLeadership:
+^PropagandaEffectBuff:
+	ExternalCondition@PropagandaEffect:
+		Condition: PropagandaEffect
+	GrantConditionOnPrerequisite@upsubliminal:
+		Condition: upsubliminal
+		Prerequisites: upsubliminal
+	GrantCondition@PROPPSI:
+		Condition: prevent-mindcontrol
+		RequiresCondition: PropagandaEffect
+	GrantConditionOnPrerequisite@usabombardament:
+		Condition: usabombardament
+		Prerequisites: usabombardament
+	GrantConditionOnPrerequisite@usaholdtheline:
+		Condition: usaholdtheline
+		Prerequisites: usaholdtheline
+	GrantConditionOnPrerequisite@usasearchndestroy:
+		Condition: usasearchndestroy
+		Prerequisites: usasearchndestroy
+	FirepowerMultiplier@usabombardament:
+		RequiresCondition: usabombardament
+		Modifier: 110
+	ReloadDelayMultiplier@usabombardament:
+		RequiresCondition: usabombardament
+		Modifier: 90
+	DamageMultiplier@usaholdtheline:
+		RequiresCondition: usaholdtheline
 		Modifier: 80
-		RequiresCondition: GDIOfficerLeadership
-	WithColoredOverlay@GDIOfficerLeadership:
-		RequiresCondition: GDIOfficerLeadership
+	RangeMultiplier@usasearchndestroy:
+		RequiresCondition: usasearchndestroy
+		Modifier: 110
+	SpeedMultiplier@usasearchndestroy:
+		RequiresCondition: usasearchndestroy
+		Modifier: 110
+	SpeedMultiplier@PropagandaEffect:
+		Modifier: 120
+		RequiresCondition: PropagandaEffect
+	SpeedMultiplier@upsubliminal:
+		Modifier: 120
+		RequiresCondition: PropagandaEffect && upsubliminal
+	ReloadDelayMultiplier@PropagandaEffect:
+		Modifier: 80
+		RequiresCondition: PropagandaEffect
+	ReloadDelayMultiplier@upsubliminal:
+		Modifier: 80
+		RequiresCondition: PropagandaEffect && upsubliminal
+	ChangesHealth@PROPAGANDA1:
+		Step: 20
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: PropagandaEffect
+	ChangesHealth@PROPAGANDAPercentage1:
+		Delay: 100
+		PercentageStep: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: PropagandaEffect
+	ChangesHealth@PROPAGANDA2:
+		Step: 20
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: PropagandaEffect && upsubliminal
+	ChangesHealth@PROPAGANDAPercentage2:
+		Delay: 100
+		PercentageStep: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: PropagandaEffect && upsubliminal
+	WithDecoration@PROPAGANDAHEAL:
+		Image: pips
+		Sequence: pip-heal
+		Position: TopRight
+		RequiresCondition: PropagandaEffect
+		BlinkInterval: 25
+		BlinkPattern: On, Off
+	WithColoredOverlay@PropagandaEffect:
+		RequiresCondition: PropagandaEffect
 		Color: FF880044
 
 ^AdvancedTargeting:
@@ -5624,7 +5813,7 @@ CPQDEBUGDUMMY:
 
 ^RearmableAircraft:
 	Rearmable:
-		RearmActors: dummy_dock,hpad.gdi,hpad.nod,rahpad,raafld,modraafld,ixian_launchpad,ra2gaairc,ra2naairf,aa_cgairf,steel_conpad,latin_cgair,nax_airfield,tkmairpad
+		RearmActors: dummy_dock,hpad.gdi,hpad.nod,rahpad,raafld,ra_largeairfield,modraafld,ixian_launchpad,ra2gaairc,ra2naairf,aa_cgairf,steel_conpad,latin_cgair,nax_airfield,tkmairpad
 	AutoTarget:
 		InitialStance: HoldFire
 	DamageMultiplier@RearmableAircraft:
@@ -6202,6 +6391,7 @@ CPQDEBUGDUMMY:
 
 ^Power:
 	Inherits: ^PowerMultiplier
+	Inherits@ReactorOverloadTeamUpgradeRA1: ^ReactorOverloadTeamUpgradeRA1
 	Buildable:
 		BuildDurationModifier: 25
 	Targetable@BotArchitect:
@@ -7229,72 +7419,6 @@ CPQDEBUGDUMMY:
 	GrantCondition@FRENZYPSI:
 		Condition: prevent-mindcontrol
 		RequiresCondition: frenzypower1 || frenzypower2 || frenzypower3
-
-^PropagandaSelfHeal:
-	GrantConditionOnPrerequisite@upsubliminal:
-		Condition: upsubliminal
-		Prerequisites: upsubliminal
-	ExternalCondition@PROPAGANDA:
-		Condition: propaganda
-		TotalCap: 1
-	ChangesHealth@PROPAGANDA1:
-		Step: 20
-		Delay: 1
-		StartIfBelow: 150
-		DamageCooldown: 0
-		RequiresCondition: propaganda && damaged
-	ChangesHealth@PROPAGANDAPercentage1:
-		Delay: 100
-		PercentageStep: 1
-		StartIfBelow: 150
-		DamageCooldown: 0
-		RequiresCondition: propaganda && damaged
-	ChangesHealth@PROPAGANDA2:
-		Step: 20
-		Delay: 1
-		StartIfBelow: 150
-		DamageCooldown: 0
-		RequiresCondition: propaganda && upsubliminal && damaged
-	ChangesHealth@PROPAGANDAPercentage2:
-		Delay: 100
-		PercentageStep: 1
-		StartIfBelow: 150
-		DamageCooldown: 0
-		RequiresCondition: propaganda && upsubliminal && damaged
-	ReloadDelayMultiplier@PROPAGANDA1:
-		Modifier: 80
-		RequiresCondition: propaganda
-	ReloadDelayMultiplier@PROPAGANDA2:
-		Modifier: 80
-		RequiresCondition: propaganda && upsubliminal
-	WithDecoration@PROPAGANDAHEAL:
-		Image: pips
-		Sequence: pip-heal
-		Position: TopRight
-		RequiresCondition: propaganda
-		BlinkInterval: 32
-		BlinkPattern: On, Off
-	GrantCondition@PROPPSI:
-		Condition: prevent-mindcontrol
-		RequiresCondition: propaganda
-	GrantConditionOnPrerequisite@usabombardament:
-		Condition: usabombardament
-		Prerequisites: usabombardament
-	GrantConditionOnPrerequisite@usasearchndestroy:
-		Condition: usasearchndestroy
-		Prerequisites: usasearchndestroy
-	GrantConditionOnPrerequisite@usaholdtheline:
-		Condition: usaholdtheline
-		Prerequisites: usaholdtheline
-	DamageMultiplier@usaholdtheline:
-		RequiresCondition: usaholdtheline
-		Modifier: 90
-	FirepowerMultiplier@usabombardament:
-		RequiresCondition: usabombardament
-		Modifier: 120
-	RangeMultiplier@usasearchndestroy:
-		Modifier: 120
-		RequiresCondition: usasearchndestroy
 
 ^ClearableGarrison:
 	Cargo:

@@ -2822,7 +2822,7 @@ PhotonCannon:
 	Inherits: ^TankDestroyerCannon
 	ReloadDelay: 28
 	Range: 8228
-	Report: TTaFir00.aud
+	Report: tphfi201.wav, tgofi200.wav
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
 		ContrailLength: 0
@@ -2857,6 +2857,7 @@ PhotonCannon:
 		Damage: 5
 	Warhead@Effect: CreateEffect
 		Explosions: scblueexplosion
+		ImpactSounds: phohit00.wav
 		ValidTargets: Ground, Air
 		ImpactActors: false
 
@@ -3527,7 +3528,7 @@ CorsairEMP:
 	Warhead@Effect: CreateEffect
 		Explosions: pulse_explosion_small
 		ExplosionPalette: tseffect
-		ImpactSounds: ptesto00.aud
+		ImpactSounds: sc_corsair_disruptionweb.aud
 		ImpactActors: false
 
 LanifectBeam:
@@ -3539,7 +3540,7 @@ LanifectBeam:
 	Inherits: ^LaserWeapon
 	ReloadDelay: 60
 	Range: 5850
-	Report: TTaFir00.aud
+	Report: tphfi201.wav, tgofi200.wav
 	ValidTargets: blindable
 	TargetActorCenter: true
 	Projectile: LaserZapCA
@@ -3605,11 +3606,11 @@ LanifectBeam:
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@Effect: CreateEffect
 		Explosions: scblueexplosion
-		ImpactSounds: firebl3.aud
+		ImpactSounds: phohit00.wav
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@EffectAir: CreateEffect
 		Explosions: scblueexplosion
-		ImpactSounds: zguhit00.aud
+		ImpactSounds: phohit00.wav
 		ExplosionPalette: ra_temperat
 		ValidTargets: Ground, Water, Trees, Air
 
@@ -3634,27 +3635,35 @@ StarshipSovereignBeam:
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@LaserWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 
 ScienceVesselDefenseMatrix:
 	ValidTargets: Vehicle, Ship, Air
@@ -4291,7 +4300,7 @@ PatriarchShoot:
 	ReloadDelay: 75
 	Burst: 2
 	BurstDelays: 0
-	Report: TTaFir00.aud
+	Report: tphfi201.wav, tgofi200.wav
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: Bullet
 		Image: scdragoonprojectile

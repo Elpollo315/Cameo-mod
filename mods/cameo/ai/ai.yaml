@@ -5377,14 +5377,14 @@ Player:
 			uplatin_alliedstolentech: 1
 			latin_up_hotfire: 1
 			uplatin_cashrecover: 1
+			uplatin_mortarbike: 1
 			uplatin_narco: 1
-			uplatin_humvee: 1
-			uplatin_cartel: 1
-			uplatin_traitor: 1
-			uplatin_fftr: 1
-			uplatin_mtnk: 1
 			uplatin_burrito: 1
-			uplatin_up_sml: 1
+			uplatin_cartel: 1
+			uplatin_buggy: 1
+			uplatin_mtnk: 1
+			uplatin_apc: 1
+			uplatin_lars: 1
 			uplatin_ra2terror: 1
 			uplatin_ra2dtruck: 1
 			uplatin_nuketruk: 1
@@ -5568,7 +5568,7 @@ Player:
 			upordos_ordos_stealth_tank: 3
 			upordos_banshee: 3
 			upordos_python: 3
-			########### Units Atreides
+			########### Units Atreides 
 			d2katreidesmongoose: 5
 			#################### UnitsToBuild Dune Universe
 			quake_tank: 1
