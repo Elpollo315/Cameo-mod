@@ -109,10 +109,16 @@ Authors of public assets from Project Perfect Mod:
 	  • Cyborg commando (Fixed by dnqbob)
 	• LKO
 	  • Kodiak (Fixed by dnqbob)
+	• MustaphaTR
+	  • Large Soviet Airfield
    
 Authors of public assets from Itch.io:
 	• ashishlko11
 	  • Dream Seal
+   
+Authors of public assets from Steam Workshop:
+	• azgcz type-a
+	  • Hammer Tank
 
 Ambience Sounds Assets:
 	• InspectorJ

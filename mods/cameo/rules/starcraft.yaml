@@ -3484,7 +3484,7 @@ SCMADCAP:
 		Condition: gatling
 		ArmamentNames: primary, garrisoned
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		MaximumInstances: 5
+		MaximumInstances: 10
 		RevokeDelay: 250
 		RevokeAll: false
 		IsCyclic: false
@@ -6444,7 +6444,7 @@ SCIDOL:
 	Inherits@armor: ^ProtossGroundArmorUpgrades
 	Inherits@range: ^SingularityChargeUpgrade
 	Inherits@Template: ^HeroInfantryTemplate
-	-ExternalCondition@GDIOfficerLeadership:
+	-ExternalCondition@PropagandaEffect:
 	Tooltip:
 		Name: Idol
 	Valued:
@@ -6492,19 +6492,19 @@ SCIDOL:
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@TripleBeam:
 		Modifier: 223
-	ProximityExternalCondition@Leadership:
+	ProximityExternalCondition@PropagandaEffect:
 		Range: 5000
 		ValidRelationships: Ally
-		Condition: GDIOfficerLeadership
-	ProximityExternalCondition@propaganda:
-		Range: 5000
-		ValidRelationships: Ally
-		Condition: propaganda
+		Condition: PropagandaEffect
 	WithRangeCircle@propaganda:
 		Range: 5000
 		Type: propaganda
-		Color: FFFF8888
+		Color: 55BBFF
 		RequiresCondition: !disabled
+	WithDecoration@CARRYALL:
+		Image: d2k_pips
+		Sequence: pickup-indicator
+		ValidRelationships: Ally, Enemy, Neutral
 	-WithInfantryBody:
 	-WithDeathAnimation:
 	WithFacingSpriteBody:
@@ -8271,6 +8271,7 @@ SCBROODWEAVER:
 	Inherits@armor: ^ZergFlyerArmorUpgrades
 	Inherits@Heal: ^PrioritizeHeal
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	-ExternalCondition@PropagandaEffect:
 	Tooltip:
 		Name: Broodweaver
 	Valued:
@@ -8309,7 +8310,7 @@ SCBROODWEAVER:
 	ProximityExternalCondition@propaganda:
 		Range: 6000
 		ValidRelationships: Ally
-		Condition: propaganda
+		Condition: PropagandaEffect
 		RequiresCondition: !attacking
 	GrantConditionOnAttack:
 		Condition: attacking
@@ -8324,6 +8325,10 @@ SCBROODWEAVER:
 		Type: heal
 		Color: FFBB55
 		RequiresCondition: !attacking
+	WithDecoration@CARRYALL:
+		Image: d2k_pips
+		Sequence: pickup-indicator
+		ValidRelationships: Ally, Enemy, Neutral
 	EjectOnDeath:
 		PilotActor: SCBROODLING
 	Cargo:
@@ -9508,7 +9513,7 @@ SCGOREMAW:
 		Condition: gatling
 		ArmamentNames: primary, garrisoned
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		MaximumInstances: 5
+		MaximumInstances: 10
 		RevokeDelay: 250
 		RevokeAll: false
 		IsCyclic: false

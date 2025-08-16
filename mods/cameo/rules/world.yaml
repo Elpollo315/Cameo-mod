@@ -77,6 +77,7 @@
 			ClearDune: 90
 			Dune: 80 ##########
 			Rough: 80
+			RoughDune: 70
 			Road: 100
 			Bridge: 100
 			Tiberium: 70
@@ -116,6 +117,7 @@
 			ClearDune: 90
 			Dune: 80
 			Rough: 80
+			RoughDune: 70
 			Road: 100
 			Bridge: 100
 			Tiberium: 90

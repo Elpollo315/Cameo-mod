@@ -13799,14 +13799,19 @@ d2k_resonancedrone:
 		Range: 6000
 		ValidRelationships: Ally
 		Condition: shieldgen
-	ProximityExternalCondition@propaganda:
+	ProximityExternalCondition@PropagandaEffect:
 		Range: 6000
 		ValidRelationships: Ally
-		Condition: propaganda
+		Condition: PropagandaEffect
 	WithRangeCircle@propaganda:
 		Range: 6000
 		Type: heal
 		Color: 55BBFF
+		RequiresCondition: !disabled
+	WithDecoration@CARRYALL:
+		Image: d2k_pips
+		Sequence: pickup-indicator
+		ValidRelationships: Ally, Enemy, Neutral
 	Shielded:
 		DamageRegenDelay: 125
 		RegenAmount: 20

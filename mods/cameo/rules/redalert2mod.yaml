@@ -147,8 +147,6 @@ World:
 		Side: Random
 		Description: faction-ra2-modded-random.description
 
-
-
 ^Palettes:
 	PaletteFromFile@ra2rotunits:
 		Name: ra2rotunit
@@ -677,7 +675,7 @@ aa_cgflam:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 87500
+		HP: 71000
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -716,7 +714,7 @@ aa_cgpnch:
 		Prerequisites: ~aa_cgyard
 		Description: actor-cgpnch.description
 	Valued:
-		Cost: 1100
+		Cost: 1200
 	Tooltip:
 		Name: Punisher
 	Building:
@@ -724,7 +722,7 @@ aa_cgpnch:
 		Dimensions: 1,1
 		TerrainTypes: Water
 	Health:
-		HP: 90000
+		HP: 140000
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -768,7 +766,7 @@ aa_cgpuls:
 		Prerequisites: ~aa_cgcnst, aa_cgradr
 		Description: template-anti-aircraft-power-defense.description
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: Pulsar
 	Selectable:
@@ -792,11 +790,11 @@ aa_cgpuls:
 	WithDeathAnimation:
 		DeathSequencePalette: playerra2
 	Power:
-		Amount: -35
+		Amount: -45
 	RevealsShroud:
-		Range: 12500
+		Range: 14000
 	DetectCloaked:
-		Range: 6250
+		Range: 7000
 
 aa_cgrail:
 	Inherits: ^RA2Defense
@@ -1007,9 +1005,9 @@ aa_cghype:
 	Power:
 		Amount: -50
 	RevealsShroud:
-		Range: 8000
+		Range: 9000
 	DetectCloaked:
-		Range: 4000
+		Range: 4500
 
 aa_cgtnkr:
 	Inherits: ^RA2Building
@@ -1372,10 +1370,10 @@ aa_gren:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 100
 	Tooltip:
 		Name: Asian Militia
+	Valued:
+		Cost: 100
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~aa_cgbrck
@@ -1384,20 +1382,43 @@ aa_gren:
 	Mobile:
 		Speed: 52
 	Health:
-		HP: 12500
+		HP: 12000
+	ChangesHealth@SelfHealing:
+		Step: 12
 	Armament@PRIMARY:
 		Weapon: RA2AsianShotgun
+		LocalOffset: 128,0,256
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2AsianShotgunE
+		LocalOffset: 128,0,256
+		RequiresCondition: rank-elite
 	Armament@GRENADE:
 		Weapon: AsianGrenade
-		RequiresCondition: upaa_gren
+		LocalOffset: 128,0,256
+		RequiresCondition: upaa_gren && !rank-elite
+	Armament@GRENADEELITE:
+		Weapon: AsianGrenadeE
+		LocalOffset: 128,0,256
+		RequiresCondition: upaa_gren && rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: RA2AsianShotgun
 		MuzzleSequence: garrison-muzzle
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2AsianShotgunE
+		MuzzleSequence: garrison-muzzle
+		RequiresCondition: rank-elite
 	Armament@GRENADEG:
 		Name: garrisoned
 		Weapon: AsianGrenade
-		RequiresCondition: upaa_gren
+		RequiresCondition: upaa_gren && !rank-elite
+	Armament@GRENADEGE:
+		Name: garrisoned
+		Weapon: AsianGrenadeE
+		RequiresCondition: upaa_gren && rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1418,41 +1439,43 @@ aa_tkiller:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 300
 	Tooltip:
 		Name: Asian Tank Killer
+	Valued:
+		Cost: 300
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~aa_cgbrck
 		Queue: Infantry, RAInfantry
 		Description: template-antitank-antiair-infantry.description
 	Mobile:
-		Speed: 45
+		Speed: 51
 	Health:
 		HP: 17000
+	ChangesHealth@SelfHealing:
+		Step: 17
 	Armament@PRIMARY:
 		Name: primary
-		Weapon: RA2GIRocketsG
+		Weapon: AsianTankKillerRocket
+		LocalOffset: 128,0,256
 		RequiresCondition: !rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: RA2GIRocketsG
+		Weapon: AsianTankKillerRocket
 		RequiresCondition: !rank-elite
 	Armament@PRIMARYE:
 		Name: primary
-		Weapon: RA2GIRocketsG_elite
+		Weapon: AsianTankKillerRocket_elite
+		LocalOffset: 128,0,256
 		RequiresCondition: rank-elite
 	Armament@GARRISONEDE:
 		Name: garrisoned
-		Weapon: RA2GIRocketsG_elite
+		Weapon: AsianTankKillerRocket_elite
 		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: TankHunterVoice
-	DeliversCash:
-		Payload: 125
 
 aa_plast:
 	Inherits: ^Soldier
@@ -1464,28 +1487,37 @@ aa_plast:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 600
 	Tooltip:
 		Name: Plasma Trooper
+	Valued:
+		Cost: 500
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~aa_cgtech
 		Queue: Infantry, RAInfantry
 		Description: template-antitank-infantry.description
 	Mobile:
-		Speed: 39
+		Speed: 42
 	Health:
-		HP: 32500
+		HP: 64000
 	ChangesHealth@SelfHealing:
-		Step: 13
+		Step: 64
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: AsianSinglePlasma
 		LocalOffset: 427,0,341
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Name: primary
+		Weapon: AsianSinglePlasmaE
+		LocalOffset: 427,0,341
+		RequiresCondition: rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: AsianSinglePlasma
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: AsianSinglePlasmaE
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1500,21 +1532,21 @@ aa_flam:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 500
 	Tooltip:
 		Name: Flame Trooper
+	Valued:
+		Cost: 400
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~aa_cgradr
 		Queue: Infantry, RAInfantry
 		Description: actor-e4.description
 	Mobile:
-		Speed: 43
+		Speed: 53
 	Health:
-		HP: 27500
+		HP: 26000
 	ChangesHealth@SelfHealing:
-		Step: 11
+		Step: 26
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: AsianFlamerTroop
@@ -1533,6 +1565,8 @@ aa_flam:
 		Name: garrisoned
 		Weapon: AsianFlamerTurret
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 50
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1543,17 +1577,17 @@ aa_flam:
 aa_japrif:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeavyInfantryTemplate
-	Inherits@buff: ^PromotionUnitBuff
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 250
 	Tooltip:
 		Name: Fanatic
+	Valued:
+		Cost: 250
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~upaa_japrif
@@ -1562,15 +1596,27 @@ aa_japrif:
 	Mobile:
 		Speed: 63
 	Health:
-		HP: 25000
+		HP: 24000
 	ChangesHealth@SelfHealing:
-		Step: 10
+		Step: 24
 	Armament@PRIMARY:
 		Weapon: RA2AsianShotgunFanatic
+		LocalOffset: 128,0,256
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2AsianShotgunFanaticE
+		LocalOffset: 128,0,256
+		RequiresCondition: rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: RA2AsianShotgunFanatic
 		MuzzleSequence: garrison-muzzle
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2AsianShotgunFanaticE
+		MuzzleSequence: garrison-muzzle
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1579,17 +1625,17 @@ aa_japrif:
 aa_samurai:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
-	Inherits@buff: ^PromotionUnitBuff
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 350
 	Tooltip:
 		Name: Japanese Samurai
+	Valued:
+		Cost: 350
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~upaa_samurai, aa_cgradr
@@ -1600,13 +1646,13 @@ aa_samurai:
 	Health:
 		HP: 40000
 	ChangesHealth@SelfHealing:
-		Step: 16
+		Step: 40
 	Armament@PRIMARY:
 		Weapon: AsianSamuraiSword
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: AsianSamuraiSword
-		MuzzleSequence: garrison-muzzle
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: AsianSamuraiSwordE
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1614,35 +1660,47 @@ aa_samurai:
 
 aa_archer:
 	Inherits: ^Soldier
-	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@buff: ^PromotionUnitBuff
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 450
 	Tooltip:
 		Name: Veteran Archer
+	Valued:
+		Cost: 450
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~upaa_archer, aa_cgtech
+		Prerequisites: ~upaa_archer, aa_cgradr
 		Queue: Infantry, RAInfantry
 		Description: template-antitank-antiair-infantry.description
 	Mobile:
-		Speed: 58
+		Speed: 68
 	Health:
-		HP: 7500
+		HP: 14000
 	ChangesHealth@SelfHealing:
-		Step: 3
+		Step: 14
 	Armament@PRIMARY:
 		Weapon: AsianMaidenBow
+		LocalOffset: 128,0,256
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: AsianMaidenBowE
+		LocalOffset: 128,0,256
+		RequiresCondition: rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: AsianMaidenBow
 		MuzzleSequence: garrison-muzzle
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: AsianMaidenBowE
+		MuzzleSequence: garrison-muzzle
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1651,7 +1709,7 @@ aa_archer:
 aa_shinobi:
 	Inherits: ^Soldier
 	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@buff: ^PromotionUnitBuff
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -1659,27 +1717,39 @@ aa_shinobi:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@CLOAK: ^CloakedVehicle
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 750
 	Tooltip:
 		Name: Shinobi
+	Valued:
+		Cost: 750
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~aa_cgradr
 		Queue: Infantry, RAInfantry
 		Description: actor-aashinobi.description
 	Mobile:
-		Speed: 62
+		Speed: 60
 	Health:
 		HP: 20000
 	ChangesHealth@SelfHealing:
-		Step: 8
+		Step: 20
 	Armament@PRIMARY:
 		Weapon: AsianNinjaStar
+		LocalOffset: 128,0,256
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: AsianNinjaStarE
+		LocalOffset: 128,0,256
+		RequiresCondition: rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: AsianNinjaStar
 		MuzzleSequence: garrison-muzzle
+		RequiresCondition: rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: AsianNinjaStarE
+		MuzzleSequence: garrison-muzzle
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1714,10 +1784,10 @@ aa_alligator:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@MC: ^MCImmune
-	Valued:
-		Cost: 300
 	Tooltip:
 		Name: Alligator
+	Valued:
+		Cost: 300
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~aa_cgbrck
@@ -1726,17 +1796,18 @@ aa_alligator:
 	Mobile:
 		Speed: 108
 	Health:
-		HP: 27500
+		HP: 27000
 		InitialStance: AttackAnything
 	ChangesHealth@SelfHealing:
-		Step: 11
+		Step: 27
 	Armor:
 		Type: None
 	Armament@PRIMARY:
 		Weapon: AsianCrocBite
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: AsianCrocBite
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: AsianCrocBiteE
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -1772,17 +1843,17 @@ aa_alligator:
 aa_asdf:
 	Inherits: ^Soldier
 	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@buff: ^PromotionUnitBuff
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@kami: ^KamikazeMode
-	Valued:
-		Cost: 1000
 	Tooltip:
 		Name: ASDF
+	Valued:
+		Cost: 1000
 	Buildable:
 		BuildPaletteOrder: 120
 		Prerequisites: ~upaa_asdf, aa_cgmiac
@@ -1792,7 +1863,7 @@ aa_asdf:
 	Health:
 		HP: 40000
 	ChangesHealth@SelfHealing:
-		Step: 16
+		Step: 40
 	Mobile:
 		Speed: 60
 	Armament@PRIMARY:
@@ -1846,10 +1917,10 @@ aa_quas:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Valued:
-		Cost: 500
 	Tooltip:
 		Name: Quasar
+	Valued:
+		Cost: 900
 	UpdatesPlayerStatistics:
 	Buildable:
 		BuildPaletteOrder: 60
@@ -1861,11 +1932,11 @@ aa_quas:
 		Speed: 125
 		TurnSpeed: 50
 	Health:
-		HP: 52500
+		HP: 55000
 	Repairable:
-		HpPerStep: 2625
+		HpPerStep: 2750
 	ChangesHealth@SelfHealing:
-		Step: 21
+		Step: 22
 	Armament@AG:
 		Weapon: AsianQuasarAG
 		LocalOffset: -400,0,300
@@ -1894,10 +1965,10 @@ aa_dragonfly:
 	Inherits@cargo: ^CargoVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Valued:
-		Cost: 1600
 	Tooltip:
 		Name: Dragonfly
+	Valued:
+		Cost: 1200
 	UpdatesPlayerStatistics:
 	Buildable:
 		BuildPaletteOrder: 60
@@ -1906,14 +1977,16 @@ aa_dragonfly:
 		Description: template-opentopped.description
 	Mobile:
 		Locomotor: hover
-		Speed: 110
-		TurnSpeed: 22
+		Speed: 100
+		TurnSpeed: 20
 	Health:
 		HP: 32500
 	Repairable:
 		HpPerStep: 1625
 	ChangesHealth@SelfHealing:
 		Step: 13
+	Armor:
+		Type: Light
 	Selectable:
 		DecorationBounds: 1280, 1280
 		Class: aa_dragonfly
@@ -1947,10 +2020,10 @@ aa_lynx:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
-	Valued:
-		Cost: 750
 	Tooltip:
 		Name: Lynx Tank
+	Valued:
+		Cost: 850
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~aa_cgweap
@@ -1963,7 +2036,7 @@ aa_lynx:
 	Health:
 		HP: 120000
 	Repairable:
-		HpPerStep: 600
+		HpPerStep: 6000
 	ChangesHealth@SelfHealing:
 		Step: 48
 	Armor:
@@ -1974,7 +2047,7 @@ aa_lynx:
 		VoiceSet: AsianAllianceVehicleVoice
 	Armament:
 		Name: primary
-		Weapon: RA2Lashmm
+		Weapon: AsianLynxTankCannon
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 1280,0,80
@@ -1983,26 +2056,23 @@ aa_lynx:
 		RequiresCondition: !rank-elite
 	Armament@elite:
 		Name: primary
-		Weapon: RA2Lashmm_elite
+		Weapon: AsianLynxTankCannon_elite
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 1280,0,80
 		MuzzleSequence: muzzle-2
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
-	Armament:
-		Name: primary
-		Weapon: RA2Lashmm
-		RequiresCondition: !rank-elite
-	Armament@elite:
-		Name: primary
-		Weapon: RA2Lashmm_elite
-		RequiresCondition: rank-elite
 	Armament@MG:
 		Weapon: AsianLynxMG
-		RequiresCondition: upaa_lynx
 		MuzzleSequence: muzzle-mg
 		MuzzlePalette: ra2effect
+		RequiresCondition: upaa_lynx && !rank-elite
+	Armament@MGelite:
+		Weapon: AsianLynxMG_elite
+		MuzzleSequence: muzzle-mg
+		MuzzlePalette: ra2effect
+		RequiresCondition: upaa_lynx && rank-elite
 	GrantConditionOnPrerequisite@MG:
 		Condition: upaa_lynx
 		Prerequisites: upaa_lynx
@@ -2124,6 +2194,7 @@ aa_drmn:
 	WithHarvestOverlay@harvesting:
 		Sequence: harvesting
 		Palette: ra2effect
+
 aa_pulv:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
@@ -2134,7 +2205,7 @@ aa_pulv:
 	Inherits@EMP: ^TurretEMP
 	Inherits@UpGat: ^YuriGatlingUpgrade
 	Valued:
-		Cost: 1000
+		Cost: 1400
 	Tooltip:
 		Name: Pulverizer
 	Buildable:
@@ -2143,8 +2214,8 @@ aa_pulv:
 		Queue: Vehicle, RAVehicle
 		Description: actor-aapulv.description
 	Mobile:
-		Speed: 60
-		TurnSpeed: 12
+		Speed: 65
+		TurnSpeed: 13
 	Health:
 		HP: 85000
 	Repairable:
@@ -2154,43 +2225,52 @@ aa_pulv:
 	Armor:
 		Type: Medium
 	Turreted:
-		TurnSpeed: 24
+		TurnSpeed: 26
 	Armament@1:
-		Weapon: AsianPulvMG1
-		RequiresCondition: !gatling
+		Weapon: AsianPulverizerGatling
 		LocalOffset: 800,0,400
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-	Armament@2:
-		Weapon: AsianPulvMG2
-		RequiresCondition: gatling == 1
-		LocalOffset: 800,0,400
-		MuzzleSequence: muzzle-1
-		MuzzlePalette: ra2effect
-	Armament@3:
-		Weapon: AsianPulvMG3
-		RequiresCondition: gatling > 1
-		LocalOffset: 800,0,400
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
-	Armament@1AA:
-		Weapon: AsianPulvMG1AA
-		RequiresCondition: !gatling
-		LocalOffset: 800,0,400
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@2AA:
-		Weapon: AsianPulvMG2AA
-		RequiresCondition: gatling == 1
-		LocalOffset: 800,0,400
-		MuzzleSequence: muzzle-1
-		MuzzlePalette: ra2effect
-	Armament@3AA:
-		Weapon: AsianPulvMG3AA
-		RequiresCondition: gatling > 1
-		LocalOffset: 800,0,400
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -2281,14 +2361,23 @@ aa_viper:
 	Health:
 		HP: 25000
 	Repairable:
-		HpPerStep: 1000
+		HpPerStep: 1250
+	ChangesHealth@SelfHealing:
+		Step: 10
 	Armor:
 		Type: Light
-	Armament@AG:
+	Armament@PRIMARY:
 		Weapon: AsianChemical
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: AsianChemicalE
+		LocalOffset: -400,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	WithMuzzleOverlay:
 	Selectable:
 		DecorationBounds: 1280, 1280
@@ -2309,8 +2398,9 @@ aa_mlrs:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
+	Inherits@UpGat: ^YuriGatlingUpgrade
 	Valued:
-		Cost: 900
+		Cost: 1200
 	Tooltip:
 		Name: Type 89 MLRS
 	UpdatesPlayerStatistics:
@@ -2324,9 +2414,11 @@ aa_mlrs:
 		Speed: 80
 		TurnSpeed: 16
 	Health:
-		HP: 30000
+		HP: 40000
 	Repairable:
-		HpPerStep: 1500
+		HpPerStep: 2000
+	ChangesHealth@SelfHealing:
+		Step: 16
 	Armor:
 		Type: Medium
 	Turreted:
@@ -2345,39 +2437,166 @@ aa_mlrs:
 		PlayerPalette: playerra2
 	WithTurretAimAnimation:
 		Sequence: aim
-	GrantConditionOnAttack:
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	GrantConditionOnAttack@gatling:
 		Condition: gatling
-		ArmamentNames: primary, secondary
-		RequiredShotsPerInstance: 8, 12
-		MaximumInstances: 2
-		RevokeDelay: 25
-		RevokeAll: false
-		IsCyclic: false
-		RevokeOnNewTarget: false
-	SpeedMultiplier@gatling:
-		RequiresCondition: gatling == 1
-		Modifier: 75
-	SpeedMultiplier@gatling2:
-		RequiresCondition: gatling > 1
-		Modifier: 50
-	TurnSpeedMultiplier@gatling:
-		RequiresCondition: gatling == 1
-		Modifier: 75
-	TurnSpeedMultiplier@gatling2:
-		RequiresCondition: gatling > 1
-		Modifier: 50
-	RangeMultiplier@gatling:
-		RequiresCondition: gatling == 1
-		Modifier: 111
-	RangeMultiplier@gatling2:
-		RequiresCondition: gatling > 1
-		Modifier: 123
-	ReloadDelayMultiplier@gatling:
-		RequiresCondition: gatling == 1
-		Modifier: 50
-	ReloadDelayMultiplier@gatling2:
-		RequiresCondition: gatling > 1
-		Modifier: 25
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
 	Voiced:
 		VoiceSet: AsianAllianceVehicleVoice
 
@@ -2391,7 +2610,7 @@ aa_hotwi:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Valued:
-		Cost: 1200
+		Cost: 1600
 	Tooltip:
 		Name: Howitzer
 	Buildable:
@@ -2421,8 +2640,30 @@ aa_hotwi:
 		LocalOffset: 720,0,80
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Name: primary
+		Weapon: AsianHowitzerCannonE
+		Recoil: 256
+		RecoilRecovery: 38
+		LocalOffset: 720,0,80
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	AttackTurreted:
 		TargetFrozenActors: True
+	GrantConditionOnAttack:
+		Condition: firing
+		RevokeDelay: 80
+	SpeedMultiplier@firing:
+		RequiresCondition: firing
+		Modifier: 50
+	TurnSpeedMultiplier@firing:
+		RequiresCondition: firing
+		Modifier: 50
+	TurretTurnSpeedMultiplier@firing:
+		RequiresCondition: firing
+		Modifier: 50
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	Voiced:
@@ -2449,14 +2690,14 @@ aa_ftnk:
 		Queue: Vehicle, RAVehicle
 		Description: actor-ftnk.description
 	Mobile:
-		Speed: 80
-		TurnSpeed: 32
+		Speed: 85
+		TurnSpeed: 34
 	Health:
-		HP: 80000
+		HP: 85000
 	Repairable:
-		HpPerStep: 4000
+		HpPerStep: 4250
 	ChangesHealth@SelfHealing:
-		Step: 32
+		Step: 34
 	Armor:
 		Type: Medium
 	Armament@AG:
@@ -2464,6 +2705,15 @@ aa_ftnk:
 		LocalOffset: 300,0,200
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: AsianFlamerTankE
+		LocalOffset: 300,0,200
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 75
 	AttackFrontal:
 	WithMuzzleOverlay:
 	Selectable:
@@ -2491,7 +2741,7 @@ aa_mecha:
 	Selectable:
 		Bounds: 1250, 1750, 0, -250
 	Valued:
-		Cost: 1600
+		Cost: 2400
 	Tooltip:
 		Name: Pulverizer Mecha
 	Buildable:
@@ -2500,76 +2750,151 @@ aa_mecha:
 		Queue: Vehicle, RAVehicle
 		Description: actor-aamecha.description
 	Mobile:
-		Speed: 65
-		TurnSpeed: 26
+		Speed: 55
+		TurnSpeed: 22
 	Health:
-		HP: 130000
+		HP: 265000
 	Repairable:
-		HpPerStep: 6500
+		HpPerStep: 13250
 	ChangesHealth@SelfHealing:
-		Step: 52
+		Step: 106
 	Armor:
 		Type: Heavy
 	Armament@1:
-		Weapon: AsianPulvMG1
-		RequiresCondition: !gatling
+		Weapon: AsianPulverizerMechaGatling
 		LocalOffset: 800,300,600, 800,-300,600
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-	Armament@2:
-		Weapon: AsianPulvMG2
-		RequiresCondition: gatling == 1
-		LocalOffset: 800,300,600, 800,-300,600
-		MuzzleSequence: muzzle-1
-		MuzzlePalette: ra2effect
-	Armament@3:
-		Weapon: AsianPulvMG3
-		RequiresCondition: gatling > 1
-		LocalOffset: 800,300,600, 800,-300,600
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
-	Armament@1AA:
-		Weapon: AsianPulvMG1AA
-		RequiresCondition: !gatling
-		LocalOffset: 800,300,600, 800,-300,600
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@2AA:
-		Weapon: AsianPulvMG2AA
-		RequiresCondition: gatling == 1
-		LocalOffset: 800,300,600, 800,-300,600
-		MuzzleSequence: muzzle-1
-		MuzzlePalette: ra2effect
-	Armament@3AA:
-		Weapon: AsianPulvMG3AA
-		RequiresCondition: gatling > 1
-		LocalOffset: 800,300,600, 800,-300,600
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 16, 32
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 8, 16
-	RangeMultiplier@gatling:
-		RequiresCondition: gatling == 1
-		Modifier: 111
-	RangeMultiplier@gatling2:
-		RequiresCondition: gatling > 1
-		Modifier: 123
-	SpeedMultiplier@gatling:
-		RequiresCondition: gatling == 1
-		Modifier: 75
-	SpeedMultiplier@gatling2:
-		RequiresCondition: gatling > 1
-		Modifier: 50
-	TurnSpeedMultiplier@gatling:
-		RequiresCondition: gatling == 1
-		Modifier: 75
-	TurnSpeedMultiplier@gatling2:
-		RequiresCondition: gatling > 1
-		Modifier: 50
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 20
 	WithInfantryBody:
@@ -2599,7 +2924,7 @@ aa_railt:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Valued:
-		Cost: 2000
+		Cost: 1500
 	Tooltip:
 		Name: Railgun Tank
 	Buildable:
@@ -2612,17 +2937,27 @@ aa_railt:
 		Speed: 65
 		TurnSpeed: 26
 	Health:
-		HP: 115000
+		HP: 160000
 	Repairable:
-		HpPerStep: 5750
+		HpPerStep: 8000
+	ChangesHealth@SelfHealing:
+		Step: 64
 	Armor:
 		Type: Medium
-	Armament:
+	Armament@PRIMARY:
 		Name: primary
 		Weapon: AsianRailTank
-		RecoilRecovery: 38
+		RecoilRecovery: 40
 		LocalOffset: 750,0,80
 		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Name: primary
+		Weapon: AsianRailTank2
+		RecoilRecovery: 50
+		LocalOffset: 750,0,80
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	RenderRangeCircle:
@@ -2635,9 +2970,9 @@ aa_railt:
 aa_railt2:
 	Inherits: aa_railt
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@buff: ^PromotionUnitBuff
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Valued:
-		Cost: 3000
+		Cost: 2200
 	Tooltip:
 		Name: Heavy Railgun Tank
 	Buildable:
@@ -2649,19 +2984,17 @@ aa_railt2:
 		Speed: 50
 		TurnSpeed: 10
 	Health:
-		HP: 175000
+		HP: 250000
 	Repairable:
-		HpPerStep: 8750
+		HpPerStep: 12500
 	ChangesHealth@SelfHealing:
-		Step: 70
+		Step: 100
 	Armor:
 		Type: Heavy
-	Armament:
-		Name: primary
+	Armament@PRIMARY:
 		Weapon: AsianRailTank2
-		RecoilRecovery: 38
-		LocalOffset: 750,0,80
-		MuzzleSequence: muzzle
+	Armament@ELITE:
+		Weapon: AsianRailTank3
 
 aa_wtrt:
 	Inherits: ^Tank
@@ -2675,7 +3008,7 @@ aa_wtrt:
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Valued:
-		Cost: 3500
+		Cost: 5000
 	Tooltip:
 		Name: War Turtle
 	Buildable:
@@ -2693,11 +3026,11 @@ aa_wtrt:
 	Passenger:
 		Weight: 4
 	Health:
-		HP: 100000
+		HP: 250000
 	Repairable:
-		HpPerStep: 5000
+		HpPerStep: 12500
 	ChangesHealth@SelfHealing:
-		Step: 80
+		Step: 100
 	Armor:
 		Type: Medium
 	#Turreted:
@@ -2757,7 +3090,7 @@ aa_phoenix:
 	Aircraft:
 		CruiseAltitude: 2560
 		TurnSpeed: 12
-		Speed: 185
+		Speed: 180
 		IdleTurnSpeed: 10
 		IdleSpeed: 125
 		TakeoffSounds: vintupa.wav
@@ -2765,6 +3098,8 @@ aa_phoenix:
 		Voice: Move
 	Health:
 		HP: 90000
+	Repairable:
+		HpPerStep: 4500
 	ChangesHealth@SelfHealing:
 		Step: 36
 	Armament@PRIMARY:
@@ -2772,18 +3107,25 @@ aa_phoenix:
 		Weapon: AsianPhoenixRocket
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 100, -100, 50, -50
+		AmmoUsage: 2
 		PauseOnCondition: !ammo
-		Voice: AttackGround
-	Armament@SECONDARY:
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
 		Name: primary
-		Weapon: AsianPhoenixRocketAA
+		Weapon: AsianPhoenixRocket_elite
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 100, -100, 50, -50
+		AmmoUsage: 1
 		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
 	AmmoPool:
-		Ammo: 2
-		ReloadDelay: 100
+		Ammo: 4
+		ReloadDelay: 50
 		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 2
 	SpawnActorOnDeath:
 		Actor: aa_phoenix.Husk
 	#GrantConditionOnMovement@Turn:
@@ -2816,10 +3158,6 @@ aa_phoenix:
 		FacingTolerance: 80
 	AttackMove:
 		Voice: AttackMove
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-		PipCount: 2
 	DeathSounds:
 	RenderSprites:
 		PlayerPalette: playerra2
@@ -2850,6 +3188,13 @@ aa_pelican:
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Weapon: AsianPelicanMissileE
+		LocalOffset: 85,-213,-85, 85,213,-85
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -2888,8 +3233,8 @@ aa_pelican:
 		Ammo: 6
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 100
-		Count: 2
+		Delay: 50
+		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
@@ -4105,7 +4450,7 @@ latin_cgspy:
 		OrderName: TraitorsPower
 		PauseOnCondition: disabled
 		Prerequisites:
-			1: uplatin_traitor
+			1: latin_cgspy
 		IconImage: latin_cgspy
 		Icons:
 			1: icon2
@@ -4376,14 +4721,14 @@ latin_ngdshktur:
 		Prerequisites: ~latin_cgcnst, latin_cgpile
 		Description: template-anti-infantry-defense.description
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Latin Sentry Gun
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 80000
+		HP: 85000
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -4411,31 +4756,83 @@ latin_ngdshktur:
 	WithSpriteTurret:
 		RequiresCondition: !build-incomplete
 	AutoTarget:
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 102
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
+		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
 	ActorStatValues:
 		Upgrades: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 50
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 25
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 2, 4
-		RequiresCondition: rank-elite && latin_up_chaingun
 	Power:
 		Amount: -30
 	RevealsShroud:
@@ -4510,7 +4907,7 @@ latin_sml:
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 50
-		Prerequisites: ~latin_cgcnst, uplatin_up_sml, latin_cgspy
+		Prerequisites: ~latin_cgcnst, latin_cgup
 		Description: actor-latin_sml.description
 	Valued:
 		Cost: 5000
@@ -4596,29 +4993,81 @@ latin_aatur:
 		Weapon: LatinAADefenderCannon
 		LocalOffset: 700,-350,750, 700,350,750
 		MuzzleSequence: muzzle
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 102
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 2, 4
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	ActorStatValues:
 		Upgrades: latin_up_chaingun
 	BodyOrientation:
@@ -4633,9 +5082,9 @@ latin_aatur:
 	Power:
 		Amount: -75
 	RevealsShroud:
-		Range: 14000
+		Range: 15000
 	DetectCloaked:
-		Range: 7000
+		Range: 7500
 
 latin_cgyard:
 	Inherits: ^RA2Building
@@ -4840,38 +5289,504 @@ latin_mcv:
 		PlayerPalette: playerra2
 		Image: ra2smcv #placeholder
 
+latin_mili:
+	Inherits: ^Soldier
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Tooltip:
+		Name: Latin Militia
+	Valued:
+		Cost: 130
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~latin_cgpile
+		Queue: Infantry, RAInfantry
+		Description: actor-latin_mili.description
+	Mobile:
+		Speed: 52
+	Health:
+		HP: 13000
+	ChangesHealth@SelfHealing:
+		Step: 13
+	Armament@PRIMARY:
+		Weapon: RA2MiliAK47
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2MiliAK47E
+		RequiresCondition: rank-elite
+	Armament@Molotov:
+		Weapon: RA2Molotov
+		RequiresCondition: uplatin_mili && !rank-elite
+	Armament@MolotovELITE:
+		Weapon: RA2MolotovE
+		RequiresCondition: uplatin_mili && rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2MiliAK47
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2MiliAK47E
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	Armament@MolotovGARRISONED:
+		Name: garrisoned
+		Weapon: RA2Molotov
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	Armament@MolotovGARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2MolotovE
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: LatinSoldierVoice
+	GrantConditionOnPrerequisite@uplatin_mili:
+		Condition: uplatin_mili
+		Prerequisites: uplatin_mili
+	DamageMultiplier@uplatin_mili:
+		Modifier: 50
+		RequiresCondition: uplatin_mili
+	ChangesHealth@SelfHealing:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: uplatin_mili
+	ActorStatValues:
+		Upgrades: uplatin_mili, latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
+		RequiresCondition: rank-elite && latin_up_chaingun
+
+latin_tkiller:
+	Inherits: ^Soldier
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Tooltip:
+		Name: Latin Tank Killer
+	Valued:
+		Cost: 270
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~latin_cgpile
+		Queue: Infantry, RAInfantry
+		Description: template-antitank-antiair-infantry.description
+	Mobile:
+		Speed: 53
+	Health:
+		HP: 13000
+	ChangesHealth@SelfHealing:
+		Step: 13
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: LatinTankKillerRocket
+		LocalOffset: 128,0,256
+		RequiresCondition: !rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: LatinTankKillerRocket
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYE:
+		Name: primary
+		Weapon: LatinTankKillerRocket_elite
+		LocalOffset: 128,0,256
+		RequiresCondition: rank-elite
+	Armament@GARRISONEDE:
+		Name: garrisoned
+		Weapon: LatinTankKillerRocket_elite
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: TankHunterVoice
+	RenderSprites:
+		Image: aa_tkiller
+
+latin_monkey:
+	Inherits: ^DefaultInfantry
+	Inherits@2: ^AffectedByTiberium
+	Inherits@Template: ^MortarInfantryTemplate
+	Inherits@detect: ^GenericGroundDetector
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@MC: ^MCImmune
+	Inherits@flamerup: ^LatinFlameUpgrades
+	Tooltip:
+		Name: Grenade Monkey
+	Valued:
+		Cost: 600
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~latin_cgpile
+		Queue: Infantry, RAInfantry
+		Description: actor-latin_monkey.description
+	Mobile:
+		Speed: 90
+	Health:
+		HP: 30000
+	ChangesHealth@SelfHealing:
+		Step: 30
+	Armament@PRIMARY:
+		Weapon: LatinMonkeyGrenade
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: LatinMonkeyGrenadeE
+		RequiresCondition: rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: LatinMonkeyGrenade
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: LatinMonkeyGrenadeE
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: LatinMonkeyDie
+	RenderSprites:
+		PlayerPalette: playerra2
+	Crushable:
+		CrushSound: igensqua.wav
+	WithDeathAnimation:
+		DeathSequencePalette: ra2infantry
+		DeathTypes:
+			DefaultDeath: 1
+			BruteMutate: 1
+			BulletDeath: 1
+			RippedApartDeath: 2
+			SmallExplosionDeath: 2
+			ExplosionDeath: 2
+			FireDeath: 2
+			PsychicDeath: 1
+			TiberiumDeath: 1
+			RadiationDeath: 1
+			RA2VirusDeath: 1
+			ElectricityDeath: 2
+			ContaminatorMutate: 1
+			QuestionMutate: 1
+	IgnoresDisguise:
+	-Targetable@disguise:
+	FireWarheadsOnDeath:
+		Weapon: d2k_grenade
+
+latin_fthrow:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@flamerup: ^LatinFlameUpgrades
+	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Tooltip:
+		Name: Flame Trooper
+	Valued:
+		Cost: 500
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~latin_cgspy
+		Queue: Infantry, RAInfantry
+		Description: actor-latin_fthrow.description
+	Mobile:
+		Speed: 55
+	Health:
+		HP: 55000
+	ChangesHealth@SelfHealing:
+		Step: 55
+	Armament@PRIMARY:
+		Weapon: SyndicateFireballLauncher
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: SyndicateFireballLauncherE
+		RequiresCondition: rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: SyndicateFireballLauncher
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: SyndicateFireballLauncherE
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	FirepowerMultiplier@latin_up_hotfire:
+		Modifier: 200
+	RangeMultiplier@latin_up_hotfire:
+		Modifier: 110
+	SpeedMultiplier@latin_up_hotfire:
+		Modifier: 120
+		RequiresCondition: latin_up_hotfire
+	ActorStatValues:
+		Upgrades: uplatin_mili, latin_up_hotfire
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: ConscriptVoice
+	GrantExternalConditionToTransport:
+		Condition: ifv-fire
+
+latin_narco:
+	Inherits: ^Soldier
+	Inherits@Template: ^SniperInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Tooltip:
+		Name: Narco
+	Valued:
+		Cost: 900
+	Buildable:
+		BuildPaletteOrder: 80
+		Prerequisites: ~uplatin_narco, latin_radar
+		Queue: Infantry, RAInfantry
+		Description: actor-latin_narco.description
+	Mobile:
+		Speed: 70
+	Health:
+		HP: 28000
+	ChangesHealth@SelfHealing:
+		Step: 28
+	Armament@PRIMARY:
+		Weapon: RA2NarcoPistol
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2NarcoPistolsE
+		RequiresCondition: rank-elite
+	Armament@SECONDARY:
+		Weapon: NarcoGrenade
+		LocalOffset: 250,0,400
+		RequiresCondition: !rank-elite
+	Armament@SECONDARYELITE:
+		Weapon: NarcoGrenadeE
+		LocalOffset: 250,0,400
+		RequiresCondition: rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2NarcoPistol
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2NarcoPistolsE
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	Armament@SECONDARYGARRISONED:
+		Name: garrisoned
+		Weapon: NarcoGrenade
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@SECONDARYGARRISONEDELITE:
+		Name: garrisoned
+		Weapon: NarcoGrenadeE
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: LatinNarcoVoice
+
+latin_fftr:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Tooltip:
+		Name: Freedom Fighter
+	Valued:
+		Cost: 3000
+	Buildable:
+		Queue: Infantry, RAInfantry
+		BuildPaletteOrder: 20
+		Prerequisites: ~latin_cgspy
+		BuildLimit: 1
+		Description: actor-latin_fftr.description
+	Mobile:
+		Speed: 55
+	Health:
+		HP: 77000
+	ChangesHealth@SelfHealing:
+		Step: 77
+	Armament@PRIMARY:
+		Weapon: RA2FreedomAK47
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2FreedomAK47E
+		RequiresCondition: rank-elite
+	Armament@ROCKET:
+		Weapon: RA2FreedomRocket
+		Name: secondary
+		RequiresCondition: !rank-elite
+	Armament@ROCKETELITE:
+		Weapon: RA2FreedomRocketE
+		Name: secondary
+		RequiresCondition: rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2FreedomAK47
+		RequiresCondition: !rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2FreedomAK47E
+		RequiresCondition: rank-elite
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	Armament@RocketGARRISONED:
+		Name: garrisoned
+		Weapon: RA2FreedomRocket
+		RequiresCondition: !rank-elite
+	Armament@RocketGARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2FreedomRocketE
+		RequiresCondition: rank-elite
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
+	AttackFrontal:
+		FacingTolerance: 0
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		AttackSequences:
+			secondary: arrow
+		RequiresCondition: !tree
+	Voiced:
+		VoiceSet: LatinRamboVoice
+	GrantConditionOnPrerequisite@uplatin_alliedstolentech:
+		Condition: uplatin_alliedstolentech
+		Prerequisites: uplatin_alliedstolentech
+	RangeMultiplier@uplatin_alliedstolentech:
+		Modifier: 125
+		RequiresCondition: uplatin_alliedstolentech
+	ActorStatValues:
+		Upgrades: uplatin_mili, uplatin_alliedstolentech
+	Mirage:
+		RequiresCondition: !disabled && uplatin_alliedstolentech
+		InitialDelay: 25
+		RevealDelay: 25
+		RevealOn: Attack, Move, Damage, SelfHeal
+		MirageCondition: tree
+		DefaultTargetTypes: t08, t10, t03, t02
+	WithMirageSpriteBody:
+		Name: tree
+		RequiresCondition: tree && uplatin_alliedstolentech
+		IsPlayerPalette: false
+		Palette: ra_temperat
+
 latin_buggy:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@uprecover: ^LatinCashrecover
 	Inherits@gat: ^YuriGatlingUpgrade
+	Tooltip:
+		Name: Raider Buggy
 	Valued:
 		Cost: 700
-	Tooltip:
-		Name: Latin Buggy
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~latin_cgweap
+		Prerequisites: ~uplatin_buggy
 		Queue: Vehicle, RAVehicle
 		Description: actor-latin_buggy.description
 	Mobile:
-		Speed: 105
-		TurnSpeed: 21
+		Speed: 115
+		TurnSpeed: 23
 	Health:
-		HP: 30000
+		HP: 37500
 	Repairable:
-		HpPerStep: 1500
+		HpPerStep: 1875
 	ChangesHealth@SelfHealing:
-		Step: 12
+		Step: 15
 	Armor:
 		Type: Light
 	Turreted:
-		TurnSpeed: 21
+		TurnSpeed: 23
 	Armament:
 		Weapon: LatinBuggyMG
 		LocalOffset: 500,0,300
@@ -4908,6 +5823,8 @@ latin_buggy:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -4916,36 +5833,179 @@ latin_buggy:
 		VoiceSet: LatinSoldierVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
+		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
 	ActorStatValues:
 		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 8, 16
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
-		RequiresCondition: rank-elite && latin_up_chaingun
 
 latin_mortarbike:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^MortarInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
@@ -4955,16 +6015,18 @@ latin_mortarbike:
 	Buildable:
 		Queue: Vehicle, RAVehicle, Infantry, RAInfantry
 		BuildPaletteOrder: 30
-		Prerequisites: ~latin_cgweap
+		Prerequisites: ~uplatin_mortarbike
 		Description: actor-latin_mortarbike.description
-	Valued:
-		Cost: 500
 	Tooltip:
 		Name: Mortar Bike
+	Valued:
+		Cost: 500
 	Health:
-		HP: 25000
-	Armor:
-		Type: Light
+		HP: 28000
+	Repairable:
+		HpPerStep: 1400
+	ChangesHealth@SelfHealing:
+		Step: 28
 	Mobile:
 		Speed: 140
 		TurnSpeed: 56
@@ -4976,6 +6038,11 @@ latin_mortarbike:
 		Weapon: RA2MortarBikeE
 		LocalOffset: 222,0,400
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@Mortar:
+		Modifier: 50
+	FireWarheadsOnDeathCA@Mortar:
+		Weapon: RA2MortarBike
+		RequiresCondition: !disabled
 	AttackFrontal:
 		FacingTolerance: 0
 	SelectionDecorations:
@@ -4997,10 +6064,10 @@ latin_ltnk:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@uprecover: ^LatinCashrecover
-	Valued:
-		Cost: 700
 	Tooltip:
 		Name: Rusher Tank
+	Valued:
+		Cost: 700
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~latin_cgweap, ~!uplatin_mtnk
@@ -5039,14 +6106,15 @@ latin_ltnk:
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
 	Armament@AA:
-		Weapon: LatinSmokerRocket
-		LocalOffset: 600,0,300
+		Weapon: LatinRusherRocket
+		LocalOffset: 600,200,300, 600,-200,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: uplatin_alliedstolentech && !rank-elite
 	Armament@AAE:
-		Weapon: LatinSmokerRocketE
+		Weapon: LatinRusherRocketE
+		LocalOffset: 600,200,300, 600,-200,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
@@ -5077,27 +6145,26 @@ latin_mtnk:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
-	Valued:
-		Cost: 1000
 	Tooltip:
 		Name: Smoker Tank
+	Valued:
+		Cost: 1000
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~uplatin_mtnk
 		Queue: Vehicle, RAVehicle
 		Description: template-mbt.description
 	Mobile:
-		Speed: 105
-		TurnSpeed: 21
+		Speed: 95
+		TurnSpeed: 19
 	Health:
-		HP: 135000
+		HP: 140000
 	Repairable:
-		HpPerStep: 6750
+		HpPerStep: 7000
 	ChangesHealth@SelfHealing:
-		Step: 108
+		Step: 56
 	Armor:
-		Type: Medium
+		Type: Heavy
 	Turreted:
 		TurnSpeed: 21 #3
 		Offset: -100,0,5
@@ -5137,45 +6204,25 @@ latin_mtnk:
 		RequiresCondition: rank-elite
 	Armament@AA:
 		Weapon: LatinSmokerRocket
-		LocalOffset: 600,0,300
+		LocalOffset: 600,200,300, 600,-200,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: uplatin_alliedstolentech && !rank-elite
 	Armament@AAE:
 		Weapon: LatinSmokerRocketE
+		LocalOffset: 600,200,300, 600,-200,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: uplatin_alliedstolentech && rank-elite
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 25
 	GrantConditionOnPrerequisite@Missile:
 		Condition: uplatin_alliedstolentech
 		Prerequisites: uplatin_alliedstolentech
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 6, 12
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 3, 6
-		RequiresCondition: rank-elite && latin_up_chaingun
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -5197,10 +6244,10 @@ latin_diablo:
 	Inherits@EMP: ^TurretEMP
 	Inherits@uprecover: ^LatinCashrecover
 	Inherits@gat: ^YuriGatlingUpgrade
-	Valued:
-		Cost: 1100
 	Tooltip:
 		Name: Diablo
+	Valued:
+		Cost: 1100
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~latin_radar
@@ -5218,7 +6265,7 @@ latin_diablo:
 	Armor:
 		Type: Light
 	Turreted:
-		TurnSpeed: 50 #3
+		TurnSpeed: 36
 		Offset: -100,0,5
 	Armament:
 		Name: primary
@@ -5251,29 +6298,171 @@ latin_diablo:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 2, 4
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	ActorStatValues:
 		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
 	AttackTurreted:
@@ -5316,6 +6505,7 @@ latin_diablo:
 latin_apc:
 	Inherits: ^Tank
 	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -5324,83 +6514,60 @@ latin_apc:
 	Inherits@cargo: ^CargoVehicle
 	Inherits@bot: ^BotAutoDeployTransport
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
-	Valued:
-		Cost: 1750
 	Tooltip:
 		Name: Latin APC
+	Valued:
+		Cost: 2400
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~latin_radar
+		Prerequisites: ~uplatin_apc, latin_cgspy
 		Queue: Vehicle, RAVehicle
 		Description: actor-latin_apc.description
 	Mobile:
 		Locomotor: amphibius
-		Speed: 85
-		TurnSpeed: 17
+		Speed: 90
+		TurnSpeed: 18
 	Health:
-		HP: 60000
+		HP: 180000
 	Repairable:
-		HpPerStep: 3000
+		HpPerStep: 9000
 	ChangesHealth@SelfHealing:
-		Step: 24
+		Step: 72
 	Armor:
 		Type: Medium
 	Turreted:
-		TurnSpeed: 42
+		TurnSpeed: 18
 		Offset: -1,0,4
 	Armament@AG:
 		Weapon: RA2APCMachineGun
-		LocalOffset: 600,0,300
+		LocalOffset: 600,15,300, 600,-15,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
 	Armament@AGE:
-		Weapon: RA2APCMachineGun
-		LocalOffset: 600,0,300
+		Weapon: RA2APCMachineGunE
+		LocalOffset: 600,15,300, 600,-15,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
 	Armament@AA:
 		Weapon: RA2APCRocket
-		LocalOffset: 600,150,300, 600,-150,300
+		LocalOffset: 600,-150,300, 600,150,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech
+		RequiresCondition: uplatin_alliedstolentech && !rank-elite
 	Armament@AAE:
-		Weapon: RA2APCRocket
+		Weapon: RA2APCRocketE
 		LocalOffset: 600,-150,300, 600,150,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: uplatin_alliedstolentech && rank-elite
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 8, 16
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
-		RequiresCondition: rank-elite && latin_up_chaingun
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech
 	WithMuzzleOverlay:
 	AttackTurreted:
 	Selectable:
@@ -5414,7 +6581,7 @@ latin_apc:
 	Cargo:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 5
-		InitialUnits: latin_mili, latin_mili, latin_fthrow, latin_fthrow, latin_fftr
+		InitialUnits: latin_mili, latin_tkiller, latin_monkey, latin_fthrow, latin_narco
 	GrantConditionOnPrerequisite@Missile:
 		Condition: uplatin_alliedstolentech
 		Prerequisites: uplatin_alliedstolentech
@@ -5428,7 +6595,6 @@ latin_apc:
 latin_humvee:
 	Inherits: ^Tank
 	Inherits@GAINSEXPERIENCE: ^SupportVehicleTemplate
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -5437,30 +6603,29 @@ latin_humvee:
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
-	Valued:
-		Cost: 2400
 	Tooltip:
 		Name: Narco Hummer
+	Valued:
+		Cost: 3000
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~uplatin_humvee, latin_radar
+		Prerequisites: ~latin_cgup, ~!uplatin_cartel
 		Queue: Vehicle, RAVehicle
 		Description: actor-latin_humvee.description
 	Mobile:
 		Locomotor: wheeled
-		Speed: 120
-		TurnSpeed: 24
+		Speed: 110
+		TurnSpeed: 22
 	Health:
-		HP: 92500
+		HP: 97500
 	Repairable:
-		HpPerStep: 4625
+		HpPerStep: 4875
 	ChangesHealth@SelfHealing:
-		Step: 74
+		Step: 39
 	Armor:
 		Type: Medium
 	Turreted:
-		TurnSpeed: 24
+		TurnSpeed: 22
 		Offset: -1,0,4
 	Armament@AG:
 		Weapon: RA2NarcoAKM
@@ -5476,44 +6641,8 @@ latin_humvee:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
-	Armament@AA:
-		Weapon: RA2FreedomRocket
-		LocalOffset: 600,0,300
-		Recoil: 85
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && !rank-elite
-	Armament@AAE:
-		Weapon: RA2FreedomRocketE
-		Recoil: 85
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && rank-elite
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 8, 16
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
-		RequiresCondition: rank-elite && latin_up_chaingun
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
+		Upgrades: uplatin_cashrecover, latin_up_industrial
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackFrontal:
@@ -5528,22 +6657,19 @@ latin_humvee:
 		VoiceSet: LatinNarcoVVoice
 	Cargo:
 		Types: Infantry, Hacker, Fremen
-		MaxWeight: 4
-		InitialUnits: latin_narco, latin_narco, latin_narco, latin_narco
+		MaxWeight: 5
+		InitialUnits: latin_mili, latin_tkiller, latin_monkey, latin_fthrow, latin_narco
 	AttackOpenTopped:
 		Voice: Attack
 		Armaments: garrisoned
-		PortOffsets: 224,-341,128, -224,-341,128, -224,341,128, 224,341,128
+		PortOffsets: 0,0,128, 224,-341,128, -224,-341,128, -224,341,128, 224,341,128
 		PauseOnCondition: chronobeamed
-	GrantConditionOnPrerequisite@Missile:
-		Condition: uplatin_alliedstolentech
-		Prerequisites: uplatin_alliedstolentech
 	WithSpriteTurret:
 		Sequence: turret
 
 latin_cartel:
 	Inherits: ^Tank
-	Inherits@GAINSEXPERIENCE: ^EpicVehicleTemplate
+	Inherits@GAINSEXPERIENCE: ^LineBreakerTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
@@ -5553,31 +6679,29 @@ latin_cartel:
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
 	Valued:
-		Cost: 5000
+		Cost: 6000
 	Tooltip:
 		Name: Cartel Truck
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~latin_cgspy, ~uplatin_cartel
+		Prerequisites: ~latin_cgup, ~uplatin_cartel
 		Queue: Vehicle, RAVehicle
 		Description: actor-latin_humvee.description
-		BuildLimit: 1
 	Mobile:
 		Locomotor: wheeled
-		Speed: 110
-		TurnSpeed: 22
+		Speed: 70
+		TurnSpeed: 14
 	Health:
-		HP: 175000
+		HP: 167500
 	Repairable:
-		HpPerStep: 8750
+		HpPerStep: 8375
 	ChangesHealth@SelfHealing:
-		Step: 140
+		Step: 67
 	Armor:
 		Type: Heavy
 	Turreted:
-		TurnSpeed: 24
+		TurnSpeed: 14
 		Offset: -1,0,4
 	Armament@AG:
 		Weapon: RA2Narco60mm
@@ -5593,50 +6717,8 @@ latin_cartel:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
-	Armament@Mortar:
-		Weapon: RA2MortarBike
-		Recoil: 85
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech
-	Armament@AA:
-		Weapon: RA2FreedomRocket
-		LocalOffset: 600,0,300
-		Recoil: 85
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && !rank-elite
-	Armament@AAE:
-		Weapon: RA2FreedomRocketE
-		Recoil: 85
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && rank-elite
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 8, 16
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
-		RequiresCondition: rank-elite && latin_up_chaingun
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
+		Upgrades: uplatin_cashrecover, latin_up_industrial
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackFrontal:
@@ -5650,16 +6732,13 @@ latin_cartel:
 		VoiceSet: LatinNarcoVVoice
 	Cargo:
 		Types: Infantry, Hacker, Fremen
-		MaxWeight: 8
-		InitialUnits: latin_narco, latin_narco, latin_narco, latin_narco, latin_fftr, latin_fftr, latin_fftr, latin_fftr
+		MaxWeight: 10
+		InitialUnits: latin_mili, latin_tkiller, latin_monkey, latin_fthrow, latin_narco, latin_mili, latin_tkiller, latin_monkey, latin_fthrow, latin_narco
 	AttackOpenTopped:
 		Voice: Attack
 		Armaments: garrisoned
-		PortOffsets: 384,0,128, 224,-341,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,341,128, -384,0,128
+		PortOffsets: 384,0,128, 224,-341,128, 224,0,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,0,128, -224,341,128, -384,0,128
 		PauseOnCondition: chronobeamed
-	GrantConditionOnPrerequisite@Missile:
-		Condition: uplatin_alliedstolentech
-		Prerequisites: uplatin_alliedstolentech
 	WithSpriteTurret:
 		Sequence: turret
 
@@ -5686,6 +6765,8 @@ latin_rtruck:
 		HP: 30000
 	Repairable:
 		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
 	Armor:
 		Type: Light
 	Mobile:
@@ -5745,12 +6826,12 @@ latin_burrito:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
-		Prerequisites: ~uplatin_burrito, latin_radar
+		Prerequisites: ~uplatin_burrito, latin_cgspy
 		Description: actor-latin_burrito.description
-	Valued:
-		Cost: 1200
 	Tooltip:
 		Name: Burrito
+	Valued:
+		Cost: 1800
 	Health:
 		HP: 35000
 	Repairable:
@@ -5803,7 +6884,7 @@ latin_burrito:
 latin_lars:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@Template: ^FireSupportTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -5813,23 +6894,23 @@ latin_lars:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
-		Prerequisites: ~uplatin_burrito, latin_radar
+		Prerequisites: ~uplatin_lars, latin_cgup
 		Description: actor-latin_lars.description
 	Valued:
-		Cost: 1700
+		Cost: 1100
 	Tooltip:
 		Name: LARS
 	Health:
-		HP: 15000
+		HP: 32500
 	Repairable:
-		HpPerStep: 750
+		HpPerStep: 1625
 	ChangesHealth@SelfHealing:
-		Step: 6
+		Step: 13
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 75
-		TurnSpeed: 30
+		Speed: 65
+		TurnSpeed: 26
 	Armament:
 		Weapon: RA2LarsRocket
 		LocalOffset: -500,250,250, -500,0,250, -500,-250,250, -500,250,500, -500,0,500, -500,-250,500
@@ -5910,413 +6991,6 @@ latin_harv:
 	WithHarvestOverlay@harvesting:
 		Sequence: harvesting
 		Palette: ra2effect
-
-latin_mili:
-	Inherits: ^Soldier
-	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
-	Inherits@anim: ^RA2Infantry
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@gat: ^YuriGatlingUpgrade
-	Inherits@EliteGuerillas: ^LatinEliteGuerillas
-	Valued:
-		Cost: 125
-	Tooltip:
-		Name: Latin Militia
-	Buildable:
-		BuildPaletteOrder: 10
-		Prerequisites: ~latin_cgpile
-		Queue: Infantry, RAInfantry
-		Description: actor-latin_mili.description
-	Mobile:
-		Speed: 52
-	Health:
-		HP: 12500
-	Armament@PRIMARY:
-		Weapon: RA2MiliAK47
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: RA2MiliAK47E
-		RequiresCondition: rank-elite
-	Armament@Molot:
-		Weapon: RA2Molotov
-		RequiresCondition: uplatin_mili
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: RA2MiliAK47
-		RequiresCondition: !rank-elite
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@GARRISONEDELITE:
-		Name: garrisoned
-		Weapon: RA2MiliAK47E
-		RequiresCondition: rank-elite
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	AttackFrontal:
-		FacingTolerance: 0
-	Voiced:
-		VoiceSet: LatinSoldierVoice
-	GrantConditionOnPrerequisite@uplatin_mili:
-		Condition: uplatin_mili
-		Prerequisites: uplatin_mili
-	DamageMultiplier@uplatin_mili:
-		Modifier: 50
-		RequiresCondition: uplatin_mili
-	ChangesHealth@SelfHealing:
-		Step: 10
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 1
-		RequiresCondition: uplatin_mili
-	ActorStatValues:
-		Upgrades: uplatin_mili, latin_up_chaingun
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 2, 4
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 4, 8
-		RequiresCondition: rank-elite && latin_up_chaingun
-
-latin_tkiller:
-	Inherits: ^Soldier
-	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
-	Inherits@anim: ^RA2Infantry
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@VOICES: ^WithFeedbackVoiceLines
-	Inherits@EliteGuerillas: ^LatinEliteGuerillas
-	Valued:
-		Cost: 300
-	Tooltip:
-		Name: Latin Tank Killer
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~latin_cgpile
-		Queue: Infantry, RAInfantry
-		Description: template-antitank-antiair-infantry.description
-	Mobile:
-		Speed: 45
-	Health:
-		HP: 17000
-	Armament@PRIMARY:
-		Name: primary
-		Weapon: RA2GIRocketsG
-		RequiresCondition: !rank-elite
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: RA2GIRocketsG
-		RequiresCondition: !rank-elite
-	Armament@PRIMARYE:
-		Name: primary
-		Weapon: RA2GIRocketsG_elite
-		RequiresCondition: rank-elite
-	Armament@GARRISONEDE:
-		Name: garrisoned
-		Weapon: RA2GIRocketsG_elite
-		RequiresCondition: rank-elite
-	AttackFrontal:
-		FacingTolerance: 0
-	Voiced:
-		VoiceSet: TankHunterVoice
-	RenderSprites:
-		Image: aa_tkiller
-
-latin_fftr:
-	Inherits: ^Soldier
-	Inherits@Template: ^HeavyInfantryTemplate
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
-	Inherits@anim: ^RA2Infantry
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@EliteGuerillas: ^LatinEliteGuerillas
-	Valued:
-		Cost: 700
-	Tooltip:
-		Name: Freedom Fighter
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~uplatin_fftr, latin_radar
-		Queue: Infantry, RAInfantry
-		Description: actor-latin_fftr.description
-	Mobile:
-		Speed: 55
-	Health:
-		HP: 25000
-	ChangesHealth@SelfHealing:
-		Step: 10
-	Armament@PRIMARY:
-		Weapon: RA2FreedomAK47
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: RA2FreedomAK47E
-		RequiresCondition: rank-elite
-	Armament@ROCKET:
-		Weapon: RA2FreedomRocket
-		Name: secondary
-		RequiresCondition: !rank-elite
-	Armament@ROCKETELITE:
-		Weapon: RA2FreedomRocketE
-		Name: secondary
-		RequiresCondition: rank-elite
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: RA2FreedomAK47
-		RequiresCondition: !rank-elite
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@GARRISONEDELITE:
-		Name: garrisoned
-		Weapon: RA2FreedomAK47E
-		RequiresCondition: rank-elite
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@RocketGARRISONED:
-		Name: garrisoned
-		Weapon: RA2FreedomRocket
-		RequiresCondition: !rank-elite
-	Armament@RocketGARRISONEDELITE:
-		Name: garrisoned
-		Weapon: RA2FreedomRocketE
-		RequiresCondition: rank-elite
-	AttackFrontal:
-		FacingTolerance: 0
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
-		AttackSequences:
-			secondary: arrow
-		RequiresCondition: !tree
-	Voiced:
-		VoiceSet: LatinRamboVoice
-	GrantConditionOnPrerequisite@uplatin_alliedstolentech:
-		Condition: uplatin_alliedstolentech
-		Prerequisites: uplatin_alliedstolentech
-	RangeMultiplier@uplatin_alliedstolentech:
-		Modifier: 125
-		RequiresCondition: uplatin_alliedstolentech
-	ActorStatValues:
-		Upgrades: uplatin_mili, uplatin_alliedstolentech
-	Mirage:
-		RequiresCondition: !disabled && uplatin_alliedstolentech
-		InitialDelay: 25
-		RevealDelay: 25
-		RevealOn: Attack, Move, Damage, SelfHeal
-		MirageCondition: tree
-		DefaultTargetTypes: t08, t10, t03, t02
-	WithMirageSpriteBody:
-		Name: tree
-		RequiresCondition: tree && uplatin_alliedstolentech
-		IsPlayerPalette: false
-		Palette: ra_temperat
-
-latin_fthrow:
-	Inherits: ^Soldier
-	Inherits@Template: ^HeavyInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
-	Inherits@anim: ^RA2Infantry
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@VOICES: ^WithFeedbackVoiceLines
-	Inherits@flamerup: ^LatinFlameUpgrades
-	Inherits@EliteGuerillas: ^LatinEliteGuerillas
-	Valued:
-		Cost: 400
-	Tooltip:
-		Name: Flame Trooper
-	Buildable:
-		BuildPaletteOrder: 30
-		Prerequisites: ~latin_cgspy
-		Queue: Infantry, RAInfantry
-		Description: actor-latin_fthrow.description
-	Mobile:
-		Speed: 55
-	Health:
-		HP: 32500
-	ChangesHealth@SelfHealing:
-		Step: 13
-	Armament@PRIMARY:
-		Weapon: SyndicateFireballLauncher
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: SyndicateFireballLauncherE
-		RequiresCondition: rank-elite
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: SyndicateFireballLauncher
-		RequiresCondition: !rank-elite
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@GARRISONEDELITE:
-		Name: garrisoned
-		Weapon: SyndicateFireballLauncherE
-		RequiresCondition: rank-elite
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	FirepowerMultiplier@latin_up_hotfire:
-		Modifier: 200
-	RangeMultiplier@latin_up_hotfire:
-		Modifier: 110
-	SpeedMultiplier@latin_up_hotfire:
-		Modifier: 120
-		RequiresCondition: latin_up_hotfire
-	ActorStatValues:
-		Upgrades: uplatin_mili, latin_up_hotfire
-	AttackFrontal:
-		FacingTolerance: 0
-	Voiced:
-		VoiceSet: ConscriptVoice
-	GrantExternalConditionToTransport:
-		Condition: ifv-fire
-
-latin_monkey:
-	Inherits: ^DefaultInfantry
-	Inherits@2: ^AffectedByTiberium
-	Inherits@Template: ^HeavyInfantryTemplate
-	Inherits@detect: ^GenericGroundDetector
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
-	Inherits@MC: ^MCImmune
-	Inherits@flamerup: ^LatinFlameUpgrades
-	Valued:
-		Cost: 700
-	Tooltip:
-		Name: Grenade Monkey
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~latin_cgpile
-		Queue: Infantry, RAInfantry
-		Description: actor-latin_monkey.description
-	Mobile:
-		Speed: 90
-	Health:
-		HP: 30000
-	Armament@PRIMARY:
-		Weapon: d2k_grenade
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: d2k_grenade
-	AttackFrontal:
-		FacingTolerance: 0
-	Voiced:
-		VoiceSet: LatinMonkeyDie
-	RenderSprites:
-		PlayerPalette: playerra2
-	Crushable:
-		CrushSound: igensqua.wav
-	WithDeathAnimation:
-		DeathSequencePalette: ra2infantry
-		DeathTypes:
-			DefaultDeath: 1
-			BruteMutate: 1
-			BulletDeath: 1
-			RippedApartDeath: 2
-			SmallExplosionDeath: 2
-			ExplosionDeath: 2
-			FireDeath: 2
-			PsychicDeath: 1
-			TiberiumDeath: 1
-			RadiationDeath: 1
-			RA2VirusDeath: 1
-			ElectricityDeath: 2
-			ContaminatorMutate: 1
-			QuestionMutate: 1
-	IgnoresDisguise:
-	-Targetable@disguise:
-	FireWarheadsOnDeath:
-		Weapon: d2k_grenade
-
-latin_narco:
-	Inherits: ^Soldier
-	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
-	Inherits@anim: ^RA2Infantry
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@EliteGuerillas: ^LatinEliteGuerillas
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Narco
-	Buildable:
-		BuildPaletteOrder: 80
-		Prerequisites: ~uplatin_narco, latin_radar
-		Queue: Infantry, RAInfantry
-		Description: actor-latin_narco.description
-	Mobile:
-		Speed: 75
-	Health:
-		HP: 20000
-	ChangesHealth@SelfHealing:
-		Step: 8
-	Armament@PRIMARY:
-		Weapon: RA2NarcoPistol
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: RA2NarcoPistolsE
-		RequiresCondition: rank-elite
-	Armament@SECONDARY:
-		Weapon: NarcoGrenade
-		LocalOffset: 250,0,400
-		RequiresCondition: !rank-elite
-	Armament@SECONDARYELITE:
-		Weapon: NarcoGrenadeE
-		LocalOffset: 250,0,400
-		RequiresCondition: rank-elite
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: RA2NarcoPistol
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite
-	Armament@GARRISONEDELITE:
-		Name: garrisoned
-		Weapon: RA2NarcoPistolsE
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite
-	Armament@SECONDARYGARRISONED:
-		Name: garrisoned
-		Weapon: NarcoGrenade
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite
-	Armament@SECONDARYGARRISONEDELITE:
-		Name: garrisoned
-		Weapon: NarcoGrenadeE
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite
-	AttackFrontal:
-		FacingTolerance: 0
-	Voiced:
-		VoiceSet: LatinNarcoVoice
 
 ra2hind:
 	Inherits: ^Helicopter
@@ -6401,7 +7075,7 @@ latin_yakolev:
 	Tooltip:
 		Name: Yakovlev
 	Valued:
-		Cost: 800
+		Cost: 900
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: ~latin_cgair
@@ -6409,23 +7083,25 @@ latin_yakolev:
 		Description: actor-latin_yakovlev.description
 	Health:
 		HP: 17500
+	Repairable:
+		HpPerStep: 875
 	ChangesHealth@SelfHealing:
 		Step: 7
 	HitShape:
 	Voiced:
 		VoiceSet: LatinMigVoice
 	Aircraft:
-		TurnSpeed: 10
-		Speed: 150
+		TurnSpeed: 11
+		Speed: 165
 		IdleTurnSpeed: 8
 		IdleSpeed: 120
-		RepulsionSpeed: 30
+		RepulsionSpeed: 33
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 100
 	Armament:
 		Name: primary
-		Weapon: BlackHawkCannon
+		Weapon: YakovlevCannon
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
@@ -6437,46 +7113,151 @@ latin_yakolev:
 		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
 		RequiresCondition: latin_up_chaingun
-	FirepowerMultiplier@doublecannons:
-		Modifier: 50
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ReloadAmmoDelayMultiplier@latin_up_chaingun:
-		Modifier: 50
-		RequiresCondition: latin_up_chaingun
-	ReloadDelayMultiplier@gat1:
-		Modifier: 66
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	ReloadDelayMultiplier@gat2:
-		Modifier: 33
-		RequiresCondition: gatling > 1 && latin_up_chaingun
-	RangeMultiplier@gat1:
-		Modifier: 111
-		RequiresCondition: gatling == 1 && latin_up_chaingun
-	RangeMultiplier@gat2:
-		Modifier: 123
-		RequiresCondition: gatling > 1 && latin_up_chaingun
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9 && latin_up_chaingun
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10 && latin_up_chaingun
+		Modifier: 90
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 2, 4
-		RevokeDelay: 75
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 250
+		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1, 2
-		RevokeDelay: 75
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 500
+		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	AmmoPool:
-		Ammo: 12
+		Ammo: 40
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 8
+		Delay: 6
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 6
+		PipCount: 8
 	WithMuzzleOverlay:
 	Contrail@1:
 		Offset: -640,171,0
@@ -6532,15 +7313,17 @@ latin_mig:
 		Queue: Aircraft, RAAircraft
 		Description: actor-bpln.description
 	Health:
-		HP: 62500
+		HP: 50000
+	Repairable:
+		HpPerStep: 2500
 	ChangesHealth@SelfHealing:
-		Step: 25
+		Step: 20
 	HitShape:
 	Voiced:
 		VoiceSet: LatinMigVoice
 	Aircraft:
 		TurnSpeed: 12
-		Speed: 185
+		Speed: 190
 		IdleTurnSpeed: 10
 		IdleSpeed: 150
 		RepulsionSpeed: 30
@@ -6552,21 +7335,41 @@ latin_mig:
 		Weapon: MigMissiles
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 2
 		PauseOnCondition: !ammo
-	Armament@aa:
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Name: primary
+		Weapon: MigMissilesE
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
+		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 1
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
+	Armament@AA:
 		Name: secondary
 		Weapon: MigMissiles_AA
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 2
 		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@AAELITE:
+		Name: secondary
+		Weapon: MigMissiles_AA_ELITE
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
+		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 1
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
 	AmmoPool:
-		Ammo: 2
-		ReloadDelay: 100
+		Ammo: 4
+		ReloadDelay: 50
 		AmmoCondition: ammo
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 4
+		PipCount: 2
 	WithMuzzleOverlay:
 	Contrail@1:
 		Offset: -640,171,0
@@ -6764,10 +7567,10 @@ latin_ra2terror:
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Inherits@EliteGuerillas: ^LatinEliteGuerillas
-	Valued:
-		Cost: 200
 	Tooltip:
 		Name: Terrorist
+	Valued:
+		Cost: 200
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~uplatin_ra2terror
@@ -6822,16 +7625,16 @@ latin_ra2dtruck:
 	Inherits@SHADOWS: ^Shadows
 	Inherits@uprecover: ^LatinCashrecover
 	Inherits@flamerup: ^LatinFlameUpgrades
+	Tooltip:
+		Name: Demolition Truck
+	Valued:
+		Cost: 1500
 	Health:
 		HP: 30000
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 180
 		Prerequisites: ~uplatin_ra2dtruck, latin_radar
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: Demolition Truck
 	Voiced:
 		VoiceSet: RA2DemolitionTruckVoice
 	GrantConditionOnDeploy:
@@ -6861,17 +7664,17 @@ latin_nuketruk:
 	Inherits@SHADOWS: ^Shadows
 	Inherits@uprecover: ^LatinCashrecover
 	Inherits@flamerup: ^LatinFlameUpgrades
-	Health:
-		HP: 60000
+	Tooltip:
+		Name: Nuke Truck
+	Valued:
+		Cost: 3000
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 180
 		Prerequisites: ~uplatin_nuketruk, latin_cgspy
 		BuildLimit: 1
-	Valued:
-		Cost: 3000
-	Tooltip:
-		Name: Nuke Truck
+	Health:
+		HP: 60000
 	Voiced:
 		VoiceSet: RA2DemolitionTruckVoice
 	GrantConditionOnDeploy:
@@ -6899,6 +7702,7 @@ latin_topol:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
 	Inherits@GAINSEXPERIENCE: ^EpicVehicleTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -6989,71 +7793,70 @@ latin_topol:
 
 ### Narco tree
 
+uplatin_mortarbike:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Mortar Bikes
+	Buildable:
+		BuildPaletteOrder: 121
+		Queue: Promotions
+		Description: Enables construction of Mortar Bikes.
+		Prerequisites: ~latin_cgcnst, !uplatin_mortarbike, rank1
+	RenderSprites:
+		Image: latin_mortarbike
+	ProvidesPrerequisite:
+
 uplatin_narco:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
 		Name: Unlock Narcos
 	Buildable:
-		BuildPaletteOrder: 121
+		BuildPaletteOrder: 124
 		Queue: Promotions
-		Description: Unlock Narco Forces.
-		Prerequisites: ~latin_cgcnst, !uplatin_narco, rank1
+		Description: Enables training of Narco Forces.
+		Prerequisites: ~latin_cgcnst, !uplatin_narco, uplatin_mortarbike, rank1
 	RenderSprites:
 		Image: latin_narco
 	ProvidesPrerequisite:
 
-uplatin_humvee:
+uplatin_burrito:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Enables construction of Narco Hummers.
+		Name: Unlock Burritos
 	Buildable:
-		BuildPaletteOrder: 124
+		BuildPaletteOrder: 127
 		Queue: Promotions
-		Description: Unlock the Narco Hummer.
-		Prerequisites: ~latin_cgcnst, !uplatin_humvee, uplatin_narco, rank1
+		Description: Enables construction of Burritos.
+		Prerequisites: ~latin_cgcnst, !uplatin_burrito, uplatin_narco, rank1
 	RenderSprites:
-		Image: latin_humvee
+		Image: latin_burrito
 	ProvidesPrerequisite:
 
 uplatin_cartel:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Cartel Truck
+		Name: Unlock Cartel Trucks
 	Buildable:
-		BuildPaletteOrder: 127
+		BuildPaletteOrder: 130
 		Queue: Promotions
-		Description: Unlock the Cartel Truck.
-		Prerequisites: ~latin_cgcnst, !uplatin_cartel, uplatin_humvee, rank1
+		Description: Enables construction of Cartel Trucks.
+		Prerequisites: ~latin_cgcnst, !uplatin_cartel, uplatin_burrito, rank1
 	RenderSprites:
 		Image: latin_cartel
 	ProvidesPrerequisite:
 
-uplatin_traitor:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Traitors
-	Buildable:
-		BuildPaletteOrder: 130
-		Queue: Promotions
-		Icon: icon2
-		Description: Unlock the Traitor Support Power.
-		Prerequisites: ~latin_cgcnst, !uplatin_traitor, uplatin_cartel, rank1
-	RenderSprites:
-		Image: latin_cgspy
-	ProvidesPrerequisite:
-
 ### War tree
-uplatin_fftr:
+uplatin_buggy:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Freedom Fighters
+		Name: Unlock Raider Buggy
 	Buildable:
 		BuildPaletteOrder: 122
 		Queue: Promotions
-		Description: Enables training of Freedom Fighters.
-		Prerequisites: ~latin_cgcnst, !uplatin_fftr, rank1
+		Description: Enables construction of Raider Buggies.
+		Prerequisites: ~latin_cgcnst, !uplatin_buggy, rank1
 	RenderSprites:
-		Image: latin_fftr
+		Image: latin_buggy
 	ProvidesPrerequisite:
 
 uplatin_mtnk:
@@ -7064,35 +7867,35 @@ uplatin_mtnk:
 		BuildPaletteOrder: 125
 		Queue: Promotions
 		Description: Enables construction of Smoker Tanks.
-		Prerequisites: ~latin_cgcnst, !uplatin_mtnk, uplatin_fftr, rank1
+		Prerequisites: ~latin_cgcnst, !uplatin_mtnk, uplatin_buggy, rank1
 	RenderSprites:
 		Image: latin_mtnk
 	ProvidesPrerequisite:
 
-uplatin_burrito:
+uplatin_apc:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Burritos and LARS Anti Air Missiles.
+		Name: Unlock Latin APC.
 	Buildable:
 		BuildPaletteOrder: 128
 		Queue: Promotions
-		Description: Enables construction of Burritos and LARS Anti Air Missiles.
-		Prerequisites: ~latin_cgcnst, !uplatin_burrito, uplatin_mtnk, rank1
+		Description: Enables construction of Latin APCs.
+		Prerequisites: ~latin_cgcnst, !uplatin_apc, uplatin_mtnk, rank1
 	RenderSprites:
-		Image: latin_burrito
+		Image: latin_apc
 	ProvidesPrerequisite:
 
-uplatin_up_sml:
+uplatin_lars:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock SML Turrets
+		Name: Unlock LARS
 	Buildable:
 		BuildPaletteOrder: 131
 		Queue: Promotions
-		Description: Enables construction of SML Turrets.
-		Prerequisites: ~latin_cgcnst, !uplatin_up_sml, uplatin_burrito, rank1
+		Description: Enables construction of LARS.
+		Prerequisites: ~latin_cgcnst, !uplatin_lars, uplatin_apc, rank1
 	RenderSprites:
-		Image: latin_sml
+		Image: latin_lars
 	ProvidesPrerequisite:
 
 ### Artillery Weapons tree

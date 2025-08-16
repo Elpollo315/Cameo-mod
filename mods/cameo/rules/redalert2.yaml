@@ -3768,7 +3768,7 @@ RA2SEAL:
 	Voiced:
 		VoiceSet: SealVoice
 	GrantExternalConditionToTransport:
-		Condition: ifv-hero
+		Condition: ifv-hmg
 
 RA2SPY:
 	Inherits: ^Soldier
@@ -5050,12 +5050,12 @@ YRGTRP:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
 		RevokeDelay: 250
-		MaximumInstances: 5
+		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
-		MaximumInstances: 5
+		RevokeDelay: 500
+		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 2
 	Voiced:
@@ -5453,6 +5453,12 @@ RA2FV:
 		MuzzleSequence: muzzlemg
 		MuzzlePalette: ra2effect
 		RequiresCondition: ifv-mg
+	Armament@hmg:
+		Weapon: RA2CRM60H
+		LocalOffset: 171,0,255
+		MuzzleSequence: muzzlemg
+		MuzzlePalette: ra2effect
+		RequiresCondition: ifv-hmg
 	Armament@repair:
 		Weapon: RA2IFVRepair
 		LocalOffset: 164,0,864
@@ -8829,24 +8835,52 @@ yrbpln1:
 		Weapon: MigMissiles
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
-		RequiresCondition: !upradshells
+		AmmoUsage: 2
 		PauseOnCondition: !ammo
+		RequiresCondition: !upradshells && !rank-elite
+	Armament@PRIMARYELITE:
+		Name: primary
+		Weapon: MigMissilesE
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
+		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 1
+		PauseOnCondition: !ammo
+		RequiresCondition: !upradshells && rank-elite
 	Armament@rad:
 		Name: primary
 		Weapon: MigMissiles_rad
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
-		RequiresCondition: upradshells
+		AmmoUsage: 2
 		PauseOnCondition: !ammo
-	Armament@aa:
+		RequiresCondition: upradshells && !rank-elite
+	Armament@radELITE:
+		Name: primary
+		Weapon: MigMissilesE_rad
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
+		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 1
+		PauseOnCondition: !ammo
+		RequiresCondition: upradshells && rank-elite
+	Armament@AA:
 		Name: secondary
 		Weapon: MigMissiles_AA
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 2
 		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@AAELITE:
+		Name: secondary
+		Weapon: MigMissiles_AA_ELITE
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
+		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 1
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
 	AmmoPool:
-		Ammo: 4
-		ReloadDelay: 50
+		Ammo: 8
+		ReloadDelay: 25
 		AmmoCondition: ammo
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
