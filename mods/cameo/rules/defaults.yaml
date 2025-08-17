@@ -875,6 +875,7 @@
 	Inherits@GlobalBuffs: ^GlobalBuffs
 	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
 	Inherits@MenOfSteelTeamUpgradeRA1: ^MenOfSteelTeamUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Inherits@upgrade: ^AdvancedGuerillaTactics
 	ChangesHealth@SelfHealing:
 		Step: 10
@@ -884,6 +885,8 @@
 
 ^VehicleBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits: ^NanoTechRepairs
 	DamageMultiplier@VehicleBuffs:
 		Modifier: 90
@@ -896,8 +899,10 @@
 ^TankBuffs:
 	Inherits@VehicleBuffs: ^VehicleBuffs
 	Inherits@upgrade: ^LightWeightArmorPlating
-	Inherits@NuclearShellsTeamUpgradeRA1: ^NuclearShellsTeamUpgradeRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
+	Inherits@NuclearShellsTeamUpgradeRA1: ^NuclearShellsTeamUpgradeRA1
 	DamageMultiplier@TankBuffs:
 		Modifier: 80
 	FirepowerMultiplier@TankBuffs:
@@ -912,6 +917,7 @@
 
 ^AircraftBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	DamageMultiplier@AircraftBuffs:
 		Modifier: 90
 	FirepowerMultiplier@AircraftBuffs:
@@ -1262,6 +1268,7 @@
 	Inherits@EXPERIENCE: ^GainsExperienceVehicle
 	Inherits@EXT: ^ExternalConditions
 	Inherits@VehicleBuffs: ^VehicleBuffs
+	Inherits@WarEconomyTeamUpgradeRA1: ^WarEconomyTeamUpgradeRA1
 	DamageMultiplier@HarvesterBuff:
 		Modifier: 75
 	Armor:
@@ -1943,9 +1950,9 @@
 	DamageMultiplier@METALFACTORY:
 		RequiresCondition: techmetalffact
 		Modifier: 85
-	ProductionCostMultiplier@WarEconomyTeamUpgradeRA1:
+	ProductionCostMultiplier@MassProductionUpgradeRA1:
 		Multiplier: 80
-		Prerequisites: ra_upgrade_wareconomy
+		Prerequisites: ra_upgrade_massproduction
 	ProductionCostMultiplier@IndustrialPlant:
 		Multiplier: 75
 		Prerequisites: yrngindp
@@ -2218,6 +2225,9 @@
 	SpeedMultiplier@disable:
 		Modifier: 0
 		RequiresCondition: disabled
+	ProductionCostMultiplier@MassProductionUpgradeRA1:
+		Multiplier: 80
+		Prerequisites: ra_upgrade_massproduction
 	ProductionCostMultiplier@DuneFactoryUpgrade:
 		Multiplier: 90
 		Prerequisites: upgrade_hightech
@@ -6638,6 +6648,7 @@ CPQDEBUGDUMMY:
 		Prerequisite: conyard
 
 ^Refinery:
+	Inherits@WarEconomyTeamUpgradeRA1: ^WarEconomyTeamUpgradeRA1
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 20

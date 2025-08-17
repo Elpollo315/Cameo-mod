@@ -3719,6 +3719,9 @@ litning:
 		Start: 4
 		Length: 4
 		ZOffset: 1023
+	idle:
+		Length: *
+		ZOffset: 1023
 
 litning2:
 	Defaults:

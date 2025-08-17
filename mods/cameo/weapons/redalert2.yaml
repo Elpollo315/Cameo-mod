@@ -133,6 +133,12 @@
 		ExplosionPalette: ra2effect
 		ImpactSounds: gexpwasa.wav
 
+^RA2TeslaWeapon:
+	Inherits: ^TeslaWeapon
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+
 ^RA2LaserWeapon:
 	Inherits: ^LaserWeapon
 	-Warhead@Effect:

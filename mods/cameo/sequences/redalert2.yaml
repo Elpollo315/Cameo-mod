@@ -5473,6 +5473,7 @@ ra2flameguy:
 		Tick: 100
 
 ^RA2Infantry:
+	Inherits: ^InfantryOverlays
 	Inherits@1: ^RA2BasicInfantry
 	Inherits@2: ^RA2ProneInfantry
 
