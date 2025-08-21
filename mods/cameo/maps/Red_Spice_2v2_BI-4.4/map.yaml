@@ -6,7 +6,7 @@ Title: Red Spice 2v2
 
 Author: MASTER, Lad, AedisToru
 
-Tileset: RA_INHOSP
+Tileset: RA_TEMPERAT
 
 MapSize: 132,132
 
@@ -14,7 +14,7 @@ Bounds: 12,12,106,106
 
 Visibility: Lobby
 
-Categories: [BI-4.4]
+Categories: Conquest
 
 Players:
 	PlayerReference@Neutral:
@@ -925,3 +925,15 @@ Actors:
 	Actor436: split3
 		Owner: Neutral
 		Location: 115,89
+
+Rules:
+	^Palettes:
+		PaletteFromFile@terrain-ra_temperat:
+			Name: terrain
+			Tileset: RA_TEMPERAT
+			Filename: inhosp.pal
+			ShadowIndex: 3,4
+		PaletteFromFile@ra_temperat2:
+			Name: ra_temperat
+			Filename: inhosp.pal
+			ShadowIndex: 3,4

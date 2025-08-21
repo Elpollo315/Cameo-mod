@@ -1,22 +1,4 @@
 ^Palettes:
-	PaletteFromFile@terrain-ra_plains:
-		Name: terrain
-		Tileset: RA_PLAINS
-		Filename: plains.pal
-		ShadowIndex: 3, 4
-	PaletteFromFile@ra_plains:
-		Name: ra_plains
-		Filename: plains.pal
-		ShadowIndex: 3, 4
-	PaletteFromFile@terrain-ra_inhosp:
-		Name: terrain
-		Tileset: RA_INHOSP
-		Filename: inhosp.pal
-		ShadowIndex: 3, 4
-	PaletteFromFile@ra_inhosp:
-		Name: ra_inhosp
-		Filename: inhosp.pal
-		ShadowIndex: 3, 4
 	PaletteFromFile@terrain-desert:
 		Name: terrain
 		Tileset: DESERT
