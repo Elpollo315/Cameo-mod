@@ -329,6 +329,7 @@ ChromeLayout:
 	common|chrome/settings-audio.yaml
 	common|chrome/settings-display.yaml
 	common|chrome/settings-hotkeys.yaml
+	common|chrome/settings-gameplay.yaml
 	common|chrome/settings-input.yaml
 	common|chrome/text-notifications.yaml
 	cameo|chrome/tooltips.yaml
@@ -451,7 +452,6 @@ Fonts:
 Missions:
 	cameo|missions.yaml
 MapGrid:
-	TileSize: 48,48
 	Type: Rectangular
 
 WorldViewportSizes:

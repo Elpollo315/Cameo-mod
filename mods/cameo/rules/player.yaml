@@ -97,7 +97,8 @@ Player:
 			OP2Ore2: 67
 	DeveloperMode:
 		CheckboxDisplayOrder: 20
-	BaseAttackNotifier:
+	DamageNotifier:
+		ValidTargets: Structure
 		AllyNotification: OurAllyIsUnderAttack
 	HarvesterAttackNotifier:
 	EnemyWatcher:

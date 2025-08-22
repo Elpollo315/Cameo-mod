@@ -7934,7 +7934,6 @@ JSHRINE:
 		Icons:
 			1: japanspellcard
 		Cursor: ability
-		AirburstAltitude: 5000
 		ChargeInterval: 10500
 		ActivationDelay: 100
 		ActivationSequence:

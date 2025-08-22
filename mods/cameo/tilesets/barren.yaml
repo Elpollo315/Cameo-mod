@@ -1,6 +1,7 @@
 General:
 	Name: Barren
 	Id: BARREN
+	TileSize: 48,48
 	SheetSize: 1024
 	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Water Cliffs, Beach, River, Bridge
 	HeightDebugColors: AA0000

@@ -6947,7 +6947,15 @@ LatinAADefenderCannon:
 		ValidTargets: Air
 
 12MissilesActivate:
-	Projectile: InstantExplode
+	Warhead@1Dam: FireFragment
+		Weapon: 12MissilesDamage
+		ValidTargets: Ground, Water, Air
+		AirThreshold: 11c0
+		ImpactActors: false
+
+12MissilesDamage:
+	Projectile: SupportPowerInstantExplode
+	AirThreshold: 11c0
 	ReloadDelay: 1
 	ValidTargets: Ground, Water, Air
 	Range: 10000
@@ -6956,45 +6964,48 @@ LatinAADefenderCannon:
 		Weapon: 12MissilesSpawner
 		Image: invisibleitem
 		Sequences: idle
-		Duration: 75
-		Delay: 50
+		Duration: 150
+		Delay: 25
+		AirThreshold: 11c0
 		ImpactActors: false
 	Warhead@2: SpawnSmokeParticle
 		ValidTargets: Ground, Water, Air
 		Weapon: 12MissilesSpawner2
 		Image: invisibleitem
 		Sequences: idle
-		Duration: 100
-		Delay: 25
+		Duration: 150
+		Delay: 50
+		AirThreshold: 11c0
 		ImpactActors: false
 
 12MissilesSpawner:
 	Projectile: InstantHit
-	ReloadDelay: 23
+	ReloadDelay: 25
 	Range: 10000
-	MinRange: 5000
 	ValidTargets: Air
-	Warhead@1: FireFragment
+	Warhead@1: FireShrapnel
 		ValidTargets: Ground, Water, Air
 		Weapon: 12MissilesSpreaderScud
-		AimChance: 23
+		Amount: 1
+		AimChance: 50
 		ImpactActors: false
 		TargetActorCenter: true
 
 12MissilesSpawner2:
 	Projectile: InstantHit
-	ReloadDelay: 13
+	ReloadDelay: 25
 	Range: 10000
-	MinRange: 5000
 	ValidTargets: Ground, Water, Air
 	Warhead@1: FireShrapnel
 		ValidTargets: Ground, Water, Air
 		Weapon: 12MissilesSpreaderScud
-		AimChance: 13
-		TargetActorCenter: false
+		Amount: 1
+		AimChance: 50
+		ImpactActors: false
+		TargetActorCenter: true
 
 12MissilesSpreaderScud:
-	Range: 10000
+	Range: 9000
 	ReloadDelay: 13
 	ValidTargets: Ground, Water, Air
 	Projectile: AthenaProjectile
@@ -7012,7 +7023,6 @@ LatinAADefenderCannon:
 	Inherits: ^RA2HeavyMissile
 	Report: vaegatta.wav, vaegattb.wav
 	Range: 10000
-	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: 12MissilesSpawnerScud
 		MissileImage: latin_12_miss
@@ -7065,7 +7075,7 @@ LatinAADefenderCannon:
 		ValidTargets: Ground, Water, Air
 		Damage: 8
 		Spread: 1000
-	Warhead@3Eff_impact: CreateEffect
+	Warhead@Effect: CreateEffect
 		Explosions: ra2nuke
 		ExplosionPalette: ra2effect
 		ImpactSounds: snukexpl.wav

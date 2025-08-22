@@ -1,6 +1,7 @@
 General:
 	Name: Temperate
 	Id: TEMPERAT
+	TileSize: 48,48
 	SheetSize: 1024
 	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Beach, River, Bridge, RA Debris, RA Water Cliffs, RA Bridge, Zeruel87 Urban
 	HeightDebugColors: AA0000

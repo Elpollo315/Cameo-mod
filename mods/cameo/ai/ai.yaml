@@ -136,34 +136,34 @@
 Player:
 	Inherits@aidifficulties: ^AIDifficulties
 	ModularBot@EasiestAI:
-		Name: Easiest AI
+		Name: bot-ai.easiest
 		Type: easiest
 	ModularBot@VeryEasyAI:
-		Name: Very Easy AI
+		Name: bot-ai.veryeasy
 		Type: veryeasy
 	ModularBot@EasyAI:
-		Name: Easy AI
+		Name: bot-ai.easy
 		Type: easy
 	ModularBot@MediumAI:
-		Name: Medium AI
+		Name: bot-ai.medium
 		Type: medium
 	ModularBot@HardAI:
-		Name: Hard AI
+		Name: bot-ai.hard
 		Type: hard
 	ModularBot@VeryHardAI:
-		Name: Very Hard AI
+		Name: bot-ai.veryhard
 		Type: veryhard
 	ModularBot@BrutalAI:
-		Name: Brutal AI
+		Name: bot-ai.brutal
 		Type: brutal
 	ModularBot@ChallengerAI:
-		Name: Challenger AI
+		Name: bot-ai.challenger
 		Type: challenger
 	ModularBot@UnbeatableAI:
-		Name: Unbeatable AI
+		Name: bot-ai.unbeatable
 		Type: unbeatable
 	ModularBot@CameoGodAI:
-		Name: Cameo God AI
+		Name: bot-ai.cameogod
 		Type: cameogod
 	ProvidesPrerequisite@botplayer:
 		Prerequisite: botplayer
