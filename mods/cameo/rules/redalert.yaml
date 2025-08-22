@@ -923,6 +923,7 @@ ra_conscript_ak:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
 	Tooltip:
 		Name: AK-47 Conscript
 	Valued:
@@ -932,7 +933,7 @@ ra_conscript_ak:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildPaletteOrder: 25
+		BuildPaletteOrder: 10
 		Prerequisites: ~ra_doctrine_conscription
 		Queue: Infantry, RAInfantry
 		Description: actor-e2.description
@@ -952,6 +953,7 @@ ra_conscript_ak:
 		Modifier: 33
 	FireWarheadsOnDeath@Vengeance:
 		Weapon: VengeanceActivator
+		RequiresCondition: ra_upgrade_vengeance
 	TakeCover:
 		ProneOffset: 180,0,-200
 	WithInfantryBody@PARACHUTE:
@@ -1045,20 +1047,20 @@ RAE2:
 		Weapon: GrenadeRA
 		LocalOffset: 0,0,427
 		FireDelay: 15
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: GrenadeRA
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	Armament@Upgrade:
 		Weapon: GrenadeThermobaric
 		LocalOffset: 0,0,427
 		FireDelay: 15
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	Armament@UpgradeGARRISONED:
 		Name: garrisoned
 		Weapon: GrenadeThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	TakeCover:
 		ProneOffset: 180,0,-200
 	WithInfantryBody:
@@ -1069,10 +1071,10 @@ RAE2:
 		RequiresCondition: parachute
 	FireWarheadsOnDeath:
 		Weapon: GrenadeRA
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: GrenadeThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	WithDeathAnimation:
 		DeathSequencePalette: raplayer
 	Voiced:
@@ -1115,28 +1117,28 @@ mortarsoldier:
 		Weapon: SiegeMortar
 		LocalOffset: 427,0,341
 		FireDelay: 10
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: SiegeMortar
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	Armament@Upgrade:
 		Weapon: SiegeMortarThermobaric
 		LocalOffset: 427,0,341
 		FireDelay: 10
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	Armament@UpgradeGARRISONED:
 		Name: garrisoned
 		Weapon: SiegeMortarThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	FirepowerMultiplier@SplashDamage:
 		Modifier: 75
 	FireWarheadsOnDeath:
 		Weapon: SiegeMortar
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: SiegeMortarThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	TakeCover:
 		ProneOffset: 227,0,-245
 	WithInfantryBody:
@@ -1162,6 +1164,7 @@ ra_cons_molo:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiBuil: ^PrioritizeBuilding
+	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
 	Tooltip:
 		Name: Molotov Conscript
 	Valued:
@@ -1195,6 +1198,7 @@ ra_cons_molo:
 		Weapon: ConscriptMolotov
 	FireWarheadsOnDeath@Vengeance:
 		Weapon: VengeanceActivator
+		RequiresCondition: ra_upgrade_vengeance
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 	Voiced:
@@ -1204,7 +1208,7 @@ ra_cons_molo:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel, ra_doctrine_inferno
+		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel
 
 ^RAE3:
 	Inherits: ^Soldier
@@ -1289,9 +1293,61 @@ RARE3:
 	Tooltip:
 		Name: Soviet Rocket Soldier
 	Buildable:
-		Prerequisites: ~barr, ~!ra_doctrine_inferno
+		Prerequisites: ~barr, ~!ra_doctrine_inferno, ~!ra_doctrine_conscription
 	Voiced:
 		VoiceSet: RussianVoice
+
+ra_dragunov:
+	Inherits: ^Soldier
+	Inherits@anim: ^RA2Infantry
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
+	Inherits@exp: ^GainsExperienceRA
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
+	Tooltip:
+		Name: Dragunov Anti Material Sniper
+	Valued:
+		Cost: 350
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 25
+		Prerequisites: ~ra_doctrine_conscription
+		Queue: Infantry, RAInfantry
+		Description: Powerful Anti Material Sniper. Strong vs Tanks and Aircraft
+	Mobile:
+		Speed: 40
+	Health:
+		HP: 20000
+	ChangesHealth@SelfHealing:
+		Step: 20
+	Armament:
+		Weapon: DragunovSniper
+		LocalOffset: 0,0,427
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: DragunovSniper
+	FireWarheadsOnDeath@Vengeance:
+		Weapon: VengeanceActivator
+		RequiresCondition: ra_upgrade_vengeance
+	TakeCover:
+		ProneOffset: 180,0,-200
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	Voiced:
+		VoiceSet: RussianConscriptVoice
+	AttackFrontal:
+		Voice: Attack
+	RenderSprites:
+		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel
 
 e3flamer:
 	Inherits: ^RAE3
@@ -1445,20 +1501,20 @@ RAE4:
 		Weapon: FireballGun
 		LocalOffset: 500,0,250
 		FireDelay: 8
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: FireballGun
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	Armament@Upgrade:
 		Weapon: FireballGunThermobaric
 		LocalOffset: 500,0,250
 		FireDelay: 8
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	Armament@UpgradeGARRISONED:
 		Name: garrisoned
 		Weapon: FireballGunThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
@@ -1471,10 +1527,10 @@ RAE4:
 		ProneOffset: 160,0,-200
 	FireWarheadsOnDeath:
 		Weapon: FireballGun
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: FireballGunThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	RenderSprites:
 		Image: rae4
 		PlayerPalette: raplayer
@@ -1631,7 +1687,7 @@ ra_zapper:
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Shock Trooper
+		Name: Zapper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2130,7 +2186,6 @@ v1truck:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
-	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Valued:
 		Cost: 850
@@ -2162,12 +2217,12 @@ v1truck:
 		Weapon: v1rockets
 		LocalOffset: -512,256,256, -512,128,256, -512,-128,256, -512,-256,256
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	Armament@Upgrade:
 		Weapon: v1rocketsThermobaric
 		LocalOffset: -512,256,256, -512,128,256, -512,-128,256, -512,-256,256
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	AmmoPool:
 		Ammo: 4
 		AmmoCondition: ammo
@@ -2191,17 +2246,17 @@ v1truck:
 		Sequence: turret0
 	FireWarheadsOnDeath:
 		Weapon: v1rockets
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: v1rocketsThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_scorchedearth
 	ReloadAmmoPool:
 		Delay: 25
 		Count: 1
 	Selectable:
 		DecorationBounds: 1280, 1280
 	ActorStatValues:
-		Upgrades: ra_upgrade_highexplosiverockets, ra_doctrine_inferno
+		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth
 
 ra_grad:
 	Inherits: ^Tank
@@ -2209,8 +2264,9 @@ ra_grad:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
-	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -2238,21 +2294,21 @@ ra_grad:
 		Weapon: GradRockets
 		LocalOffset: 400,300,50, 400,-75,0, 400,150,50, 400,-225,0, 400,225,50, 400,-150,0, 400,75,50, 400,-300,0
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_highexplosiverockets
 	Armament@Upgrade:
-		Weapon: v1rocketsThermobaric
+		Weapon: GradHeavyRockets
 		LocalOffset: 400,300,50, 400,-75,0, 400,150,50, 400,-225,0, 400,225,50, 400,-150,0, 400,75,50, 400,-300,0
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_highexplosiverockets
 	AttackTurreted:
 	WithSpriteTurret:
 	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: GradRockets
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_highexplosiverockets
 	FireWarheadsOnDeath@Upgrade:
-		Weapon: v1rocketsThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		Weapon: GradHeavyRockets
+		RequiresCondition: ra_upgrade_highexplosiverockets
 	RenderRangeCircle:
 	GrantConditionOnAttack:
 		Condition: firing
@@ -2271,7 +2327,7 @@ ra_grad:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_highexplosiverockets, ra_doctrine_inferno
+		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium
 
 V2RL:
 	Inherits: ^Vehicle
@@ -2279,8 +2335,9 @@ V2RL:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
-	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
+	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
@@ -2308,13 +2365,19 @@ V2RL:
 		ReloadingCondition: reloading
 		LocalOffset: -256,0,128
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
-	Armament@Upgrade:
+		RequiresCondition: !ra_upgrade_highexplosiverockets && !ra_upgrade_teslarockets
+	Armament@HE:
 		Weapon: SCUDThermobaric
 		ReloadingCondition: reloading
 		LocalOffset: -256,0,128
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_highexplosiverockets
+	Armament@Tesla:
+		Weapon: SCUDTesla
+		ReloadingCondition: reloading
+		LocalOffset: -256,0,128
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_teslarockets
 	WithFacingSpriteBody:
 		RequiresCondition: !reloading
 		Name: loaded
@@ -2326,24 +2389,21 @@ V2RL:
 	SelectionDecorations:
 	FireWarheadsOnDeath:
 		Weapon: SCUD
-		RequiresCondition: !ra_doctrine_inferno
-	FireWarheadsOnDeath@Upgrade:
+		RequiresCondition: !ra_upgrade_highexplosiverockets && !ra_upgrade_teslarockets
+	FireWarheadsOnDeath@HE:
 		Weapon: SCUDThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_highexplosiverockets
+	FireWarheadsOnDeath@Tesla:
+		Weapon: SCUDTesla
+		RequiresCondition: ra_upgrade_teslarockets
 	Selectable:
 		DecorationBounds: 1280, 1280
 	Voiced:
 		VoiceSet: RussianVehicleVoice
 	RenderSprites:
 		PlayerPalette: raplayer
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 120
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 120
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 140
 	ActorStatValues:
-		Upgrades: ra_upgrade_highexplosiverockets, ra_doctrine_inferno
+		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_teslarockets, ra_upgrade_highexplosiverockets
 
 V2RLNUKE:
 	Inherits: ^Vehicle
@@ -2351,8 +2411,8 @@ V2RLNUKE:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
-	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
@@ -2380,13 +2440,13 @@ V2RLNUKE:
 		ReloadingCondition: reloading
 		LocalOffset: -512,0,128
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_nuclearrockets
 	Armament@Upgrade:
 		Weapon: SCUDNUKEThermobaric
 		ReloadingCondition: reloading
 		LocalOffset: -512,0,128
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearrockets
 	WithFacingSpriteBody:
 		RequiresCondition: !reloading
 		Name: loaded
@@ -2400,24 +2460,18 @@ V2RLNUKE:
 	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: SCUDNUKE
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_nuclearrockets
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: SCUDNUKEThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearrockets
 	Selectable:
 		DecorationBounds: 1280, 1280
 	Voiced:
 		VoiceSet: RussianVehicleVoice
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 115
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 115
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 130
 	ActorStatValues:
-		Upgrades: ra_upgrade_highexplosiverockets, ra_doctrine_inferno
+		Upgrades: ra_doctrine_inferno, ra_upgrade_nuclearrockets
 
 1TNK:
 	Inherits: ^Tank
@@ -2543,10 +2597,6 @@ V2RLNUKE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
-	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~raweap, ~!ra_upgrade_hammertank
@@ -2577,14 +2627,14 @@ V2RLNUKE:
 		RecoilRecovery: 38
 		LocalOffset: 768,85,90, 768,-85,90
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_nuclearshells
 	Armament@Upgrade:
 		Weapon: 105mmThermobaric
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 768,85,90, 768,-85,90
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearshells
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -2600,7 +2650,7 @@ V2RLNUKE:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_upgrade_autoloaders, ra_doctrine_inferno, ra_upgrade_stalinium
+		Upgrades: ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
 
 hammertank:
 	Inherits: ^Tank
@@ -2612,10 +2662,6 @@ hammertank:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
-	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~ra_upgrade_hammertank, ~!ra_upgrade_heavyteslatank, ~!ra_upgrade_kotintank
@@ -2646,6 +2692,14 @@ hammertank:
 		RecoilRecovery: 25
 		LocalOffset: 1100,100,100, 1100,-100,100
 		MuzzleSequence: muzzle
+		RequiresCondition: !ra_upgrade_nuclearshells
+	Armament@Upgrade:
+		Weapon: HammerTankCannonThermobaric
+		Recoil: 150
+		RecoilRecovery: 25
+		LocalOffset: 1100,100,100, 1100,-100,100
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_nuclearshells
 	Armament@shtora:
 		Weapon: ShtoraLaser
 		Recoil: 20
@@ -2667,15 +2721,15 @@ hammertank:
 	Voiced:
 		VoiceSet: RussianVehicleVoice
 	FireWarheadsOnDeath:
-		Weapon: KotinCannon
+		Weapon: HammerTankCannon
 		RequiresCondition: !ra_doctrine_inferno
 	FireWarheadsOnDeath@Upgrade:
-		Weapon: KotinCannonThermobaric
+		Weapon: HammerTankCannonThermobaric
 		RequiresCondition: ra_doctrine_inferno
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_shtoradefensesystem
+		Upgrades: ra_upgrade_shtoradefensesystem, ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
 
 TTNK2:
 	Inherits: ^Tank
@@ -2782,10 +2836,6 @@ Kotin:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
-	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~ra_upgrade_kotintank
@@ -2816,14 +2866,14 @@ Kotin:
 		RecoilRecovery: 25
 		LocalOffset: 1100,100,200, 1100,-100,200
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_nuclearshells
 	Armament@Upgrade:
 		Weapon: KotinCannonThermobaric
 		Recoil: 150
 		RecoilRecovery: 25
 		LocalOffset: 1100,100,200, 1100,-100,200
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearshells
 	Targetable@FireImmune:
 		TargetTypes: FireActor
 	-DamagedByTintedCells@rad:
@@ -2841,14 +2891,14 @@ Kotin:
 		VoiceSet: RussianVehicleVoice
 	FireWarheadsOnDeath:
 		Weapon: KotinCannon
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_nuclearshells
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: KotinCannonThermobaric
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearshells
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_upgrade_autoloaders, ra_doctrine_inferno, ra_upgrade_stalinium
+		Upgrades: ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
 
 4TNK:
 	Inherits: ^Tank
@@ -2858,11 +2908,8 @@ Kotin:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
-	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
-	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
+	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 180
@@ -2896,14 +2943,28 @@ Kotin:
 		Recoil: 175
 		RecoilRecovery: 30
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_nuclearshells && !ra_promotion_targetingcomputer
+	Armament@PRIMARYTargetingComputer:
+		Weapon: ra120mmTargetingComputer
+		LocalOffset: 900,180,340, 900,-180,340
+		Recoil: 175
+		RecoilRecovery: 30
+		MuzzleSequence: muzzle
+		RequiresCondition: !ra_upgrade_nuclearshells && ra_promotion_targetingcomputer
 	Armament@Upgrade:
 		Weapon: ra120mmThermobaric
 		LocalOffset: 900,180,340, 900,-180,340
 		Recoil: 175
 		RecoilRecovery: 30
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearshells && !ra_promotion_targetingcomputer
+	Armament@UpgradeTargetingComputer:
+		Weapon: ra120mmThermobaricTargetingComputer
+		LocalOffset: 900,180,340, 900,-180,340
+		Recoil: 175
+		RecoilRecovery: 30
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_nuclearshells && ra_promotion_targetingcomputer
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: MammothTusk
@@ -2912,8 +2973,35 @@ Kotin:
 		Recoil: 50
 		RecoilRecovery: 25
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_doctrine_inferno
-	Armament@UpgradeSECONDARY:
+		RequiresCondition: !ra_upgrade_teslarockets && !ra_upgrade_nuclearrockets && !ra_promotion_targetingcomputer
+	Armament@SECONDARYTargetingComputer:
+		Name: secondary
+		Weapon: MammothTuskTargetingComputer
+		LocalOffset: -85,384,340, -85,-384,340
+		LocalYaw: -50,50
+		Recoil: 50
+		RecoilRecovery: 25
+		MuzzleSequence: muzzle
+		RequiresCondition: !ra_upgrade_teslarockets && !ra_upgrade_nuclearrockets && ra_promotion_targetingcomputer
+	Armament@TeslaSECONDARY:
+		Name: secondary
+		Weapon: MammothTuskTesla
+		LocalOffset: -85,384,340, -85,-384,340
+		LocalYaw: -50,50
+		Recoil: 50
+		RecoilRecovery: 25
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_teslarockets && !ra_promotion_targetingcomputer
+	Armament@TeslaSECONDARYTargetingComputer:
+		Name: secondary
+		Weapon: MammothTuskTeslaTargetingComputer
+		LocalOffset: -85,384,340, -85,-384,340
+		LocalYaw: -50,50
+		Recoil: 50
+		RecoilRecovery: 25
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_teslarockets && ra_promotion_targetingcomputer
+	Armament@NukeSECONDARY:
 		Name: secondary
 		Weapon: MammothTuskThermobaric
 		LocalOffset: -85,384,340, -85,-384,340
@@ -2921,7 +3009,19 @@ Kotin:
 		Recoil: 50
 		RecoilRecovery: 25
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearrockets && !ra_promotion_targetingcomputer
+	Armament@NukeSECONDARYTargetingComputer:
+		Name: secondary
+		Weapon: MammothTuskThermobaricTargetingComputer
+		LocalOffset: -85,384,340, -85,-384,340
+		LocalYaw: -50,50
+		Recoil: 50
+		RecoilRecovery: 25
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_nuclearrockets && ra_promotion_targetingcomputer
+	GrantConditionOnPrerequisite@ra_promotion_targetingcomputer:
+		Condition: ra_promotion_targetingcomputer
+		Prerequisites: ra_promotion_targetingcomputer
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -2936,14 +3036,8 @@ Kotin:
 		VoiceSet: RussianVehicleVoice
 	RenderSprites:
 		PlayerPalette: raplayer
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 105
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 105
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 110
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_upgrade_autoloaders, ra_doctrine_inferno, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium
+		Upgrades: ra_upgrade_teslarockets, ra_upgrade_nuclearrockets, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
 
 5TNK:
 	Inherits: ^Tank
@@ -2953,11 +3047,7 @@ Kotin:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
-	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 180
@@ -2993,7 +3083,15 @@ Kotin:
 		RecoilRecovery: 30
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 2
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_nuclearshells && !ra_promotion_targetingcomputer
+	Armament@PRIMARYTargetingComputer:
+		Weapon: ra120mm2TargetingComputer
+		LocalOffset: 1200,180,340, 1200,-180,340
+		Recoil: 175
+		RecoilRecovery: 30
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !ra_upgrade_nuclearshells && ra_promotion_targetingcomputer
 	Armament@Upgrade:
 		Weapon: ra120mm2Thermobaric
 		LocalOffset: 1200,180,340, 1200,-180,340
@@ -3001,7 +3099,15 @@ Kotin:
 		RecoilRecovery: 30
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 2
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_nuclearshells && !ra_promotion_targetingcomputer
+	Armament@UpgradeTargetingComputer:
+		Weapon: ra120mm2ThermobaricTargetingComputer
+		LocalOffset: 1200,180,340, 1200,-180,340
+		Recoil: 175
+		RecoilRecovery: 30
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 2
+		RequiresCondition: ra_upgrade_nuclearshells && ra_promotion_targetingcomputer
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: MammothTusk2
@@ -3011,7 +3117,17 @@ Kotin:
 		RecoilRecovery: 25
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 2
-		RequiresCondition: !ra_doctrine_inferno
+		RequiresCondition: !ra_upgrade_highexplosiverockets && !ra_promotion_targetingcomputer
+	Armament@SECONDARYTargetingComputer:
+		Name: secondary
+		Weapon: MammothTusk2TargetingComputer
+		LocalOffset: -85,384,340, -85,-384,340
+		LocalYaw: -50,50
+		Recoil: 50
+		RecoilRecovery: 25
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !ra_upgrade_highexplosiverockets && ra_promotion_targetingcomputer
 	Armament@UpgradeSECONDARY:
 		Name: secondary
 		Weapon: MammothTusk2Thermobaric
@@ -3021,7 +3137,20 @@ Kotin:
 		RecoilRecovery: 25
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 2
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_highexplosiverockets && !ra_promotion_targetingcomputer
+	Armament@UpgradeSECONDARYTargetingComputer:
+		Name: secondary
+		Weapon: MammothTusk2ThermobaricTargetingComputer
+		LocalOffset: -85,384,340, -85,-384,340
+		LocalYaw: -50,50
+		Recoil: 50
+		RecoilRecovery: 25
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 2
+		RequiresCondition: ra_upgrade_highexplosiverockets && ra_promotion_targetingcomputer
+	GrantConditionOnPrerequisite@ra_promotion_targetingcomputer:
+		Condition: ra_promotion_targetingcomputer
+		Prerequisites: ra_promotion_targetingcomputer
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -3047,14 +3176,8 @@ Kotin:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 105
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 105
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 110
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_upgrade_autoloaders, ra_doctrine_inferno, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium
+		Upgrades: ra_upgrade_autoloaders, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium, ra_upgrade_nuclearshells
 
 heavyaatank:
 	Inherits: ^Vehicle
@@ -3674,7 +3797,7 @@ ra_heatraytank:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_scorchedearth
+		Upgrades: ra_upgrade_scorchedearth, ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
 
 FTRK:
 	Inherits: ^Vehicle
@@ -3689,7 +3812,7 @@ FTRK:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 60
-		Prerequisites: ~raweap, ~ra_doctrine_conscription
+		Prerequisites: ~raweap, ~!ra_doctrine_conscription
 		Description: actor-ftrk.description
 	Valued:
 		Cost: 800
@@ -3810,6 +3933,7 @@ DTRK:
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@EMP: ^FrontalEMP
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildDuration: 1500
@@ -3866,6 +3990,7 @@ QTNK:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		BuildLimit: 1
@@ -4079,6 +4204,7 @@ YAK:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
 	Buildable:
 		Queue: Aircraft, RAAircraft
@@ -4169,7 +4295,7 @@ YAK:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets
+		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_stalinium
 
 MODKAMI:
 	Inherits: ^RANeutralPlane
@@ -4294,9 +4420,9 @@ MIG:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
-	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
 	Buildable:
 		Queue: Aircraft, RAAircraft
@@ -4321,42 +4447,28 @@ MIG:
 		LocalYaw: 48, -64
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
-		RequiresCondition: !ra_upgrade_teslarockets && !ra_upgrade_highexplosiverockets && !ra_upgrade_nuclearrockets
+		RequiresCondition: !ra_upgrade_teslarockets && !ra_upgrade_nuclearrockets
 	Armament@Rockets2:
 		Weapon: Maverick
 		LocalOffset: 0,480,0, 0,-640,0
 		LocalYaw: -48, 64
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
-		RequiresCondition: !ra_upgrade_teslarockets && !ra_upgrade_highexplosiverockets && !ra_upgrade_nuclearrockets
+		RequiresCondition: !ra_upgrade_teslarockets && !ra_upgrade_nuclearrockets
 	Armament@TeslaUpgrade1:
-		Weapon: ThermobaricMaverick
+		Weapon: TeslaMaverick
 		LocalOffset: 0,-480,0, 0,640,0
 		LocalYaw: 48, -64
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: ra_upgrade_teslarockets
 	Armament@TeslaUpgrade2:
-		Weapon: ThermobaricMaverick
+		Weapon: TeslaMaverick
 		LocalOffset: 0,480,0, 0,-640,0
 		LocalYaw: -48, 64
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: ra_upgrade_teslarockets
-	Armament@HEUpgrade1:
-		Weapon: ThermobaricMaverick
-		LocalOffset: 0,-480,0, 0,640,0
-		LocalYaw: 48, -64
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-		RequiresCondition: ra_upgrade_highexplosiverockets
-	Armament@HENuclearUpgrade2:
-		Weapon: ThermobaricMaverick
-		LocalOffset: 0,480,0, 0,-640,0
-		LocalYaw: -48, 64
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-		RequiresCondition: ra_upgrade_highexplosiverockets
 	Armament@NuclearUpgrade1:
 		Weapon: ThermobaricMaverick
 		LocalOffset: 0,-480,0, 0,640,0
@@ -4421,7 +4533,7 @@ MIG:
 	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
 		Modifier: 130
 	ActorStatValues:
-		Upgrades: ra_upgrade_teslarockets, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearrockets, ra_upgrade_afterburners
+		Upgrades: ra_upgrade_teslarockets, ra_upgrade_nuclearrockets, ra_upgrade_afterburners, ra_upgrade_stalinium
 
 su57:
 	Inherits: ^RANeutralPlane
@@ -4433,12 +4545,11 @@ su57:
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
-	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
-	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 50
@@ -4460,14 +4571,7 @@ su57:
 		LocalYaw: 64, -64
 		MuzzleSequence: muzzlemissile
 		PauseOnCondition: !ammo
-		RequiresCondition: !ra_upgrade_teslarockets && !ra_upgrade_highexplosiverockets && !ra_upgrade_nuclearrockets
-	Armament@Tesla:
-		Weapon: ThermobaricNuclearMaverick
-		LocalOffset: -250,-750,0, -250,750,0
-		LocalYaw: 64, -64
-		MuzzleSequence: muzzlemissile
-		PauseOnCondition: !ammo
-		RequiresCondition: ra_upgrade_teslarockets
+		RequiresCondition: !ra_upgrade_highexplosiverockets
 	Armament@HE:
 		Weapon: ThermobaricNuclearMaverick
 		LocalOffset: -250,-750,0, -250,750,0
@@ -4475,13 +4579,6 @@ su57:
 		MuzzleSequence: muzzlemissile
 		PauseOnCondition: !ammo
 		RequiresCondition: ra_upgrade_highexplosiverockets
-	Armament@Nuclear:
-		Weapon: ThermobaricNuclearMaverick
-		LocalOffset: -250,-750,0, -250,750,0
-		LocalYaw: 64, -64
-		MuzzleSequence: muzzlemissile
-		PauseOnCondition: !ammo
-		RequiresCondition: ra_upgrade_nuclearrockets
 	Armament@PRIMARY:
 		Weapon: YakChainGun
 		LocalOffset: 250,-250,0, 250,250,0
@@ -4556,7 +4653,7 @@ su57:
 	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
 		Modifier: 130
 	ActorStatValues:
-		Upgrades: ra_upgrade_teslarockets, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearrockets, ra_upgrade_incendiarybullets, ra_upgrade_afterburners
+		Upgrades: ra_upgrade_highexplosiverockets, ra_upgrade_incendiarybullets, ra_upgrade_afterburners, ra_upgrade_stalinium
 
 HIND:
 	Inherits: ^Helicopter
@@ -4566,6 +4663,9 @@ HIND:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
+	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
 	Buildable:
 		Queue: Aircraft, RAAircraft
@@ -4590,14 +4690,63 @@ HIND:
 		MuzzleSequence: muzzle
 		AmmoUsage: 2
 		PauseOnCondition: ammo < 2
-		RequiresCondition: !ra_doctrine_inferno
-	Armament@MissilesUpgrade:
+		RequiresCondition: !ra_upgrade_highexplosiverockets && !ra_upgrade_nuclearrockets && !ra_promotion_hurricanerocketpod
+	Armament@MissilesRocketPod1:
+		Weapon: HindMissiles
+		LocalOffset: 85,250,-85, 85,-250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !ra_upgrade_highexplosiverockets && !ra_upgrade_nuclearrockets && ra_promotion_hurricanerocketpod
+	Armament@MissilesRocketPod2:
+		Weapon: HindMissiles
+		LocalOffset: 85,-250,-85, 85,250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: !ra_upgrade_highexplosiverockets && !ra_upgrade_nuclearrockets && ra_promotion_hurricanerocketpod
+	Armament@MissilesHE:
 		Weapon: HindMissilesThermobaric
 		LocalOffset: 85,250,-85, 85,-250,-85
 		MuzzleSequence: muzzle
 		AmmoUsage: 2
 		PauseOnCondition: ammo < 2
-		RequiresCondition: ra_doctrine_inferno
+		RequiresCondition: ra_upgrade_highexplosiverockets && !ra_promotion_hurricanerocketpod
+	Armament@MissilesHERocketPod1:
+		Weapon: HindMissilesThermobaric
+		LocalOffset: 85,250,-85, 85,-250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: ra_upgrade_highexplosiverockets && ra_promotion_hurricanerocketpod
+	Armament@MissilesHERocketPod2:
+		Weapon: HindMissilesThermobaric
+		LocalOffset: 85,-250,-85, 85,250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: ra_upgrade_highexplosiverockets && ra_promotion_hurricanerocketpod
+	Armament@MissilesNuke:
+		Weapon: HindMissilesNuclear
+		LocalOffset: 85,250,-85, 85,-250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
+		RequiresCondition: ra_upgrade_nuclearrockets && !ra_promotion_hurricanerocketpod
+	Armament@MissilesNukeRocketPod1:
+		Weapon: HindMissilesNuclear
+		LocalOffset: 85,250,-85, 85,-250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: ra_upgrade_nuclearrockets && ra_promotion_hurricanerocketpod
+	Armament@MissilesNukeRocketPod2:
+		Weapon: HindMissilesNuclear
+		LocalOffset: 85,-250,-85, 85,250,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 2
+		RequiresCondition: ra_upgrade_nuclearrockets && ra_promotion_hurricanerocketpod
 	Armament@PRIMARY:
 		Weapon: ChainGun
 		LocalOffset: 85,-200,-85, 85,200,-85
@@ -4628,6 +4777,9 @@ HIND:
 		AmmoUsage: 1
 		PauseOnCondition: ammo < 2
 		RequiresCondition: ra_upgrade_incendiarybullets
+	GrantConditionOnPrerequisite@ra_promotion_hurricanerocketpod:
+		Condition: ra_promotion_hurricanerocketpod
+		Prerequisites: ra_promotion_hurricanerocketpod
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
 	AttackAircraft:
@@ -4679,16 +4831,10 @@ HIND:
 		Weapon: LargeHeliExplode
 	RenderSprites:
 		PlayerPalette: raplayer
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 110
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 110
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 120
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets
+		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearrockets, ra_upgrade_stalinium
 
-kamov:
+ra_kamov:
 	Inherits: ^Helicopter
 	Inherits@Template: ^HelicopterTemplate
 	Inherits@exp: ^GainsExperienceRA
@@ -4696,6 +4842,8 @@ kamov:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
 	Buildable:
 		Queue: Aircraft, RAAircraft
@@ -4714,26 +4862,60 @@ kamov:
 		HpPerStep: 6125
 	ChangesHealth@SelfHealing:
 		Step: 49
+	Armament@Tesla:
+		Weapon: KamovTesla
+		LocalOffset: 150,0,-150
+		MuzzleSequence: muzzle
+		AmmoUsage: 8
+		PauseOnCondition: ammo < 8
 	Armament@Missiles:
 		Weapon: HindMissiles
-		LocalOffset: 85,250,-85, 85,-250,-85
+		LocalOffset: 100,400,-100, 100,-400,-100
 		MuzzleSequence: muzzle
 		AmmoUsage: 2
-		PauseOnCondition: ammo < 2
-		RequiresCondition: !ra_doctrine_inferno
+		PauseOnCondition: ammo < 8
+		RequiresCondition: !ra_upgrade_teslarockets && !ra_promotion_hurricanerocketpod
+	Armament@MissilesRocketPod1:
+		Weapon: HindMissiles
+		LocalOffset: 100,400,-100, 100,-400,-100
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+		RequiresCondition: !ra_upgrade_teslarockets && ra_promotion_hurricanerocketpod
+	Armament@MissilesRocketPod2:
+		Weapon: HindMissiles
+		LocalOffset: 100,-400,-100, 100,400,-100
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+		RequiresCondition: !ra_upgrade_teslarockets && ra_promotion_hurricanerocketpod
 	Armament@MissilesUpgrade:
-		Weapon: HindMissilesThermobaric
-		LocalOffset: 85,250,-85, 85,-250,-85
+		Weapon: KamovMissilesTesla
+		LocalOffset: 100,400,-100, 100,-400,-100
 		MuzzleSequence: muzzle
 		AmmoUsage: 2
-		PauseOnCondition: ammo < 2
-		RequiresCondition: ra_doctrine_inferno
+		PauseOnCondition: ammo < 8
+		RequiresCondition: ra_upgrade_teslarockets && !ra_promotion_hurricanerocketpod
+	Armament@MissilesUpgradeRocketPod1:
+		Weapon: KamovMissilesTesla
+		LocalOffset: 100,400,-100, 100,-400,-100
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+		RequiresCondition: ra_upgrade_teslarockets && ra_promotion_hurricanerocketpod
+	Armament@MissilesUpgradeRocketPod2:
+		Weapon: KamovMissilesTesla
+		LocalOffset: 100,-400,-100, 100,400,-100
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+		RequiresCondition: ra_upgrade_teslarockets && ra_promotion_hurricanerocketpod
 	Armament@PRIMARY:
 		Weapon: ChainGun
 		LocalOffset: 85,-200,-85, 85,200,-85
 		MuzzleSequence: muzzle
 		AmmoUsage: 1
-		PauseOnCondition: ammo < 2
+		PauseOnCondition: ammo < 8
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@SECONDARY:
 		Name: secondary
@@ -4741,14 +4923,14 @@ kamov:
 		LocalOffset: 85,200,-85, 85,-200,-85
 		MuzzleSequence: muzzle
 		AmmoUsage: 1
-		PauseOnCondition: ammo < 2
+		PauseOnCondition: ammo < 8
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@Upgrade1:
 		Weapon: IncendiaryChainGun
 		LocalOffset: 85,-200,-85, 85,200,-85
 		MuzzleSequence: muzzle
 		AmmoUsage: 1
-		PauseOnCondition: ammo < 2
+		PauseOnCondition: ammo < 8
 		RequiresCondition: ra_upgrade_incendiarybullets
 	Armament@Upgrade2:
 		Name: secondary
@@ -4756,10 +4938,13 @@ kamov:
 		LocalOffset: 85,200,-85, 85,-200,-85
 		MuzzleSequence: muzzle
 		AmmoUsage: 1
-		PauseOnCondition: ammo < 2
+		PauseOnCondition: ammo < 8
 		RequiresCondition: ra_upgrade_incendiarybullets
+	GrantConditionOnPrerequisite@ra_promotion_hurricanerocketpod:
+		Condition: ra_promotion_hurricanerocketpod
+		Prerequisites: ra_promotion_hurricanerocketpod
 	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
+		Modifier: 25
 	AttackAircraft:
 		FacingTolerance: 40
 		AttackType: Hover
@@ -4795,7 +4980,7 @@ kamov:
 	SpawnActorOnDeath:
 		Actor: HIND.Husk
 	EjectOnDeath:
-		PilotActor: e3flamer
+		PilotActor: ra_zapper
 	LeavesTrails:
 		Offsets: -427,0,0
 		Image: smokey
@@ -4812,10 +4997,10 @@ kamov:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	AmmoPool:
-		Ammo: 12
+		Ammo: 24
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 4
+		Delay: 2
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -4825,14 +5010,8 @@ kamov:
 		Weapon: LargeHeliExplode
 	RenderSprites:
 		PlayerPalette: player_rgba
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 110
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 110
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 120
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets
+		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_teslarockets, ra_upgrade_stalinium
 
 MH60:
 	Inherits: ^Helicopter
@@ -7195,7 +7374,7 @@ RAWEAP:
 	Inherits@weap: ^IsWeaponFactory
 	Buildable:
 		Queue: Building, RABuilding
-		Prerequisites: ~rafact.soviet, raproc.soviet, ~!ra_doctrine_heavyarmor
+		Prerequisites: ~rafact.soviet, raproc.soviet, ~!ra_doctrine_industrialefficiency
 		Description: template-factory.description
 	Tooltip:
 		Name: Soviet War Factory
@@ -7222,7 +7401,7 @@ ra_gigafactory:
 	Inherits: RAWEAP
 	Inherits@shape: ^4x3Shape
 	Buildable:
-		Prerequisites: ~rafact.soviet, raproc.soviet, ~ra_doctrine_heavyarmor
+		Prerequisites: ~rafact.soviet, raproc.soviet, ~ra_doctrine_industrialefficiency
 		BuildDuration: 750
 		BuildDurationModifier: 100
 		Description: template-factory.description
@@ -7384,7 +7563,7 @@ RAAFLD:
 	Inherits@spy: ^InfiltrateForSupportPowerReset
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
-		Prerequisites: ~rafact.soviet, dome.soviet, ~!ra_doctrine_heavyarmor
+		Prerequisites: ~rafact.soviet, dome.soviet, ~!ra_doctrine_industrialefficiency
 		Description: actor-raafld.description
 	Tooltip:
 		Name: Soviet Airfield
@@ -7458,7 +7637,7 @@ RAAFLD:
 		OrderName: SovietParatroopers
 		Prerequisites:
 			1: ra_doctrine_conscription
-			2: upfirerocketsoldier, ra_doctrine_conscription
+			2: ra_promotion_superoptics, ra_doctrine_conscription
 			3: upmortarsoldier, ra_doctrine_conscription
 			4: upcyberdog, ra_doctrine_conscription
 		Icons:
@@ -7530,7 +7709,7 @@ ra_largeairfield:
 	RevealsShroud:
 		Range: 10000
 	Buildable:
-		Prerequisites: ~rafact.soviet, dome.soviet, ~ra_doctrine_heavyarmor
+		Prerequisites: ~rafact.soviet, dome.soviet, ~ra_doctrine_industrialefficiency
 		BuildDuration: 625
 		BuildDurationModifier: 100
 		Description: actor-raafld.description
@@ -8411,6 +8590,7 @@ FTUR:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Defence, RADefence
@@ -10426,9 +10606,12 @@ ra_doctrine_inferno:
 	GrantConditionOnPrerequisite@ra_doctrine_inferno:
 		Condition: ra_doctrine_inferno
 		Prerequisites: ra_doctrine_inferno
+	FirepowerMultiplier@ra_doctrine_inferno:
+		RequiresCondition: ra_doctrine_inferno
+		Modifier: 125
 	DamageMultiplier@ra_doctrine_inferno:
 		RequiresCondition: ra_doctrine_inferno
-		Modifier: 50
+		Modifier: 80
 	ActorStatValues:
 		Upgrades: ra_doctrine_inferno
 
@@ -10464,6 +10647,9 @@ ra_doctrine_heavyarmor:
 		Prerequisite: ra_soviet_doctrine_2
 
 ^HeavyArmorDoctrineRA1:
+	DamageMultiplier@ra_doctrine_heavyarmor:
+		RequiresCondition: ra_doctrine_heavyarmor
+		Modifier: 80
 	GrantConditionOnPrerequisite@ra_doctrine_heavyarmor:
 		Condition: ra_doctrine_heavyarmor
 		Prerequisites: ra_doctrine_heavyarmor
@@ -10483,6 +10669,12 @@ ra_doctrine_nuclearwar:
 		Prerequisite: ra_soviet_doctrine_2
 
 ^NuclearWarDoctrineRA1:
+	FirepowerMultiplier@ra_doctrine_nuclearwar:
+		RequiresCondition: ra_doctrine_nuclearwar
+		Modifier: 115
+	SpeedMultiplier@ra_doctrine_nuclearwar:
+		RequiresCondition: ra_doctrine_nuclearwar
+		Modifier: 115
 	GrantConditionOnPrerequisite@ra_doctrine_nuclearwar:
 		Condition: ra_doctrine_nuclearwar
 		Prerequisites: ra_doctrine_nuclearwar
@@ -10559,13 +10751,6 @@ ra_upgrade_massproduction:
 	RenderSprites:
 		Image: ra_upgrade_massproduction
 
-^MassProductionUpgradeRA1:
-	GrantConditionOnPrerequisite@ra_upgrade_massproduction:
-		Condition: ra_upgrade_massproduction
-		Prerequisites: ra_upgrade_massproduction
-	ActorStatValues:
-		Upgrades: ra_upgrade_massproduction
-
 ra_upgrade_wareconomy:
 	Inherits: ^team_upgrade_template
 	Tooltip:
@@ -10589,6 +10774,25 @@ ra_upgrade_wareconomy_proxy_actor:
 		Image: ra_upgrade_wareconomy
 	ProvidesPrerequisite:
 		Prerequisite: ra_upgrade_wareconomy
+
+^WarEconomyTeamUpgradeRA1:
+	ProductionCostMultiplier@ra_upgrade_wareconomy:
+		Prerequisites: ra_upgrade_wareconomy
+		Multiplier: 90
+	ProductionTimeMultiplier@ra_upgrade_wareconomy:
+		Prerequisites: ra_upgrade_wareconomy
+		Multiplier: 90
+	SpeedMultiplier@ra_upgrade_wareconomy:
+		RequiresCondition: ra_upgrade_wareconomy
+		Modifier: 110
+	ResourceValueMultiplier@ra_upgrade_wareconomy:
+		Modifier: 110
+		RequiresCondition: ra_upgrade_wareconomy
+	GrantConditionOnPrerequisite@ra_upgrade_wareconomy:
+		Condition: ra_upgrade_wareconomy
+		Prerequisites: ra_upgrade_wareconomy
+	ActorStatValues:
+		Upgrades: ra_upgrade_wareconomy
 
 #############################
 
@@ -10682,7 +10886,7 @@ ra_upgrade_teslarockets:
 ra_upgrade_reactoroverload:
 	Inherits: ^team_upgrade_template
 	Tooltip:
-		Name: Scorched Earth
+		Name: Reactor Overload
 	Buildable:
 		Description: ra_upgrade_reactoroverload.description
 		Prerequisites: ~stek, ~ra_doctrine_teslatech, !ra_upgrade_reactoroverload
@@ -10738,7 +10942,7 @@ ra_upgrade_autoloaders:
 ra_upgrade_highexplosiverockets:
 	Inherits: ^tech_upgrade_template
 	Tooltip:
-		Name: Tesla Rockets
+		Name: High Explosive Rockets
 	Buildable:
 		Description: ra_upgrade_highexplosiverockets.description
 		Prerequisites: ~stek, ~ra_doctrine_heavyarmor, !ra_upgrade_highexplosiverockets
@@ -11082,19 +11286,32 @@ ra_upgrade_afterburners:
 	#		Promotions Soviets
 	####################################################################################################
 
-upfirerocketsoldier:
+ra_promotion_superoptics:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Fire Rocket Soldier
+		Name: Infantry Super Optics
 	Buildable:
 		BuildPaletteOrder: 37
 		Queue: Promotions
-		Description: Allows training of Fire Rocket Soldiers.
-		Prerequisites: ~rafact.soviet, !upfirerocketsoldier, rank1
+		Description: Increases Vision and Stealth Detection of Infantry by 20%.
+		Prerequisites: ~rafact.soviet, !ra_promotion_superoptics, rank1
 	RenderSprites:
-		Image: e3flamer
+		Image: ra_promotion_superoptics
 	ProvidesPrerequisite:
-		Prerequisite: upfirerocketsoldier
+		Prerequisite: ra_promotion_superoptics
+
+^SuperOpticsPromotionRA1:
+	RevealsShroudMultiplier@ra_promotion_superoptics:
+		RequiresCondition: ra_promotion_superoptics
+		Modifier: 120
+	DetectCloakedMultiplier@ra_promotion_superoptics:
+		RequiresCondition: ra_promotion_superoptics
+		Modifier: 120
+	GrantConditionOnPrerequisite@ra_promotion_superoptics:
+		Condition: ra_promotion_superoptics
+		Prerequisites: ra_promotion_superoptics
+	ActorStatValues:
+		Upgrades: ra_promotion_superoptics
 
 upmortarsoldier:
 	Inherits: ^promotion_upgrade.template
@@ -11104,7 +11321,7 @@ upmortarsoldier:
 		BuildPaletteOrder: 40
 		Queue: Promotions
 		Description: Allows training of Fire Mortar Soldiers.
-		Prerequisites: ~rafact.soviet, !upmortarsoldier, upfirerocketsoldier, rank1
+		Prerequisites: ~rafact.soviet, !upmortarsoldier, ra_promotion_superoptics, rank1
 	RenderSprites:
 		Image: mortarsoldier
 	ProvidesPrerequisite:
@@ -11166,19 +11383,19 @@ upttnk2:
 	ProvidesPrerequisite:
 		Prerequisite: upttnk2
 
-up5tnk:
+ra_promotion_targetingcomputer:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Advanced Soviet Mammoth Tank
+		Name: Mammoth Tank Targeting Computer
 	Buildable:
 		BuildPaletteOrder: 44
 		Queue: Promotions
-		Description: Allows construction of the Advanced Soviet Mammoth Tank.
-		Prerequisites: ~rafact.soviet, !up5tnk, upttnk2, rank1
+		Description: Allows Mammoth Tanks to use both Cannons and Missiles for all Ground and Water Targets.
+		Prerequisites: ~rafact.soviet, !ra_promotion_targetingcomputer, upttnk2, rank1
 	RenderSprites:
-		Image: 5tnk
+		Image: ra_promotion_targetingcomputer
 	ProvidesPrerequisite:
-		Prerequisite: up5tnk
+		Prerequisite: ra_promotion_targetingcomputer
 
 upmonstertank:
 	Inherits: ^promotion_upgrade.template
@@ -11188,7 +11405,7 @@ upmonstertank:
 		BuildPaletteOrder: 47
 		Queue: Promotions
 		Description: Allows construction of the Monster Tank.
-		Prerequisites: ~rafact.soviet, !upmonstertank, up5tnk, rank1
+		Prerequisites: ~rafact.soviet, !upmonstertank, ra_promotion_targetingcomputer, rank1
 	RenderSprites:
 		Image: monstertank
 	ProvidesPrerequisite:
@@ -11208,19 +11425,19 @@ upbtr:
 	ProvidesPrerequisite:
 		Prerequisite: upbtr
 
-upkotin:
+ra_promotion_hurricanerocketpod:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Kotin Nuclear Tank
+		Name: Hurricane Rocket Pods
 	Buildable:
 		BuildPaletteOrder: 42
 		Queue: Promotions
-		Description: Allows construction of the Kotin Nuclear Tank.
-		Prerequisites: ~rafact.soviet, !upkotin, upbtr, rank1
+		Description: Doubles the amount of Missiles that Hind and Kamov can fire.
+		Prerequisites: ~rafact.soviet, !ra_promotion_hurricanerocketpod, upbtr, rank1
 	RenderSprites:
-		Image: kotin
+		Image: ra_promotion_hurricanerocketpod
 	ProvidesPrerequisite:
-		Prerequisite: upkotin
+		Prerequisite: ra_promotion_hurricanerocketpod
 
 upv2rlnuke:
 	Inherits: ^promotion_upgrade.template
@@ -11230,7 +11447,7 @@ upv2rlnuke:
 		BuildPaletteOrder: 45
 		Queue: Promotions
 		Description: Allows construction of the Nuclear V2 Launcher.
-		Prerequisites: ~rafact.soviet, !upv2rlnuke, upkotin, rank1
+		Prerequisites: ~rafact.soviet, !upv2rlnuke, ra_promotion_hurricanerocketpod, rank1
 	RenderSprites:
 		Image: v2rlnuke
 	ProvidesPrerequisite:
@@ -11375,7 +11592,7 @@ VOLKOV:
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -11546,7 +11763,7 @@ MonsterTank:
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -11651,7 +11868,7 @@ MIGNUKE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@AntiBuil: ^PrioritizeBuilding
 	Inherits@AntiDef: ^PrioritizeDefence
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath

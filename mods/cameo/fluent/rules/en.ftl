@@ -1936,6 +1936,61 @@ upgrade-shipweapon =
 upgrade-shiparmor =
    .description = Increases armor of all Terran aircraft by 20%
 
+ra_doctrine_conscription =
+   .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
+      Focuses on Mass Produced Infantry:
+      All Infantry are 25% cheaper and faster to train
+      All Infantry has 10% more Firepower, Speed and Damage Reduction
+      Replaces Rifle Soldiers and Grenadiers with AK47 and Molotov Conscripts
+      Replaces Rocket Soldiers with Dragunov Anti Material Snipers
+      Replaces Flak Trucks with BTR-80s
+      Unlocks Commissar
+      Unlocks Vengeance and Men of Steel Upgrades
+
+ra_doctrine_industrialefficiency =
+   .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
+      Focuses on strong Economy and Mass Produced Vehicles and Aircraft
+      Replaces Ore Trucks with Industrial Miners
+      Replaces War Factories with Large Ore Factories (100% faster production)
+      Replaces Airfields with Large Airfields (100% faster production)
+      Unlocks Mass Production and War Economy Upgrades
+
+ra_doctrine_inferno =
+   .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
+      Focuses on Flame and Artillery Weapons
+      All Grenadiers, Mortars, Flame Weapons and Artilleries have 25% more firepower
+      and take 20% less damage
+      Replaces Rocket Soldiers with Fire Rocket Soldiers
+      Unlocks Heatray Tank
+      Unlocks Incendiary Bullets and Scorched Earth Upgrades
+
+ra_doctrine_teslatech =
+   .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
+      Focuses on Experimental Tesla Technology
+      All Tesla Weapons deal additional EMP Damage.
+      Replaces Shock Troopers with Zappers
+      Replaces Hind with Kamov
+      Unlocks Heavy Tesla Tank
+      Unlocks Tesla Arcing, Tesla Rockets and Reactor Overload Upgrades
+
+ra_doctrine_heavyarmor =
+   .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
+      Focuses on Heavy Armor and Powerful Tanks
+      All Vehicles and Aircraft have 20% additional damage reduction
+      Replaces Mammoth Tanks with Siege Mammoth Tanks
+      Replaces V1 Rocket Trucks with Grads
+      Replaces Replaces Migs with Su-57s
+      Unlocks Shtora Defense System Upgrade
+      Unlocks Auto Loaders, High Explosive Rockets and Stalinium Upgrades
+
+ra_doctrine_nuclearwar =
+   .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
+      Focuses on High Damage and Speed.
+      All Vehicles have 15% higher Firepower and Speed
+      Replaces V2 Rocket Launcher with Nuclear V2 Rocket Launcher
+      Unlocks Kotin Nuclear Tank
+      Unlocks Unstable Isotopes, Thermonuclear Rockets and Nuclear Tank Shells Upgrades
+
 template-mcv =
    .description = Deploys into another Construction Yard.
       Unarmed

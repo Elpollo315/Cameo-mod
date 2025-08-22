@@ -1148,6 +1148,47 @@ ra_cons_molo:
 		Filename: ra_conscripticon.png
 		AddExtension: False
 
+ra_dragunov:
+	Inherits: ^RA2ArmedInfantry
+	Inherits@2: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ra_dragunov.png
+		AddExtension: false
+		#Scale: 0.75
+	run:
+		Tick: 96
+		Start: 8
+		Length: 10
+		Facings: 8
+	walk:
+		Tick: 96
+		Start: 8
+		Length: 10
+		Facings: 8
+	stand:
+	idle1:
+		Start: 88
+	idle2:
+		Start: 103
+	prone-stand:
+		Frames: 122, 126, 132, 137, 143, 149, 155, 161
+		Facings: 8
+	prone-run:
+		Start: 118
+	die1:
+		Start: 166
+	die2:
+		Start: 181
+	shoot:
+		Start: 196
+	prone-shoot:
+		Start: 244
+	paradrop:
+		Start: 324
+	icon:
+		Filename: ra_dragunovicon.png
+		AddExtension: False
+
 ra_commissar:
 	Inherits: ^RA2ArmedInfantry
 	Inherits@2: ^RA2MachineGunMuzzle
@@ -4030,7 +4071,7 @@ hind:
 	icon:
 		Filename: hindicon.png
 
-kamov:
+ra_kamov:
 	Defaults:
 		Filename: ra_kamov.png
 		#Scale: 1.25
@@ -5958,18 +5999,6 @@ ra_upgrade_shtoradefensesystem:
 	icon:
 		Filename: shtoradefensesystemicon.png
 
-ra_upgrade_superoptics:
-	icon:
-		Filename: superopticsicon.png
-
-ra_upgrade_targetingcomputer:
-	icon:
-		Filename: targetingcomputericon.png
-
-ra_upgrade_hurricanerocketpod:
-	icon:
-		Filename: hurricanerocketpodicon.png
-
 ra_upgrade_hazmatsuits:
 	icon:
 		Filename: hazmatsuitsicon.png
@@ -5977,3 +6006,15 @@ ra_upgrade_hazmatsuits:
 ra_upgrade_afterburners:
 	icon:
 		Filename: afterburnersicon.png
+
+ra_promotion_superoptics:
+	icon:
+		Filename: superopticsicon.png
+
+ra_promotion_targetingcomputer:
+	icon:
+		Filename: targetingcomputericon.png
+
+ra_promotion_hurricanerocketpod:
+	icon:
+		Filename: hurricanerocketpodicon.png
