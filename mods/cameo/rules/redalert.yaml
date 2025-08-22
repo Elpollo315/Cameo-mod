@@ -1310,7 +1310,7 @@ ra_dragunov:
 	Tooltip:
 		Name: Dragunov Anti Material Sniper
 	Valued:
-		Cost: 350
+		Cost: 400
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -3518,7 +3518,7 @@ RAJEEP:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@exp: ^GainsExperienceRA
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AdvancedRadarSystems: ^AdvancedRadarSystems
@@ -5506,6 +5506,8 @@ modhip:
 	RenderSprites:
 		Image: modhip
 		PlayerPalette: player_rgba
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	FireWarheadsOnDeath:
@@ -5571,7 +5573,7 @@ MODKUBEL:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@exp: ^GainsExperienceRA
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@WaveforceBullets: ^WaveforceBullets
@@ -10620,7 +10622,7 @@ ra_doctrine_teslatech:
 		Name: Tesla and Experimental Tech Doctrine
 	Buildable:
 		Description: ra_doctrine_teslatech.description
-		Prerequisites: ~stek, !ra_soviet_doctrine_2
+		Prerequisites: ~dome.soviet, ra_soviet_doctrine_1, !ra_soviet_doctrine_2
 	RenderSprites:
 		Image: ra_doctrine_teslatech
 	ProvidesPrerequisite@ra_soviet_doctrine_2:
@@ -10639,7 +10641,7 @@ ra_doctrine_heavyarmor:
 		Name: Heavy Armor Doctrine
 	Buildable:
 		Description: ra_doctrine_heavyarmor.description
-		Prerequisites: ~stek, !ra_soviet_doctrine_2
+		Prerequisites: ~dome.soviet, ra_soviet_doctrine_1, !ra_soviet_doctrine_2
 	RenderSprites:
 		Image: ra_doctrine_heavyarmor
 	ProvidesPrerequisite@ra_soviet_doctrine_2:
@@ -10661,7 +10663,7 @@ ra_doctrine_nuclearwar:
 		Name: Nuclear War Doctrine
 	Buildable:
 		Description: ra_doctrine_nuclearwar.description
-		Prerequisites: ~stek, !ra_soviet_doctrine_2
+		Prerequisites: ~dome.soviet, ra_soviet_doctrine_1, !ra_soviet_doctrine_2
 	RenderSprites:
 		Image: ra_doctrine_nuclearwar
 	ProvidesPrerequisite@ra_soviet_doctrine_2:

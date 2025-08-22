@@ -8070,7 +8070,8 @@ upidol:
 		Queue: RAInfantry
 	Mobile:
 		Locomotor: chem
-	Targetable:
+	Targetable@Zerg:
+		RequiresCondition: !parachute && !untargetable
 		TargetTypes: Ground, Infantry, Monster
 	Targetable@HEAL:
 		RequiresCondition: !untargetable && damaged && !Healed
@@ -8082,8 +8083,8 @@ upidol:
 		TargetTypes: DogImmune
 	Mobile:
 		Locomotor: wheeled
-	Targetable:
-		TargetTypes: Ground, Monster
+	Targetable@Zerg:
+		TargetTypes: Ground, Vehicle, Monster
 
 ^VeryLargeZerg:
 	Inherits: ^LargeZerg
@@ -8097,7 +8098,8 @@ upidol:
 	GrantConditionOnPrerequisite@MACHINESHOP:
 		Condition: hospital
 		Prerequisites: machshop
-	Targetable@ivan:
+	Targetable@Zerg:
+		TargetTypes: Ground, Vehicle, Tank, Monster
 	Passenger:
 		CargoType: Vehicle
 

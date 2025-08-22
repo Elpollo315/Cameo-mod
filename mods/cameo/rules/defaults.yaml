@@ -497,11 +497,11 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Ant, Creep, Water, Defense
+		ValidTargets: Infantry, Vehicle, Monster, Creep, Water, Defense
 		InvalidTargets: NoAutoTarget, NavalYard
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Ant, Creep, Water, Structure, Defense, Ground
+		ValidTargets: Infantry, Vehicle, Monster, Creep, Water, Structure, Defense, Ground
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetGroundAssaultMove:
@@ -518,7 +518,7 @@
 ^AutoTargetGroundAssaultMoveMelee:
 	Inherits: ^AutoTargetGroundAssaultMove
 	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Ant, Creep, Water, Defense, Ground
+		ValidTargets: Infantry, Vehicle, Monster, Creep, Water, Defense, Ground
 
 ^AutoTargetAir:
 	AutoTarget:
@@ -531,11 +531,11 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Ant, Creep, Water, Air, Defense
+		ValidTargets: Infantry, Vehicle, Monster, Creep, Water, Air, Defense
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Ant, Creep, Water, Air, Structure, Defense, Ground
+		ValidTargets: Infantry, Vehicle, Monster, Creep, Water, Air, Structure, Defense, Ground
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetAllAssaultMove:

@@ -440,6 +440,7 @@ FlametankExplode:
 
 MachineGun:
 	Inherits: ^SmallArms
+	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 10
 	Burst: 3
 	BurstDelays: 5
@@ -471,6 +472,7 @@ FireballLauncherBuggy:
 
 MachineGunH:
 	Inherits: ^SmallArms
+	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 9
 	Burst: 3
 	BurstDelays: 6

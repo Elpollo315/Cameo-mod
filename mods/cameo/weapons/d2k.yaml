@@ -791,6 +791,38 @@ D2K_Rocket_Buggy:
 
 D2K_Rocket_Trooper:
 	Inherits: ^LightMissile
+	Inherits: ^MediumMissile
+	Inherits: D2K_Rocket
+	ReloadDelay: 64
+	Range: 6185
+	Projectile: Missile
+		Acceleration: 6
+		Speed: 666
+		MaximumLaunchSpeed: 222
+		MinimumLaunchSpeed: 222
+		HorizontalRateOfTurn: 22
+		VerticalRateOfTurn: 22
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+
+D2K_Rocket_Trooper1:
+	Inherits: ^LightMissile
 	Inherits: ^FlakWeapon
 	Inherits: D2K_Rocket
 	ReloadDelay: 64

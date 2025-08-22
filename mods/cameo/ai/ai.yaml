@@ -5524,6 +5524,8 @@ Player:
 			upgrade_light: 1
 			upgrade_heavy: 1
 			upgrade_hightech: 1
+			d2k_upgrade_twinrockettrooper: 1
+			twinrockettrooper: 5
 			########### Units Ixians
 			harvester: 10
 			carryall: 1

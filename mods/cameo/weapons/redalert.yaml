@@ -379,8 +379,8 @@ DragunovSniper:
 	Inherits: ^LightMissile
 	Inherits: ^HeavyCannon
 	Inherits: ^FlakWeapon
-	ReloadDelay: 100
-	Range: 6862
+	ReloadDelay: 85
+	Range: 6880
 	Warhead@TankDestroyerCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 8000
@@ -2471,6 +2471,7 @@ SCUDNUKEThermobaric:
 
 M60mg:
 	Inherits: ^SmallArms
+	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 10
 	Burst: 4
 	BurstDelays: 5
@@ -2483,6 +2484,7 @@ M60mg:
 
 M60mgJapan:
 	Inherits: ^SmallArms
+	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 15
 	Burst: 5
 	BurstDelays: 5

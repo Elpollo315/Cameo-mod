@@ -4439,6 +4439,131 @@ trooper:
 		Start: 4273
 		Offset: -30,-24
 
+twinrockettrooper:
+	Inherits: vordel_effect
+	Defaults:
+		AddExtension: false
+	stand:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 458
+		Facings: -8
+		Transpose: true
+	idle1:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Frames: 639, 646, 653, 660, 667, 674, 681, 688
+		Length: 8
+		Tick: 80
+	idle2:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Frames: 640, 647, 654, 661, 668, 675, 682, 689
+		Length: 8
+		Tick: 80
+	run:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 466
+		Length: 6
+		Facings: -8
+		Tick: 120
+		Transpose: true
+	shoot:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 506
+		Length: 6
+		Facings: -8
+		Transpose: true
+	prone-stand:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 562
+		Facings: -8
+		Transpose: true
+	prone-run:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 570
+		Length: 3
+		Facings: -8
+		Transpose: true
+		Tick: 120
+	standup:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 554
+		Facings: -8
+		Transpose: true
+	prone-shoot:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 586
+		Length: 6
+		Facings: -8
+		Transpose: true
+	die1:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Frames: 634, 641, 648, 655, 662, 669, 676, 683, 690, 691, 692, 693
+		Length: 12
+		Tick: 80
+	die2:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Frames: 635, 642, 649, 656, 663, 670, 677, 684
+		Length: 8
+		Tick: 80
+	die3:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Frames: 636, 643, 650, 657, 664, 671, 678, 685
+		Length: 8
+		Tick: 80
+	die4:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Frames: 637, 644, 651, 658, 665, 672, 679, 686
+		Length: 8
+		Tick: 80
+	die5:
+		Filename: e1.shp
+		Start: 324
+		Length: 18
+		Tick: 80
+	die6:
+		Filename: e1.shp
+		Start: 366
+		Length: 11
+		Tick: 80
+	die7:
+		Filename: electro.shp
+		Length: *
+	die-crushed:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Frames: 638, 645, 652, 659, 666, 673, 680, 687
+		Length: 8
+		Tick: 800
+		ZOffset: -511
+	icon:
+		Filename: twinrockettroopericon.png
+
 engineer:
 	Defaults:
 		AddExtension: false
@@ -9227,3 +9352,8 @@ ordos_upgrade_para:
 	icon:
 		Filename: ordos_upgrade_para.png
 		Offset: 0,0
+
+d2k_upgrade_twinrockettrooper:
+	icon:
+		Filename: twinbazookaicon.png
+
