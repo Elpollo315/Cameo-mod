@@ -205,17 +205,17 @@ Player:
 		Upgrades: d2k_siege_range_upgrade
 
 ^D2K_NeedleGuns:
-	RangeMultiplier@d2k_needle_guns:
+	RangeMultiplier@d2k_upgrade_needleguns:
 		Modifier: 110
-		RequiresCondition: d2k_needle_guns
-	FirepowerMultiplier@d2k_needle_guns:
+		RequiresCondition: d2k_upgrade_needleguns
+	FirepowerMultiplier@d2k_upgrade_needleguns:
 		Modifier: 125
-		RequiresCondition: d2k_needle_guns
-	GrantConditionOnPrerequisite@d2k_needle_guns:
-		Condition: d2k_needle_guns
-		Prerequisites: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
+	GrantConditionOnPrerequisite@d2k_upgrade_needleguns:
+		Condition: d2k_upgrade_needleguns
+		Prerequisites: d2k_upgrade_needleguns
 	ActorStatValues:
-		Upgrades: d2k_needle_guns
+		Upgrades: d2k_upgrade_needleguns
 
 ^D2K_GeneralPurposeArmor:
 	DamageMultiplier@d2k_general_purpose_armor:
@@ -2478,13 +2478,13 @@ machine_gun_turret:
 		LocalOffset: 256,0,576
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 	Armament@Upgrade: ##########
 		Weapon: HMG_turret_upgrade
 		LocalOffset: 256,0,576
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 	Replacement:
 		ReplaceableTypes: Tower
 	WithWallSpriteBody:
@@ -2507,7 +2507,7 @@ machine_gun_turret:
 	RevealsShroud:
 		Range: 7394
 	ActorStatValues:
-		Upgrades: d2k_needle_guns, d2k_general_purpose_armor
+		Upgrades: d2k_upgrade_needleguns, d2k_general_purpose_armor
 
 medium_gun_turret:
 	Inherits: ^D2KDefense
@@ -3633,29 +3633,29 @@ light_inf:
 	Armament@PRIMARY: ##########
 		Weapon: LMG
 		LocalOffset: 128,0,256
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 	Armament@Upgrade: ##########
 		Weapon: LMG_upgrade
 		LocalOffset: 128,0,256
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: LMG
 		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 	Armament@UpgradeGARRISONED: ##########
 		Name: garrisoned
 		Weapon: LMG_upgrade
 		MuzzleSequence: garrison-muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 	WithInfantryBody:
 		IdleSequences: idle1,idle2,idle3,idle4
 		DefaultAttackSequence: shoot
 	Parachutable:
 	ActorStatValues:
-		Upgrades: d2k_personal_shield, d2k_needle_guns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
+		Upgrades: d2k_personal_shield, d2k_upgrade_needleguns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 
 engineer:
 	Inherits: E6
@@ -6701,14 +6701,14 @@ d2k_air_drone:
 		LocalOffset: 0,-256,0, 0,256,0
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 		PauseOnCondition: !ammo
 	Armament@Upgrade: ##########
 		Weapon: d2k_air_drone_guns_upgrade
 		LocalOffset: 0,-256,0, 0,256,0
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 		PauseOnCondition: !ammo
 	Aircraft:
 		CruiseAltitude: 1800
@@ -6743,7 +6743,7 @@ d2k_air_drone:
 		UncloakSound: trans1.aud
 		UncloakOn: Unload, Infiltrate, Demolish, Dock, Damage, Heal, Attack
 	ActorStatValues:
-		Upgrades: d2k_heavy_missile_upgrade, d2k_general_purpose_armor, d2k_needle_guns, d2k_advanced_ixian_technology
+		Upgrades: d2k_heavy_missile_upgrade, d2k_general_purpose_armor, d2k_upgrade_needleguns, d2k_advanced_ixian_technology
 
 d2k_air_drone.husk:
 	Inherits: ^PlaneHusk
@@ -8206,13 +8206,13 @@ duelist_tank:
 		LocalOffset: 128,-128,128, 128,128,128
 		MuzzleSequence: muzzle2
 		MuzzlePalette: d2keffect
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 	Armament@Upgrade: ##########
 		Weapon: HMG_Duelist_upgrade
 		LocalOffset: 128,-128,128, 128,128,128
 		MuzzleSequence: muzzle2
 		MuzzlePalette: d2keffect
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
 	ActorStatValues:
@@ -8230,12 +8230,12 @@ duelist_tank:
 	Cloak@TDcloak:
 	Voiced:
 		VoiceSet: D2KDuelistTank
-	RangeMultiplier@d2k_needle_guns:
+	RangeMultiplier@d2k_upgrade_needleguns:
 		Modifier: 105
-	FirepowerMultiplier@d2k_needle_guns:
+	FirepowerMultiplier@d2k_upgrade_needleguns:
 		Modifier: 110
 	ActorStatValues:
-		Upgrades: d2k_siege_range_upgrade, d2k_needle_guns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
+		Upgrades: d2k_siege_range_upgrade, d2k_upgrade_needleguns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 
 missile_tank_ixian:
 	Inherits@D2KT: ^D2KTank
@@ -10484,7 +10484,7 @@ d2k_upgrade_twinrockettrooper:
 	RenderSprites:
 		Image: d2k_upgrade_twinrockettrooper
 
-d2k_needle_guns:
+d2k_upgrade_needleguns:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
 		Name: Tungsten Needle Guns
@@ -10492,12 +10492,12 @@ d2k_needle_guns:
 		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 200
-		Prerequisites: ~outpost.ixian, ~!d2k_needle_guns
+		Prerequisites: ~outpost.ixian, ~!d2k_upgrade_needleguns
 		Queue: Addons
-		Description: upgrade-d2k_needle_guns.description
+		Description: upgrade-d2k_upgrade_needleguns.description
 		IconPalette: d2kunit
 	RenderSprites:
-		Image: light_inf
+		Image: d2k_upgrade_needleguns
 
 d2k_personal_shield:
 	Inherits: ^researched_upgrade.template
@@ -10594,7 +10594,7 @@ ordos_upgrade_shield:
 		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 200
-		Prerequisites: ~research_centre.ordos, ~!d2k_needle_guns
+		Prerequisites: ~research_centre.ordos, ~!d2k_upgrade_needleguns
 		Queue: Upgrades
 		Description: All hovertanks starts to use Shields
 		IconPalette: d2kunit
@@ -12634,24 +12634,24 @@ heavy_inf:
 	Armament@PRIMARY: ##########
 		Weapon: RashinanGun
 		LocalOffset: 128,0,256
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 		MuzzlePalette: d2keffect
 	Armament@Upgrade: ##########
 		Weapon: RashinanGun_upgrade
 		LocalOffset: 128,0,256
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 		MuzzlePalette: d2keffect
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: RashinanGun
 		MuzzleSequence: garrison-muzzle
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 		MuzzlePalette: d2keffect
 	Armament@UpgradeGARRISONED: ##########
 		Name: garrisoned
 		Weapon: RashinanGun_upgrade
 		MuzzleSequence: garrison-muzzle
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 		MuzzlePalette: d2keffect
 	WithInfantryBody:
 		IdleSequences: idle1,idle2,idle3,idle4,idle5,idle6,idle7,idle8
@@ -12664,7 +12664,7 @@ heavy_inf:
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 	ActorStatValues:
-		Upgrades: d2k_personal_shield, d2k_needle_guns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
+		Upgrades: d2k_personal_shield, d2k_upgrade_needleguns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 
 storm_infantry:
 	Inherits: ^D2KInfantry
@@ -12972,13 +12972,13 @@ heavy_rocket_raider_ixian:
 		LocalOffset: 256,0,256
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: !d2k_needle_guns
+		RequiresCondition: !d2k_upgrade_needleguns
 	Armament@Upgrade: ##########
 		Weapon: RaiderGuns_upgrade
 		LocalOffset: 256,0,256
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
-		RequiresCondition: d2k_needle_guns
+		RequiresCondition: d2k_upgrade_needleguns
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
 	ReloadAmmoDelayMultiplier@RANK-1:
@@ -13005,7 +13005,7 @@ heavy_rocket_raider_ixian:
 		Position: BottomLeft
 		RequiresSelection: true
 	ActorStatValues:
-		Upgrades: d2k_heavy_missile_upgrade, d2k_needle_guns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
+		Upgrades: d2k_heavy_missile_upgrade, d2k_upgrade_needleguns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 
 combat_siege_tank:
 	Inherits@D2KT: ^D2KTank
@@ -13180,7 +13180,7 @@ d2k_neocymek:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: d2k_siege_range_upgrade, d2k_needle_guns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
+		Upgrades: d2k_siege_range_upgrade, d2k_upgrade_needleguns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 
 d2k_jammer:
 	Inherits@D2KT: ^D2KTank
@@ -13584,7 +13584,7 @@ d2k_ixdrone:
 	Cloak:
 		UncloakOn: Attack, Damage
 	ActorStatValues:
-		Upgrades: d2k_siege_range_upgrade, d2k_needle_guns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
+		Upgrades: d2k_siege_range_upgrade, d2k_upgrade_needleguns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 	WithAttackAnimation:
 		Sequence: shoot
 	RenderSprites:
@@ -13668,28 +13668,28 @@ d2k_ixdrone.husk:
 # 		MuzzleSequence: muzzle
 # 		MuzzlePalette: d2keffect
 # 		AmmoUsage: 0
-# 		RequiresCondition: !d2k_needle_guns
+# 		RequiresCondition: !d2k_upgrade_needleguns
 # 	Armament@SECONDARY: ##########
 # 		Weapon: d2k_air_drone_guns
 # 		LocalOffset: 0,256,0, 0,-256,0
 # 		MuzzleSequence: muzzle
 # 		MuzzlePalette: d2keffect
 # 		AmmoUsage: 0
-# 		RequiresCondition: !d2k_needle_guns
+# 		RequiresCondition: !d2k_upgrade_needleguns
 # 	Armament@Upgrade: ##########
 # 		Weapon: d2k_air_drone_guns_upgrade
 # 		LocalOffset: 0,-256,0, 0,256,0
 # 		MuzzleSequence: muzzle
 # 		MuzzlePalette: d2keffect
 # 		AmmoUsage: 0
-# 		RequiresCondition: d2k_needle_guns
+# 		RequiresCondition: d2k_upgrade_needleguns
 # 	Armament@SECONDARYUpgrade: ##########
 # 		Weapon: d2k_air_drone_guns_upgrade
 # 		LocalOffset: 0,256,0, 0,-256,0
 # 		MuzzleSequence: muzzle
 # 		MuzzlePalette: d2keffect
 # 		AmmoUsage: 0
-# 		RequiresCondition: d2k_needle_guns
+# 		RequiresCondition: d2k_upgrade_needleguns
 # 	Aircraft:
 # 		CruiseAltitude: 1800
 # 		Speed: 165
@@ -13723,7 +13723,7 @@ d2k_ixdrone.husk:
 # 		UncloakSound: appear1.aud
 # 		UncloakOn: Unload, Infiltrate, Demolish, Dock, Damage, Heal, Attack
 # 	ActorStatValues:
-# 		Upgrades: d2k_heavy_missile_upgrade, d2k_general_purpose_armor, d2k_needle_guns, d2k_advanced_ixian_technology
+# 		Upgrades: d2k_heavy_missile_upgrade, d2k_general_purpose_armor, d2k_upgrade_needleguns, d2k_advanced_ixian_technology
 
 # d2k_heavy_air_drone.husk:
 # 	Inherits: d2k_air_drone.husk
@@ -13906,7 +13906,7 @@ d2k_resonancedrone:
 	Cloak:
 		UncloakOn: Attack, Damage
 	ActorStatValues:
-		Upgrades: d2k_siege_range_upgrade, d2k_needle_guns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
+		Upgrades: d2k_siege_range_upgrade, d2k_upgrade_needleguns, d2k_general_purpose_armor, d2k_advanced_ixian_technology
 	WithAttackAnimation:
 		Sequence: shoot
 	RenderSprites:

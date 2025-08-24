@@ -2770,16 +2770,11 @@ TTNK2:
 		TurnSpeed: 12
 		Offset: -110,0,90
 	Armament:
-		Weapon: TTankZap2
-		LocalOffset: 50,0,200
-		PauseOnCondition: !pdammo
-		RequiresCondition: !ra_doctrine_teslatech && !ra_upgrade_teslaarcing
-	Armament@Upgrade:
 		Weapon: TTankZap2EMP
 		LocalOffset: 50,0,200
 		PauseOnCondition: !pdammo
-		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
-	Armament@Upgrade2:
+		RequiresCondition: !ra_upgrade_teslaarcing
+	Armament@Arcing:
 		Weapon: TTankZap2EMPArc
 		LocalOffset: 50,0,200
 		PauseOnCondition: !pdammo
@@ -4842,6 +4837,7 @@ ra_kamov:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
 	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -4868,6 +4864,14 @@ ra_kamov:
 		MuzzleSequence: muzzle
 		AmmoUsage: 8
 		PauseOnCondition: ammo < 8
+		RequiresCondition: !ra_upgrade_teslaarcing
+	Armament@Arcing:
+		Weapon: KamovTeslaArc
+		LocalOffset: 150,0,-150
+		MuzzleSequence: muzzle
+		AmmoUsage: 8
+		PauseOnCondition: ammo < 8
+		RequiresCondition: ra_upgrade_teslaarcing
 	Armament@Missiles:
 		Weapon: HindMissiles
 		LocalOffset: 100,400,-100, 100,-400,-100
@@ -4978,7 +4982,7 @@ ra_kamov:
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	SpawnActorOnDeath:
-		Actor: HIND.Husk
+		Actor: ra_kamov.Husk
 	EjectOnDeath:
 		PilotActor: ra_zapper
 	LeavesTrails:
@@ -5011,7 +5015,7 @@ ra_kamov:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_teslarockets, ra_upgrade_stalinium
+		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_teslarockets, ra_upgrade_stalinium
 
 MH60:
 	Inherits: ^Helicopter
@@ -5524,6 +5528,7 @@ modhip.husk:
 		Speed: 100
 	RenderSprites:
 		Image: modhip
+		PlayerPalette: player_rgba
 
 U2:
 	Inherits: ^RANeutralPlane

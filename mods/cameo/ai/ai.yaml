@@ -5541,7 +5541,7 @@ Player:
 			missile_tank_ixian: 5
 			d2k_air_drone: 1
 			d2k_wind_trap_upgrade: 1
-			d2k_needle_guns: 1
+			d2k_upgrade_needleguns: 1
 			d2k_general_purpose_armor: 1
 			d2k_personal_shield: 1
 			d2k_siege_range_upgrade: 1

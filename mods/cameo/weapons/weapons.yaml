@@ -86,7 +86,6 @@
 
 ^SniperWeapon:
 	ValidTargets: Infantry, Monster, Garrisoned
-	InvalidTargets: Vehicle, Water
 	ReloadDelay: 25
 	Range: 5c0
 	Report: ramgun2.aud

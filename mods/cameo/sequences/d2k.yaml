@@ -9357,3 +9357,7 @@ d2k_upgrade_twinrockettrooper:
 	icon:
 		Filename: twinbazookaicon.png
 
+d2k_upgrade_needleguns:
+	icon:
+		Filename: needlegunsicon.png
+

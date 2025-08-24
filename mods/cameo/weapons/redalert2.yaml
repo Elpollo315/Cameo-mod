@@ -3148,7 +3148,6 @@ RA2CRM60H:
 	Inherits: ^RA2Chaingun
 	Inherits: ^SniperWeapon
 	ValidTargets: Ground, Water, Trees
-	-InvalidTargets:
 	Report: iseaatta.wav, iseaattb.wav
 	ReloadDelay: 10
 	Range: 4692

@@ -1850,7 +1850,7 @@ upgrade-wind_trap =
    .description = Increases power output of Wind Traps by 100%.
    Additionally, Wind Traps have their cost and build time reduced by 50%.
 
-upgrade-d2k_needle_guns =
+upgrade-d2k_upgrade_needleguns =
    .description = Increases damage of machine guns by 25% and range by 10%.
    Tungsten Needles are more effective against vehicles and buildings and can hit air units.
 

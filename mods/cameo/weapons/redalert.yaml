@@ -3005,6 +3005,15 @@ KamovTesla:
 	Warhead@EMPUnit: AffectsIntegrity
 		Damage: 32000
 
+KamovTeslaArc:
+	Inherits: KamovTesla
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: PortaTesla
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
 YakChainGun:
 	Inherits: ^Chaingun
 	ValidTargets: Ground, Water, Trees, Air
@@ -4949,7 +4958,7 @@ ra120mm:
 	Inherits: ^MediumCannon
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^TankDestroyerCannon
-	ValidTargets: Water, Vehicle, Structure, Monster
+	ValidTargets: Water, Vehicle, Structure
 	ReloadDelay: 95
 	Burst: 2
 	BurstDelays: 8
@@ -4982,13 +4991,13 @@ ra120mm:
 
 ra120mmTargetingComputer:
 	Inherits: ra120mm
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 
 ra120mmThermobaric:
 	Inherits: ^HeavyFlameWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^HeavyCannon
-	ValidTargets: Water, Vehicle, Structure, Monster
+	ValidTargets: Water, Vehicle, Structure
 	ReloadDelay: 95
 	Burst: 2
 	BurstDelays: 8
@@ -5014,7 +5023,7 @@ ra120mmThermobaric:
 
 ra120mmThermobaricTargetingComputer:
 	Inherits: ra120mmThermobaric
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 
 MammothTusk:
 	Inherits: ^Grenade
@@ -5239,7 +5248,7 @@ ra120mm2:
 	Inherits: ^LightChemicalWeapon
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^HeavyCannon
-	ValidTargets: Water, Vehicle, Structure, Monster
+	ValidTargets: Water, Vehicle, Structure
 	ReloadDelay: 125
 	Burst: 2
 	BurstDelays: 10
@@ -5271,12 +5280,13 @@ ra120mm2:
 ra120mm2TargetingComputer:
 	Inherits: ra120mm2
 	ReloadDelay: 105
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 
 ra120mm2Thermobaric:
 	Inherits: ^HeavyFlameWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^HeavyCannon
+	ValidTargets: Water, Vehicle, Structure
 	ReloadDelay: 125
 	Burst: 2
 	BurstDelays: 10
@@ -5303,7 +5313,7 @@ ra120mm2Thermobaric:
 ra120mm2ThermobaricTargetingComputer:
 	Inherits: ra120mm2Thermobaric
 	ReloadDelay: 105
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 
 MammothTusk2:
 	Inherits: ^LightFlameWeapon
@@ -5355,7 +5365,7 @@ MammothTusk2Thermobaric:
 	Inherits: ^HeavyFlameWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^HeavyMissile
-	ValidTargets: Ground, Water, Trees, Air
+	ValidTargets: Infantry, Monster, Air
 	ReloadDelay: 125
 	Burst: 2
 	BurstDelays: 10
