@@ -6956,7 +6956,6 @@ TSARTY:
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
@@ -6992,15 +6991,58 @@ TSARTY:
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions
-	WithVoxelBody:
-	WithVoxelBarrel:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	RenderVoxels:
-		Scale: 15
-
+	RenderSprites:
+		PlayerPalette: player_rgba
+tsarty_bus:
+	Inherits: ^Tank
+	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Thumper Bus
+	Buildable:
+		BuildPaletteOrder: 160
+		Prerequisites: ~tsgtweapmutant, tsgtradrmutant
+		Queue: Vehicle, RAVehicle
+		Description: Mutant long ranged vehicle with heavy sabot shells.\n Strong vs Vehicles, Buildings\n Weak vs Infantry, Aircraft
+	Mobile:
+		Speed: 85
+		TurnSpeed: 8
+		Locomotor: lighttracked
+	Health:
+		HP: 155000
+	Repairable:
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	Armament:
+		Weapon: MammothTankCannon
+		Recoil: 128
+		RecoilRecovery: 26
+		LocalOffset: 624,0,208
+		MuzzleSequence: muzzle
+	Turreted:
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 0
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 350
+	RenderSprites:
+		PlayerPalette: player_rgba
 tsmlrs:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
@@ -7120,6 +7162,56 @@ tsm113:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+
+tsclosh:
+	Inherits: ^Tank
+	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Closh Tank
+	Buildable:
+		BuildPaletteOrder: 170
+		Prerequisites: ~tsgtweapmutant
+		Queue: Vehicle, RAVehicle
+		Description: Fast, lightly armored tank.\n Strong vs Light Vehicles
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Mobile:
+		Locomotor: tracked
+		Speed: 126
+	Health:
+		HP: 80000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Medium
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 20 #3
+	Armament:
+		Weapon: 70mm
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackFrontal:
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 325
+	RenderSprites:
+		PlayerPalette: player_rgba
 
 #######################################
 # TS CABAL Vehicles

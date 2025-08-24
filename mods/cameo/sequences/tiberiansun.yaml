@@ -793,6 +793,38 @@ ts1tnk:
 		Length: 5
 	icon:
 		Filename: tsltnkicon.shp
+tsclosh:
+	idle:
+		Filename: tsclosh.png
+		Facings: 64
+		Scale: 0.5
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: tsltnkicon.shp
+
+tsarty_bus:
+	idle:
+		Filename: forgot_arty_bus.png
+		Facings: 64
+		Scale: 0.6
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: tsltnkicon.shp
+
+tsarty:
+	idle:
+		Filename: forgot_arty.png
+		Facings: 64
+		Scale: 0.6
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: tsltnkicon.shp
 
 tswini2:
 	Defaults:
@@ -1261,16 +1293,6 @@ tsmlrs:
 		Length: 5
 	icon:
 		Filename: msamicnh.tem
-		AddExtension: False
-
-tsarty:
-	idle:
-		Filename: invisibleitem.shp
-	muzzle:
-		Filename: gunfire2.shp
-		Length: 5
-	icon:
-		Filename: artyicnh.tem
 		AddExtension: False
 
 tsm113:
