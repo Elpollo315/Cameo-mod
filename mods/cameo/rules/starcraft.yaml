@@ -9631,12 +9631,12 @@ SCLURKER:
 		RequiresCondition: deployed
 	Armament@Dummy:
 		Name: dummy
-		Weapon: dummytargeting
-		RequiresCondition: undeployed && botmicro
+		Weapon: LurkerTargeting
+		RequiresCondition: undeployed
 	-AttackFrontal:
 	Turreted:
 	AttackTurreted:
-		RequiresCondition: deployed || botmicro
+		#RequiresCondition: deployed || botmicro
 		Armaments: primary, dummy
 	RenderRangeCircle:
 	Crushable:
@@ -9648,6 +9648,9 @@ SCLURKER:
 		DeployChance: 100
 		DeployTicks: 250
 		UndeployTicks: 500
+		RequiresCondition: botmicro
+	DeployOnAttack:
+		ArmamentNames: dummy
 	Voiced:
 		VoiceSet: SCLurkerVoice
 	Selectable:

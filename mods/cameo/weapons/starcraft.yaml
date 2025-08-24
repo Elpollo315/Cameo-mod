@@ -2526,6 +2526,13 @@ GoremawClaw:
 	Warhead@Effect: CreateEffect
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
+LurkerTargeting:
+	ReloadDelay: 30
+	Range: 6000
+	ValidTargets: Ground
+	Projectile: InstantHit
+	Warhead@1: TargetDamage
+
 LurkerSpines:
 	ReloadDelay: 66
 	Range: 6666
