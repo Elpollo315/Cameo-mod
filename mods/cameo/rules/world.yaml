@@ -1054,12 +1054,12 @@ World:
 				ResourceIndex: 26
 				TerrainType: SCMinerals
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
-				MaxDensity: 9999
+				MaxDensity: 255
 			DRTaelon:
 				ResourceIndex: 27
 				TerrainType: Tiberium
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,ClearInterior,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
-				MaxDensity: 9999
+				MaxDensity: 255
 			D2Spice:
 				ResourceIndex: 30
 				TerrainType: Spice
@@ -1118,6 +1118,7 @@ World:
 	RadarPings:
 	ScriptTriggers:
 	CellTriggerOverlay:
+	AutoSave:
 	TimeLimitManager:
 		TimeLimitDisplayOrder: 2
 		TimeLimitWarnings:
@@ -1280,12 +1281,12 @@ EditorWorld:
 				ResourceIndex: 26
 				TerrainType: SCMinerals
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
-				MaxDensity: 9999
+				MaxDensity: 255
 			DRTaelon:
 				ResourceIndex: 27
 				TerrainType: Tiberium
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,ClearInterior,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
-				MaxDensity: 9999
+				MaxDensity: 255
 			D2Spice:
 				ResourceIndex: 30
 				TerrainType: Spice

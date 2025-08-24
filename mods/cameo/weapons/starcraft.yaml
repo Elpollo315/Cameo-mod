@@ -303,7 +303,6 @@ SCTyrAA:
 ReaperPistols:
 	Inherits: ^SniperWeapon
 	ValidTargets: Infantry, Vehicle, Ship, Monster, Garrisoned
-	-InvalidTargets:
 	ReloadDelay: 22
 	Range: 4375
 	Warhead@SniperWeapon: SpreadDamage
@@ -2526,6 +2525,13 @@ GoremawClaw:
 	Warhead@Effect: CreateEffect
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
+LurkerTargeting:
+	ReloadDelay: 33
+	Range: 6666
+	ValidTargets: Ground, Water, Air
+	Projectile: InstantHit
+	Warhead@Dummy: Dummy
+
 LurkerSpines:
 	ReloadDelay: 66
 	Range: 6666
@@ -3789,12 +3795,6 @@ DroneAttack:
 
 ProbeAttack:
 	Inherits: ^WorkerAttack
-
-LurkerAITarget:
-	ReloadDelay: 20
-	Range: 6c0
-	Projectile: InstantHit
-	Warhead@1Dam: TargetDamage
 
 DarkSwarmSpawn:
 	ReloadDelay: 100

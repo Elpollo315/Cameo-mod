@@ -2732,6 +2732,7 @@ RA2SCUD:
 	Warhead@Effect: CreateEffect
 		ImpactSounds: gexp14a.wav
 		ValidTargets: Ground, Air
+		ExplosionPalette: ra2effect
 
 RA2SCUD_rad:
 	Inherits: RA2SCUD
@@ -2821,6 +2822,7 @@ YRBoomerSCUD:
 		Damage: 10
 	Warhead@Effect: CreateEffect
 		ValidTargets: Ground, Air
+		ExplosionPalette: ra2effect
 	Warhead@EffectWater: CreateEffect
 		Explosions: ra2_large_watersplash
 		ExplosionPalette: ra2effect
@@ -2869,6 +2871,7 @@ YRBoomerTorpedo:
 	-Warhead@Smudge: LeaveSmudge
 	Warhead@Effect: CreateEffect
 		ValidTargets: Ship, Structure, Bridge, Ground
+		ExplosionPalette: ra2effect
 		ImpactActors: true
 	-Warhead@EffectAir: CreateEffect
 	Warhead@EffectWater: CreateEffect
@@ -3145,7 +3148,6 @@ RA2CRM60H:
 	Inherits: ^RA2Chaingun
 	Inherits: ^SniperWeapon
 	ValidTargets: Ground, Water, Trees
-	-InvalidTargets:
 	Report: iseaatta.wav, iseaattb.wav
 	ReloadDelay: 10
 	Range: 4692

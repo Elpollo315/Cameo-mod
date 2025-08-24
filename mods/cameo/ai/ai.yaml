@@ -136,34 +136,34 @@
 Player:
 	Inherits@aidifficulties: ^AIDifficulties
 	ModularBot@EasiestAI:
-		Name: Easiest AI
+		Name: bot-ai.easiest
 		Type: easiest
 	ModularBot@VeryEasyAI:
-		Name: Very Easy AI
+		Name: bot-ai.veryeasy
 		Type: veryeasy
 	ModularBot@EasyAI:
-		Name: Easy AI
+		Name: bot-ai.easy
 		Type: easy
 	ModularBot@MediumAI:
-		Name: Medium AI
+		Name: bot-ai.medium
 		Type: medium
 	ModularBot@HardAI:
-		Name: Hard AI
+		Name: bot-ai.hard
 		Type: hard
 	ModularBot@VeryHardAI:
-		Name: Very Hard AI
+		Name: bot-ai.veryhard
 		Type: veryhard
 	ModularBot@BrutalAI:
-		Name: Brutal AI
+		Name: bot-ai.brutal
 		Type: brutal
 	ModularBot@ChallengerAI:
-		Name: Challenger AI
+		Name: bot-ai.challenger
 		Type: challenger
 	ModularBot@UnbeatableAI:
-		Name: Unbeatable AI
+		Name: bot-ai.unbeatable
 		Type: unbeatable
 	ModularBot@CameoGodAI:
-		Name: Cameo God AI
+		Name: bot-ai.cameogod
 		Type: cameogod
 	ProvidesPrerequisite@botplayer:
 		Prerequisite: botplayer
@@ -5524,6 +5524,8 @@ Player:
 			upgrade_light: 1
 			upgrade_heavy: 1
 			upgrade_hightech: 1
+			d2k_upgrade_twinrockettrooper: 1
+			twinrockettrooper: 5
 			########### Units Ixians
 			harvester: 10
 			carryall: 1
@@ -5539,7 +5541,7 @@ Player:
 			missile_tank_ixian: 5
 			d2k_air_drone: 1
 			d2k_wind_trap_upgrade: 1
-			d2k_needle_guns: 1
+			d2k_upgrade_needleguns: 1
 			d2k_general_purpose_armor: 1
 			d2k_personal_shield: 1
 			d2k_siege_range_upgrade: 1

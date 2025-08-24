@@ -1,6 +1,7 @@
 General:
 	Name: Jungle
 	Id: JUNGLE
+	TileSize: 48,48
 	SheetSize: 1024
 	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Beach, River, Bridge, Zeruel87 Urban
 	HeightDebugColors: AA0000

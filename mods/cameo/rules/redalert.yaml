@@ -1310,7 +1310,7 @@ ra_dragunov:
 	Tooltip:
 		Name: Dragunov Anti Material Sniper
 	Valued:
-		Cost: 350
+		Cost: 400
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -2770,16 +2770,11 @@ TTNK2:
 		TurnSpeed: 12
 		Offset: -110,0,90
 	Armament:
-		Weapon: TTankZap2
-		LocalOffset: 50,0,200
-		PauseOnCondition: !pdammo
-		RequiresCondition: !ra_doctrine_teslatech && !ra_upgrade_teslaarcing
-	Armament@Upgrade:
 		Weapon: TTankZap2EMP
 		LocalOffset: 50,0,200
 		PauseOnCondition: !pdammo
-		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
-	Armament@Upgrade2:
+		RequiresCondition: !ra_upgrade_teslaarcing
+	Armament@Arcing:
 		Weapon: TTankZap2EMPArc
 		LocalOffset: 50,0,200
 		PauseOnCondition: !pdammo
@@ -3518,7 +3513,7 @@ RAJEEP:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@exp: ^GainsExperienceRA
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AdvancedRadarSystems: ^AdvancedRadarSystems
@@ -4842,6 +4837,7 @@ ra_kamov:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
 	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -4868,6 +4864,14 @@ ra_kamov:
 		MuzzleSequence: muzzle
 		AmmoUsage: 8
 		PauseOnCondition: ammo < 8
+		RequiresCondition: !ra_upgrade_teslaarcing
+	Armament@Arcing:
+		Weapon: KamovTeslaArc
+		LocalOffset: 150,0,-150
+		MuzzleSequence: muzzle
+		AmmoUsage: 8
+		PauseOnCondition: ammo < 8
+		RequiresCondition: ra_upgrade_teslaarcing
 	Armament@Missiles:
 		Weapon: HindMissiles
 		LocalOffset: 100,400,-100, 100,-400,-100
@@ -4978,7 +4982,7 @@ ra_kamov:
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	SpawnActorOnDeath:
-		Actor: HIND.Husk
+		Actor: ra_kamov.Husk
 	EjectOnDeath:
 		PilotActor: ra_zapper
 	LeavesTrails:
@@ -5011,7 +5015,7 @@ ra_kamov:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_teslarockets, ra_upgrade_stalinium
+		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_teslarockets, ra_upgrade_stalinium
 
 MH60:
 	Inherits: ^Helicopter
@@ -5506,6 +5510,8 @@ modhip:
 	RenderSprites:
 		Image: modhip
 		PlayerPalette: player_rgba
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	FireWarheadsOnDeath:
@@ -5522,6 +5528,7 @@ modhip.husk:
 		Speed: 100
 	RenderSprites:
 		Image: modhip
+		PlayerPalette: player_rgba
 
 U2:
 	Inherits: ^RANeutralPlane
@@ -5571,7 +5578,7 @@ MODKUBEL:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@exp: ^GainsExperienceRA
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@WaveforceBullets: ^WaveforceBullets
@@ -7934,7 +7941,6 @@ JSHRINE:
 		Icons:
 			1: japanspellcard
 		Cursor: ability
-		AirburstAltitude: 5000
 		ChargeInterval: 10500
 		ActivationDelay: 100
 		ActivationSequence:
@@ -10621,7 +10627,7 @@ ra_doctrine_teslatech:
 		Name: Tesla and Experimental Tech Doctrine
 	Buildable:
 		Description: ra_doctrine_teslatech.description
-		Prerequisites: ~stek, !ra_soviet_doctrine_2
+		Prerequisites: ~dome.soviet, ra_soviet_doctrine_1, !ra_soviet_doctrine_2
 	RenderSprites:
 		Image: ra_doctrine_teslatech
 	ProvidesPrerequisite@ra_soviet_doctrine_2:
@@ -10640,7 +10646,7 @@ ra_doctrine_heavyarmor:
 		Name: Heavy Armor Doctrine
 	Buildable:
 		Description: ra_doctrine_heavyarmor.description
-		Prerequisites: ~stek, !ra_soviet_doctrine_2
+		Prerequisites: ~dome.soviet, ra_soviet_doctrine_1, !ra_soviet_doctrine_2
 	RenderSprites:
 		Image: ra_doctrine_heavyarmor
 	ProvidesPrerequisite@ra_soviet_doctrine_2:
@@ -10662,7 +10668,7 @@ ra_doctrine_nuclearwar:
 		Name: Nuclear War Doctrine
 	Buildable:
 		Description: ra_doctrine_nuclearwar.description
-		Prerequisites: ~stek, !ra_soviet_doctrine_2
+		Prerequisites: ~dome.soviet, ra_soviet_doctrine_1, !ra_soviet_doctrine_2
 	RenderSprites:
 		Image: ra_doctrine_nuclearwar
 	ProvidesPrerequisite@ra_soviet_doctrine_2:
