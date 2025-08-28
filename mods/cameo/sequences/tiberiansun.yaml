@@ -795,7 +795,7 @@ ts1tnk:
 		Filename: tsltnkicon.shp
 tsclosh:
 	idle:
-		Filename: tsclosh.png
+		Filename: forgot_closh.png
 		Facings: 64
 		Scale: 0.5
 	muzzle:
